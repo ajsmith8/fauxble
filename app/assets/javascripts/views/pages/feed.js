@@ -37,7 +37,7 @@ Fauxble.Views.PagesFeed = Backbone.View.extend({
 	renderTopIssues: function() {
 		var view = new Fauxble.Views.IssuesTop({
 			attr: this.attr,
-			issues: this.attr.issues.getTopIssues(5);
+			issues: this.attr.issues.getTopIssues(5)
 		});
 		this.subviews.push(view);
 		$(this.el).find('#issues').html(view.render().el);

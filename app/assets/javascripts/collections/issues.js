@@ -11,7 +11,7 @@ Fauxble.Collections.Issues = Backbone.Collection.extend({
 			return b.get('times_selected') - a.get('times_selected');
 		});
 		
-		for (i = 0; i < num, i++) {
+		for (i = 0; i < num; i++) {
 			top_issues.push(issues[i]);
 		}
 		
