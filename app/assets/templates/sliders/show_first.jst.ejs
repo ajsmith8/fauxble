@@ -1,0 +1,42 @@
+<form id = 'form'>
+	<% if (slider.get('units').indexOf('/') === 0) { %>
+		<input type = 'text' id = 'input' />
+		<%= slider.get('units').substring(1) %>
+	<% } else { %>
+		<%= slider.get('units').substring(0, slider.get('units').indexOf('/')) %>
+		<input type = 'text' id = 'input' />
+	<% } %>
+</form>
+<div><%= nums.min %></div>
+<div id = 'slider'>
+	<div id = 'highlight'></div>
+	<div id = 'user'>
+		<div>
+			<img id = 'logo' src = 'assets/logos/white.png' />
+		</div>
+		<div id = 'pic' class = 'hide'>
+			<% if (users.challenger.get('signed_in_fb')) { %>
+				<img src = 'https://graph.facebook.com/<%= users.challenger.get('uid') %>/picture' />
+			<% } else { %>
+				<img src = 'assets/misc/user.png' />
+			<% } %>
+		</div>
+	</div>
+	<div id = 'correct' class = 'hide'>
+		<div>&#x2713;</div>
+		<div><%= nums.correct %></div>
+	</div>
+</div>
+<div><%= nums.max %></div>
+<form id = 'form'>
+	<% if (slider.get('units').indexOf('/') === 0) { %>
+		<input type = 'submit' value = 'Submit!' />
+	<% } else { %>
+		<input type = 'submit' value = 'Submit!' />
+	<% } %>
+</form>
+
+<div id = 'after_submit' class = 'hide'>
+	<div id = 'source'>Source</div>
+	<div id = 'next'>Next</div>
+</div>

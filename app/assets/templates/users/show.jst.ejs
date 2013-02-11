@@ -1,0 +1,13 @@
+<div class = 'picture container'>
+	<div class = 'picture wrapper'>
+		<% if (user.get('uid')) { %>
+			<img src = 'https://graph.facebook.com/<%= user.get('uid') %>/picture' />
+		<% } else { %>
+			<img src = 'assets/misc/user.png' />
+		<% } %>
+	</div>
+</div>
+<div class = 'name container'>
+	<div class = 'name'><%= user.get('name') %></div>
+</div>
+<div id = 'rank' class = 'rank'></div>

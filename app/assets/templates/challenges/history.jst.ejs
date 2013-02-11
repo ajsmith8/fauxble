@@ -1,0 +1,26 @@
+<div id = 'winning'>
+	<div>
+		<% if (winner.user.get('signed_in_fb')) { %>
+			<img src = 'https://graph.facebook.com/<%= winner.user.get('uid') %>/picture' />
+		<% } else { %>
+			<img src = 'assets/misc/user.png' />
+		<% } %>
+	</div>
+	<div><%= winner.user.get('name') %></div>
+	<div id = 'rank'></div>
+</div>
+<div id = 'win_loss'>
+	<div><%= winner.wins %></div>
+	<div><%= loser.wins %></div>
+</div>
+<div id = 'losing'>
+	<div><%= loser.user.get('name') %></div>
+	<div id = 'rank'></div>
+	<div>
+		<% if (loser.user.get('signed_in_fb')) { %>
+			<img src = 'https://graph.facebook.com/<%= loser.user.get('uid') %>/picture' />
+		<% } else { %>
+			<img src = 'assets/misc/user.png' />
+		<% } %>
+	</div>
+</div>

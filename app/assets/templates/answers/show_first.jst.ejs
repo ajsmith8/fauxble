@@ -1,0 +1,8 @@
+<%= answer.get('title') %>
+<div id = 'challenger' class = 'hide'>
+	<% if (users.challenger.get('signed_in_fb')) { %>
+		<img src = 'https://graph.facebook.com/<%= users.challenger.get('uid') %>/picture' />
+	<% } else { %>
+		<img src = 'assets/misc/user.png' />
+	<% } %>
+</div>

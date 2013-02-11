@@ -1,0 +1,53 @@
+Fauxble.Views.IssuesShow = Backbone.View.extend({
+	
+	template: JST['issues/show'],
+	
+	events: {
+		
+	},
+	
+	initialize: function(options) {
+		this.attr = options.attr;
+		this.issue = options.issue;
+		this.challenge = options.challenge;
+		this.num_questions = options.num_questions;
+		this.subviews = [];
+	},
+	
+	render: function() {
+		var self = this;
+		$(this.el).attr('id', this.issue.get('id'));
+		$(this.el).addClass('issue');
+		$(this.el).html(this.template({
+			issue: this.issue,
+			num_questions: this.num_questions
+		}));
+		setTimeout(function() {
+			self.renderUser(self.challenge.get('user_id'), self.challenge.get('challenger_id'), $(self.el).find('#user'));
+			self.renderUser(self.challenge.get('challenger_id'), self.challenge.get('user_id'), $(self.el).find('#challenger'));
+		}, 0);
+		return this;
+	},
+	
+	renderUser: function(id1, id2, element) {
+		var view = new Fauxble.Views.UsersIssue({
+			attr: this.attr,
+			user_id1: id1,
+			user_id2: id2,
+			issue: this.issue
+		});
+		this.subviews.push(view);
+		$(element).html(view.render().el);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
+	}
+});

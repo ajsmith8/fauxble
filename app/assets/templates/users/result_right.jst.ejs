@@ -1,0 +1,15 @@
+<div class = 'answer container'>
+	<div class = 'answer'><%= answer %></div>
+</div>
+<div class = 'picture container'>
+	<div class = 'picture wrapper'>
+		<% if (user.get('uid')) { %>
+			<img src = 'https://graph.facebook.com/<%= user.get('uid') %>/picture' />
+		<% } else { %>
+			<img src = 'assets/misc/user.png' />
+		<% } %>
+	</div>
+</div>
+<div class = 'score container'>
+	<div class = 'score'>Score: <%= score %></div>
+</div>

@@ -1,0 +1,27 @@
+<div class = 'name container'>
+	<div class = 'name'><%= user.get('name') %></div>
+</div>
+<div id = 'rank' class = 'rank'></div>
+<div class = 'picture container'>
+	<div class = 'picture wrapper'>
+		<% if (user.get('uid')) { %>
+			<img src = 'https://graph.facebook.com/<%= user.get('uid') %>/picture' />
+		<% } else { %>
+			<img src = 'assets/misc/user.png' />
+		<% } %>
+	</div>
+</div>
+<div class = 'stats'>
+	<div class = 'played container'>
+		<div class = 'played'><%= games.played %></div>
+	</div>
+	<div class = 'won container'>
+		<div class = 'won'><%= games.won %></div>
+	</div>
+	<div class = 'lost container'>
+		<div class = 'lost'><%= games.lost %></div>
+	</div>
+	<div class = 'rank container'>
+		<div class = 'rank'><%= rank %></div>
+	</div>
+</div>
