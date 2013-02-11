@@ -86,7 +86,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		});
 		this.setCurrentView(view);
 		this.signin();
-		$('.left-column').html(view.render().el);
+		$('.right.column').html(view.render().el);
 	},
 	
 	signin: function() {
@@ -94,7 +94,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			attr: this.attr
 		});
 		this.setSubview(view);
-		$('.right-column').html(view.render().el);
+		$('.left.column').html(view.render().el);
 	},
 	
 	challenges: function() {
@@ -103,7 +103,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			metrics: this.metrics
 		});
 		this.setCurrentView(view);
-		$('.left-column').html(view.render().el);
+		$('.right.column').html(view.render().el);
 	},
 	
 	info: function() {
@@ -111,7 +111,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			attr: this.attr
 		});
 		this.setSubview(view);
-		$('.right-column').html(view.render().el);
+		$('.left.column').html(view.render().el);
 	},
 	
 	pagesNew: function(id) {
@@ -121,7 +121,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			metrics: this.metrics
 		});
 		this.setCurrentView(view);
-		$('.left-column').html(view.render().el);
+		$('.right.column').html(view.render().el);
 	},
 	
 	issues: function(id) {
@@ -131,7 +131,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			metrics: this.metrics
 		});
 		this.setCurrentView(view);
-		$('.left-column').html(view.render().el);
+		$('.right.column').html(view.render().el);
 	},
 	
 	question: function(c_id, id) {
@@ -142,7 +142,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			metrics: this.metrics
 		});
 		this.setCurrentView(view);
-		$('.left-column').html(view.render().el);
+		$('.right.column').html(view.render().el);
 		
 		if ($(view.el).find('#versus').children().length === 0) {
 			this.versus(this.attr.challenges.get(parseInt(id)), view);
@@ -165,7 +165,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			metrics: this.metrics
 		});
 		this.setCurrentView(view);
-		$('.left-column').html(view.render().el);
+		$('.right.column').html(view.render().el);
 	},
 	
 	profile: function(id) {
@@ -175,6 +175,6 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			metrics: this.metrics
 		});
 		this.setCurrentView(view);
-		$('.left-column').html(view.render().el);
+		$('.right.column').html(view.render().el);
 	}
 });
