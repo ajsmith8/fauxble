@@ -22,6 +22,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 2
 Question.create(
   issue_id: 1,
   title: 'What percent of all US drug arrests are marijuana-related?',
@@ -43,7 +44,8 @@ Slider.create(
   correct: 50,
   units: '/%'
 )
-  
+
+# question_id -> 3  
 Question.create(
   issue_id: 1,
   title: 'What percent of Americans have tried marijuana at least once?',
@@ -66,6 +68,7 @@ Slider.create(
   units: '/%',
 )
 
+# question_id -> 4
 Question.create(
   issue_id: 1,
   title: 'Approximately what percent of Americans support marijuana legalization?',
@@ -88,6 +91,7 @@ Slider.create(
   units: '/%' 
 )
 
+# question_id -> 5
 Question.create(
   issue_id: 1,
   title: 'In 1969, approximately what percent of Americans supported marijuana legalization?',
@@ -110,6 +114,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 6
 Question.create(
   issue_id: 1,
   title: 'Given that the US has 5% of the worlds population, what percent of the worlds prison population does the US have?',
@@ -132,6 +137,7 @@ Slider.create(
   units: '/%'
 )  
 
+# question_id -> 7
 Question.create(
   issue_id: 1,
   title: 'What percent of Mexico\'s GDP is from marijuana sales?',
@@ -154,6 +160,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 8
 Question.create(
   issue_id: 1,
   title: 'In addition to Washington DC, how many states have legalized medical marijuana?',
@@ -176,6 +183,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 9
 Question.create(
   issue_id: 18,
   title: 'How many days after conception does a fetus\'s heart begin to beat?',
@@ -198,6 +206,7 @@ Slider.create(
   units: '/ days'
 )
 
+# question_id -> 10
 Question.create(
   issue_id: 18,
   title: 'What percent of US women have an unintended pregnancy by age 45?',
@@ -220,6 +229,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 11
 Question.create(
   issue_id: 18,
   title: 'What percent of US women have an abortion by age 20?',
@@ -242,6 +252,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 12
 Question.create(
   issue_id: 18,
   title: 'What percent of US women who receive abortions are teenagers?',
@@ -264,6 +275,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 13
 Question.create(
   issue_id: 18,
   title: 'How many days after conception does a fetus\'s  brain begin cognitive function?',
@@ -286,6 +298,7 @@ Slider.create(
   units: '/ days'
 )
 
+# question_id -> 14
 Question.create(
   issue_id: 17,
   title: 'How much money was spent on the 2012 presidential election?',
@@ -308,6 +321,7 @@ Slider.create(
   units: '$/'
 )
 
+# question_id -> 15
 Question.create(
   issue_id: 17,
   title: 'How much money was spent per vote on the 2008 presidential election?',
@@ -330,6 +344,7 @@ Slider.create(
   units: '$/'
 )
 
+# question_id -> 16
 Question.create(
   issue_id: 17,
   title: 'What percent of campaign money was raised from small donors for the 2008 presidential election?',
@@ -352,6 +367,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 17
 Question.create(
   issue_id: 6,
   title: 'How much have CO2 emissions by human activities increased since 1990?',
@@ -374,6 +390,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 18
 Question.create(
   issue_id: 6,
   title: 'By approximately how many degrees has the Earth\'s temperature risen since 1880?',
@@ -396,6 +413,7 @@ Slider.create(
   units: '/ deg'
 )
 
+# question_id -> 19
 Question.create(
   issue_id: 6,
   title: 'What percent of climate scientists agree that climate change is largely caused by humans?',
@@ -418,6 +436,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 20
 Question.create(
   issue_id: 6,
   title: 'Approximately how much have sea levels risen in the last century (inches)?',
@@ -440,6 +459,7 @@ Slider.create(
   units: '/ in'
 )
 
+# question_id -> 21
 Question.create(
   issue_id: 6,
   title: 'By how many degrees has the Earth\'s temperature increased since 1997?',
@@ -462,6 +482,7 @@ Slider.create(
   units: '/ deg'
 )
 
+# question_id -> 22
 Question.create(
   issue_id: 6,
   title: 'Approximately how much higher are current CO2 levels than natural, historical levels?',
@@ -484,6 +505,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 23
 Question.create(
   issue_id: 7,
   title: 'Approximately what percent of unemployed Americans have attended at least some college?',
@@ -506,6 +528,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 24
 Question.create(
   issue_id: 7,
   title: 'Approximately what percent of US jobs require at least a 2 year degree?',
@@ -528,6 +551,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 25
 Question.create(
   issue_id: 7,
   title: 'Approximately how much per year does it cost to attend a private US college?',
@@ -550,6 +574,7 @@ Slider.create(
   units: '$/'
 )
 
+# question_id -> 26
 Question.create(
   issue_id: 7,
   title: 'Since 1993, how many more administrators than professors have been hired by universities?',
@@ -572,6 +597,7 @@ Slider.create(
   units: '/ times'
 )
 
+# question_id -> 27
 Question.create(
   issue_id: 7,
   title: 'What is the median US family income?',
@@ -594,6 +620,7 @@ Slider.create(
   units: '$/'
 )
 
+# question_id -> 28
 Question.create(
   issue_id: 7,
   title: 'How much does the average working college graduate earn per year?',
@@ -616,6 +643,7 @@ Slider.create(
   units: '$/'
 )
 
+# question_id -> 29
 Question.create(
   issue_id: 7,
   title: 'How much does the average working non-college graduate earn per year?',
@@ -638,6 +666,7 @@ Slider.create(
   units: '$/'
 )
 
+# question_id -> 30
 Question.create(
   issue_id: 7,
   title: 'What percent of college graduates are either unemployed or underemployed?',
@@ -660,6 +689,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 31
 Question.create(
   issue_id: 7,
   title: 'Adjusted for inflation, how much has the cost of a 4-year degree increased since 1980?',
@@ -682,6 +712,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 32
 Question.create(
   issue_id: 7,
   title: 'Adjusted for inflation, how much have college graduate earnings increased since 1990?',
@@ -704,6 +735,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 33
 Question.create(
   issue_id: 7,
   title: 'Since the 1980s, how much as the price of college textbooks increased?',
@@ -726,6 +758,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 34
 Question.create(
   issue_id: 7,
   title: 'What is the US per capital student loan debt?',
@@ -748,6 +781,7 @@ Slider.create(
   units: '$/'
 )
 
+# question_id -> 35
 Question.create(
   issue_id: 4,
   title: 'How many times has a constitutional amendment to reform or eliminate the electoral college been proposed?',
@@ -770,6 +804,7 @@ Slider.create(
   units: '/ times'
 )
 
+# question_id -> 36
 Question.create(
   issue_id: 4,
   title: 'How many US presidents won the presidental race without winning the popular vote?',
@@ -792,6 +827,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 37
 Question.create(
   issue_id: 4,
   title: 'How many electoral votes are needed to win the presidential election?',
@@ -813,7 +849,8 @@ Slider.create(
   correct: 270,
   units: '/ votes'
 )
-  
+
+# question_id -> 38
 Question.create(
   issue_id: 4,
   title: 'How many US presidents have openly supported abolishing the electoral college?',
@@ -836,6 +873,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 39
 Question.create(
   issue_id: 4,
   title: 'According to a 2011 Gallup poll, approximately what percent of Americans support abolishing the electoral college?',
@@ -858,6 +896,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 40
 Question.create(
   issue_id: 8,
   title: 'How many pounds of corn is required to produce a gallon of ethanol?',
@@ -880,6 +919,7 @@ Slider.create(
   units: '/ lbs'
 )
 
+# question_id -> 41
 Question.create(
   issue_id: 8,
   title: 'When burning ethanol, how much less CO2 is produced relative to gasoline?',
@@ -902,6 +942,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 42
 Question.create(
   issue_id: 8,
   title: 'How much less fuel efficient is burning ethanol vs gasoline?',
@@ -924,6 +965,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 43
 Question.create(
   issue_id: 8,
   title: 'Per capita, how much have crop subsidies cost the US government?',
@@ -946,6 +988,7 @@ Slider.create(
   units: '$/'
 )
 
+# question_id -> 44
 Question.create(
   issue_id: 10,
   title: 'What percent of private-sector US employees are union members?',
@@ -968,6 +1011,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 45
 Question.create(
   issue_id: 10,
   title: 'What percent of US federal employees are union members?',
@@ -990,6 +1034,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 46
 Question.create(
   issue_id: 10,
   title: 'Adjusting for education, how much higher is total compensation for federal vs private sector employees?',
@@ -1012,6 +1057,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 47
 Question.create(
   issue_id: 10,
   title: 'What percent of the total federal budget is spend on veteran and retired federal employee benefits?',
@@ -1034,6 +1080,7 @@ Slider.create(
    units: '/%'
 )
 
+# question_id -> 48
 Question.create(
   issue_id: 10,
   title: 'What percent of federal government employees are fired each year?',
@@ -1056,6 +1103,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 49
 Question.create(
   issue_id: 10,
   title: 'What percent of private sector employees are fired each year?',
@@ -1078,6 +1126,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 50
 Question.create(
   issue_id: 14,
   title: 'What percent of working Americans make minimum wage?',
@@ -1100,6 +1149,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 51
 Question.create(
   issue_id: 14,
   title: 'What percent of working teenagers make minimum wage?',
@@ -1122,6 +1172,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 52
 Question.create(
   issue_id: 14,
   title: 'What percent of working women make minimum wage?',
@@ -1144,6 +1195,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 53
 Question.create(
   issue_id: 14,
   title: 'What is the US poverty line for a family of four?',
@@ -1165,7 +1217,8 @@ Slider.create(
   correct: 23050,
   units: '$/'
 )
-  
+
+# question_id -> 54
 Question.create(
   issue_id: 14,
   title: 'In what year was the first US minimum wage implemented?',
@@ -1188,6 +1241,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 55
 Question.create(
   issue_id: 14,
   title: 'How many US states have a higher minimum wage than the federal level?',
@@ -1210,6 +1264,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 56
 Question.create(
   issue_id: 14,
   title: 'What percent of countries have minimum wage laws?',
@@ -1232,6 +1287,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 57
 Question.create(
   issue_id: 5,
   title: 'For primary education, how much does the US annually spend per student?',
@@ -1254,6 +1310,7 @@ Slider.create(
   units: '$/'
 )
 
+# question_id -> 58
 Question.create(
   issue_id: 5,
   title: 'For primary education, how much does Finland annually spend per student?',
@@ -1276,6 +1333,7 @@ Slider.create(
   units: '$/'
 )
 
+# question_id -> 59
 Question.create(
   issue_id: 5,
   title: 'According to the Education Index, what is Finland\'s worldwide academic ranking?',
@@ -1298,6 +1356,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 60
 Question.create(
   issue_id: 5,
   title: 'According to the Education Index, what is the US worldwide academic ranking?',
@@ -1320,6 +1379,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 61
 Question.create(
   issue_id: 16,
   title: 'As a percent of annual net income, how much money did BP pay for the 2010 oil spill?',
@@ -1342,6 +1402,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 62
 Question.create(
   issue_id: 16,
   title: 'Where does the US rank worldwide for oil production?',
@@ -1364,6 +1425,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 63
 Question.create(
   issue_id: 16,
   title: 'What percent of oil consumed in the US is imported?',
@@ -1386,6 +1448,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 64
 Question.create(
   issue_id: 16,
   title: 'What percent of crude oil processed in US refineries is imported?',
@@ -1408,6 +1471,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 65
 Question.create(
   issue_id: 16,
   title: 'What year is projected to be the peak year for oil production from new offshore drilling leases?',
@@ -1430,6 +1494,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 66
 Question.create(
   issue_id: 16,
   title: 'How many gallons of oil are annually spilled due to offshore drilling?',
@@ -1452,6 +1517,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 67
 Question.create(
   issue_id: 16,
   title: 'Per decade, how many times do spills of more than 10,000 barrels occur?',
@@ -1474,6 +1540,7 @@ Slider.create(
    units: '/'
 )
 
+# question_id -> 68
 Question.create(
   issue_id: 2,
   title: 'How many patent attorneys and agents are in the US?',
@@ -1496,6 +1563,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 69
 Question.create(
   issue_id: 2,
   title: 'How many new software patents are issued each year in the US?',
@@ -1518,6 +1586,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 70
 Question.create(
   issue_id: 2,
   title: 'How many full-time attorneys would it take to make sure that no company is infringing on a software patent?',
@@ -1540,6 +1609,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 71
 Question.create(
   issue_id: 2,
   title: 'Per capita, how much money do patent trolls annually cost the US?',
@@ -1562,6 +1632,7 @@ Slider.create(
   units: '$/'
 )
 
+# question_id -> 72
 Question.create(
   issue_id: 12,
   title: 'How many pounds of trans fat does an average American eat annually?',
@@ -1584,6 +1655,7 @@ Slider.create(
   units: '/ lbs'
 )
 
+# question_id -> 73
 Question.create(
   issue_id: 12,
   title: 'What is the maximum recommend amount of trans fat to consume per day (grams)?',
@@ -1606,6 +1678,7 @@ Slider.create(
   units: '/g'
 )
 
+# question_id -> 74
 Question.create(
   issue_id: 12,
   title: 'How many annual deaths in the US are attributed to trans fat consumption?',
@@ -1628,6 +1701,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 75
 Question.create(
   issue_id: 3,
   title: 'Approximately how much does one TSA nude-body scanner cost?',
@@ -1650,6 +1724,7 @@ Slider.create(
   units: '$/'
 )
 
+# question_id -> 76
 Question.create(
   issue_id: 3,
   title: 'How many people does the TSA directly employ?',
@@ -1672,6 +1747,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 77
 Question.create(
   issue_id: 3,
   title: 'How much does the TSA annually cost, per capita?',
@@ -1694,6 +1770,7 @@ Slider.create(
   units: '$/'
 )
 
+# question_id -> 78
 Question.create(
   issue_id: 3,
   title: 'According to a 2012 Gallup poll, what percent of Americans think the TSA is doing a good job?',
@@ -1716,6 +1793,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 79
 Question.create(
   issue_id: 3,
   title: 'One CT scan emits how many times more radiation than a TSA scan?',
@@ -1738,6 +1816,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 80
 Question.create(
   issue_id: 3,
   title: 'It takes approximately how many seconds for an average TSA scan?',
@@ -1760,6 +1839,7 @@ Slider.create(
   units: '/s'
 )
 
+# question_id -> 81
 Question.create(
   issue_id: 3,
   title: 'Relative to theoretical levels, how much radiation were TSA scanners actually emitting when tested?',
@@ -1782,6 +1862,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 82
 Question.create(
   issue_id: 9,
   title: 'Each year in the US, how many people die prematurely due to lack of healthcare?',
@@ -1804,6 +1885,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 83
 Question.create(
   issue_id: 9,
   title: 'How much do Medicaid and Medicare annually cost taxpayers per capita?',
@@ -1826,6 +1908,7 @@ Slider.create(
   units: '$/'
 )
 
+# question_id -> 84
 Question.create(
   issue_id: 9,
   title: 'In 1980, how much of the federal budget was spent on health care?',
@@ -1848,6 +1931,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 85
 Question.create(
   issue_id: 9,
   title: 'In 2011, how much of the federal budget was spent on health care?',
@@ -1870,6 +1954,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 86
 Question.create(
   issue_id: 9,
   title: 'What percent of Americans are covered by Medicare or Medicaid?',
@@ -1892,6 +1977,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 87
 Question.create(
   issue_id: 9,
   title: 'How much does the US spend on healthcare relative to GDP?',
@@ -1914,6 +2000,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 88
 Question.create(
   issue_id: 9,
   title: 'In terms of percent of GDP spent on healthcare, where does the US rank globally?',
@@ -1936,6 +2023,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 89
 Question.create(
   issue_id: 9,
   title: 'What is the average wait time for a doctors visit in the current US system?',
@@ -1958,6 +2046,7 @@ Slider.create(
   units: '/ min'
 )
 
+# question_id -> 90
 Question.create(
   issue_id: 9,
   title: 'For every dollar that states spend on uninsured healthcare, how much does the federal government contribute?',
@@ -1980,6 +2069,7 @@ Slider.create(
   units: '$/'
 )
 
+# question_id -> 91
 Question.create(
   issue_id: 9,
   title: 'Where does the US rank for globally for the lowest infant mortality rate?',
@@ -2002,6 +2092,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 92
 Question.create(
   issue_id: 9,
   title: 'Where does the US rank for globally for life expectancy?',
@@ -2024,6 +2115,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 93
 Question.create(
   issue_id: 9, 
   title: 'Medical bills cause what percent of US bankruptcies?',
@@ -2046,6 +2138,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 94
 Question.create(
   issue_id: 9,
   title: 'What percent of Americans think health care should be a right?',
@@ -2067,7 +2160,8 @@ Slider.create(
   correct: 64,
   units: '/%'
 )
-  
+
+# question_id -> 95
 Question.create(
   issue_id: 9,
   title: 'Per capita, how much money was spent on health care lobbying in 2010?',
@@ -2090,6 +2184,7 @@ Slider.create(
   units: '$/'
 )
 
+# question_id -> 96
 Question.create(
   issue_id: 9,
   title: 'How much of every dollar spent on US health care is considered \'waste\'?',
@@ -2112,6 +2207,7 @@ Slider.create(
   units: '$0./'
 )
 
+# question_id -> 97
 Question.create(
   issue_id: 9,
   title: 'Relative to inflation, how much are health insurance premiums increasing?',
@@ -2134,6 +2230,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 98
 Question.create(
   issue_id: 9,
   title: 'In terms of spending the most on pharmaceutical drugs, where does the US rank?',
@@ -2156,6 +2253,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 99
 Question.create(
   issue_id: 9,
   title: 'In terms of physicians per capita, where does the US rank?',
@@ -2178,6 +2276,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 100
 Question.create(
   issue_id: 9,
   title: 'What percent of US citizens were medically uninsured in 2010?',
@@ -2200,6 +2299,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 101
 Question.create(
   issue_id: 13,
   title: 'How many personnel are required to fully operate a military Predator drone?',
@@ -2222,6 +2322,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 102
 Question.create(
   issue_id: 13,
   title: 'How many military drone pilots does the Pentagon want by 2015?',
@@ -2244,6 +2345,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 103
 Question.create(
   issue_id: 13,
   title: 'What percent of drone casualities are considered high-level targets?',
@@ -2266,6 +2368,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 104
 Question.create(
   issue_id: 13,
   title: 'How many drone strikes occured in Pakistan in 2012?',
@@ -2288,6 +2391,7 @@ Slider.create(
   units: '/'
 )
 
+# question_id -> 105
 Question.create(
   issue_id: 13,
   title: 'What percent of the US support domestic drone use?',
@@ -2310,6 +2414,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 106
 Question.create(
   issue_id: 13,
   title: 'Due to privacy concerns, what percent of Americans are \'very concerned\' about domestic drone use?',
@@ -2332,6 +2437,7 @@ Slider.create(
   units: '/%'
 )
 
+# question_id -> 107
 Question.create(
   issue_id: 13,
   title: 'How many Pakistani civilians have been killed by US drones?',
@@ -2480,4 +2586,2647 @@ Issue.create(
   title: 'Abortion',
   description: 'Abortion is the termination of pregnancy by the removal or expulsion from the uterus of a fetus or embryo.',
   image: 'abortion'
+)
+
+# question_id -> 108
+Question.create(
+  issue_id: 1,
+  title: "A 2010 Rand Corporation report estimated that __ to __ percent of marijuana sold within the US originates in Mexico",
+  is_slider: false
+)
+Source.create(
+  issue_id: 1,
+  question_id: 108,
+  url: "http://www.rand.org/content/dam/rand/pubs/occasional_papers/2010/RAND_OP325.pdf"
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 108,
+  title: '40 to 60',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 108,
+  title: '10 to 20',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 108,
+  title: '80 to 90',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 108,
+  title: '1 to 2'
+)
+
+# question_id -> 109
+Question.create(
+  issue_id: 1, 
+  title: "The U.S. State Department found that U.S. drug users send between $__ and $__ billion annually to Mexican drug cartels.",
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 1,
+  question_id: 109,
+  url: "http://www.cfr.org/mexico/mexicos-drug-war/p13689",
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 109,
+  title: "$19 and $29",
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 109,
+  title: "$1 and $2", 
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 109,
+  title: "$100 and $200",
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 109,
+  title: "$500 and $700",
+  is_correct: false
+)
+
+# question_id -> 110
+Question.create(
+  issue_id: 1,
+  title: "Officials estimate that the drug trade makes up _ to _ percent of Mexico's $1.5 trillion annual GDP, totaling as much as $30 billion",
+  is_slider: false
+)
+Source.create(
+  issue_id: 1,
+  question_id: 110,
+  url: "http://www.cfr.org/mexico/mexicos-drug-war/p13689",
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 110,
+  title: "3 to 4", 
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 110,
+  title: "80 to 85",
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 110,
+  title: "20 to 24",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 110,
+  title: "51 to 53",
+  is_correct: false
+)
+ 
+# question_id -> 111 
+Question.create(
+  issue_id: 1,
+  title: "A fatal accident is 10 times more likely to occur to a driver under the influece alcohol than of marijuana",
+  is_slider: false
+)
+  
+Source.create(
+  issue_id: 1,
+  question_id: 111,
+  url: "http://www.slate.com/articles/health_and_science/explainer/2011/11/does_marijuana_make_you_a_more_dangerous_driver_than_alcohol_.htm",
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 111,
+  title: "true",
+  is_correct: true
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 111,
+  title: "false",
+  is_correct: false
+)
+
+# question_id -> 112
+Question.create(
+  issue_id: 1,
+  title: "Which states have legalized mariguana for recreational use?",
+  is_slider: false
+)
+  
+Source.create(
+  issue_id: 1,
+  question_id: 112,
+  url:"http://www.huffingtonpost.com/2012/11/06/amendment-64-passes-in-co_n_2079899.html",
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 112,
+  title: "Colorado and Wahsington",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 112,
+  title: "Colorado and California",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 112,
+  title: "Washington and Vermont",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 112,
+  title: "Vermont and Califonia",
+  is_correct: false
+)
+
+# question_id -> 113
+Question.create(
+  issue_id: 1,
+  title: "What percent of high school students have tried marijuana?",
+  is_slider: false
+)
+  
+Source.create(
+  issue_id: 1,
+  question_id: 113,
+  url: "http://well.blogs.nytimes.com/2011/03/10/marijuana-use-in-high-school/",
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 113,
+  title: "40%",
+  is_correct: true
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 113,
+  title: "12%",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 113,
+  title: "83%",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 113,
+  title: "20%",
+  is_correct: false
+)
+
+# question_id -> 114
+Question.create(
+  issue_id: 1,
+  title: "Which U.S. presidents are known to have tried mariguana at least once?",
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 1,
+  question_id: 114,
+  url: "http://www.csmonitor.com/USA/DC-Decoder/2012/0526/President-Obama-smoked-pot-in-high-school.-Why-is-he-against-legalizing-marijuana",
+)
+
+Source.create(
+  issue_id: 1,
+  question_id: 114,
+  url: "http://www.cato-at-liberty.org/obamas-new-drug-strategy/",
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 114,
+  title: "Barack Obama, George W. Bush, and Bill Clinton",
+  is_correct: true
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 114,
+  title: "Bill Clinton and Barack Obama",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 114,
+  title: "George W. Bush and Barack Obama",
+  is_correct: false
+)
+  
+Answer.create(  
+  issue_id: 1,
+  question_id: 114,
+  title: "Barack Obama",
+  is_correct: false
+)
+
+# question_id -> 115
+Question.create(
+  issue_id: 1,
+  title: "The amount of drug-related prisoners has increased since the 1970\'s?",
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 1,
+  question_id: 115,
+  url: "http://en.wikipedia.org/wiki/File:US_incarceration_rate_timeline.gif",
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 115,
+  title: "true",
+  is_correct: true
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 115,
+  title: "false",
+  is_correct: false
+)
+
+# question_id -> 116
+Question.create(
+  issue_id: 1,
+  title: "Adolescents can lose up to __ IQ points because of the chemicals in marijuana affecting cerebral development.",
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 1,
+  question_id: 116,
+  url: "http://healthland.time.com/2012/08/28/does-weekly-marijuana-use-by-teens-really-cause-a-drop-in-iq/"
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 116,
+  title: "8",
+  is_correct: true
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 116,
+  title: "51",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 116,
+  title: "1",
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 116,
+  title: "17",
+  is_correct: false
+)
+
+# question_id -> 117
+Question.create(
+  issue_id: 1, 
+  title: "There are more health concerns related to smoking marijuana than to smoking tobacco",
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 1,
+  question_id: 117,
+  url: "http://en.wikipedia.org/wiki/Medical_cannabis#Recent_studies"
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 117,
+  title: "false",
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 117,
+  title: "true",
+  is_correct: false
+)
+  
+# question_id -> 118
+Question.create(
+  issue_id: 1,
+  title: "Marijuana is generally believed to be psychologically addicting",
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 1,
+  question_id: 118,
+  url: "http://www.drugabuse.gov/publications/research-reports/marijuana-abuse/marijuana-addictive"
+)
+
+Source.create(
+  issue_id: 1,
+  question_id: 118,
+  url: "http://www.webmd.com/mental-health/marijuana-use-and-its-effects"
+)  
+
+Answer.create(
+  issue_id: 1,
+  question_id: 118,
+  title: "true",
+  is_correct: true
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 118,
+  title: "false",
+  is_correct: false
+)
+
+# question_id -> 119
+Question.create(
+  issue_id: 1,
+  title: "According study by the Independent Scientific Committee on Drugs, alcohol is __ times more harmful than marijuana.",
+  is_slider: false
+)
+  
+Source.create(
+  issue_id: 1,
+  question_id: 119,
+  url: "http://www.bbc.co.uk/news/uk-11660210",
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 119,
+  title: "3",
+  is_correct: true
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 119,
+  title: "10",
+  is_correct: false
+  )
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 119,
+  title: "50",
+  is_correct: false
+)
+
+# question_id -> 120
+Question.create(
+  issue_id: 1,
+  title: "States that have legalized medical marijuana have seen traffic fatalities __",
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 1,
+  question_id: 120,
+  url: "http://a0.twimg.com/profile_images/1324543229/logo.jpg"
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 120,
+  title: "increase by 9%",
+  is_correct: true
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 120,
+  title: "decrease bu 9%",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 120,
+  title: "stay the same",
+  is_correct: false
+)
+
+# question_id -> 121
+Question.create(
+  issue_id: 1,
+  title: "How much money could be saved each year by states and the federal government if marijuana were legalized?",
+  is_slider: false
+  )
+
+Source.create(
+  issue_id: 1,
+  question_id: 121,
+  url: "http://web.archive.org/web/20110718082820/http://www.prohibitioncosts.org/execsummary.html",
+)
+
+Source.create(
+  issue_id: 1,
+  question_id: 121,
+  url: "http://economics.about.com/od/incometaxestaxcuts/a/legalize_pot.htm",
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 121,
+  title: "$7.7 billion",
+  is_correct: true
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 121,
+  title: "$10 thousand",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 121,
+  title: "$100 billion",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 121,
+  title: "$1 million",
+  is_correct: false
+)
+
+# question_id -> 122
+Question.create(
+  issue_id: 1,
+  title: "If marijuana were taxed similarly to alcohol, how much in tax revenue could be made each year?",
+  is_slider: false
+  )
+
+Source.create(
+  issue_id: 1,
+  question_id: 122,
+  url: "http://economics.about.com/od/incometaxestaxcuts/a/legalize_pot.htm"
+)  
+
+Source.create(
+  issue_id: 1,
+  question_id: 122,
+  url: "http://web.archive.org/web/20110718082820/http://www.prohibitioncosts.org/execsummary.html"
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 122,
+  title: "$6.2 billion",
+  is_correct: true
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 122,
+  title: "$1 million",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 122,
+  title: "$2 thousand",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 122,
+  title: "$100 billion",
+  is_correct: false
+)
+
+# question_id -> 123
+Question.create(
+  issue_id: 1,
+  title: "For marijuana possession, African Americans are arrested at 4-12 times the rate of whites",
+  is_slider: false
+)
+  
+Source.create(
+  issue_id: 1,
+  question_id: 123,
+  url: "http://blog.norml.org/2010/10/22/california-study-say-blacks-disproportionately-arrested-for-minor-marijuana-crimes/"
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 123,
+  title: "true",
+  is_correct: true
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 123,
+  title: "false",
+  is_correct: false
+)
+
+# question_id -> 124
+Question.create(
+  issue_id: 18,
+  title: "What percent of abortions are obtained by women who already have at least one child?",
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 18,
+  question_id: 124,
+  url: "http://www.guttmacher.org/pubs/fb_induced_abortion.html"
+)
+  
+Answer.create(
+  issue_id: 18,
+  question_id: 124,
+  title: "61%",
+  is_correct: true
+)
+  
+Answer.create(
+  issue_id: 18,
+  question_id: 124,
+  title: "10%",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 18,
+  question_id: 124,
+  title: "80%",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 18,
+  question_id: 124,
+  title: "25%",
+  is_correct: false
+)
+
+# question_id -> 125
+Question.create(
+  issue_id: 18,
+  title: "What percent of pregnancies among American women are unintended?",
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 18,
+  question_id: 125,
+  url: "http://www.guttmacher.org/pubs/fb_induced_abortion.html",
+)
+  
+Answer.create(
+  issue_id: 18,
+  question_id: 125,
+  title: "50%",
+  is_correct: true
+)
+  
+Answer.create(
+  issue_id: 18,
+  question_id: 125,
+  title: "10%",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 18,
+  question_id: 125,
+  title: "25%",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 18,
+  question_id: 125,
+  title: "75%",
+  is_correct: false
+)
+
+# question_id -> 126
+Question.create(
+  issue_id: 18,
+  title: "Each year, what percent of women aged 15-44 have an abortion?",
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 18,
+  question_id: 126,
+  url: "http://www.guttmacher.org/pubs/fb_induced_abortion.html"
+)
+
+Answer.create(
+  issue_id: 18,
+  question_id: 126,
+  title: "2%",
+  is_correct: true
+)
+  
+Answer.create(
+  issue_id: 18,
+  question_id: 126,
+  title: "50%",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 18,
+  question_id: 126,
+  title: "15%",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 18,
+  question_id: 126,
+  title: "25%",
+  is_correct: false
+)
+  
+# question_id -> 127
+Question.create(
+  issue_id: 18,
+  title: "18 years after the legalization of abortions crime rates in the U.S. __",
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 18,
+  question_id: 127,
+  url: "http://en.wikipedia.org/wiki/Legalized_abortion_and_crime_effect"
+)
+  
+Answer.create(
+  issue_id: 18,
+  question_id: 127,
+  title: "sharply decreased",
+  is_correct: true
+)
+  
+Answer.create(
+  issue_id: 18,
+  question_id: 127,
+  title: "sharply increased",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 18,
+  question_id: 127,
+  title: "stayed the same",
+  is_correct: false
+)
+
+# question_id -> 128
+Question.create(
+  issue_id: 18,
+  title: "What percent of women receiving abortions fall below the federal poverty line?",
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 18,
+  question_id: 128,
+  url: "http://www.guttmacher.org/pubs/fb_induced_abortion.html#fn1"
+)
+  
+Answer.create(
+  issue_id: 18,
+  question_id: 128,
+  title: "42%",
+  is_correct: true
+ )
+
+Answer.create(
+  issue_id: 18,
+  question_id: 128,
+  title: "10%",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 18,
+  question_id: 128,
+  title: "80%",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 18,
+  question_id: 128,
+  title: "25%",
+  is_correct: false
+)
+
+# question_id -> 129
+Question.create(
+  issue_id: 18,
+  title: "What percent of women obtaining abortions receive the abortion within the first 13 weeks of pregnancy?",
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 18,
+  question_id: 129,
+  url: "http://www.prochoice.org/about_abortion/facts/safety_of_abortion.html"
+)
+  
+Answer.create(
+  issue_id: 18,
+  question_id: 129,
+  title: "88%",
+  is_correct: true
+)
+  
+Answer.create(
+  issue_id: 18,
+  question_id: 129,
+  title: "10%",
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 18,
+  question_id: 129,
+  title: "25%",
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 18,
+  question_id: 129,
+  title: "50%",
+  is_correct: false
+)
+
+# question_id -> 130
+Question.create(
+  issue_id: 17,
+  title: 'Who can SuperPACs receive money from?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 17,
+  question_id: 130,
+  url: 'http://elections.nytimes.com/2012/campaign-finance'
+)
+  
+Answer.create(
+  issue_id: 17,
+  question_id: 130,
+  title: 'corporations',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 17,
+  question_id: 130,
+  title: 'unions and individuals',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 17,
+  question_id: 130,
+  title: 'individuals',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 17,
+  question_id: 130,
+  title: 'corporations, individuals, and unions',
+  is_correct: true
+)
+
+# question_id -> 131
+Question.create(
+  issue_id: 6,
+  title: 'Some pollution is actually cooling the Earth',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 6,
+  question_id: 131,
+  url: 'http://www.edf.org/climate/human-activity-causes-warming',
+)
+
+Answer.create(
+  issue_id: 6,
+  question_id: 131,
+  title: 'true',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 6,
+  question_id: 131,
+  title: 'false',
+  is_correct: false
+)
+
+# question_id -> 132
+Question.create(
+  issue_id: 6,
+  title: 'What factors can affect the Earth\'s temperature?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 6,
+  question_id: 132,
+  url: 'http://www.edf.org/climate/human-activity-causes-warming'
+)
+
+Answer.create(
+  issue_id: 6,
+  question_id: 132,
+  title: 'the sun',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 6,
+  question_id: 132,
+  title: 'the sun and greenhouse gases',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 6,
+  question_id: 132,
+  title: "the earth\'s reflectivty",
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 6,
+  question_id: 132,
+  title: 'The sun, greenhoue gases, and the earth\'s reflectivity',
+  is_correct: true
+) 
+
+# question_id -> 133
+Question.create(
+  issue_id: 6,
+  title: 'Prior to the Industrial Revolution large changes in the climate were normal',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 6,
+  question_id: 133,
+  url: 'http://www.epa.gov/climatechange/science/causes.html'
+)
+
+Answer.create(
+  issue_id: 6,
+  question_id: 133,
+  title: "true",
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 6,
+  question_id: 133,
+  title: 'false',
+  is_correct: false
+)
+
+# question_id -> 134
+Question.create(
+  issue_id: 6,
+  title: 'Will climate change increase or decrease crop yields?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 6,
+  question_id: 134,
+  url: 'http://www.epa.gov/climatechange/impacts-adaptation/international.html#basics'
+)
+
+Answer.create(
+  issue_id: 6,
+  question_id: 134,
+  title: 'Increase everywhere',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 6,
+  question_id: 134,
+  title: 'Decrease everywhere',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 6,
+  question_id: 134,
+  title: 'Increase at low latitudes, decrease at high latitudes',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 6,
+  question_id: 134,
+  title: 'Increase at high latitudes, decrease at low latitudes',
+  is_correct: true
+)
+
+# question_id -> 135
+Question.create(
+  issue_id: 6,
+  title: 'Climate change will effect all regions similarly',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 6,
+  question_id: 135,
+  url: 'http://www.epa.gov/climatechange/impacts-adaptation/international.html#basics'
+)
+  
+Answer.create(
+  issue_id: 6,
+  question_id: 135,
+  title: 'true',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 6,
+  question_id: 135,
+  title: 'false',
+  is_correct: true
+)
+
+# question_id -> 136
+Question.create(
+  issue_id: 7,
+  title: 'The majority of unemployed Americans have atteneded some college',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 7,
+  question_id: 136,
+  url: 'http://www.businessinsider.com/these-two-charts-prove-a-college-education-just-isnt-worth-the-money-anymore-2012-6',
+)
+
+Answer.create(
+  issue_id: 7,
+  question_id: 136,
+  title: 'true',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 7,
+  question_id: 136,
+  title: 'false',
+  is_correct: false
+)
+
+# question_id -> 137
+Question.create(
+  issue_id: 7,
+  title: 'Level of education is generally correlated with?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 7,
+  question_id: 137,
+  url: 'http://usgovinfo.about.com/od/moneymatters/a/edandearnings.htm'
+)
+
+Answer.create(
+  issue_id: 7,
+  question_id: 137,
+  title:'higher income levels',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 7,
+  question_id: 137,
+  title: 'lower income levels',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 7,
+  question_id: 137,
+  title: 'Education level does not effect income levels',
+  is_correct: false
+)
+
+# question_id -> 138
+Question.create(
+  issue_id: 7,
+  title: 'jobs requiring a college degree being created __ than jobs that do not require a degree',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 7,
+  question_id: 138,
+  url: 'http://wjbc.com/wjbc-forum-the-more-education-the-better/'
+)
+
+Answer.create(
+  issue_id: 7,
+  question_id: 138,
+  title: 'faster',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 7,
+  question_id: 138,
+  title: 'slower',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 7,
+  question_id: 138,
+  title: 'at the same rate',
+  is_correct: false
+)
+
+# question_id -> 139
+Question.create(
+  issue_id: 7,
+  title: 'How often are student loans forgiven due to bankruptcy?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 7,
+  question_id: 139,
+  url: 'http://en.wikipedia.org/wiki/Student_loans_in_the_United_States#Discharge_of_student_loans'
+)
+
+Answer.create(
+  issue_id: 7,
+  question_id: 139,
+  title: 'frequently',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 7,
+  question_id: 139,
+  title: 'always',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 7,
+  question_id: 139,
+  title: 'sometimes',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 7,
+  question_id: 139,
+  title: 'almost never',
+  is_correct: true
+)
+
+# question_id -> 140
+Question.create(
+  issue_id: 4,
+  title: 'Which states are given an advantage under the electoral system?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 4,
+  question_id: 140,
+  url: 'http://www.fairvote.org/problems-with-the-electoral-college/#.UEd02KSe6k0'
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 140,
+  title: 'small states',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 140,
+  title: 'large states',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 140,
+  title: 'none',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 140,
+  title: 'highly populated states',
+  is_correct: false
+)
+
+# question_id -> 141
+Question.create(
+  issue_id: 4,
+  title: 'The U.S. has a history of switching from indirect to direct elections',
+  is_slider: false
+)
+Source.create(
+  issue_id: 4,
+  question_id: 141,
+  url: 'http://en.wikipedia.org/wiki/Seventeenth_Amendment_to_the_United_States_Constitution'
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 141,
+  title: 'true',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 141,
+  title: 'false',
+  is_correct: false
+)
+
+# question_id -> 142
+Question.create(
+  issue_id: 4,
+  title: 'What process would need to be followed to switch from the electoral college to a popular vote?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 4,
+  question_id: 142,
+  url: 'http://usgovinfo.about.com/od/usconstitution/a/conshttp://archive.fairvote.org/?page=2052tamend.htm'
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 142,
+  title: 'A constitutional amendment',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 142,
+  title: 'A decision by the Supreme Court',
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 4,
+  question_id: 142,
+  title: 'A popular vote',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 142,
+  title: 'An executive decision by the President',
+  is_correct: false
+)
+
+# question_id -> 143
+Question.create(
+  issue_id: 4,
+  title: 'What effect does the electoral college have on voter turnout in non-swing states?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 4,
+  question_id: 143,
+  url: 'http://www.statemaster.com/graph/gov_200_tot_vot_as_per-2004-election-total-votes-percentage',
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 143,
+  title: 'deters voter turnout',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 143,
+  title: 'increases voter turnout',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 143,
+  title: 'has no effect',
+  is_correct: true
+)
+
+# question_id -> 144
+Question.create(
+  issue_id: 4,
+  title: 'Due to the electoral college, a vote from a Wyoming resident is worth ___ a vote from a Texas resident',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 4,
+  question_id: 144,
+  url: 'http://www.fairvote.org/problems-with-the-electoral-college/#.UEd02KSe6k0'
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 144,
+  title: 'more than',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 144,
+  title: 'the same as',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 144,
+  title: 'less than',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 144,
+  title: 'both are worthless',
+  is_correct: false
+)
+
+# question_id -> 145
+Question.create(
+  issue_id: 4,
+  title: 'Who is regularly disadvantaged by the electoral college?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 4,
+  question_id: 145,
+  url: 'http://en.wikipedia.org/wiki/United_States_presidential_election,_1968'
+)
+Source.create(
+  issue_id: 4,
+  question_id: 145,
+  url: 'http://en.wikipedia.org/wiki/List_of_third_party_performances_in_United_States_elections#1968.2A'
+)
+
+Source.create(
+  issue_id: 4,
+  question_id: 145,
+  url: 'http://www.thedailybeast.com/articles/2011/12/03/drop-the-fantasy-of-a-third-party-candidate-winning-in-2012.html'
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 145,
+  title: '3rd party candidates',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 145,
+  title: 'incumbents',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 145,
+  title: 'primary candidates',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 145,
+  title: 'challengers',
+  is_correct: false
+)
+
+# question_id -> 146
+Question.create(
+  issue_id: 4,
+  title: 'Which states receive less attention due to the electoral college?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 4,
+  question_id: 146,
+  url: 'http://en.wikipedia.org/wiki/Swing_state'
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 146,
+  title: 'non-swing states',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 146,
+  title: 'swing states',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 146,
+  title: 'highly populated states',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 4,
+  question_id: 146,
+  title: 'none',
+  is_correct: false
+)
+
+# question_id -> 147
+Question.create(
+  issue_id: 8,
+  title: 'In the U.S., it takes more energy to create a gallon of ethanol than is contained within the gallon of ethanol.',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 8,
+  question_id: 147,
+  url: 'http://www.slate.com/articles/news_and_politics/hey_wait_a_minute/2005/07/corn_dog.html'
+)
+
+Answer.create(
+  issue_id: 8,
+  question_id: 147,
+  title: 'true',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 8,
+  question_id: 147,
+  title: 'false',
+  is_correct: false
+)
+
+# question_id -> 148
+Question.create(
+  issue_id: 10,
+  title: 'What type of pension plans do federal employees receive?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 10,
+  question_id: 148,
+  url: 'http://retireplan.about.com/lw/Business-Finance/Personal-finance/What-is-the-Thrift-Savings-Plan-for-Federal-Employees-.htm'
+)
+
+Answer.create(
+  issue_id: 10,
+  question_id: 148,
+  title: 'A thrift savings plan',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 10,
+  question_id: 148,
+  title: 'none',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 10,
+  question_id: 148,
+  title: 'It depends on the job title',
+  is_correct: false
+)
+
+# question_id -> 149
+Question.create(
+  issue_id: 10,
+  title: 'How do federal employee wages and benefits compare to the private sector?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 10,
+  question_id: 149,
+  url: 'http://www.cbo.gov/publication/42921'
+)
+
+Answer.create(
+  issue_id: 10,
+  question_id: 149,
+  title: '2% higher',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 10,
+  question_id: 149,
+  title: '2% lower',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 10,
+  question_id: 149,
+  title: '20% higher',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 10,
+  question_id: 149,
+  title: '20% lower',
+  is_correct: false
+)
+
+# question_id -> 150
+Question.create(
+  issue_id: 10,
+  title: 'Federal employees receive more health care choices than the average private sector employee',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 10,
+  question_id: 150,
+  url: 'http://www.opm.gov/INSURE/HEALTH/INDEX.ASP'
+)
+
+Answer.create(
+  issue_id: 10,
+  question_id: 150,
+  title: 'true',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 10,
+  question_id: 150,
+  title: 'false',
+  is_correct: false
+)
+
+# question_id -> 151
+Question.create(
+  issue_id: 10,
+  title: 'The U.S. has enough money to cover all of it\'s federal employee wages and benefits',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 10,
+  question_id: 151,
+  url: 'http://www.huffingtonpost.com/2012/07/02/pensions-us-munis-unfunded-lose-benefits_n_1644772.html'
+)
+
+Answer.create(
+  issue_id: 10,
+  question_id: 151,
+  title: 'true',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 10,
+  question_id: 151,
+  title: 'false',
+  is_correct: true
+)
+
+# question_id -> 152
+Question.create(
+  issue_id: 10,
+  title: 'On average, people with a bachelors degree in the private sector earn ___ those is the public sector',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 10,
+  question_id: 152,
+  url: 'http://www.cbo.gov/publication/42921'
+)
+
+Answer.create(
+  issue_id: 10,
+  question_id: 152,
+  title: 'more than',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 10,
+  question_id: 152,
+  title: 'less than',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 10,
+  question_id: 152,
+  title: 'the same as',
+  is_correct: true
+)
+
+# question_id -> 153
+Question.create(
+  issue_id: 10,
+  title: 'How much less do employees with a doctorate or professional degree earn in the public vs. private sector?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 10,
+  question_id: 153,
+  url: 'http://www.cbo.gov/publication/42921'
+)
+
+Answer.create(
+  issue_id: 10,
+  question_id: 153,
+  title: '23% less in the public sector',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 10,
+  question_id: 153,
+  title: '23% more in the public sector',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 10,
+  question_id: 153,
+  title: '58% less in the public sector',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 10,
+  question_id: 153,
+  title: '58% more in the public sector',
+  is_correct: false
+)
+
+# question_id -> 154
+Question.create(
+  issue_id: 14,
+  title: 'How many developed countries have a minimum wage higher than the U.S.?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 14,
+  question_id: 154,
+  url: 'http://en.wikipedia.org/wiki/List_of_minimum_wages_by_country'
+)
+
+Answer.create(
+  issue_id: 14,
+  question_id: 154,
+  title: '10',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 14,
+  question_id: 154,
+  title: '0',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 14,
+  question_id: 154,
+  title: '100',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 14,
+  question_id: 154,
+  title: '52',
+  is_correct: false
+)
+
+# question_id -> 155
+Question.create(
+  issue_id: 14,
+  title: 'How many developed countries have a lower minimum wage than the U.S.?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 14,
+  question_id: 155,
+  url: 'http://en.wikipedia.org/wiki/List_of_minimum_wages_by_country'
+)
+
+Answer.create(
+  issue_id: 14,
+  question_id: 155,
+  title: '21',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 14,
+  question_id: 155,
+  title: '0',
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 14,
+  question_id: 155,
+  title: '58',
+  is_correct: false
+) 
+  
+Answer.create(
+  issue_id: 14,
+  question_id: 155,
+  title: '102',
+  is_correct: false
+)
+  
+# question_id -> 156
+Question.create(
+  issue_id: 14,
+  title: 'Adjusted for inflation, what was the highest minimum wage in U.S. history?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 14,
+  question_id: 156,
+  url: 'http://oregonstate.edu/instruct/anth484/minwage.html'
+)
+
+Answer.create(
+  issue_id: 14,
+  question_id: 156,
+  title: '$10.04/hr',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 14,
+  question_id: 156,
+  title: '$8.00/hr',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 14,
+  question_id: 156,
+  title: '$7.51/hr',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 14,
+  question_id: 156,
+  title: '$15.75/hr',
+  is_correct: false
+)
+
+# question_id -> 157
+Question.create(
+  issue_id: 14,
+  title: 'What\'s the minimum wage for tipped employees?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 14,
+  question_id: 157,
+  url: 'http://www.dol.gov/whd/state/tipped.htm'
+)
+
+Answer.create(
+  issue_id: 14,
+  question_id: 157,
+  title: '$2.13/hr',
+  is_correct: true
+)  
+
+Answer.create(
+  issue_id: 14,
+  question_id: 157,
+  title: '$8.13/hr',
+  is_correct: false
+)  
+
+Answer.create(
+  issue_id: 14,
+  question_id: 157,
+  title: '$6.13/hr',
+  is_correct: false
+)  
+
+Answer.create(
+  issue_id: 14,
+  question_id: 157,
+  title: '$10.13/hr',
+  is_correct: false
+)  
+
+# question_id -> 158
+Question.create(
+  issue_id: 14,
+  title: 'How much do you make working 40hrs/week at the federal minimum wage?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 14,
+  question_id: 158,
+  url: 'http://www.dol.gov/whd/minwage/america.htm'
+)
+
+Answer.create(
+  issue_id: 14,
+  question_id: 158,
+  title: '$14,500/year',
+  is_correct: true
+)
+Answer.create(
+  issue_id: 14,
+  question_id: 158,
+  title: '$80,000/year',
+  is_correct: false
+)  
+  
+Answer.create(
+  issue_id: 14,
+  question_id: 158,
+  title: '$50,500/year',
+  is_correct: false
+)
+ 
+Answer.create(
+  issue_id: 14,
+  question_id: 158,
+  title: '$30,000/year',
+  is_correct: false
+) 
+
+# question_id -> 159
+Question.create(
+  issue_id: 14,
+  title: 'What\'s the poverty line for one person in the U.S.?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 14,
+  question_id: 159,
+  url: 'http://coverageforall.org/pdf/FHCE_FedPovertyLevel.pdf'
+)
+
+Answer.create(
+  issue_id: 14,
+  question_id: 159,
+  title: '$11,170 per year',
+  is_correct: true
+) 
+ 
+Answer.create(
+  issue_id: 14,
+  question_id: 159,
+  title: '$5,170 per year',
+  is_correct: false
+) 
+
+Answer.create(
+  issue_id: 14,
+  question_id: 159,
+  title: '$38,000 per year',
+  is_correct: false
+) 
+
+Answer.create(
+  issue_id: 14,
+  question_id: 159,
+  title: '$50,500 per year',
+  is_correct: false
+) 
+
+# question_id -> 160
+Question.create(
+  issue_id: 14,
+  title: 'When was the federal minimum wage last raised?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 14,
+  question_id: 160,
+  url: 'http://www.minimum-wage.org/minwage/answers/index.php?action=artikel&cat=1&id=6&artlang=en'
+)
+
+Answer.create(
+  issue_id: 14,
+  question_id: 160,
+  title: '2013',
+  is_correct: false
+)  
+  
+Answer.create(
+  issue_id: 14,
+  question_id: 160,
+  title: '1995',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 14,
+  question_id: 160,
+  title: '2000',
+  is_correct: false
+)
+ 
+Answer.create(
+  issue_id: 14,
+  question_id: 160,
+  title: '2009',
+  is_correct: true
+) 
+
+# question_id -> 161
+Question.create(
+  issue_id: 5,
+  title: 'If the U.S. adopted Findlands education system all schools would be allocated the same amount of money',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 5,
+  question_id: 161,
+  url: 'http://www.washingtonpost.com/blogs/answer-sheet/post/what-the-us-cant-learn-from-finland-about-ed-reform/2012/04/16/gIQAGIvVMT_blog.html'
+)
+
+Answer.create(
+  issue_id: 5,
+  question_id: 161,
+  title: 'true',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 5,
+  question_id: 161,
+  title: 'false',
+  is_correct: false
+)
+
+# question_id -> 162
+Question.create(
+  issue_id: 5,
+  title: 'How much larger is the population size of the US compared to Finland?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 5,
+  question_id: 162,
+  url: 'http://en.wikipedia.org/wiki/List_of_countries_by_population'
+)
+
+Answer.create(
+  issue_id: 5,
+  question_id: 162,
+  title: '60 times larger',
+  is_correct: true
+) 
+
+Answer.create(
+  issue_id: 5,
+  question_id: 162,
+  title: 'it\'s the same',
+  is_correct: false
+) 
+
+Answer.create(
+  issue_id: 5,
+  question_id: 162,
+  title: '100 times larger',
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 5,
+  question_id: 162,
+  title: '60 times smaller',
+  is_correct: true
+)
+
+# question_id -> 163
+Question.create(
+  issue_id: 11,
+  title: 'The oil produced from hydraulic fracking is different than oil produced from traditional methods',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 11,
+  question_id: 163,
+  url: 'http://en.wikipedia.org/wiki/Hydraulic_fracturing#Environmental_impact'
+)
+
+Answer.create(
+  issue_id: 11,
+  question_id: 163,
+  title: 'true',
+  is_correct: true
+)  
+
+Answer.create(
+  issue_id: 11,
+  question_id: 163,
+  title: 'false',
+  is_correct: false
+)
+
+# question_id -> 164
+Question.create(
+  issue_id: 11,
+  title: 'Hydraulic fracturing can occur naturally',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 11,
+  question_id: 164,
+  url: 'http://en.wikipedia.org/wiki/Hydraulic_fracturing'
+)
+
+Answer.create(
+  issue_id: 11,
+  question_id: 164,
+  title: 'true',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 11,
+  question_id: 164,
+  title: 'false',
+  is_correct: false
+)
+
+# question_id -> 165
+Question.create(
+  issue_id: 11,
+  title: 'What effects can hydraulic fracking have on groundwater?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 11,
+  question_id: 165,
+  url: 'http://switchboard.nrdc.org/blogs/amall/incidents_where_hydraulic_frac.html'
+)
+
+Answer.create(
+  issue_id: 11,
+  question_id: 165,
+  title: 'contamination',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 11,
+  question_id: 165,
+  title: 'Evaporation',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 11,
+  question_id: 165,
+  title: 'freezing',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 11,
+  question_id: 165,
+  title: "purification",
+  is_correct: false
+)
+
+# question_id -> 166
+Question.create(
+  issue_id: 11,
+  title: 'Hydraulic fracking can pollute the air',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 11,
+  question_id: 166,
+  url: 'http://en.wikipedia.org/wiki/Hydraulic_fracturing'
+)
+
+Source.create(
+  issue_id: 11,
+  question_id: 166,
+  url: 'http://www.ncbi.nlm.nih.gov/pmc/?term=10.1289/ehp.119-a348'
+)
+
+Answer.create(
+  issue_id: 11,
+  question_id: 166,
+  title: 'true',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 11,
+  question_id: 166,
+  title: 'false',
+  is_correct: false
+)
+
+# question_id -> 167
+Question.create(
+  issue_id: 11,
+  title: 'What is a possible effect of hydraulic fracking?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 11,
+  question_id: 167,
+  url: 'http://www.usgs.gov/faq/index.php?action=show&cat=113'
+)
+
+Answer.create(
+  issue_id: 11,
+  question_id: 167,
+  title: 'microquakes',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 11,
+  question_id: 167,
+  title: 'tornados',
+  is_correct: false
+)
+  
+Answer.create(
+  issue_id: 11,
+  question_id: 167,
+  title: 'blizzards',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 11,
+  question_id: 167,
+  title: 'increased crop yield',
+  is_correct: false
+)
+
+# question_id -> 168
+Question.create(
+  issue_id: 11,
+  title: 'How many jobs can hydraulic fracking contribute to the economy?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 11,
+  question_id: 168,
+  url: 'http://finance.yahoo.com/blogs/daily-ticker/fracking-revolution-more-jobs-cheaper-energy-worth-manageable-171414515.html'
+)
+
+Answer.create(
+  issue_id: 11,
+  question_id: 168,
+  title: '17,000 direct jobs',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 11,
+  question_id: 169,
+  title: '100,000 direct jobs',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 11,
+  question_id: 168,
+  title: '0 direct jobs',
+  is_correct: false
+)
+
+
+Answer.create(
+  issue_id: 11,
+  question_id: 168,
+  title: 'one million direct jobs',
+  is_correct: false
+)
+
+# question_id -> 169
+Question.create(
+  issue_id: 16,
+  title: 'Offshore oil drilling ___ prices at the pump',
+  is_slider: false
+)
+
+ Source.create(
+  issue_id: 16,
+  question_id: 169,
+  url: 'http://www.usclimatenetwork.org/resource-database/offshore-drilling-a-false-answer-to-energy-prices'
+)
+
+ Source.create(
+  issue_id: 16,
+  question_id: 169,
+  url: 'http://www.ucsusa.org/clean_vehicles/smart-transportation-solutions/better-fuel-efficiency/protecting-consumers-from-pain-at-pump.html'
+)
+
+Answer.create(
+  issue_id: 16,
+  question_id: 169,
+  title: 'has little effect on',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 16,
+  question_id: 169,
+  title: 'increases',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 16,
+  question_id: 169,
+  title: 'decreases',
+  is_correct: false
+)
+
+# question_id -> 170
+Question.create(
+  issue_id: 16,
+  title: 'Offshore drilling can contribute to coastal erosion',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 16,
+  question_id: 170,
+  url: 'http://www.care2.com/causes/offshore-drilling-is-energy-worth-the-ecological-disaster-of-oil-spills.html'
+)
+
+Answer.create(
+  issue_id: 16,
+  question_id: 170,
+  title: 'true',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 16,
+  question_id: 170,
+  title: 'false',
+  is_correct: false
+)
+
+# question_id -> 171
+Question.create(
+  issue_id: 16,
+  title: 'The U.S. does not have the potential to become the #1 producer of oil in the world',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 16,
+  question_id: 171,
+  url: 'http://www.dailymail.co.uk/news/article-2222413/US-set-overtake-Saudi-Arabia-worlds-biggest-oil-producer-following-boom-output.html'
+)
+
+Answer.create(
+  issue_id: 16,
+  question_id: 171,
+  title: 'true',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 16,
+  question_id: 171,
+  title: 'false',
+  is_correct: true
+)
+
+# question_id -> 172
+Question.create(
+  issue_id: 15,
+  title: 'How much in tax breaks do the Big Five receive every day?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 15,
+  question_id: 172,
+  url: 'http://oilprice.com/Energy/Crude-Oil/How-the-Big-Five-Oil-Companies-Spend-their-375-Million-Daily-Profits.html'
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 172,
+  title: '$6.6 million',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 172,
+  title: '$1 billion',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 172,
+  title: '$1 thousand',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 172,
+  title: '$0',
+  is_correct: false
+)
+
+# question_id -> 173
+Question.create(
+  issue_id: 15,
+  title: 'How much money in tax breaks do oil and gas companies receive each year?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 15,
+  question_id: 173,
+  url: 'http://oilprice.com/Energy/Crude-Oil/How-the-Big-Five-Oil-Companies-Spend-their-375-Million-Daily-Profits.html'
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 173,
+  title: '$4 billion',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 173,
+  title: '$0',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 173,
+  title: '$1 million',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 173,
+  title: '$1 thousand',
+  is_correct: false
+)
+
+# question_id -> 174
+Question.create(
+  issue_id: 15,
+  title: 'How much money did the Big Five oil companies make in 2011?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 15,
+  question_id: 174,
+  url: 'http://www.350.org/en/node/28553'
+)
+
+Source.create(
+  issue_id: 15,
+  question_id: 174,
+  url: 'http://oilprice.com/Energy/Crude-Oil/How-the-Big-Five-Oil-Companies-Spend-their-375-Million-Daily-Profits.html'
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 174,
+  title: '$137 billion',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 174,
+  title: '$100',
+  is_correct: false
+)
+Answer.create(
+  issue_id: 15,
+  question_id: 174,
+  title: '$113 thousand',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 174,
+  title: '$1 trillion',
+  is_correct: false
+)
+
+# question_id -> 175
+Question.create(
+  issue_id: 15,
+  title: 'How much money in direct compensation do the CEOs of the Big Five oil companies receive every day?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 15,
+  question_id: 175,
+  url: 'http://oilprice.com/Energy/Crude-Oil/How-the-Big-Five-Oil-Companies-Spend-their-375-Million-Daily-Profits.html'
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 175,
+  title: '$60,110',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 175,
+  title: '$100',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 175,
+  title: '$1 billion',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 175,
+  title: '$167 million',
+  is_correct: false
+)
+
+# question_id -> 176
+Question.create(
+  issue_id: 15,
+  title: 'Fossil fuels are subsidized nearly  ____ than renewable enery',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 15,
+  question_id: 176,
+  url: 'http://www.350.org/en/node/28553'
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 176,
+  title: '6 times more',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 176,
+  title: '6 times less',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 176,
+  title: '20 times more',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 176,
+  title: '20 times less',
+  is_correct: false
+)
+
+# question_id -> 177
+Question.create(
+  issue_id: 15,
+  title: 'What is the largest tax break that oil companies receive?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 15,
+  question_id: 177,
+  url: 'http://www.forbes.com/sites/energysource/2012/04/25/the-surprising-reason-that-oil-subsidies-persist-even-liberals-love-them/'
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 177,
+  title: 'A manufacturer\'s tax deduction',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 177,
+  title: 'A specialized tax deduction for oil companies',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 177,
+  title: 'A small business deduction',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 177,
+  title: 'none',
+  is_correct: false
+)
+
+# question_id -> 178
+Question.create(
+  issue_id: 15,
+  title: 'the manufacturer\'s tax deduction is not limited for oil companies',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 15,
+  question_id: 178,
+  url: 'http://www.forbes.com/sites/energysource/2012/04/25/the-surprising-reason-that-oil-subsidies-persist-even-liberals-love-them/'
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 178,
+  title: 'true',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 178,
+  title: 'false',
+  is_correct: true
+)
+
+# question_id -> 179
+Question.create(
+  issue_id: 15,
+  title: 'Apple is able to take a 9% manufacturer\'s tax deduction, but ExxonMobil is only allowed to take a 6% deduction.',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 15,
+  question_id: 179,
+  url: 'http://www.forbes.com/sites/energysource/2012/04/25/the-surprising-reason-that-oil-subsidies-persist-even-liberals-love-them/'
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 179,
+  title: 'true',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 179,
+  title: 'true',
+  is_correct: true
 )
