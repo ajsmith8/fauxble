@@ -16,6 +16,7 @@ Fauxble.Views.QuestionsShow = Backbone.View.extend({
 	
 	render: function() {
 		var self = this;
+		$(this.el).addClass('question');
 		$(this.el).html(this.template({
 			question: this.question
 		}));

@@ -45,6 +45,7 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 	
 	render: function() {
 		var self = this;
+		$(this.el).addClass('multiple-choice');
 		$(this.el).html(this.template());
 		
 		setTimeout(function() {

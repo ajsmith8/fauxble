@@ -38,6 +38,7 @@ Fauxble.Views.QuestionsResult = Backbone.View.extend({
 	
 	render: function() {
 		var self = this;
+		$(this.el).addClass('question result');
 		$(this.el).html(this.template({
 			question: this.question,
 			correct: this.correct

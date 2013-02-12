@@ -9,6 +9,7 @@ Fauxble.Views.PagesChallenges = Backbone.View.extend({
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.user = this.attr.users.get(this.attr.current_user.get('id'));
+		this.subviews = [];
 	},
 	
 	render: function() {
