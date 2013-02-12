@@ -1,0 +1,253 @@
+.slider {
+	&.bar {
+		position: relative; 
+		height: 12px; 
+		@include border-radius(6px);
+		@include linear-gradient(rgba(#000,0.05), rgba(#000,0.17));
+		@include single-box-shadow(rgba(#000, 0.13), 0px, 1px, 1px, 0);
+		width: 100%; 
+		top: 0px; 
+		left: 0;
+	}
+	
+	&.fill {
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: lighten($orange, 18%);
+		@include linear-gradient(lighten($orange,24%), lighten($orange,12%));
+		width: 50%;
+		height: 12px; 
+		@include border-radius(6px);
+	}
+	
+	&.users {
+		position: absolute;
+		top: -8px;
+		left: 0;
+		&.user {
+			cursor: pointer;
+			width: 30px;
+			height: 30px;
+			text-align: center;
+			@include border-radius(15px);
+			@include linear-gradient(lighten($orange,18%), darken($orange,6%));
+			box-shadow: -1px 0px 1px rgba(darken($orange,10%), 0.5),
+						1px 0px 1px rgba(darken($orange,10%), 0.5);
+			&:active {
+				@include linear-gradient(darken($orange,6%), lighten($orange,18%));
+			}
+		}
+		
+		&.challenger {
+			
+		}
+		
+		.logo {
+			margin: 7px 0 0 7px;
+			height: 15px;
+			width: 15px;
+			img {
+				height: 100%;
+				width: 100%;
+			}
+		}
+		
+		.picture {
+			&.container {
+				margin: 2px 0 0 2px;
+				overflow: hidden;
+				@include single-box-shadow(rgba(#000, 0.35), 1px, 1px, 1px, 0);
+				@include border-radius(15px);
+				height: 25px;
+				width: 25px;
+			}
+			
+			&.wrapper {
+				overflow: hidden;
+				position: static;
+				height: 100%;
+				width: 100%;
+				@include border-radius(15px);
+				img {
+					height: 100%;
+					width: 100%;
+				}
+			}
+		}
+	}
+	
+	&.correct {
+		position: absolute;
+		top: 18px;
+		content: "";
+		display: block; 
+		border-width: 0px 13px 20px 13px;
+		border-style: solid;
+		border-color: rgba(darken($bluegreen,85%), 0) rgba(darken($bluegreen,85%), 0) rgba(darken($bluegreen,85%), 1) rgba(darken($bluegreen,85%), 0);
+		width: 0;
+		height: 0;
+		@include single-box-shadow(rgba($orange, 0.12), 0px, 1px, 1px, 0);
+		font-size: 11px;
+		.check {
+			font-size: 14px;
+			color: rgb(98,230,0);
+			padding-top: 4px;
+			margin: 0 0 0 -6px;
+			width: 30px;
+		}
+		
+		.number {
+			position: absolute;
+			font-weight: bold;
+			top: 22px;
+			left: -39px;
+			font-size: 11px;
+			width: 80px;
+			text-align: center;
+			border: 1px solid;
+			color: darken($bluegreen, 85%);
+			overflow: auto;
+		}
+	}
+}
+
+.bounds {
+	position: absolute;
+	top: 81px;
+	&.min {
+		left: 1px;
+	}
+
+	&.max {
+		right: 1px;
+	}
+	
+	.number {
+		font-size: 11px;
+		color: #aaaaaa;
+	}
+
+	.triangle {
+		margin-bottom: 2px;
+		content: "";
+		display: block; 
+		border-width: 0px 5px 8px 5px;
+		border-style: solid;
+		border-color: rgba(darken($bluegreen,5%), 0) rgba(darken($bluegreen,5%), 0) rgba(darken($bluegreen,5%), 1) rgba(darken($bluegreen,5%), 0);
+		width: 0;
+		height: 0;
+		@include single-box-shadow(rgba($orange, 0.12), 0px, 1px, 1px, 0);
+		&.left {
+			float: left;
+		}
+		&.right {
+			float: right;
+		}
+	}
+}
+
+.buttons {
+	float: left;
+	width: 100%;
+	position: relative;
+	margin-top: 50px;
+	height: 50px;
+	border: 1px solid;
+	.button {
+		position: absolute;
+		width: 100px;
+		height: 26px;
+		text-align: center;
+		cursor: pointer;
+		font-weight: bold;
+		bottom: 8px;
+		@include border-radius(15px);					
+		border: none;
+		@include text-shadow(0px 1px 0 rgba(#000,0.2));
+		@include single-box-shadow(rgba(#000, 0.3), 0px, 1px, 1px, 0);
+		padding-top: 13px;
+		font-size: 12px;
+		&.source {
+			color: #ffffff;
+			left: 7px;
+			&.source {
+				@include linear-gradient(lighten($bluegreen,8%), darken($bluegreen,12%));	
+				&:hover {
+					@include linear-gradient(darken($bluegreen,8%), lighten($bluegreen,12%));	
+				}	
+			}
+		}
+		
+		&.next {
+			color: #333333;
+			right: 7px;
+			&.next {
+				@include linear-gradient(lighten($orange,18%), lighten($orange,1%));
+				&:hover {
+					@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
+				}
+			}
+		}
+	}
+	
+	.rage {
+		
+	}
+}
+
+.input {
+	margin: 10px 0 18px 0;
+	text-align: center;
+	form {
+		
+		input {
+			font-weight: bold;
+			@include border-radius(8px);
+			color: $orange;
+			font-size: 12px;
+			height: 20px;
+			width: 100px;
+			text-align: center;
+			border: none;
+			box-shadow: 1px 1px 1px rgba(darken($orange,40%), 0.7) inset;
+			&:active {
+				box-shadow: -1px 0px 1px rgba(darken($orange,10%), 0.5) inset,
+							1px 0px 1px rgba(darken($orange,10%), 0.5) inset;
+			}
+		}
+		
+		.units {
+			color: darken($orange,10%);
+			font-size: 12px;
+		}
+	}
+}
+
+.submit {
+	form {
+		
+		input {
+			@include fonts;
+			float: left;
+			height: 40px;
+			width: 26%;
+			margin: 20px 0 0 37%;
+			text-align: center;
+			cursor: pointer;
+			font-weight: bold;
+			@include border-radius(15px);					
+			border: none;
+			color: #333333;
+
+			padding-top: 5px;
+			font-size: 14px;
+			@include linear-gradient(lighten($orange,18%), lighten($orange,1%));
+			@include text-shadow(0px 1px 0 rgba(#000,0.2));
+			@include single-box-shadow(rgba(#000, 0.3), 0px, 1px, 1px, 0);
+			&:hover {
+				@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
+			}
+		}
+	}
+}

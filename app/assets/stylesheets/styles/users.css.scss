@@ -1,0 +1,292 @@
+.user {
+	.picture {
+		
+		&.container {
+			overflow: hidden;
+			@include single-box-shadow(rgba(#000, 0.35), 1px, 1px, 1px, 0);
+			float: left;
+		}
+		
+		&.wrapper {
+			overflow: hidden;
+			position: static;
+			height: 100%;
+			width: 100%;
+			img {
+				height: 100%;
+				width: 100%;
+			}
+		}
+	}
+	
+	.name {
+		
+		&.container {
+			font-weight: bold;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			@include text-shadow(0px 1px 0 rgba(#000, 0.15));	
+		}
+	}
+	
+	.rank {
+
+	}
+}
+
+.user.issue {
+	height: 23px;
+	.picture {
+		
+		&.container {
+			width: 21px;
+			height: 21px;
+			margin-left: 2px;
+			@include border-radius(3px);
+		}
+		
+		&.wrapper {
+			@include border-radius(3px);
+		}
+	}
+	
+	.name {
+		
+		&.container {
+			height: 11px;
+			font-size: 10px;
+			color: rgb(92,92,92);			
+			padding-top: 1px;
+		}
+	}
+	
+	.rank {
+		margin: 1px 2px 0 0;
+		color: $bluegreen;
+		float: right;
+		height: 11px;
+		font-size: 7px;
+	}
+	
+	.wins {
+		
+		&.container {
+			margin: 0px 0 0 5px;
+			float: left;
+			font-weight: bold;
+			.colon {
+				float: left;
+				font-size: 9px;
+				margin-top: 5px;
+				color: rgb(152,152,152);
+			}
+			
+			.number {
+				float: left;
+				margin-left: 4px;
+				font-size: 18px;
+				color: darken($orange, 5%);
+
+			}
+		}
+	}
+}
+
+.user.versus {
+	width: 174px;
+	height: 60px;
+	border: 1px solid lighten($orange,25%);
+	@include border-radius(10px);
+	@include single-box-shadow(rgba($orange, 0.45), 1px, 1px, 1px, 0);
+	.picture {
+		
+		&.container {
+			width: 40px;
+			height: 40px;
+			margin-left: 2px;
+			@include border-radius(5px);
+		}
+		
+		&.wrapper {
+			@include border-radius(5px);
+		}
+	}
+	
+	.name {
+		
+		&.container {
+			height: 12px;
+			font-size: 12px;
+			color: rgb(92,92,92);
+			@include text-shadow(0px 1px 0 rgba(#000, 0.2));	
+			padding-top: 1px;
+		}
+	}
+	
+	.rank {
+		
+	}
+}
+
+.user.result {
+	.picture {
+		
+		&.container {
+			
+		}
+		
+		&.wrapper {
+			
+		}
+	}
+	
+	.answer {
+		
+		&.container {
+			
+		}
+	}
+	
+	.score {
+		
+		&.container {
+			
+		}
+	}
+}
+
+.user.result.left {
+	.picture {
+		
+		&.container {
+			
+		}
+		
+		&.wrapper {
+			
+		}
+	}
+	
+	.answer {
+		&.container {
+			
+		}
+	}
+	
+	.score {
+		
+		&.container {
+			
+		}
+	}
+}
+
+.user.result.right {
+	.picture {
+		
+		&.container {
+			
+		}
+		
+		&.wrapper {
+			
+		}
+	}
+	
+	.answer {
+		
+		&.container {
+			
+		}
+	}
+	
+	.score {
+		
+		&.container {
+			
+		}
+	}
+}
+
+.user.profile {
+	.picture {
+		
+		&.container {
+			
+		}
+		
+		&.wrapper {
+			
+		}
+	}
+	
+	.name {
+		
+		&.container {
+			
+		}
+	}
+	
+	.rank {
+		
+	}
+	
+	.stats {
+		
+		.played {
+			
+			&.container {
+				
+			}
+		}
+		
+		.won {
+			
+			&.container {
+				
+			}
+		}
+		
+		.lost {
+			
+			&.container {
+				
+			}
+		}
+		
+		.rank {
+			
+			&.container {
+				
+			}
+		}
+	}
+}
+
+.user.friend {
+	.picture {
+		
+		&.container {
+			width: 30px;
+			height: 30px;
+			margin-left: 2px;
+			@include border-radius(4px);
+		}
+		
+		&.wrapper {
+			@include border-radius(4px);
+		}
+	}
+	
+	.name {
+		
+		&.container {
+			
+		}
+	}
+	
+	.rank {
+		
+	}
+}

@@ -1,0 +1,205 @@
+.issue {
+	min-height: 50px;
+	width: 100%;
+	border-bottom: 1px solid #dddddd;
+	padding: 2px 0 3px 0;
+	overflow: auto;
+	position: relative;
+	.thumbnail {
+	
+		&.container {
+			overflow: hidden;
+			@include single-box-shadow(rgba(#000, 0.35), 1px, 1px, 1px, 0);
+			float: left;
+			margin: 4px 0 0 4px;
+			width: 42px;
+			height: 42px;
+			@include border-radius(8px);
+		}
+		
+		&.wrapper {
+			overflow: hidden;
+			position: static;
+			height: 100%;
+			width: 100%;
+			@include border-radius(8px);
+			img {
+				height: 100%;
+				width: 100%;
+			}
+		}
+	}
+	
+	.title {
+		position: absolute;
+		&.container {
+			top: 20px;
+			left: 53px;
+			height: 15px;
+			width: 135px;					
+			font-weight: bold;
+			color: rgb(92,92,92);
+			font-size: 11px;	
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;	
+			@include text-shadow(0px 1px 0 rgba(#000, 0.15));
+		}
+	}
+	
+	.facts {
+		position: absolute;
+		&.container {
+			top: 33px;
+			left: 53px;
+			font-weight: bold;
+			font-size: 10px;
+			width: 135px;
+			color: rgb(152,152,152);
+			.bluegreen {
+				color: $bluegreen;
+				@include text-shadow(0px 1px 0 rgba(#000, 0.1));	
+			}
+		}
+	}
+	
+	.description {
+		
+		&.container {
+			height: 38px;
+			border-top: 1px solid rgba($bluegreen, 0.25);
+			font-size: 11px;
+			color: rgba(#000, 0.7);
+			line-height: 14px;
+			width: 90%;
+			padding: 4px;
+			margin: 3px 0 4px 5%;
+			float: left;
+			overflow: hidden;
+		}
+	}
+	
+	.challenger {
+
+	}
+	
+	.challengee {
+
+	}
+}
+
+.issue.challenge {
+	.thumbnail {
+	
+		&.container {
+			
+		}
+		
+		&.wrapper {
+			
+		}
+	}
+	
+	.title {
+		
+		&.container {
+			
+		}
+	}
+	
+	.description {
+		
+		&.container {
+			
+		}
+	}
+	
+	.facts {
+		
+		&.container {
+			
+		}
+	}
+}
+
+.popular {
+	.issue {
+		.thumbnail {
+
+			&.container {
+
+			}
+
+			&.wrapper {
+
+			}
+		}
+
+		.title {
+
+			&.container {
+
+			}
+		}
+
+		.description {
+
+			&.container {
+
+			}
+		}
+
+		.facts {
+
+			&.container {
+
+			}
+		}
+
+		.challenger {
+
+		}
+
+		.challengee {
+
+		}
+	}
+}
+
+.issue.versus {
+	height: 80px;
+	width: 90%;
+	.thumbnail {
+		display: none;
+		&.container {
+			
+		}
+		
+		&.wrapper {
+			
+		}
+	}
+	
+	.title {
+		display: none;
+		&.container {
+			
+		}
+	}
+	
+	.challenger {
+		position: absolute;
+		top: 0;
+		left: 0;
+		@include horizontal-gradient(rgba($orange, 0.3), rgba($orange, 0.1));
+		@include border-radius(10px);
+	}
+	
+	.challengee {
+		position: absolute;
+		top: 0;
+		right: 0;
+		@include horizontal-gradient(rgba($orange, 0.1), rgba($orange, 0.3));
+		@include border-radius(10px);
+	}
+}

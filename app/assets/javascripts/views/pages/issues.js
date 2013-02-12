@@ -53,6 +53,6 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 		});
 		this.challenge.save();
 		
-		Backbone.history.navigate('question' + this.challenge.get('id'), true);
+		Backbone.history.navigate(this.challenge.get('id') + '/question' + this.challenge.get('question_ids').split('/')[0], true);
 	}
 });

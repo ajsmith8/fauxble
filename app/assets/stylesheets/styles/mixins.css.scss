@@ -1,0 +1,39 @@
+@mixin fonts {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+@mixin linear-gradient($from, $to) {
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
+  background-image: -webkit-linear-gradient(top, $from, $to);
+  background-image:    -moz-linear-gradient(top, $from, $to);
+  background-image:     -ms-linear-gradient(top, $from, $to);
+  background-image:      -o-linear-gradient(top, $from, $to);
+}
+
+@mixin horizontal-gradient($from, $to) {
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
+  background-image: -webkit-linear-gradient(left, $from, $to);
+  background-image:    -moz-linear-gradient(left, $from, $to);
+  background-image:     -ms-linear-gradient(left, $from, $to);
+  background-image:      -o-linear-gradient(left, $from, $to);
+}
+
+@mixin gradient($color, $percent) {
+	background-image: -webkit-gradient(linear, left top, left bottom, from( lighten($color, $percent) /*{start}*/), to( darken($color, $percent) /*{end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( lighten($color, $percent) /*{start}*/, darken($color, $percent) /*{end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( lighten($color, $percent) /*{start}*/, darken($color, $percent) /*{end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( lighten($color, $percent) /*{start}*/, darken($color, $percent) /*{end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( lighten($color, $percent) /*{start}*/, darken($color, $percent) /*{end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( lighten($color, $percent) /*{start}*/, darken($color, $percent) /*{end}*/);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=lighten($color, $percent), endColorstr=darken($color, $percent));
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=lighten($color, $percent), endColorstr=darken($color, $percent))";
+}
+
+@mixin reverse-gradient($color) {
+	background-image: -webkit-gradient(linear, left top, left bottom, from( darken($color, 10%) /*{start}*/), to( lighten($color, 10%) /*{end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( darken($color, 10%) /*{start}*/, lighten($color, 10%) /*{end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( darken($color, 10%) /*{start}*/, lighten($color, 10%) /*{end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( darken($color, 10%) /*{start}*/, lighten($color, 10%) /*{end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( darken($color, 10%) /*{start}*/, lighten($color, 10%) /*{end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( darken($color, 10%) /*{start}*/, lighten($color, 10%) /*{end}*/);
+}

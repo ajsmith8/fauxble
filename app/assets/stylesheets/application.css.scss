@@ -1,22 +1,18 @@
-/*
-*= require_self
-*= require_tree .
-*/
-
 @import "compass";
-@import "mixins";
-@import "vars";
-@import "achievables";
-@import "answers";
-@import "challenges";
-@import "issues";
-@import "layout";
-@import "questions";
-@import "ranks";
-@import "sliders";
-@import "sources";
-@import "tasks";
-@import "users";
+@import "styles/vars";
+@import "styles/mixins";
+@import "styles/sliders";
+@import "styles/achievables";
+@import "styles/answers";
+@import "styles/challenges";
+@import "styles/issues";
+@import "styles/layout";
+@import "styles/questions";
+@import "styles/ranks";
+@import "styles/sources";
+@import "styles/tasks";
+@import "styles/users";
+
 .hide {
 	display: none;
 }

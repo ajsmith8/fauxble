@@ -1,0 +1,122 @@
+html {
+	height: 100%;
+}
+
+body {
+	@include fonts;
+	margin: 0 3px 3px 3px;
+	padding: 0 2px 2px 2px;
+	@include fonts;
+	/*box-shadow: -2px -1px 2px rgba(darken($bluegreen,10%), 0.3),
+				2px 1px 2px rgba(darken($bluegreen,10%), 0.3);
+	@include border-radius(6px);*/
+	height: 92%;
+	background: rgb(238,238,238);
+}
+
+.header {
+	height: 40px;
+	margin: 0 -5px 0px -5px;
+	@include linear-gradient(lighten($black,15%), darken($black,15%));
+	@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);
+}
+
+.page {
+	width: 932px;
+	margin: 0 auto;
+	height: 650px;
+	background: rgb(249,249,249);
+	margin-top: 2px;
+	border: 1px solid rgb(244,244,244);
+	border-top: none;
+	@include border-bottom-radius(12px);
+}
+
+.column {
+	position: absolute;
+	background: #ffffff;
+	@include border-radius(12px);
+	margin-top: 12px;
+	border: 1px solid rgb(229,229,229);
+	@include single-box-shadow(rgb(229,229,229), 1px, 1px, 1px, 0);
+	&.right {
+		height: 622px;
+		margin-left: 366px;
+		width: 549px;
+		padding-right: 1px;
+	}
+	
+	&.left {
+		
+		&.top {
+			margin-left: 14px;
+			width: 336px;
+			height: 400px;
+		}
+		
+		&.bottom {
+			margin-left: 14px;
+			width: 336px;
+			height: 208px;
+			margin-top: 426px;
+		}
+	}
+}
+
+/* different pages */
+
+.video {
+	/* */
+}
+
+.your-challenges {
+	/* 
+	issue 
+	user
+	*/
+}
+
+.new-challenge {
+	/* 
+	user
+	*/
+}
+
+.issue-select {
+	/* 
+	issue
+	user 
+	*/
+}
+
+.challenge-question {
+	/* 
+	issue
+	question
+	user
+	*/
+}
+
+.challenge-results {
+	/* 
+	question
+	user
+	*/
+}
+
+.profile {
+	/* 
+	user 
+	*/
+}
+
+.signin {
+	/* */
+}
+
+.feed {
+	/* 
+	issue 
+	user
+	*/	
+}
