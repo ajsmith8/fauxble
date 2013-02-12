@@ -54,7 +54,8 @@ Fauxble.Views.PagesNew = Backbone.View.extend({
 	appendUser: function(user, element) {
 		var view = new Fauxble.Views.UsersShow({
 			attr: this.attr,
-			user: user
+			user: user,
+			is_sidebar: false
 		});
 		this.subviews.push(view);
 		$(element).append(view.render().el);
@@ -72,5 +73,16 @@ Fauxble.Views.PagesNew = Backbone.View.extend({
 		});
 		this.challenge.save();
 		Backbone.history.navigate('issues' + this.challenge.get('id'), true);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

@@ -1,26 +1,35 @@
-<div id = 'winning'>
-	<div>
-		<% if (winner.user.get('signed_in_fb')) { %>
-			<img src = 'https://graph.facebook.com/<%= winner.user.get('uid') %>/picture' />
-		<% } else { %>
-			<img src = 'assets/misc/user.png' />
-		<% } %>
+<div id = 'winning' class = 'winning'>
+	<div class = 'picture container'>
+		<div class = 'picture wrapper'>
+			<% if (winner.user.get('signed_in_fb')) { %>
+				<img src = 'https://graph.facebook.com/<%= winner.user.get('uid') %>/picture' />
+			<% } else { %>
+				<img src = 'assets/misc/user.png' />
+			<% } %>
+		</div>
 	</div>
-	<div><%= winner.user.get('name') %></div>
-	<div id = 'rank'></div>
+	<div class = 'name container'>
+		<div class = 'name'><%= winner.user.get('name') %></div>
+	</div>
+	<div id = 'rank' class = 'rank'></div>
 </div>
-<div id = 'win_loss'>
-	<div><%= winner.wins %></div>
-	<div><%= loser.wins %></div>
+<div id = 'win_loss' class = 'win-loss'>
+	<span class = 'number'><%= winner.wins %></span>
+	<span class = 'colon'>:</span>
+	<span class = 'number'><%= loser.wins %></span>
 </div>
-<div id = 'losing'>
-	<div><%= loser.user.get('name') %></div>
-	<div id = 'rank'></div>
-	<div>
-		<% if (loser.user.get('signed_in_fb')) { %>
-			<img src = 'https://graph.facebook.com/<%= loser.user.get('uid') %>/picture' />
-		<% } else { %>
-			<img src = 'assets/misc/user.png' />
-		<% } %>
+<div id = 'losing' class = 'losing'>
+	<div class = 'name container'>
+		<div class = 'name'><%= loser.user.get('name') %></div>
+	</div>
+	<div id = 'rank' class = 'rank'></div>
+	<div class = 'picture container'>
+		<div class = 'picture wrapper'>
+			<% if (loser.user.get('signed_in_fb')) { %>
+				<img src = 'https://graph.facebook.com/<%= loser.user.get('uid') %>/picture' />
+			<% } else { %>
+				<img src = 'assets/misc/user.png' />
+			<% } %>
+		</div>
 	</div>
 </div>

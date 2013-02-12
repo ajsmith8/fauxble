@@ -1,0 +1,13 @@
+<div class = 'title container'>
+	<div class = 'title'><%= issue.get('title') %></div>
+</div>
+<div class = 'thumbnail container'>
+	<div class = 'thumbnail wrapper'>
+		<img src = 'assets/issues/<%= issue.get('image') %>.png' />
+	</div>
+</div>
+<div class = 'rank'>
+	<span class = 'user'><%= rank.user %></span>
+	<span class = 'text'>of</span>
+	<span class = 'users'><%= rank.users %></span>
+</div>

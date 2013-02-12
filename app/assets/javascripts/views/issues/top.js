@@ -9,6 +9,7 @@ Fauxble.Views.IssuesTop = Backbone.View.extend({
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.issues = options.issues;
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -26,10 +27,22 @@ Fauxble.Views.IssuesTop = Backbone.View.extend({
 	},
 	
 	appendIssue: function(issue) {
-		var view = new Fauxble.Views.IssuesShow({ //better fix that at some point eh?
-			attr: this.attr,
+		var view = new Fauxble.Views.IssuesShowTop({ //better fix that at some point eh?
+			attr: this.attr,						// need a new issue view with a rank ie: 14 of 175
 			issue: issue
 		});
+		this.subviews = [];
 		$(this.el).append(view.render().el);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

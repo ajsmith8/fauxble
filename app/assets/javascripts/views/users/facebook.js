@@ -80,6 +80,17 @@ Fauxble.Views.UsersFacebook = Backbone.View.extend({
 		});
 		this.challenge.save();
 		Backbone.history.navigate('issues' + this.challenge.get('id'), true);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });
 //alphabet scroll

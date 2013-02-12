@@ -52,5 +52,16 @@ Fauxble.Views.QuestionsShow = Backbone.View.extend({
 		});
 		this.subviews.push(view);
 		$(this.el).find('#slider_or_answers').html(view.render().el);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

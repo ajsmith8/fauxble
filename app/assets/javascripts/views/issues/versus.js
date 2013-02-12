@@ -39,5 +39,16 @@ Fauxble.Views.IssuesVersus = Backbone.View.extend({
 		});
 		this.subviews.push(view);
 		$(element).html(view.render().el);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });
