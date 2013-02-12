@@ -23,7 +23,7 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 	
 	setRoundSpecifics: function() {
 		if (this.user.get('id') === this.challenge.get('challenger_id')) {
-			this.answer_template = JST['answers/show_second'];
+			this.answer_template = JST['answers/show_first'];
 			this.users = {
 				challenger: this.user,
 				user: null
@@ -61,7 +61,7 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 	appendAnswer: function(answer) {
 		var view = new Fauxble.Views.AnswersShow({
 			attr: this.attr,
-			answer: this.answer,
+			answer: answer,
 			users: this.users,
 			template: this.answer_template
 		});
@@ -145,7 +145,7 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 		$(this.el).find('#rage').html(view.render().el);
 	},
 	
-	showNextandSource: function() {
+	showNextAndSource: function() {
 		$(this.el).find('#after_submit').removeClass('hide');
 	},
 	
@@ -157,6 +157,7 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 		if (this.next_question) {
 			Backbone.history.navigate(this.challenge.get('id') + '/question' + this.next_question.get('id'), true);
 		} else {
+			this.challenge.setSentOrFinished(this.task);
 			Backbone.history.navigate('challenge' + this.challenge.get('id'), true);
 		}
 	}

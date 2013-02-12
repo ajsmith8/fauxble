@@ -18,9 +18,9 @@ Fauxble.Models.Slider = Backbone.Model.extend({
 		var self = this;
 		$(document).on(type, function(event) {
 			if (type === 'touchmove') {
-				this.moveSlider(event.originalEvent.touches[0].pageX, element);
+				self.moveSlider(event.originalEvent.touches[0].pageX, element);
 			} else {
-				this.moveSlider(event.pageX, element);
+				self.moveSlider(event.pageX, element);
 			}
 		});
 	},

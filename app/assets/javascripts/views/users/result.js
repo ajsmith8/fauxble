@@ -44,7 +44,7 @@ Fauxble.Views.UsersResult = Backbone.View.extend({
 	},
 	
 	getAnswer: function() {
-		var slider = this.sliders.where({question_id: this.question.get('id')})[0];
+		var slider = this.attr.sliders.where({question_id: this.question.get('id')})[0],
 			answer;
 		
 		if (this.task) {

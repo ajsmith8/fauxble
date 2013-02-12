@@ -8,7 +8,7 @@ Fauxble.Views.QuestionsResult = Backbone.View.extend({
 	
 	initialize: function(options) {
 		this.attr = options.attr;
-		this.challenge = options.attr;
+		this.challenge = options.challenge;
 		this.question = options.question;
 		this.user = this.attr.users.get(this.attr.current_user.get('id'));
 		
@@ -45,8 +45,8 @@ Fauxble.Views.QuestionsResult = Backbone.View.extend({
 		}));
 		
 		setTimeout(function() {
-			self.renderUser(this.users.current, $(this.el).find('#user_right'), true);
-			self.renderUser(this.users.opponent, $(this.el).find('#user_left'), false);
+			self.renderUser(self.users.current, $(self.el).find('#user_right'), true);
+			self.renderUser(self.users.opponent, $(self.el).find('#user_left'), false);
 		}, 0);
 		
 		return this;

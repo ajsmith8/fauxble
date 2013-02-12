@@ -1,7 +1,7 @@
 Fauxble.Views.PagesResults = Backbone.View.extend({
 	
 	template: JST['pages/results'],
-	
+
 	events: {
 		'click #finish' : 'sendOrFinish'
 	},
@@ -10,7 +10,8 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 		this.attr = options.attr;
 		this.challenge = options.challenge;
 		this.question_ids = this.challenge.get('question_ids').split('/');
-		this.time = 500;
+		this.time = 1000;
+		this.questions = [];
 		for (i = 0; i < this.question_ids.length; i++) {
 			this.questions.push(this.attr.questions.get(parseInt(this.question_ids[i])));
 		}
@@ -39,13 +40,17 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 	},
 	
 	showResults: function() {
-		var self = this;
-		
-		for (q = 0; q < this.questions.length; q++) {
-			setTimeout(function() {
-				self.renderResult(self.questions[q]);
-			}, self.time + (self.time * q));
-		}
+		var self = this,
+			count = 0,
+			inter;
+
+		inter = setInterval(function() {
+			if (count >= self.questions.length) {
+				clearInterval(inter);
+			}
+			self.renderResult(self.questions[count]);
+			count = count + 1;
+		}, self.time);
 		
 		this.showButton(self.time * (this.questions.length + 1));
 	},
