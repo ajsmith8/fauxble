@@ -1,0 +1,162 @@
+.user {
+	.stars {
+		position: relative;
+		&.filled {
+
+		}
+
+		&.active {
+			
+			.star {
+				
+				&.container {
+					
+				}
+			}
+			
+			.ring {
+				position: absolute;
+				top:0;
+				left:0;
+				input {
+
+				}
+			}
+		}
+	}
+}
+
+.user.versus {
+	.stars {
+
+		&.filled {
+
+		}
+
+		&.active {
+			
+			.star {
+				
+				&.container {
+					
+				}
+			}
+			
+			.ring {
+				
+				input {
+
+				}
+			}
+		}
+	}
+}
+
+.user.profile {
+	.stars {
+
+		&.filled {
+
+		}
+
+		&.active {
+			
+			.star {
+				
+				&.container {
+					
+				}
+			}
+			
+			.ring {
+				
+				input {
+
+				}
+			}
+		}
+	}
+}
+
+.user.issue {
+	.stars {
+		overflow: hidden;
+		height: 20px;
+		position: relative;
+		&.filled {
+			.star {
+				
+				&.container {
+					
+				}
+			}
+			
+			.ring {
+				position: absolute;
+				top:0;
+				left:0;
+				overflow: hidden;
+				height: 20px;
+				input {
+
+				}
+			}
+		}
+
+		&.active {
+			
+		}
+	}
+}
+
+.user.friend {
+	.stars {
+		
+		&.filled {
+
+		}
+
+		&.active {
+			
+			.star {
+				
+				&.container {
+					
+				}
+			}
+			
+			.ring {
+
+				input {
+
+				}
+			}
+		}
+	}
+}
+
+.history {
+	.stars {
+
+		&.filled {
+
+		}
+
+		&.active {
+			
+			.star {
+				
+				&.container {
+					
+				}
+			}
+			
+			.ring {
+				
+				input {
+
+				}
+			}
+		}
+	}
+}

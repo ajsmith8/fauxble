@@ -1,0 +1,321 @@
+.issue {
+	width: 90%;
+	margin-left: 5%;
+	border-bottom: 1px solid #dddddd;
+	padding: 2px 0 3px 0;
+	overflow: auto;
+	position: relative;
+	.thumbnail {
+	
+		&.container {
+			overflow: hidden;
+			@include single-box-shadow(rgba(#000, 0.35), 1px, 1px, 1px, 0);
+			float: left;
+			margin: 4px 0 0 4px;
+			width: 42px;
+			height: 42px;
+			@include border-radius(8px);
+		}
+		
+		&.wrapper {
+			overflow: hidden;
+			position: static;
+			height: 100%;
+			width: 100%;
+			@include border-radius(8px);
+			img {
+				height: 100%;
+				width: 100%;
+			}
+		}
+	}
+	
+	.title {
+		position: absolute;
+		&.container {
+			top: 20px;
+			left: 53px;
+			height: 15px;
+			width: 135px;					
+			font-weight: bold;
+			color: rgb(92,92,92);
+			font-size: 11px;	
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;	
+			@include text-shadow(0px 1px 0 rgba(#000, 0.15));
+		}
+	}
+	
+	.facts {
+		position: absolute;
+		&.container {
+			top: 33px;
+			left: 53px;
+			font-weight: bold;
+			font-size: 10px;
+			width: 135px;
+			color: rgb(152,152,152);
+			.bluegreen {
+				color: $bluegreen;
+				@include text-shadow(0px 1px 0 rgba(#000, 0.1));	
+			}
+		}
+	}
+	
+	.description {
+		
+		&.container {
+			height: 38px;
+			border-top: 1px solid rgba($bluegreen, 0.25);
+			font-size: 11px;
+			color: rgba(#000, 0.7);
+			line-height: 14px;
+			width: 90%;
+			padding: 4px;
+			margin: 3px 0 4px 5%;
+			float: left;
+			overflow: hidden;
+		}
+	}
+	
+	.challenger {
+		position: absolute;
+		top: 2px;
+		right: 60px;
+		height: 30px;
+		width: 180px;
+	}
+	
+	.challengee {
+		position: absolute;
+		top: 26px;
+		right: 60px;
+		height: 30px;
+		width: 180px;
+	}
+}
+
+.issue.challenge {
+	.thumbnail {
+	
+		&.container {
+			
+		}
+		
+		&.wrapper {
+			
+		}
+	}
+	
+	.title {
+		
+		&.container {
+			
+		}
+	}
+	
+	.description {
+		
+		&.container {
+			
+		}
+	}
+	
+	.facts {
+		
+		&.container {
+			
+		}
+	}
+}
+
+.popular {
+	.issue {
+		position: relative;
+		overflow: hidden;
+		height: 30px;
+		border: none;
+		.thumbnail {
+				
+			&.container {
+				overflow: hidden;
+				@include single-box-shadow(rgba(#000, 0.35), 1px, 1px, 1px, 0);
+				float: left;
+				margin: 4px 0 0 4px;
+				width: 25px;
+				height: 25px;
+				@include border-radius(5px);
+			}
+
+			&.wrapper {
+				overflow: hidden;
+				position: static;
+				height: 100%;
+				width: 100%;
+				@include border-radius(5px);
+				img {
+					height: 100%;
+					width: 100%;
+				}
+			}
+		}
+
+		.title {
+
+			&.container {
+				position: absolute;
+				top: 12px;
+				left: 37px;
+				width: 193px;
+				font-size: 11px;
+				color: rgb(112,112,112);
+				@include text-shadow(0px 1px 0 rgba(#000,0.1));
+			}
+		}
+		
+		.rank {
+			position: absolute;
+			top: 10px;
+			right: 12px;
+			text-align: center;
+			width: 30px;
+			color: darken($bluegreen, 10%);
+			font-size: 15px;
+			font-weight: bold;
+			@include text-shadow(0px 1px 0 rgba(#000,0.2));
+		}
+	}
+}
+
+.issue.versus {
+	height: 80px;
+	width: 90%;
+	.thumbnail {
+		display: none;
+		&.container {
+			
+		}
+		
+		&.wrapper {
+			
+		}
+	}
+	
+	.title {
+		display: none;
+		&.container {
+			position: absolute;
+			bottom: 0;
+			color: #ffffff;
+			border-bottom: none;						
+			@include border-top-radius(9px);
+			text-align: center;
+			padding: 2px 0 1px 0;
+			@include linear-gradient(lighten($bluegreen,8%), darken($bluegreen,12%));
+		}
+	}
+	
+	.challenger {
+		width: 175px;
+		position: absolute;
+		top: 12px;
+		left: 35px;
+		@include horizontal-gradient(rgba($orange, 0.3), rgba($orange, 0.1));
+		@include border-radius(10px);
+		height: 50px;
+		border: 1px solid lighten($orange,25%);
+		@include single-box-shadow(rgba($orange, 0.45), 1px, 1px, 1px, 0);
+		.picture {
+			&.container {
+				top: 5px;
+				left: 5px;
+			}
+		}
+		.name {
+			&.container {
+				left: 55px;
+			}
+		}
+		.rank {
+			left: 55px;
+		}
+	}
+	
+	.challengee {
+		width: 175px;
+		position: absolute;
+		top: 12px;
+		right: 35px;
+		@include horizontal-gradient(rgba($orange, 0.1), rgba($orange, 0.3));
+		@include border-radius(10px);
+		height: 50px;
+		border: 1px solid lighten($orange,25%);
+		@include single-box-shadow(rgba($orange, 0.45), -1px, 1px, 1px, 0);
+		.picture {
+			&.container {
+				top: 5px;
+				right: 2px;
+			}
+		}
+		.name {
+			&.container {
+				right: 50px;
+			}
+		}
+		.rank {
+			right: 50px;
+		}
+	}
+}
+
+.container_header {
+	height: 15px;
+	width: 100%;
+	text-align: center;
+	padding: 2px 0 0 0;
+	color: #ffffff;
+	font-size: 11px;
+	font-weight: bold;
+	border: 1px solid;
+	border-color: rgba($bluegreen,0.9);				
+	@include text-shadow(0px 1px 0 rgba(#000, 0.3));
+	border-bottom: 1px solid rgba(#000, 0.06);	
+	/*@include linear-gradient(lighten($bluegreen,8%), darken($bluegreen,12%));*/
+	background-image: url(misc/green_texture.png); background-repeat: repeat;
+	@include border-top-radius(11px);
+}
+
+.versus {
+	&.container {
+		margin-top: 30px;
+		text-align: center;
+		font-size: 12px;
+		font-weight: bold;
+		color: rgba(#000, 0.7);
+		@include text-shadow(0px 1px 0 rgba(#000,0.2));
+	}
+}
+
+.popular_issues_header {
+	margin-top: 53px;
+	overflow: auto;
+	padding: 4px;
+	border-bottom: 1px solid rgba(#000,0.15);
+	font-size: 13px;
+	font-weight: bold;
+	color: rgb(92,92,92);
+	@include text-shadow(0px 1px 0 rgba(#000,0.15));
+	.most_popular_issues_text {
+		float: left;
+		margin-left: 16px;
+	}
+	.your_rank_text {
+		float: right;
+		margin-right: 8px;
+	}
+}
+
+.topleft_issues {
+	position: relative;
+}

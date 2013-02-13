@@ -1,0 +1,192 @@
+html {
+	height: 100%;
+}
+
+body {
+	@include fonts;
+	margin: 0 3px 3px 3px;
+	padding: 0 2px 2px 2px;
+	@include fonts;
+	/*box-shadow: -2px -1px 2px rgba(darken($bluegreen,10%), 0.3),
+				2px 1px 2px rgba(darken($bluegreen,10%), 0.3);
+	@include border-radius(6px);*/
+	height: 92%;
+	/*background: rgb(238,238,238);*/
+	background-image: url(misc/gray_jean.png); background-repeat: repeat;
+}
+
+.header {
+	height: 40px;
+	margin: 0 -5px 0px -5px;
+	@include linear-gradient(lighten($black,15%), darken($black,15%));
+	@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);
+}
+
+.page {
+	width: 932px;
+	margin: 0 auto;
+	height: 650px;
+	/*background: rgb(249,249,249);*/
+	background-image: url(misc/243.png); background-repeat: repeat;
+	margin-top: 2px;
+	border: 1px solid rgb(230,230,230);
+	border-top: none;
+	@include border-bottom-radius(12px);
+}
+
+.column {
+	position: absolute;
+	/*background: #ffffff;*/
+	background-image: url(misc/253.png); background-repeat: repeat;
+	@include border-radius(12px);
+	margin-top: 12px;
+	border: 1px solid rgb(229,229,229);
+	@include single-box-shadow(rgb(229,229,229), 1px, 1px, 1px, 0);
+	&.right {
+		height: 622px;
+		margin-left: 361px;
+		width: 554px;
+		padding-right: 1px;
+	}
+	
+	&.left {
+		
+		&.top {
+			margin-left: 14px;
+			width: 331px;
+			height: 400px;
+		}
+		
+		&.bottom {
+			margin-left: 14px;
+			width: 331px;
+			height: 208px;
+			margin-top: 426px;
+			margin-left: 14px;
+			
+			.chat {
+				&.chat_text {
+					margin-top: 12px;
+					text-align: center;
+					color: #bbbbbb;
+				}
+
+				&.logo {
+					margin: 0 auto;
+					margin-top: 57px;
+					width: 40px;
+					height: 40px;
+					overflow: hidden;	
+					@include border-radius(5px);
+						.image_wrapper {
+							@include border-radius(5px);
+						}
+				}
+			}
+		}
+	}
+}
+
+/* different pages */
+
+.video {
+	/* */
+}
+
+.your-challenges {
+	/* 
+	issue 
+	user
+	*/
+}
+
+.new-challenge {
+	/* 
+	user
+	*/
+}
+
+.issue-select {
+	/* 
+	issue
+	user 
+	*/
+}
+
+.challenge-question {
+	/* 
+	issue
+	question
+	user
+	*/
+}
+
+.challenge-results {
+	/* 
+	question
+	user
+	*/
+}
+
+.profile {
+	/* 
+	user 
+	*/
+}
+
+.signin {
+	/* */
+}
+
+.feed {
+	/* 
+	issue 
+	user
+	*/	
+}
+
+.results_container {
+	float: left;
+	@include border-radius(12px);
+	width: 90%;
+	margin: 12px 0 0 5%;
+	border: 1px solid;
+	background-image: url(misc/243.png); background-repeat: repeat;
+	@include single-box-shadow(rgba($bluegreen, 0.2), 1px, 1px, 1px, 0);
+	border: 1px solid rgba($bluegreen, 0.45);
+	.won_lost_wait_text {
+		color: darken($bluegreen,5%);
+		@include text-shadow(1px 1px 0 rgba(#000, 0.15));	
+		font-weight: bold;
+		position: relative;
+		float: left;
+		text-align: center;
+		width: 100%;
+		margin: 5px 0 5px 0;
+		font-size: 14px;
+		.points_header_text {
+			position: absolute;
+			font-size: 12px;
+			right: 26px;
+			top: 2px;
+			text-decoration: underline;
+		}
+	}
+}
+
+.left_container_header {
+	height: 15px;
+	width: 99.7%;
+	text-align: center;
+	padding: 2px -0 0 0;
+	color: #ffffff;
+	font-size: 11px;
+	font-weight: bold;
+	border: 1px solid;
+	border-color: rgba($bluegreen,0.9);	
+	border-bottom: 1px solid rgba(#000, 0.06);			
+	@include text-shadow(0px 1px 0 rgba(#000, 0.3));
+	/*@include linear-gradient(lighten($bluegreen,8%), darken($bluegreen,12%));*/
+	background-image: url(misc/green_texture.png); background-repeat: repeat;
+	@include border-top-radius(11px);
+}
