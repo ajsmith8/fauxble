@@ -25,7 +25,7 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 		
 		if (user) {
 			if (issue) {
-				ranks = this.where({user_id: user.get('id'), issue_id: issue.get('id')})[0];
+				ranks = this.where({user_id: user.get('id'), issue_id: issue.get('id')});
 			} else {
 				ranks = this.where({user_id: user.get('id')});
 			}

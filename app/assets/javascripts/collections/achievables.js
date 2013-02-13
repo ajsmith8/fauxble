@@ -3,11 +3,38 @@ Fauxble.Collections.Achievables = Backbone.Collection.extend({
 	model: Fauxble.Models.Achievable,
 	url: 'achievables',
 	
-	//initialize: function(models, options) {
-		//this.attr = options.attr;
+	initialize: function(models, options) {
+		this.tasks = options.tasks;
+		this.challenges = options.challenges;
+		this.issues = options.issues;
+		this.users = options.users;
+		this.user_achievables = options.user_achievables;
 		
+		this.tasks.on('add', this.checkTaskAchievable, this);
+		this.challenges.on('add', this.checkChallengeAchievable, this);
+	},
+	
+	checkTaskAchievable: function(model) {
+		var achievables = this.where(), //no idea
+			achievable = null;
 		
-	//}
+		for (i = 0; i < achievables.length; i++) {
+			if (this.user_achievables.where({achievable_id: achievables[i].get('id'), user_id: model.get('user_id')})[0]) {
+				if (achievables[i + 1]) {
+					achievable = achievables[i + 1];
+				}
+				break;
+			}
+		}
+		
+		if (this.tasks.where({user_id: model.get('user_id')}).length === achievable.get('count')) {
+			this.user_achievables.createUserAchievable(this.users.get(model.get('user_id')), achievable);
+		}
+	},
+	
+	checkChallengeAchievable: function(model) {
+		
+	}
 	// ***ACHIEVABLES FOR THIS VERSION***
 	// learned 4 facts (answered 4 questions) 	-> check for this upon task creation
 	// lost 3 games in a row					-> when challenge winner_id is set sort and check past 3 challenges	

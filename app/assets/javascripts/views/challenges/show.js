@@ -39,7 +39,7 @@ Fauxble.Views.ChallengesShow = Backbone.View.extend({
 			issue: this.issue
 		});
 		this.subviews.push(view);
-		$(this.el).find('issue').html(view.render().el);
+		$(this.el).find('#issue').html(view.render().el);
 	},
 	
 	renderUser: function(id1, id2, element) {
