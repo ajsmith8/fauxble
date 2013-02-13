@@ -44,8 +44,8 @@ body {
 	@include single-box-shadow(rgb(229,229,229), 1px, 1px, 1px, 0);
 	&.right {
 		height: 622px;
-		margin-left: 366px;
-		width: 549px;
+		margin-left: 361px;
+		width: 554px;
 		padding-right: 1px;
 	}
 	
@@ -53,15 +53,36 @@ body {
 		
 		&.top {
 			margin-left: 14px;
-			width: 336px;
+			width: 331px;
 			height: 400px;
 		}
 		
 		&.bottom {
 			margin-left: 14px;
-			width: 336px;
+			width: 331px;
 			height: 208px;
 			margin-top: 426px;
+			margin-left: 14px;
+			
+			.chat {
+				&.chat_text {
+					margin-top: 12px;
+					text-align: center;
+					color: #bbbbbb;
+				}
+
+				&.logo {
+					margin: 0 auto;
+					margin-top: 57px;
+					width: 40px;
+					height: 40px;
+					overflow: hidden;	
+					@include border-radius(5px);
+						.image_wrapper {
+							@include border-radius(5px);
+						}
+				}
+			}
 		}
 	}
 }
@@ -151,4 +172,21 @@ body {
 			text-decoration: underline;
 		}
 	}
+}
+
+.left_container_header {
+	height: 15px;
+	width: 99.7%;
+	text-align: center;
+	padding: 2px -0 0 0;
+	color: #ffffff;
+	font-size: 11px;
+	font-weight: bold;
+	border: 1px solid;
+	border-color: rgba($bluegreen,0.9);	
+	border-bottom: 1px solid rgba(#000, 0.06);			
+	@include text-shadow(0px 1px 0 rgba(#000, 0.3));
+	/*@include linear-gradient(lighten($bluegreen,8%), darken($bluegreen,12%));*/
+	background-image: url(misc/green_texture.png); background-repeat: repeat;
+	@include border-top-radius(11px);
 }

@@ -259,19 +259,28 @@
 }
 
 .user.profile {
+	height: 65px;
+	border-bottom: 1px solid rgb(217,217,217);
+	position: relative;
 	.picture {
 		
 		&.container {
-			
+			position: absolute;
+			top: 7px;
+			left: 250px;
+			width: 50px;
+			height: 50px;
+			@include border-radius(10px);
+			@include single-box-shadow(rgba(#000, 0.4), 1px, 1px, 1px, 0);
 		}
 		
 		&.wrapper {
-			
+			@include border-radius(10px);
 		}
 	}
 	
 	.name {
-		
+		display: none;
 		&.container {
 			
 		}
@@ -282,26 +291,46 @@
 	}
 	
 	.stats {
+		position: absolute;
+		width: 160px;
+		font-size: 12px;
+		font-weight: bold;
+		text-align: right;
+		top: 3px;
+		right: 10px;
+		@include text-shadow(0px 1px 0 rgba(#000, 0.16));
 		
 		.played {
-			
+			margin-top: 5px;
+			color: rgba(#000, 0.60);
 			&.container {
 				
 			}
 		}
 		
 		.won {
-			
+			margin-top: 5px;
+			color: rgba(#000, 0.55);
 			&.container {
 				
 			}
 		}
 		
 		.lost {
-			
+			margin-top: 5px;
+			color: rgba(#000, 0.50);
 			&.container {
 				
 			}
+		}
+		
+		.right {
+			margin: -1px 0 0 3px;
+			font-size: 14px;
+			float: right;
+			width: 52px;
+			text-align: left;
+			color: darken($bluegreen, 10%);
 		}
 		
 		.rank {
@@ -360,28 +389,79 @@
 }
 
 .user.sidebar {
+	position: relative;
 	.picture {
 		
 		&.container {
-			
+			position: absolute;
+			top: 7px;
+			left: 7px;
+			width: 35px;
+			height: 35px;
+			@include border-radius(6px);
+			@include single-box-shadow(rgba(#000, 0.35), 1px, 1px, 1px, 0);
 		}
 		
 		&.wrapper {
-			
+			@include border-radius(6px);
 		}
 	}
 	
 	.name {
 		
 		&.container {
-			
+			position: absolute;
+			top: 8px;
+			left: 48px;
+			height: 11px;
+			font-size: 12px;
+			color: rgb(92,92,92);
+			@include text-shadow(0px 1px 0 rgba(#000, 0.15));	
+			padding-top: 1px;
 		}
 	}
 	
+	.rank {
+		position: absolute;
+		top: 22px;
+		left: 48px;
+		color: $bluegreen;
+		height: 11px;
+		width: 50px;
+		border: 1px solid;
+		font-size: 11px;
+		@include text-shadow(1px 1px 0 rgba(#000, 0.15));
+	}
+	
 	.button {
-		
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		cursor: pointer;
+		@include border-radius(12px);
+		@include linear-gradient(lighten($orange,18%), lighten($orange,1%));
+		@include fonts;
+		float: left;
+		height: 21px;
+		padding-top: 9px;
+		width: 100px;
+
+		color: #555555;
+		font-size: 11px;
+		border: none;
+		text-align: center;
+
+		@include single-box-shadow(rgba(#000, 0.25), 1px, 1px, 1px, 0);
+		@include text-shadow(0px 1px 0 rgba(#000,0.15));	
+		font-weight: bold;
+		&:hover {
+			@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
+		}
 		.profile {
-			
+
+		}
+		.back {
+			display: none;
 		}
 	}
 }
