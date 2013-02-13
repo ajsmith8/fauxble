@@ -30,8 +30,14 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 	getVersusScore: function(user, ids, challenge) {
 		var score = 0;
 		
-		if (ids.length === 0) {
-			
+		if (ids.length > 1) {
+			for (i = 0; i < ids.length - 1; i++) {
+				if (this.where({challenge_id: challenge.get('id'), user_id: user.get('id'), question_id: ids[i]})[0]) {
+					score = score + this.where({challenge_id: challenge.get('id'), user_id: user.get('id'), question_id: ids[i]})[0].get('score');	
+				}
+			}
 		}
+		
+		return score;
 	}
 });

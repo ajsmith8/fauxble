@@ -171,6 +171,7 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 			score = obj.score;
 			
 			task = this.attr.tasks.createTask(this.question, this.challenge, this.user, null, answer, score, 0);
+			this.user.trigger('submit', score);
 			
 			if (this.task) {
 				this.showRageComic(task);

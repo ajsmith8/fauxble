@@ -158,7 +158,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		$('.right.column').html(view.render().el);
 		
 		if ($(view.el).find('#versus').children().length === 0) {
-			this.versus(this.attr.challenges.get(parseInt(id)), view);
+			this.versus(this.attr.challenges.get(parseInt(c_id)), view);
 		}
 	},
 	

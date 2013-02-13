@@ -114,6 +114,7 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 			this.is_answered = true;
 			score = Math.round((this.time - this.timer) / 150);
 			task = this.attr.tasks.createTask(this.question, this.challenge, this.user, answer_id, null, score, this.timer);
+			this.user.trigger('submit', score);
 			
 			if (this.task) {
 				this.showRageComic(task);
