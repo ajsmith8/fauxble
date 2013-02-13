@@ -51,14 +51,14 @@ Fauxble.Views.PagesSignin = Backbone.View.extend({
 	createUser: function(event) {
 		event.preventDefault();
 		
-		var name = $('#name').val(),
+		var name = $('#user_name').val(),
 			password = $('#password').val(),
 			confirm = $('#confirm_password').val();
 		
 		//start loading 'waiting for authentication'	
 		if (this.attr.users.authenticateUser(name, password, confirm, 6)) {
 			//stop loading
-			//redirect to challenges
+			Backbone.history.navigate('', true);
 		} else {
 			//stop loading
 			//reset input fields

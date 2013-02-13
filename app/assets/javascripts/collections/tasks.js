@@ -3,7 +3,7 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 	model: Fauxble.Models.Task,
 	url: 'tasks',
 	
-	createTask: function(question, challenge, user, answer_id, answer, score, time) {
+	createTask: function(question, challenge, user, answer_id, answer, score, time, ranks) {
 		var task = this.where({
 			issue_id: question.get('issue_id'),
 			question_id: question.get('id'),
@@ -22,6 +22,8 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 				score: score,
 				time: time
 			});
+			
+			ranks.createRank(user, challenge, score);
 		}
 		
 		return task;
