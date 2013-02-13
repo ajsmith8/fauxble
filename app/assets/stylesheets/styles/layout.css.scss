@@ -215,3 +215,11 @@ body {
 	background-image: url(misc/green_texture.png); background-repeat: repeat;
 	@include border-top-radius(11px);
 }
+
+.history_text_header {
+	margin-top: 15px;
+	text-align: center;
+	font-weight: bold;
+	color: rgba(#000, 0.5);
+	font-size: 14px;
+}

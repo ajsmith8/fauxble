@@ -335,3 +335,47 @@
 .topleft_issues {
 	position: relative;
 }
+
+.issue_index_container {
+	.button {
+		position: absolute;
+		cursor: pointer;		
+		@include fonts;
+		color: #444444;	
+		border: none;
+		text-align: center;
+		font-weight: bold;
+
+		&.learn {
+			top: 18px;
+			left: 194px;
+			font-size: 11px;
+			@include border-radius(16px);	
+			height: 15px;
+			padding-top: 3px;
+			width: 35px;
+			@include linear-gradient(lighten(#000,95%), lighten(#000,77%));
+			@include text-shadow(0px 1px 0 rgba(#fff,0.4));
+			@include single-box-shadow(rgba(#000, 0.35), 0px, 1px, 1px, 0);
+			&:hover {
+				@include linear-gradient(lighten(#000,70%), lighten(#000,95%));
+			}
+		}
+		
+		&.play {			
+			top: 10px;
+			right: 0px;
+			font-size: 12px;
+			@include border-radius(16px);	
+			height: 22px;
+			padding-top: 7px;
+			width: 15%;
+			@include linear-gradient(lighten($orange,18%), lighten($orange,1%));
+			@include text-shadow(0px 1px 0 rgba(#000,0.2));
+			@include single-box-shadow(rgba(#000, 0.3), 0px, 1px, 1px, 0);
+			&:hover {
+				@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
+			}
+		}
+	}
+}
