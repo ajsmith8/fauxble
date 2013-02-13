@@ -17,7 +17,7 @@ Fauxble.Views.ChallengesShow = Backbone.View.extend({
 		var self = this;
 		
 		$(this.el).attr('id', this.challenge.get('id'));
-		$(this.el).addClass('.challenge');
+		$(this.el).addClass('challenge');
 		if (this.is_sent) {
 			$(this.el).html(JST['challenges/sent']);
 		} else {

@@ -139,6 +139,14 @@
 			padding-top: 1px;
 		}
 	}
+	.score {  
+		font-size: 17px;
+		font-weight: bold;
+		letter-spacing: 1px;
+		color: darken($bluegreen, 1%);
+		@include text-shadow(1px 1px 0 rgba(#000, 0.13));
+		width: 40px;
+	}
 	
 	.rank {
 		position: absolute;
@@ -287,7 +295,22 @@
 	}
 	
 	.rank {
-		
+		position: absolute;
+		top: 23px;
+		left: 50px;
+		text-align: center;	
+		font-size: 14px;
+		font-weight: bold;
+		color: rgba(#000, 0.45);
+		@include text-shadow(0px 1px 0 rgba(#000, 0.3));
+		.right {
+			margin: 0px 0 0 3px;
+			font-size: 15px;
+			float: right;
+			width: 52px;
+			text-align: left;
+			color: darken($bluegreen, 10%);
+		}
 	}
 	
 	.stats {
@@ -333,12 +356,6 @@
 			color: darken($bluegreen, 10%);
 		}
 		
-		.rank {
-			
-			&.container {
-				
-			}
-		}
 	}
 }
 
@@ -386,6 +403,32 @@
 		height: 11px;
 		font-size: 9px;
 	}
+	
+	.friend_challenge_button {
+		position: absolute;
+		top: 14px;
+		right: 12px;
+		cursor: pointer;
+		@include border-radius(13px);
+		@include linear-gradient(lighten($orange,27%), darken($orange,1%));
+		@include fonts;
+		float: left;
+		height: 20px;
+		padding-top: 8px;
+		width: 80px;
+
+		color: rgba(#000, 0.7);
+		font-size: 12px;
+		border: none;
+		text-align: center;
+
+		@include single-box-shadow(rgba(#000, 0.25), 1px, 1px, 1px, 0);
+		@include text-shadow(0px 1px 0 rgba(#000,0.2));	
+		font-weight: bold;
+		&:hover {
+			@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
+		}
+	}
 }
 
 .user.sidebar {
@@ -394,8 +437,8 @@
 		
 		&.container {
 			position: absolute;
-			top: 7px;
-			left: 7px;
+			top: 10px;
+			left: 21px;
 			width: 35px;
 			height: 35px;
 			@include border-radius(6px);
@@ -411,8 +454,8 @@
 		
 		&.container {
 			position: absolute;
-			top: 8px;
-			left: 48px;
+			top: 11px;
+			left: 62px;
 			height: 11px;
 			font-size: 12px;
 			color: rgb(92,92,92);
@@ -423,36 +466,35 @@
 	
 	.rank {
 		position: absolute;
-		top: 22px;
-		left: 48px;
+		top: 25px;
+		left: 62px;
 		color: $bluegreen;
 		height: 11px;
 		width: 50px;
-		border: 1px solid;
 		font-size: 11px;
 		@include text-shadow(1px 1px 0 rgba(#000, 0.15));
 	}
 	
 	.button {
 		position: absolute;
-		top: 10px;
-		right: 10px;
+		top: 14px;
+		right: 12px;
 		cursor: pointer;
-		@include border-radius(12px);
-		@include linear-gradient(lighten($orange,18%), lighten($orange,1%));
+		@include border-radius(13px);
+		@include linear-gradient(lighten($orange,27%), darken($orange,1%));
 		@include fonts;
 		float: left;
-		height: 21px;
-		padding-top: 9px;
-		width: 100px;
+		height: 20px;
+		padding-top: 8px;
+		width: 77px;
 
-		color: #555555;
-		font-size: 11px;
+		color: rgba(#000, 0.7);
+		font-size: 10px;
 		border: none;
 		text-align: center;
 
 		@include single-box-shadow(rgba(#000, 0.25), 1px, 1px, 1px, 0);
-		@include text-shadow(0px 1px 0 rgba(#000,0.15));	
+		@include text-shadow(0px 1px 0 rgba(#000,0.2));	
 		font-weight: bold;
 		&:hover {
 			@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
