@@ -15,8 +15,14 @@ window.Fauxble = {
 		this.challenges 		= new Fauxble.Collections.Challenges(data.challenges);
 		this.tasks 				= new Fauxble.Collections.Tasks(data.tasks);
 		this.ranks 				= new Fauxble.Collections.Ranks(data.ranks);
-		this.achievables 		= new Fauxble.Collections.Achievables(data.achievables);
 		this.user_achievables 	= new Fauxble.Collections.UserAchievables(data.user_achievables);
+		this.achievables 		= new Fauxble.Collections.Achievables(data.achievables, {
+			tasks: this.tasks,
+			users: this.users,
+			challenges: this.challenges,
+			issues: this.issues,
+			user_achievables: this.user_achievables
+		});
 		this.page_metrics 		= new Fauxble.Collections.PageMetrics();
 		this.user_metrics 		= new Fauxble.Collections.UserMetrics();
 		
