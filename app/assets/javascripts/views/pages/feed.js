@@ -18,8 +18,7 @@ Fauxble.Views.PagesFeed = Backbone.View.extend({
 		
 		setTimeout(function() {
 			self.renderUser();
-			self.TopIssues();
-			self.renderChat();
+			self.renderIssues();
 		}, 0);
 		
 		return this;
@@ -28,27 +27,20 @@ Fauxble.Views.PagesFeed = Backbone.View.extend({
 	renderUser: function() {
 		var view = new Fauxble.Views.UsersShow({ //not sure
 			attr: this.attr,
-			user: this.user
+			user: this.user,
+			is_sidebar: true
 		});
 		this.subviews.push(view);
 		$(this.el).find('#user').html(view.render().el);
 	},
 	
-	renderTopIssues: function() {
+	renderIssues: function() {
 		var view = new Fauxble.Views.IssuesTop({
 			attr: this.attr,
 			issues: this.attr.issues.getTopIssues(5)
 		});
 		this.subviews.push(view);
 		$(this.el).find('#issues').html(view.render().el);
-	},
-	
-	renderChat: function() {
-		var view = new Fauxble.Views.PagesChat({
-			attr: this.attr
-		});
-		this.subviews.push(view);
-		$(this.el).find('#chat').html(view.render().el);
 	},
 	
 	onClose: function() {
@@ -62,6 +54,3 @@ Fauxble.Views.PagesFeed = Backbone.View.extend({
 		});
 	}
 });
-//show user global rank
-//show top 5 issues
-//chat coming soon

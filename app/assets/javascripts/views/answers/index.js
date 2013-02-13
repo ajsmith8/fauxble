@@ -17,6 +17,7 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 		this.answers = _.shuffle(this.attr.answers.where({question_id: this.question.get('id')}));
 		this.is_answered = false;
 		this.time = 15000;
+		this.subviews = [];
 		
 		this.setRoundSpecifics();
 	},
@@ -65,6 +66,7 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 			users: this.users,
 			template: this.answer_template
 		});
+		this.subviews.push(view);
 		$(this.el).find('#answers').append(view.render().el);
 	},
 	
@@ -142,6 +144,7 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 		view = new Fauxble.Views.QuestionsRage({
 			is_win: is_win
 		});
+		this.subviews.push(view);
 		$(this.el).find('#rage').html(view.render().el);
 	},
 	
@@ -160,5 +163,16 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 			this.challenge.setSentOrFinished(this.task);
 			Backbone.history.navigate('challenge' + this.challenge.get('id'), true);
 		}
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

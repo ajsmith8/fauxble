@@ -12,6 +12,7 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 		this.question_ids = this.challenge.get('question_ids').split('/');
 		this.time = 1000;
 		this.questions = [];
+		this.subviews = [];
 		for (i = 0; i < this.question_ids.length; i++) {
 			this.questions.push(this.attr.questions.get(parseInt(this.question_ids[i])));
 		}
@@ -36,6 +37,7 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 			challenge: this.challenge,
 			question: question
 		});
+		this.subviews.push(view);
 		$(this.el).find('#results').append(view.render().el);
 	},
 	
@@ -69,5 +71,16 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 		} else {
 			Backbone.history.navigate('', true);
 		}
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

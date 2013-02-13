@@ -24,15 +24,15 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 		return score;
 	},
 	
-	getGlobalRank: function(users, user) {
+	getGlobalRank: function(users, user, issue) {
 		var self = this;
 		users = _.toArray(users);
 		
 		users.sort(function(a, b) {
-			return self.getScore(b, null) - self.getScore(a, null); // lols @ a, null
+			return self.getScore(b, issue) - self.getScore(a, issue);
 		});
 		
-		return {user: users.indexOf(user) + 1, users: users.length};
+		return {user: users.indexOf(user) + 1, users: users.length}; // need to adjust users based on # of ranks not total users
 	},
 	
 	setFilledStars: function(num, element) {
@@ -88,7 +88,7 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 		}, 50);
 	},
 	
-	seeingStars: function(user, issue, filled_ele, active_ele, fill_score) {
+	seeingStars: function(user, issue, active_ele, filled_ele, fill_score) {
 		var score = this.getScore(user, issue),
 			filled_stars = this.getFilledStars(score, fill_score);
 			

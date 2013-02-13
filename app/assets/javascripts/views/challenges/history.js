@@ -10,10 +10,12 @@ Fauxble.Views.ChallengesHistory = Backbone.View.extend({
 		this.attr = options.attr;
 		this.winner = options.winner;
 		this.loser = options.loser;
+		this.subviews = [];
 	},
 	
 	render: function() {
 		var self = this;
+		$(this.el).addClass('challenge history');
 		$(this.el).html(this.template({
 			winner: this.winner,
 			loser: this.loser
@@ -34,5 +36,16 @@ Fauxble.Views.ChallengesHistory = Backbone.View.extend({
 		});
 		this.subviews.push(view);
 		$(element).html(view.render().el);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

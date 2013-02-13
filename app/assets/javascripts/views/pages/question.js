@@ -49,6 +49,17 @@ Fauxble.Views.PagesQuestion = Backbone.View.extend({
 		}
 		
 		return question;
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });
 //empty versus div onClose

@@ -10,6 +10,7 @@ Fauxble.Views.ChallengesShow = Backbone.View.extend({
 		this.challenge = options.challenge;
 		this.issue = this.attr.issues.get(this.challenge.get('issue_id'));
 		this.is_sent = options.is_sent;
+		this.subviews = [];
 	},
 	
 	render: function() {

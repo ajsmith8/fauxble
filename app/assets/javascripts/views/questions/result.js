@@ -11,6 +11,7 @@ Fauxble.Views.QuestionsResult = Backbone.View.extend({
 		this.challenge = options.challenge;
 		this.question = options.question;
 		this.user = this.attr.users.get(this.attr.current_user.get('id'));
+		this.subviews = [];
 		
 		this.setRoundSpecifics();
 	},
@@ -60,6 +61,18 @@ Fauxble.Views.QuestionsResult = Backbone.View.extend({
 			user: user,
 			is_right: is_right
 		});
+		this.subviews.push(view);
 		$(element).html(view.render().el);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

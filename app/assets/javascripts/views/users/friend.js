@@ -36,5 +36,16 @@ Fauxble.Views.UsersFriend = Backbone.View.extend({
 		});
 		this.subviews.push(view);
 		$(this.el).find('#rank').html(view.render().el);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

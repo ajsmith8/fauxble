@@ -1,5 +1,11 @@
-<div>
-	<img src = 'assets/achievables/<%= achievable.get('image') %>.png' />
+<div class = 'image container'>
+	<div class = 'image wrapper'>
+		<img src = 'assets/achievables/<%= achievable.get('image') %>.png' />
+	</div>
 </div>
-<div><%= achievable.get('title') %></div>
-<div><%= achievable.get('description') %></div>
+<div class = 'title container'>
+	<div class = 'title'><%= achievable.get('title') %></div>
+</div>
+<div class = 'description container'>
+	<div class = 'description'><%= achievable.get('description') %></div>
+</div>

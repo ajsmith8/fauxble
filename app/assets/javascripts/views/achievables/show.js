@@ -17,6 +17,7 @@ Fauxble.Views.AchievablesShow = Backbone.View.extend({
 	},
 	
 	render: function() {
+		$(this.el).addClass('achievable');
 		$(this.el).html(this.template({
 			achievable: this.achievable
 		}));

@@ -106,13 +106,15 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		$('.right.column').html(view.render().el);
 	},
 	
-	info: function() {
-		var view = new Fauxble.Views.PagesInfo({
+	feed: function() {
+		var view = new Fauxble.Views.PagesFeed({
 			attr: this.attr
 		});
 		this.setSubview(view);
 		$('.left.column').html(view.render().el);
 	},
+	
+	// render chat
 	
 	pagesNew: function(id) {
 		var view = new Fauxble.Views.PagesNew({

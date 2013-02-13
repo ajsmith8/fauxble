@@ -1,7 +1,11 @@
 <div class = 'name container'>
 	<div class = 'name'><%= user.get('name') %></div>
 </div>
-<div id = 'rank' class = 'rank'></div>
+<div class = 'rank'>
+	<span class = 'user'><%= rank.user %></span>
+	<span class = 'text'>of</span>
+	<span class = 'users'><%= rank.users %></span>
+</div>
 <div class = 'picture container'>
 	<div class = 'picture wrapper'>
 		<% if (user.get('uid')) { %>
