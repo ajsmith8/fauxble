@@ -72,22 +72,24 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 	
 	startTimer: function() {
 		var self = this,
+			element = $(this.el).find('#timer');
 			inter;
 		this.timer = this.time;
 			
 		inter = setInterval(function() {
+			if (self.task) {
+				self.showChallenger(self.timer);
+			}
+			
+			$(element).css('width', Math.round((self.timer / self.time) * 100) + '%');
+			self.timer = self.timer - 100;
+			
 			if (self.stopTimer(self.timer)) {
 				if (self.timer < 0) {
 					self.timer = 0;
 				}
 				clearInterval(inter);
 			}
-			
-			if (self.task) {
-				self.showChallenger(self.timer);
-			}
-			
-			self.timer = self.timer - 100;
 		}, 100);
 	},
 	
@@ -113,7 +115,8 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 		if (!this.is_answered) {
 			this.is_answered = true;
 			score = Math.round((this.time - this.timer) / 150);
-			task = this.attr.tasks.createTask(this.question, this.challenge, this.user, answer_id, null, score, this.timer);
+			task = this.attr.tasks.createTask(this.question, this.challenge, this.user, answer_id, null, score, this.timer, this.attr.ranks);
+			this.user.trigger('submit', score);
 			
 			if (this.task) {
 				this.showRageComic(task);

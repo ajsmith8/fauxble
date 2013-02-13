@@ -2,7 +2,23 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 	
 	model: Fauxble.Models.Rank,
 	url: 'ranks',	
+	
+	createRank: function(user, challenge, score) {
+		var rank = this.where({user_id: user.get('id'), issue_id: challenge.get('issue_id')})[0];
 		
+		if (!rank) {
+			rank = this.create({
+				user_id: user.get('id'),
+				issue_id: challenge.get('issue_id')
+			});
+		}
+		
+		rank.set({
+			score: rank.get('score') + score
+		});
+		rank.save();
+	},
+	
 	getScore: function(user, issue) {
 		var score = 0,
 			ranks;

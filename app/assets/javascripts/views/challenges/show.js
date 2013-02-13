@@ -26,8 +26,8 @@ Fauxble.Views.ChallengesShow = Backbone.View.extend({
 		
 		setTimeout(function() {
 			self.renderIssue();
-			self.renderUser(this.challenge.get('challenger_id'), this.challenge.get('user_id'), $(this.el).find('#challenger'));
-			self.renderUser(this.challenge.get('user_id'), this.challenge.get('challenger_id'), $(this.el).find('#user'));
+			self.renderUser(self.challenge.get('challenger_id'), self.challenge.get('user_id'), $(self.el).find('#challenger'));
+			self.renderUser(self.challenge.get('user_id'), self.challenge.get('challenger_id'), $(self.el).find('#user'));
 		}, 0);
 		
 		return this;

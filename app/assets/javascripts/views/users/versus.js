@@ -23,7 +23,7 @@ Fauxble.Views.UsersVersus = Backbone.View.extend({
 		$(this.el).html(this.template({
 			user: this.user,
 			left_aligned: this.left_aligned,
-			score: this.tasks.getVersusScore(this.user, this.getQuestionIdsFromHash(), this.challenge)
+			score: this.attr.tasks.getVersusScore(this.user, this.getQuestionIdsFromHash(), this.challenge)
 		}));
 		
 		setTimeout(function() {
@@ -44,7 +44,7 @@ Fauxble.Views.UsersVersus = Backbone.View.extend({
 	},
 	
 	incrementScore: function(score) {
-		this.user.incrementScore($(this.el).find('#score'), 1000, parseInt($(this.el).find('#score').html()), score);
+		this.user.incrementScore($(this.el).find('#score'), 10, parseInt($(this.el).find('#score').html()), score);
 	},
 	
 	getQuestionIdsFromHash: function() {
@@ -55,7 +55,7 @@ Fauxble.Views.UsersVersus = Backbone.View.extend({
 		if (hash.split('question').length === 2) {
 			hash = hash.split('question')[1];
 			
-			for (i = 0; i < questions_ids.length; i++) {
+			for (i = 0; i < question_ids.length; i++) {
 				ids.push(parseInt(question_ids[i]));
 				
 				if (parseInt(question_ids[i]) === parseInt(hash)) {

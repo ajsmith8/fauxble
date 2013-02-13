@@ -4,14 +4,15 @@ Fauxble.Models.User = Backbone.Model.extend({
 		var self = this,
 			inter;
 			
-		inter = setInterval(function() {
-			if (amount <= 0) {
-				clearInterval(inter);
-			}
-			
-			$(element).html(score);
-			score = score + 1;
-			amount = amount - 1;
-		}, time);
+		if (amount > 0) {
+			inter = setInterval(function() {
+				$(element).html(score);
+				score = score + 1;
+				amount = amount - 1;
+				if (amount <= 0) {
+					clearInterval(inter);
+				}
+			}, time);
+		}
 	}
 });

@@ -1,5 +1,5 @@
-<div class = 'title conainter'>
-	<div class = 'title'><%= answer.get('title') %></div>
+<div class = 'score container left'>
+	<div id = 'score' class = 'score'></div>
 </div>
 <div id = 'user' class = 'picture container hide'>
 	<div class = 'picture wrapper'>
@@ -10,6 +10,9 @@
 		<% } %>
 	</div>
 </div>
+<div class = 'title conainter'>
+	<div class = 'title'><%= answer.get('title') %></div>
+</div>
 <div id = 'challenger' class = 'picture container hide'>
 	<div class = 'picture wrapper'>
 		<% if (users.challenger.get('signed_in_fb')) { %>
@@ -18,4 +21,7 @@
 			<img src = 'assets/misc/user.png' />
 		<% } %>
 	</div>
+</div>
+<div class = 'score container right'>
+	<div id = 'score' class = 'score'></div>
 </div>

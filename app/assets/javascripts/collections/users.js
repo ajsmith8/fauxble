@@ -29,7 +29,7 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 	
 	isUnique: function(str) {
 		var is_unique = true,
-			users = _.toArray(this);
+			users = this.toArray();
 		
 		for (u = 0; u < users.length; u++) {
 			if (users[u].get('name').toLowerCase() === str.toLowerCase()) {

@@ -28,12 +28,12 @@ Fauxble.Views.UsersShow = Backbone.View.extend({
 		
 		if (this.is_sidebar) {
 			$(this.el).addClass('sidebar');
-		} else {
-			setTimeout(function() {
-				self.renderGlobalRank();
-			}, 0);
 		}
 		
+		setTimeout(function() {
+			self.renderGlobalRank();
+		}, 0);
+
 		return this;
 	},
 	
