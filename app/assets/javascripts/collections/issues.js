@@ -4,7 +4,7 @@ Fauxble.Collections.Issues = Backbone.Collection.extend({
 	url: 'issues',
 	
 	getTopIssues: function(num) {
-		var issues = _.toArray(this),
+		var issues = this.toArray(),
 			top_issues = [];
 		
 		issues.sort(function(a, b) {

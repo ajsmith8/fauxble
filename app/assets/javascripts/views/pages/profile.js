@@ -35,7 +35,7 @@ Fauxble.Views.PagesProfile = Backbone.View.extend({
 	},
 	
 	renderAchievables: function() {
-		var view = new Fauxable.Views.AchievablesIndex({
+		var view = new Fauxble.Views.AchievablesIndex({
 			attr: this.attr,
 			user: this.user
 		});

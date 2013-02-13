@@ -18,5 +18,6 @@ Fauxble.Views.IssuesShowTop = Backbone.View.extend({
 			issue: this.issue,
 			rank: this.attr.ranks.getRank(this.attr.users, this.user, this.issue)
 		}));
+		return this;
 	}
 });

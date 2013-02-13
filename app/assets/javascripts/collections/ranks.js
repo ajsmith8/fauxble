@@ -24,7 +24,7 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 		return score;
 	},
 	
-	getGlobalRank: function(users, user, issue) {
+	getRank: function(users, user, issue) {
 		var self = this;
 		users = _.toArray(users);
 		

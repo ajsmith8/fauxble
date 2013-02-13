@@ -9,9 +9,12 @@ Fauxble.Views.UsersVersus = Backbone.View.extend({
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.issue = options.issue;
+		this.challenge = options.challenge;
 		this.user = options.user;
 		this.left_aligned = options.left_aligned;
 		this.subviews = [];
+		
+		this.user.on('submit', this.incrementScore, this);
 	},
 	
 	render: function() {
@@ -19,7 +22,8 @@ Fauxble.Views.UsersVersus = Backbone.View.extend({
 		$(this.el).addClass('user versus');
 		$(this.el).html(this.template({
 			user: this.user,
-			left_aligned: this.left_aligned
+			left_aligned: this.left_aligned,
+			score: this.tasks.getVersusScore(this.user, this.getQuestionIdsFromHash(), this.challenge)
 		}));
 		
 		setTimeout(function() {
@@ -37,6 +41,30 @@ Fauxble.Views.UsersVersus = Backbone.View.extend({
 		});
 		this.subviews.push(view);
 		$(this.el).find('#rank').html(view.render().el);
+	},
+	
+	incrementScore: function(score) {
+		this.user.incrementScore($(this.el).find('#score'), 1000, parseInt($(this.el).find('#score').html()), score);
+	},
+	
+	getQuestionIdsFromHash: function() {
+		var hash = window.location.hash,
+			question_ids = this.challenge.get('question_ids').split('/'),
+			ids = [];
+			
+		if (hash.split('question').length === 2) {
+			hash = hash.split('question')[1];
+			
+			for (i = 0; i < questions_ids.length; i++) {
+				ids.push(parseInt(question_ids[i]));
+				
+				if (parseInt(question_ids[i]) === parseInt(hash)) {
+					break;
+				}	
+			}
+		}
+		
+		return ids;
 	},
 	
 	onClose: function() {

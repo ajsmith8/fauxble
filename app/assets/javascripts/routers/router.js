@@ -29,6 +29,8 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			pages: options.page_metrics,
 			users: options.user_metrics
 		};
+		
+		this.chat();
 	},
 	
 	pageTimers: function() {
@@ -49,18 +51,19 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	setSubview: function(view) {
-		//only render subview if it doesn't exist or is different from
-		//current subview
-		if (this.subview) {
-			this.subview.remove();
-			this.subview.unbind();
-			
-			if (this.subview.onClose) {
-				this.subview.onClose();
+		if (view !== this.subview) {
+			if (this.subview) {
+				this.subview.remove();
+				this.subview.unbind();
+
+				if (this.subview.onClose) {
+					this.subview.onClose();
+				}
 			}
+
+			this.subview = view;
+			$('.left.column.top').html(view.render().el);
 		}
-		
-		this.subview = view;
 	},
 	
 	checkCurrentUser: function() {
@@ -75,7 +78,6 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		var view = new Fauxble.Views.PagesHeader({
 			attr: this.attr
 		});
-		this.setCurrentView(view);
 		$('.header').html(view.render().el);
 	},
 	
@@ -93,8 +95,8 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		var view = new Fauxble.Views.PagesSignin({
 			attr: this.attr
 		});
-		this.setSubview(view);
-		$('.left.column').html(view.render().el);
+		
+		this.setSubview(view)
 	},
 	
 	challenges: function() {
@@ -103,6 +105,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			metrics: this.metrics
 		});
 		this.setCurrentView(view);
+		this.feed();
 		$('.right.column').html(view.render().el);
 	},
 	
@@ -110,11 +113,16 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		var view = new Fauxble.Views.PagesFeed({
 			attr: this.attr
 		});
-		this.setSubview(view);
-		$('.left.column').html(view.render().el);
+		
+		this.setSubview(view)
 	},
 	
-	// render chat
+	chat: function() {
+		var view = new Fauxble.Views.PagesChat({
+			attr: this.attr
+		});
+		$('.left.column.bottom').html(view.render().el);
+	},
 	
 	pagesNew: function(id) {
 		var view = new Fauxble.Views.PagesNew({
@@ -123,6 +131,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			metrics: this.metrics
 		});
 		this.setCurrentView(view);
+		this.feed();
 		$('.right.column').html(view.render().el);
 	},
 	
@@ -133,6 +142,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			metrics: this.metrics
 		});
 		this.setCurrentView(view);
+		this.feed();
 		$('.right.column').html(view.render().el);
 	},
 	
@@ -144,6 +154,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			metrics: this.metrics
 		});
 		this.setCurrentView(view);
+		this.feed();
 		$('.right.column').html(view.render().el);
 		
 		if ($(view.el).find('#versus').children().length === 0) {
@@ -167,7 +178,12 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			metrics: this.metrics
 		});
 		this.setCurrentView(view);
+		this.feed();
 		$('.right.column').html(view.render().el);
+		
+		if ($(view.el).find('#versus').children().length === 0) {
+			this.versus(this.attr.challenges.get(parseInt(id)), view);
+		}
 	},
 	
 	profile: function(id) {
@@ -177,6 +193,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			metrics: this.metrics
 		});
 		this.setCurrentView(view);
+		this.feed();
 		$('.right.column').html(view.render().el);
 	}
 });
