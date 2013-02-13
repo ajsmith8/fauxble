@@ -97,9 +97,7 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 		var self = this,
 			array = [];
 			
-		users = _.toArray(users);
-		
-		_.each(users, function(u) {
+		users.each(function(u) {	
 			if (
 				self.where({user_id: u.get('id'), challenger_id: user.get('id'), is_finished: true}).length + 
 				self.where({user_id: user.get('id'), challenger_id: u.get('id'), is_finished: true}).length > 0

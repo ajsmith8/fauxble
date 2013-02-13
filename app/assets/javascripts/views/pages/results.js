@@ -47,18 +47,22 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 			inter;
 
 		inter = setInterval(function() {
+			self.renderResult(self.questions[count]);
+			count = count + 1;
 			if (count >= self.questions.length) {
 				clearInterval(inter);
 			}
-			self.renderResult(self.questions[count]);
-			count = count + 1;
 		}, self.time);
 		
 		this.showButton(self.time * (this.questions.length + 1));
 	},
 	
 	showButton: function(time) {
+		var self = this;
 		
+		setTimeout(function() {
+			$(self.el).find('#finish').removeClass('hide');
+		}, time);
 	},
 	
 	sendOrFinish: function() {

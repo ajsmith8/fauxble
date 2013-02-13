@@ -25,5 +25,13 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 		}
 		
 		return task;
+	},
+	
+	getVersusScore: function(user, ids, challenge) {
+		var score = 0;
+		
+		if (ids.length === 0) {
+			
+		}
 	}
 });

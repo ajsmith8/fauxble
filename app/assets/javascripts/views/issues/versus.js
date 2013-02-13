@@ -35,6 +35,7 @@ Fauxble.Views.IssuesVersus = Backbone.View.extend({
 			attr: this.attr,
 			issue: this.issue,
 			user: user,
+			challenge: this.challenge,
 			left_aligned: left_aligned
 		});
 		this.subviews.push(view);
