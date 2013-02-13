@@ -12,6 +12,7 @@ Fauxble.Views.UsersAutocomplete = Backbone.View.extend({
 	
 	initialize: function(options) {
 		this.attr = options.attr;
+		this.friends = options.friends //pass in fb friend list
 		this.hovered = null;
 		this.matches = null;
 		this.array = [];
@@ -28,12 +29,11 @@ Fauxble.Views.UsersAutocomplete = Backbone.View.extend({
 	
 	getArray: function() {
 		var self = this;
-		this.users = this.attr.users.where({is_temp_user: false});
 
-		for (i = 0; i < this.users.length; i++) {
+		for (i = 0; i < this.friends.length; i++) {
 			this.array.push({
-				id: this.users[i].get('id'),
-				title: this.users[i].get('name')
+				id: this.friends[i]['id'],
+				title: this.friends[i]['name']
 			});
 		}
 	},

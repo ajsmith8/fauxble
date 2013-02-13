@@ -72,8 +72,9 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 	
 	startTimer: function() {
 		var self = this,
-			element = $(this.el).find('#timer');
+			element = $(this.el).find('#timer'),
 			inter;
+			
 		this.timer = this.time;
 			
 		inter = setInterval(function() {
