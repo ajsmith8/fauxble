@@ -36,10 +36,16 @@
 }
 
 .user.issue {
-	height: 23px;
+	height: 25px;
+	overflow: hidden;
+	border: none;
+	position: relative;
 	.picture {
 		
 		&.container {
+			position: absolute;
+			top: 2px;
+			right: 35px;
 			width: 21px;
 			height: 21px;
 			margin-left: 2px;
@@ -54,15 +60,21 @@
 	.name {
 		
 		&.container {
+			position: absolute;
+			left: 0;
 			height: 11px;
 			font-size: 10px;
 			color: rgb(92,92,92);			
 			padding-top: 1px;
+			width: 100px;
+			text-align: right;
 		}
 	}
 	
 	.rank {
-		margin: 1px 2px 0 0;
+		position: absolute;
+		top: 16px;
+		right: 60px;
 		color: $bluegreen;
 		float: right;
 		height: 11px;
@@ -72,7 +84,9 @@
 	.wins {
 		
 		&.container {
-			margin: 0px 0 0 5px;
+			position: absolute;
+			top: 2px;
+			right: 13px;
 			float: left;
 			font-weight: bold;
 			.colon {
@@ -94,28 +108,30 @@
 }
 
 .user.versus {
-	width: 174px;
-	height: 60px;
-	border: 1px solid lighten($orange,25%);
-	@include border-radius(10px);
-	@include single-box-shadow(rgba($orange, 0.45), 1px, 1px, 1px, 0);
+	width: 170px;
+	height: 50px;
+	position: relative;
+	overflow: hidden;
 	.picture {
 		
 		&.container {
+			position: absolute;
 			width: 40px;
 			height: 40px;
 			margin-left: 2px;
-			@include border-radius(5px);
+			@include border-radius(7px);
 		}
 		
 		&.wrapper {
-			@include border-radius(5px);
+			@include border-radius(7px);
 		}
 	}
 	
 	.name {
 		
 		&.container {
+			position: absolute;
+			top: 7px;
 			height: 12px;
 			font-size: 12px;
 			color: rgb(92,92,92);
@@ -125,7 +141,12 @@
 	}
 	
 	.rank {
-		
+		position: absolute;
+		top: 22px;
+		color: $bluegreen;
+		height: 11px;
+		font-size: 11px;
+		@include text-shadow(1px 1px 0 rgba(#000, 0.15));	
 	}
 }
 
@@ -133,11 +154,14 @@
 	.picture {
 		
 		&.container {
-			
+			width: 21px;
+			height: 21px;
+			margin-left: 2px;
+			@include border-radius(3px);
 		}
 		
 		&.wrapper {
-			
+			@include border-radius(3px);
 		}
 	}
 	
@@ -265,6 +289,12 @@
 }
 
 .user.friend {
+	height: 50px;
+	overflow: hidden;
+	width: 90%;
+	margin-left: 5%;
+	position: relative;
+	border: 1px solid;
 	.picture {
 		
 		&.container {
@@ -282,11 +312,24 @@
 	.name {
 		
 		&.container {
-			
+			position: absolute;
+			top: 2px;
+			left: 38px;
+			height: 12px;
+			font-size: 12px;
+			color: rgb(92,92,92);
+			@include text-shadow(0px 1px 0 rgba(#000, 0.15));	
+			padding-top: 1px;
 		}
 	}
 	
 	.rank {
-		
+		position: absolute;
+		top: 17px;
+		left: 38px;
+		color: $bluegreen;
+		float: left;
+		height: 11px;
+		font-size: 9px;
 	}
 }

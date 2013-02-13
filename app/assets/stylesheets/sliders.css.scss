@@ -1,20 +1,32 @@
 .slider {
 	&.bar {
-		
+		position: relative;
+		width: 400px;
+		height: 20px;
+		border: 1px solid;
 	}
 	
 	&.fill {
-		
+		height: 20px;
+		background: #ff0;
 	}
 	
 	&.users {
+		position: absolute;
+		top: 0;
+		left: 0;
+		border: 1px solid;
+		width: 20px;
+		height: 20px;
 		
 		&.user {
-			
+			color: #f00;
+			background: #f00;
 		}
 		
 		&.challenger {
-			
+			color: #00f;
+			background: #00f;
 		}
 		
 		.logo {

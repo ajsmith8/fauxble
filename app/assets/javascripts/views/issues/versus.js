@@ -8,7 +8,7 @@ Fauxble.Views.IssuesVersus = Backbone.View.extend({
 	
 	initialize: function(options) {
 		this.attr = options.attr;
-		this.challenge = options.challenge
+		this.challenge = options.challenge;
 		this.issue = this.attr.issues.get(this.challenge.get('issue_id'));
 		this.user = this.attr.users.get(this.challenge.get('user_id'));
 		this.challenger = this.attr.users.get(this.challenge.get('challenger_id'));

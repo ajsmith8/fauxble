@@ -2,21 +2,60 @@
 	.answers {
 
 		.answer {
-	
+			float: left;
+			width: 90%;
+			margin-left: 5%;
+			height: 45px;
+			position: relative;
+			border: 1px solid;
 			.title {
-		
+				text-align: center;
+				font-size: 12px;
+				float: left;
+				width: 90%;
+				margin-left: 5%;
+				color: #333333;
+				@include text-shadow(0px 1px 0 rgba(#000,0.2));
 				&.container {
-			
+					position: relative;
+					height: 35px;
+					width: 66%;
+					margin: 6px 0 0 17%;
+					
+					cursor: pointer;
+					font-weight: bold;
+					@include border-radius(12px);					
+					border: none;
+					padding-top: 2px;					
+					@include linear-gradient(lighten($orange,18%), lighten($orange,1%));					
+					@include single-box-shadow(rgba(#000, 0.3), 0px, 1px, 1px, 0);
+					&:hover {
+						@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
+					}
 				}
 			}
 	
 			.picture {
 				&.container {
-			
+					position: absolute;
+					height: 25px;
+					width: 25px;
+					top: 12px;
+					left: 90px;
+					@include border-radius(4px);
+					@include single-box-shadow(rgba(#000, 0.3), 1px, 1px, 1px, 0);
 				}
 		
 				&.wrapper {
-			
+					@include border-radius(4px);
+					overflow: hidden;
+					position: static;
+					height: 100%;
+					width: 100%;
+					img {
+						height: 100%;
+						width: 100%;
+					}
 				}
 			}
 		}

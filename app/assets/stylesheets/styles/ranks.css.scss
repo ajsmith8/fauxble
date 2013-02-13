@@ -1,6 +1,6 @@
 .user {
 	.stars {
-
+		position: relative;
 		&.filled {
 
 		}
@@ -15,7 +15,9 @@
 			}
 			
 			.ring {
-				
+				position: absolute;
+				top:0;
+				left:0;
 				input {
 
 				}
@@ -78,13 +80,10 @@
 
 .user.issue {
 	.stars {
-
+		overflow: hidden;
+		height: 20px;
+		position: relative;
 		&.filled {
-
-		}
-
-		&.active {
-			
 			.star {
 				
 				&.container {
@@ -93,18 +92,26 @@
 			}
 			
 			.ring {
-				
+				position: absolute;
+				top:0;
+				left:0;
+				overflow: hidden;
+				height: 20px;
 				input {
 
 				}
 			}
+		}
+
+		&.active {
+			
 		}
 	}
 }
 
 .user.friend {
 	.stars {
-
+		
 		&.filled {
 
 		}
@@ -119,7 +126,7 @@
 			}
 			
 			.ring {
-				
+
 				input {
 
 				}

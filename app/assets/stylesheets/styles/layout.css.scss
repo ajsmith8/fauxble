@@ -11,7 +11,8 @@ body {
 				2px 1px 2px rgba(darken($bluegreen,10%), 0.3);
 	@include border-radius(6px);*/
 	height: 92%;
-	background: rgb(238,238,238);
+	/*background: rgb(238,238,238);*/
+	background-image: url(misc/gray_jean.png); background-repeat: repeat;
 }
 
 .header {
@@ -25,16 +26,18 @@ body {
 	width: 932px;
 	margin: 0 auto;
 	height: 650px;
-	background: rgb(249,249,249);
+	/*background: rgb(249,249,249);*/
+	background-image: url(misc/243.png); background-repeat: repeat;
 	margin-top: 2px;
-	border: 1px solid rgb(244,244,244);
+	border: 1px solid rgb(230,230,230);
 	border-top: none;
 	@include border-bottom-radius(12px);
 }
 
 .column {
 	position: absolute;
-	background: #ffffff;
+	/*background: #ffffff;*/
+	background-image: url(misc/253.png); background-repeat: repeat;
 	@include border-radius(12px);
 	margin-top: 12px;
 	border: 1px solid rgb(229,229,229);
