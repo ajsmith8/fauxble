@@ -17,7 +17,7 @@ Fauxble.Views.ChallengesShow = Backbone.View.extend({
 		var self = this;
 		
 		$(this.el).attr('id', this.challenge.get('id'));
-		$(this.el).addClass('.challenge');
+		$(this.el).addClass('challenge');
 		if (this.is_sent) {
 			$(this.el).html(JST['challenges/sent']);
 		} else {
@@ -58,7 +58,7 @@ Fauxble.Views.ChallengesShow = Backbone.View.extend({
 	},
 	
 	startChallenge: function() {
-		Backbone.history.navigate('question' + this.challenge.get('id'), true);
+		Backbone.history.navigate(this.challenge.get('id') + '/question' + this.challenge.get('question_ids').split('/')[0], true);
 	},
 	
 	onClose: function() {

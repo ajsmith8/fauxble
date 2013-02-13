@@ -177,7 +177,7 @@
 		.rank {
 			position: absolute;
 			top: 10px;
-			right: 12px;
+			right: 16px;
 			text-align: center;
 			width: 30px;
 			color: darken($bluegreen, 10%);
@@ -240,6 +240,14 @@
 		.rank {
 			left: 55px;
 		}
+		.score {
+			&.container {
+				position: absolute;
+				bottom: 6px;
+				right: 4px;
+				text-align: right;
+			}
+		}
 	}
 	
 	.challengee {
@@ -265,6 +273,14 @@
 		}
 		.rank {
 			right: 50px;
+		}
+		.score {
+			&.container {
+				position: absolute;
+				bottom: 6px;
+				left: 8px;
+				text-align: left;
+			}
 		}
 	}
 }
@@ -298,21 +314,21 @@
 }
 
 .popular_issues_header {
-	margin-top: 53px;
+	margin-top: 63px;
 	overflow: auto;
 	padding: 4px;
 	border-bottom: 1px solid rgba(#000,0.15);
-	font-size: 13px;
+	font-size: 12px;
 	font-weight: bold;
-	color: rgb(92,92,92);
-	@include text-shadow(0px 1px 0 rgba(#000,0.15));
+	color: rgba(#000, 0.4);
+	@include text-shadow(0px 1px 0 rgba(#000,0.2));
 	.most_popular_issues_text {
 		float: left;
 		margin-left: 16px;
 	}
 	.your_rank_text {
 		float: right;
-		margin-right: 8px;
+		margin-right: 15px;
 	}
 }
 
