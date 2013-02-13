@@ -134,3 +134,29 @@
 		}
 	}
 }
+
+.history {
+	.stars {
+
+		&.filled {
+
+		}
+
+		&.active {
+			
+			.star {
+				
+				&.container {
+					
+				}
+			}
+			
+			.ring {
+				
+				input {
+
+				}
+			}
+		}
+	}
+}
