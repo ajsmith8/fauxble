@@ -32,6 +32,9 @@ Fauxble.Views.UsersShow = Backbone.View.extend({
 		
 		setTimeout(function() {
 			self.renderGlobalRank();
+			if (self.is_sidebar) {
+				self.setProfileOrBack();
+			}
 		}, 0);
 
 		return this;
@@ -44,6 +47,18 @@ Fauxble.Views.UsersShow = Backbone.View.extend({
 		});
 		this.subviews.push(view);
 		$(this.el).find('#rank').html(view.render().el);
+	},
+	
+	setProfileOrBack: function() {
+		var hash = window.location.hash;
+		
+		if (hash.split('user').length > 1) {
+			$(this.el).find('#profile').addClass('hide');
+			$(this.el).find('#back').removeClass('hide');
+		} else {
+			$(this.el).find('#back').addClass('hide');
+			$(this.el).find('#profile').removeClass('hide');
+		}
 	},
 	
 	userProfile: function() {

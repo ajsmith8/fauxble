@@ -65,10 +65,16 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 	},
 	
 	setDefaults: function() {
-		var exponent = null;
+		var exponent = null,
+			margin;
 		
 		if (this.slider.get('is_exponential')) {
 			exponent = 3;
+		}
+		
+		margin = parseInt($('.page').css('margin-left')) + parseInt($('.column.right').css('margin-left'));
+		if (!isNaN(parseInt($(this.el).find('#slider').css('left-margin')))) {
+			margin = margin + parseInt($(this.el).find('#slider').css('left-margin'));
 		}
 		
 		this.slider.setDefaults({
@@ -79,7 +85,7 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 			fill_element: $(this.el).find('#highlight'),
 			bar_width: parseInt($('#slider').css('width')),
 			slider_width: 30,
-			left_margin: 0
+			left_margin: margin
 		});
 		
 		this.slider.defaultSliderPosition();

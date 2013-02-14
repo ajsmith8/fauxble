@@ -86,7 +86,7 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 			}
 		});
 		
-		if (users.indexOf(user)) {
+		if (!isNaN(users.indexOf(user))) {
 			users.splice(users.indexOf(user), 1);
 		}
 		

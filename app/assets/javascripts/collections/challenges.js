@@ -89,10 +89,6 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 		return lost;
 	},
 	
-	getFactsLearned: function() {
-		// not sure yet
-	},
-	
 	getMatchHistoryObj: function(user, users) {
 		var self = this,
 			array = [];

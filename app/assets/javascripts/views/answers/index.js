@@ -103,7 +103,7 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 	},
 	
 	showChallenger: function(time) {		
-		if (parseInt(this.task.get('time') * 1000) === this.time - time) {
+		if (parseInt(this.task.get('time')) === time) {
 			$(this.el).find('.answer#' + this.task.get('answer_id')).find('#challenger').removeClass('hide');
 		}
 	},
@@ -115,15 +115,22 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 			
 		if (!this.is_answered) {
 			this.is_answered = true;
-			score = Math.round((this.time - this.timer) / 150);
+			if (this.attr.answers.get(answer_id).get('is_correct')) {
+				score = Math.round(this.timer / 150);
+			} else {
+				score = 0;
+			}
 			task = this.attr.tasks.createTask(this.question, this.challenge, this.user, answer_id, null, score, this.timer, this.attr.ranks);
 			this.user.trigger('submit', score);
 			
 			if (this.task) {
+				this.attr.users.get(this.task.get('user_id')).trigger('submit', this.task.get('score'));
 				this.showRageComic(task);
 			}
 			
+			this.showCorrectAnswer(this.attr.answers.where({question_id: this.question.get('id'), is_correct: true})[0]);
 			this.showUser(answer_id);
+			this.showPoints(answer_id, score);
 			this.showNextAndSource();
 		}
 	},
@@ -135,6 +142,19 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 		} else {
 			$(this.el).find('.answer#' + answer_id).find('#challenger').removeClass('hide');
 		}
+	},
+	
+	showPoints: function(answer_id, score) {
+		if (this.task) {
+			$(this.el).find('.answer#' + this.task.get('answer_id')).find('#challenger_score').html('+ ' + this.task.get('score'));
+			$(this.el).find('.answer#' + answer_id).find('#user_score').html('+ ' + score);
+		} else {
+			$(this.el).find('.answer#' + answer_id).find('#challenger_score').html('+ ' + score);
+		}
+	},
+	
+	showCorrectAnswer: function(answer) {
+		$(this.el).find('.answer#' + answer.get('id')).addClass('correct');
 	},
 	
 	showRageComic: function(task) {

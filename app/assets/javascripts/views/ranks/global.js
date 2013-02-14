@@ -28,7 +28,9 @@ Fauxble.Views.RanksGlobal = Backbone.View.extend({
 	},
 	
 	fillActiveStar: function(model) {
-		this.attr.ranks.fillActiveStar(model, self.fill_amount, $(this.el).find('#active'), $(this.el).find('#filled'));
+		if (this.user.get('id') === model.get('user_id')) {
+			this.attr.ranks.fillActiveStar(model, self.fill_amount, $(this.el).find('#active'), $(this.el).find('#filled'));
+		}
 	},
 	
 	onClose: function() {
