@@ -3,12 +3,18 @@
 		position: relative;
 		&.filled {
 
+			.star {
+				width: 10px;
+				&.container {
+					
+				}
+			}
 		}
 
 		&.active {
-			
+
 			.star {
-				
+				width: 10px;
 				&.container {
 					
 				}
