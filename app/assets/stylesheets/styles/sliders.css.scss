@@ -45,12 +45,9 @@
 			height: 30px;
 			text-align: center;
 			@include border-radius(15px);
-			@include linear-gradient(lighten($orange,18%), darken($orange,6%));
-			box-shadow: -1px 0px 1px rgba(darken($orange,10%), 0.5),
-						1px 0px 1px rgba(darken($orange,10%), 0.5);
-			&:active {
-				@include linear-gradient(darken($orange,6%), lighten($orange,18%));
-			}
+			@include linear-gradient(lighten($bluegreen,18%), darken($bluegreen,6%));
+			box-shadow: -1px 0px 1px rgba(darken($bluegreen,5%), 0.5),
+						1px 0px 1px rgba(darken($bluegreen,5%), 0.5);
 		}
 		
 		.logo {
@@ -67,7 +64,7 @@
 			&.container {
 				margin: 2px 0 0 2px;
 				overflow: hidden;
-				@include single-box-shadow(rgba(#000, 0.35), 1px, 1px, 1px, 0);
+				@include single-box-shadow(rgba(#000, 0.25), 1px, 1px, 1px, 0);
 				@include border-radius(15px);
 				height: 25px;
 				width: 25px;
@@ -128,11 +125,17 @@
 	&.min {
 		left: 1px;
 		text-align: left;
+		.triangle {
+			left: 1px;
+		}
 	}
 
 	&.max {
 		right: 1px;
 		text-align: right;
+		.triangle {
+			right: 1px;
+		}
 	}
 	
 	.number {
@@ -144,6 +147,7 @@
 	}
 
 	.triangle {
+		position: absolute;
 		margin-bottom: 2px;
 		content: "";
 		display: block; 
@@ -153,12 +157,6 @@
 		width: 0;
 		height: 0;
 		@include single-box-shadow(rgba($orange, 0.12), 0px, 1px, 1px, 0);
-		&.left {
-			float: left;
-		}
-		&.right {
-			float: right;
-		}
 	}
 }
 
@@ -209,7 +207,7 @@
 		position: absolute;
 		height: 70px;
 		width: 70px;
-		left: 235px;
+		left: 217px;
 	}
 }
 
