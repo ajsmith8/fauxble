@@ -3,8 +3,7 @@
 	margin-left: 5%;
 	border-bottom: 1px solid #dddddd;
 	padding: 2px 0 3px 0;
-	overflow: hidden;
-	height: 50px;
+	overflow: auto;
 	position: relative;
 	.thumbnail {
 	
@@ -84,16 +83,18 @@
 		position: absolute;
 		top: 2px;
 		right: 60px;
-		height: 30px;
+		height: 25px;
 		width: 180px;
+		overflow: hidden;
 	}
 	
 	.challengee {
 		position: absolute;
 		top: 26px;
 		right: 60px;
-		height: 30px;
+		height: 25px;
 		width: 180px;
+		overflow: hidden;
 	}
 }
 
