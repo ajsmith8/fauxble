@@ -48,7 +48,7 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 			self = this;
 		
 		questions.each(function(q) {
-			if (this.where({user_id: user.get('id'), question_id: q.get('id')})[0]) {
+			if (self.where({user_id: user.get('id'), question_id: q.get('id')})[0]) {
 				facts = facts + 1;
 			}
 		});

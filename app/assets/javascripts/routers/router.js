@@ -51,8 +51,8 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.current_view = view;
 	},
 	
-	setSubview: function(view) {
-		if (view !== this.subview) {
+	setSubview: function(view, str) {
+		if (this.str !== str) {
 			if (this.subview) {
 				this.subview.remove();
 				this.subview.unbind();
@@ -61,7 +61,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 					this.subview.onClose();
 				}
 			}
-
+			this.str = str
 			this.subview = view;
 			$('.left.column.top').html(view.render().el);
 		}
@@ -96,8 +96,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		var view = new Fauxble.Views.PagesSignin({
 			attr: this.attr
 		});
-		
-		this.setSubview(view)
+		this.setSubview(view, 'signin');
 	},
 	
 	challenges: function() {
@@ -114,8 +113,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		var view = new Fauxble.Views.PagesFeed({
 			attr: this.attr
 		});
-		
-		this.setSubview(view)
+		this.setSubview(view, 'feed');
 	},
 	
 	chat: function() {

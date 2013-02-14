@@ -128,6 +128,7 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 				this.showRageComic(task);
 			}
 			
+			this.showCorrectAnswer(this.attr.answers.where({question_id: this.question.get('id'), is_correct: true})[0]);
 			this.showUser(answer_id);
 			this.showPoints(answer_id, score);
 			this.showNextAndSource();
@@ -143,13 +144,17 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 		}
 	},
 	
-	showPoints: function(score) {
+	showPoints: function(answer_id, score) {
 		if (this.task) {
-			$(this.el).find('.answer' + '#' + this.task.get('answer_id')).find('#challenger_score').html('+ ' + this.task.get('score'));
-			$(this.el).find('.answer' + '#' + answer_id).find('#user_score').html('+ ' + score);
+			$(this.el).find('.answer#' + this.task.get('answer_id')).find('#challenger_score').html('+ ' + this.task.get('score'));
+			$(this.el).find('.answer#' + answer_id).find('#user_score').html('+ ' + score);
 		} else {
-			$(this.el).find('.answer' + '#' + answer_id).find('#challenger_score').html('+ ' + score);
+			$(this.el).find('.answer#' + answer_id).find('#challenger_score').html('+ ' + score);
 		}
+	},
+	
+	showCorrectAnswer: function(answer) {
+		$(this.el).find('.answer#' + answer.get('id')).addClass('correct');
 	},
 	
 	showRageComic: function(task) {
