@@ -331,23 +331,6 @@
 	}
 }
 
-.container_header {
-	height: 15px;
-	width: 100%;
-	text-align: center;
-	padding: 2px 0 0 0;
-	color: #ffffff;
-	font-size: 11px;
-	font-weight: bold;
-	border: 1px solid;
-	border-color: rgba($bluegreen,0.9);				
-	@include text-shadow(0px 1px 0 rgba(#000, 0.3));
-	border-bottom: 1px solid rgba(#000, 0.06);	
-	/*@include linear-gradient(lighten($bluegreen,8%), darken($bluegreen,12%));*/
-	background-image: url(misc/green_texture.png); background-repeat: repeat;
-	@include border-top-radius(11px);
-}
-
 .versus {
 	&.container {
 		margin-top: 30px;
@@ -383,6 +366,9 @@
 }
 
 .issue_index_container {
+	overflow-y:scroll;
+	overflow-x: hidden;
+	height: 600px;
 	.button {
 		position: absolute;
 		cursor: pointer;		
