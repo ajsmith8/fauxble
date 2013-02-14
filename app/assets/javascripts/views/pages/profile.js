@@ -14,7 +14,9 @@ Fauxble.Views.PagesProfile = Backbone.View.extend({
 	
 	render: function() {
 		var self = this;
-		$(this.el).html(this.template());
+		$(this.el).html(this.template({
+			name: this.user.get('name')
+		}));
 		
 		setTimeout(function() {
 			self.renderUserProfile();

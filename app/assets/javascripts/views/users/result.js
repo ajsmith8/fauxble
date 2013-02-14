@@ -21,6 +21,8 @@ Fauxble.Views.UsersResult = Backbone.View.extend({
 	},
 	
 	render: function() {
+		var self = this;
+		
 		$(this.el).addClass('user result');
 		if (this.is_right) {
 			$(this.el).addClass('right');
@@ -32,6 +34,11 @@ Fauxble.Views.UsersResult = Backbone.View.extend({
 			score: this.getScore(),
 			answer: this.getAnswer()
 		}));
+		
+		setTimeout(function() {
+			self.user.trigger('submit', self.getIncrementScore());
+		}, 0);
+		
 		return this;
 	},
 	
@@ -39,7 +46,15 @@ Fauxble.Views.UsersResult = Backbone.View.extend({
 		if (this.task) {
 			return this.task.get('score');
 		} else {
-			return 'waiting...';
+			return '-';
+		}
+	},
+	
+	getIncrementScore: function() {
+		if (this.task) {
+			return this.task.get('score');
+		} else {
+			return 0;
 		}
 	},
 	

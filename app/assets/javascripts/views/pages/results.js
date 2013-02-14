@@ -21,7 +21,8 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 	render: function() {
 		var self = this;
 		$(this.el).html(this.template({
-			is_finished: this.challenge.get('is_finished')
+			is_finished: this.challenge.get('is_finished'),
+			header: this.getHeaderText()
 		}));
 		
 		setTimeout(function() {
@@ -63,6 +64,18 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 		setTimeout(function() {
 			$(self.el).find('#finish').removeClass('hide');
 		}, time);
+	},
+	
+	getHeaderText: function() {
+		if (this.challenge.get('is_finished')) {
+			if (this.challenge.get('winner_id') === this.challenge.get('user_id')) {
+				return 'You Won!';
+			} else {
+				return 'You Lost...';
+			}
+		} else {
+			return 'Waiting...';
+		}
 	},
 	
 	sendOrFinish: function() {

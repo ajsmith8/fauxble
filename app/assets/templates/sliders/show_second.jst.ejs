@@ -2,9 +2,9 @@
 	<form id = 'form'>
 		<% if (slider.get('units').indexOf('/') === 0) { %>
 			<input type = 'text' id = 'input' />
-			<div class = 'units'><%= slider.get('units').substring(1) %></div>
+			<span class = 'units'><%= slider.get('units').substring(1) %></span>
 		<% } else { %>
-			<div class = 'units'><%= slider.get('units').substring(0, slider.get('units').indexOf('/')) %></div>
+			<span class = 'units'><%= slider.get('units').substring(0, slider.get('units').indexOf('/')) %></span>
 			<input type = 'text' id = 'input' />
 		<% } %>
 	</form>
@@ -51,11 +51,7 @@
 </div>
 <div class = 'submit'>
 	<form id = 'form'>
-		<% if (slider.get('units').indexOf('/') === 0) { %>
-			<input type = 'submit' value = 'Submit!' />
-		<% } else { %>
-			<input type = 'submit' value = 'Submit!' />
-		<% } %>
+		<input type = 'submit' value = 'Submit!' />
 	</form>
 </div>
 
