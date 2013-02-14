@@ -79,7 +79,7 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 			fill_element: $(this.el).find('#highlight'),
 			bar_width: parseInt($('#slider').css('width')),
 			slider_width: 30,
-			left_margin: 0
+			left_margin: parseInt($('.page').css('margin-left')) + parseInt($('.column.right').css('margin-left'))
 		});
 		
 		this.slider.defaultSliderPosition();
