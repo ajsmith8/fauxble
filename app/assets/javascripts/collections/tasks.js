@@ -41,5 +41,18 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 		}
 		
 		return score;
-	}
+	},
+	
+	getFactsLearned: function(user, questions) {
+		var facts = 0,
+			self = this;
+		
+		questions.each(function(q) {
+			if (this.where({user_id: user.get('id'), question_id: q.get('id')})[0]) {
+				facts = facts + 1;
+			}
+		});
+		
+		return facts;
+	},
 });

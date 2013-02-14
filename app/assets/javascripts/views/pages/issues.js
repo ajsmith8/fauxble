@@ -3,7 +3,7 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 	template: JST['pages/issues'],
 	
 	events: {
-		'click .issue' : 'setChallengeIssue'
+		'click #play' : 'setChallengeIssue'
 	},
 	
 	initialize: function(options) {

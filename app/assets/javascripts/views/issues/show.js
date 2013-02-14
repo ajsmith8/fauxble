@@ -3,7 +3,7 @@ Fauxble.Views.IssuesShow = Backbone.View.extend({
 	template: JST['issues/show'],
 	
 	events: {
-		
+		'click #learn' : 'toggleDescription'
 	},
 	
 	initialize: function(options) {
@@ -38,6 +38,16 @@ Fauxble.Views.IssuesShow = Backbone.View.extend({
 		});
 		this.subviews.push(view);
 		$(element).html(view.render().el);
+	},
+	
+	toggleDescription: function(event) {
+		var element = $(event.target).closest('.issue').find('#description');
+		
+		if ($(element).hasClass('hide')) {
+			$(element).removeClass('hide');
+		} else {
+			$(element).addClass('hide');
+		}
 	},
 	
 	onClose: function() {

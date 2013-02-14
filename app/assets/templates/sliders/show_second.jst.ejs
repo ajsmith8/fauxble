@@ -30,10 +30,10 @@
 		</div>
 	</div>
 	<div id = 'challenger' class = 'slider users challenger hide'>
-		<div id = 'pic' class = 'picture container hide'>
+		<div id = 'pic' class = 'picture container'>
 			<div class = 'picture wrapper'>
 				<% if (users.user.get('signed_in_fb')) { %>
-					<img src = 'https://graph.facebook.com/<%= users.user.get('uid') %>/picture' />
+					<img src = 'https://graph.facebook.com/<%= users.challenger.get('uid') %>/picture' />
 				<% } else { %>
 					<img src = 'assets/misc/user.png' />
 				<% } %>

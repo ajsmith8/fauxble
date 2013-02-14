@@ -84,7 +84,7 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 	
 	fillActiveStar: function(rank, fill_num, active_ele, filled_ele) {
 		var count = parseInt($(active_ele).find('.dial').val()),
-			score = Math.round((rank.get('score') / fill_num) * 100) - count,
+			score = Math.round(((rank.get('score') % fill_num) / fill_num) * 100) - count,
 			self = this,
 			inter;
 		
