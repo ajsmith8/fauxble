@@ -60,6 +60,16 @@
 		}
 	}
 	
+	.score {
+		position: absolute;
+		&.container {
+			
+		}
+		&.left {
+			
+		}
+	}
+	
 	.buttons {
 		
 		.button {
@@ -85,12 +95,16 @@
 	left: 0;
 	width: 100%;
 	height: 10px;
-	background: #0f0;
+	@include border-radius(6px);
+	@include linear-gradient(lighten($bluegreen, 8%), darken($bluegreen, 8%));
 	
 	&.container {
 		position: relative;
 		width: 50%;
-		background: #000;
+		@include border-radius(6px);
+		@include linear-gradient(rgba(#000,0.05), rgba(#000,0.17));
+		@include single-box-shadow(rgba(#000, 0.13), 0px, 1px, 1px, 0);
 		margin: 0 auto;
+		margin-bottom: 15px;
 	}
 }

@@ -1,5 +1,6 @@
 .user {
 	.stars {
+		float: left;
 		position: relative;
 		&.filled {
 
@@ -12,11 +13,11 @@
 		}
 
 		&.active {
-
+			font-size: 8px;
 			.star {
 				width: 10px;
 				&.container {
-					
+					margin-left: 1px;
 				}
 			}
 			
@@ -45,6 +46,34 @@
 				
 				&.container {
 					
+				}
+			}
+			
+			.ring {
+				
+				input {
+
+				}
+			}
+		}
+	}
+}
+
+.user.sidebar {
+	.stars {
+		&.filled {
+
+			.star {
+				&.container {
+					
+				}
+			}
+		}
+
+		&.active {
+			margin: 3px 0 0 1px;
+			.star {
+				&.container {
 				}
 			}
 			
