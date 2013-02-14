@@ -1,5 +1,5 @@
 .challenge {
-	
+position: relative;
 	.container {
 		
 		&.issue {
@@ -7,50 +7,129 @@
 		}
 		
 		&.challenger {
-			
+			position: absolute;
+			right: 100px;
+			top: 28px;
+			width: 180px;
+			height: 30px;
 		}
 		
 		&.user {
-			
+			position: absolute;
+			right: 100px;
+			top: 4px;		
+			width: 180px;
+			height: 30px;
 		}
 	}
 	
 	.button {
-		
+		position: absolute;
+		cursor: pointer;		
+		@include fonts;
+		color: #444444;	
+		border: none;
+		text-align: center;
+		font-weight: bold;
+
 		&.learn {
-			color: $bluegreen;
-			border: 1px solid;
+			top: 18px;
+			left: 220px;
+			font-size: 11px;
+			@include border-radius(16px);	
+			height: 15px;
+			padding-top: 3px;
+			width: 35px;
+			@include linear-gradient(lighten(#000,95%), lighten(#000,77%));
+			@include text-shadow(0px 1px 0 rgba(#fff,0.4));
+			@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);
+			&:hover {
+				@include linear-gradient(lighten(#000,70%), lighten(#000,95%));
+			}
 		}
 		
-		&.play {
-			
+		&.play {			
+			top: 10px;
+			right: 30px;
+			font-size: 12px;
+			@include border-radius(16px);	
+			height: 22px;
+			padding-top: 7px;
+			width: 15%;
+			@include linear-gradient(lighten($orange,18%), lighten($orange,1%));
+			@include text-shadow(0px 1px 0 rgba(#000,0.2));
+			@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);
+			&:hover {
+				@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
+			}
 		}
-		
-		.waiting {
-			
+		&.waiting {
+			top: 10px;
+			right: 30px;
+			font-size: 12px;
+			@include border-radius(16px);	
+			height: 22px;
+			padding-top: 7px;
+			width: 15%;
+			@include linear-gradient(lighten(#000,95%), lighten(#000,77%));
+			@include text-shadow(0px 1px 0 rgba(#fff,0.4));
+			@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);
+			&:hover {
+				@include linear-gradient(lighten(#000,70%), lighten(#000,95%));
+			}
 		}
 	}
 }
 
 .challenge.history {
-	
+	position: relative;
+	width: 80%;
+	height: 40px;
+	margin: 5px 0 0 10%;
 	.winning {
-		
+		position: absolute;
+		left: 3px;
+		width: 160px;
+		height: 40px;
 		.picture {
 			
 			&.container {
+				overflow: hidden;
+				@include single-box-shadow(rgba(#000, 0.35), 1px, 1px, 1px, 0);
+				position: absolute;
+				left: 2px;
+				top: 2px;
+				width: 35px;
+				height: 35px;
+				margin-left: 2px;
+				@include border-radius(7px);
 				
 			}
 			
 			&.wrapper {
-				
+				overflow: hidden;
+				position: static;
+				height: 100%;
+				width: 100%;
+				@include border-radius(7px);
+				img {
+					height: 100%;
+					width: 100%;
+				}
 			}
 		}
 		
 		.name {
 			
 			&.container {
-				
+				font-weight: bold;
+				position: absolute;
+				left: 45px;
+				top: 7px;
+				height: 11px;
+				font-size: 12px;
+				color: rgb(92,92,92);
+				@include text-shadow(0px 1px 0 rgba(#000, 0.15));
 			}
 		}
 		
@@ -60,22 +139,50 @@
 	}
 	
 	.losing {
-		
+		position: absolute;
+		right: 3px;
+		top: 0px;
+		width: 160px;
+		height: 40px;
 		.picture {
 			
 			&.container {
+				overflow: hidden;
+				@include single-box-shadow(rgba(#000, 0.35), 1px, 1px, 1px, 0);
+				position: absolute;
+				right: 3px;
+				top: 2px;
+				width: 30px;
+				height: 30px;
+				margin-left: 2px;
+				@include border-radius(7px);
 				
 			}
 			
 			&.wrapper {
-				
+				overflow: hidden;
+				position: static;
+				height: 100%;
+				width: 100%;
+				@include border-radius(7px);
+				img {
+					height: 100%;
+					width: 100%;
+				}
 			}
 		}
 		
 		.name {
 			
 			&.container {
-				
+				font-weight: bold;
+				position: absolute;
+				right: 45px;
+				top: 7px;
+				height: 11px;
+				font-size: 12px;
+				color: rgb(92,92,92);
+				@include text-shadow(0px 1px 0 rgba(#000, 0.15));
 			}
 		}
 		
@@ -85,13 +192,32 @@
 	}
 	
 	.win-loss {
-		
+		width: 20%;
+		margin-left: 40%;
+		position: relative;
+		text-align: center;
 		.number {
-			
+			position: absolute;
+			@include text-shadow(0px 1px 0 rgba(#000, 0.2));
+			width: 25px;
+			font-size: 16px;
+			font-weight: bold;
+			color: darken($orange,2%);
+			top: 1px;
+			&.winner {
+				left: 7px;
+				text-align: right;
+			}
+			&.loser {
+				right: 7px;
+				text-align: left;
+			}
 		}
 		
 		.colon {
-			
+			font-weight: bold;
+			font-size: 12px;
+			color: rgba(#000,0.5);
 		}
 	}
 }
@@ -121,5 +247,16 @@
 		&:hover {
 			@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
 		}
+	}
+}
+
+.challenges_subheader {
+	text-align: center;
+	font-weight: bold;
+	color: rgba(#000, 0.5);
+	font-size: 14px;
+	margin: 12px 0 -5px 0;
+	&.their_turn {
+		margin-top: 60px;
 	}
 }

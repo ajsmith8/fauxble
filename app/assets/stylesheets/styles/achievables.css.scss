@@ -3,7 +3,10 @@
 	.text {
 		
 		&.container {
-			
+			text-align: center;
+			font-weight: bold;
+			color: rgba(#000, 0.5);
+			font-size: 14px;	
 			&.earned {
 
 			}
@@ -19,7 +22,6 @@
 	}
 	
 	.locked {
-		
 	}
 
 	.achievable {
