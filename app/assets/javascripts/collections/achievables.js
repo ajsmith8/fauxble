@@ -10,8 +10,8 @@ Fauxble.Collections.Achievables = Backbone.Collection.extend({
 		this.users = options.users;
 		this.user_achievables = options.user_achievables;
 		
-		this.tasks.on('add', this.checkTaskAchievable, this);
-		this.challenges.on('add', this.checkChallengeAchievable, this);
+		//this.tasks.on('add', this.checkTaskAchievable, this);
+		//this.challenges.on('add', this.checkChallengeAchievable, this);
 	},
 	
 	checkTaskAchievable: function(model) {

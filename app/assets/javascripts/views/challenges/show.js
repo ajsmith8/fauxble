@@ -54,7 +54,13 @@ Fauxble.Views.ChallengesShow = Backbone.View.extend({
 	},
 	
 	toggleDescription: function(event) {
-		//show or hide issue description
+		var element = $(event.target).closest('.challenge').find('#description');
+		
+		if ($(element).hasClass('hide')) {
+			$(element).removeClass('hide');
+		} else {
+			$(element).addClass('hide');
+		}
 	},
 	
 	startChallenge: function() {
