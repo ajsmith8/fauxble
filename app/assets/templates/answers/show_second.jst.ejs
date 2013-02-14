@@ -1,17 +1,5 @@
 <div class = 'score container left'>
-	<div id = 'user_score' class = 'score'></div>
-</div>
-<div id = 'user' class = 'picture container hide'>
-	<div class = 'picture wrapper'>
-		<% if (users.user.get('signed_in_fb')) { %>
-			<img src = 'https://graph.facebook.com/<%= users.user.get('uid') %>/picture' />
-		<% } else { %>
-			<img src = 'assets/misc/user.png' />
-		<% } %>
-	</div>
-</div>
-<div class = 'title container'>
-	<div class = 'title'><%= answer.get('title') %></div>
+	<div id = 'challenger_score' class = 'score'></div>
 </div>
 <div id = 'challenger' class = 'picture container hide'>
 	<div class = 'picture wrapper'>
@@ -22,9 +10,21 @@
 		<% } %>
 	</div>
 </div>
+<div class = 'title container'>
+	<div class = 'title'><%= answer.get('title') %></div>
+</div>
+<div id = 'user' class = 'picture container hide'>
+	<div class = 'picture wrapper'>
+		<% if (users.user.get('signed_in_fb')) { %>
+			<img src = 'https://graph.facebook.com/<%= users.user.get('uid') %>/picture' />
+		<% } else { %>
+			<img src = 'assets/misc/user.png' />
+		<% } %>
+	</div>
+</div>
 <div id = 'check' class = 'check container hide'>
 	<div class = 'check'>&#x2713;</div>
 </div>
 <div class = 'score container right'>
-	<div id = 'challenger_score' class = 'score'></div>
+	<div id = 'user_score' class = 'score'></div>
 </div>

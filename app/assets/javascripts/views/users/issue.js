@@ -22,7 +22,7 @@ Fauxble.Views.UsersIssue = Backbone.View.extend({
 		$(this.el).addClass('user issue');
 		$(this.el).html(this.template({
 			user: this.user,
-			wins: this.attr.challenges.getWins(this.user, this.user2)
+			wins: this.attr.challenges.getWins(this.user, this.user2, this.issue)
 		}));
 		
 		setTimeout(function() {

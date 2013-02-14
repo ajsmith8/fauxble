@@ -17,6 +17,7 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 		this.answers = _.shuffle(this.attr.answers.where({question_id: this.question.get('id')}));
 		this.is_answered = false;
 		this.time = 15000;
+		this.timer = this.time;
 		this.subviews = [];
 		
 		this.setRoundSpecifics();
@@ -52,9 +53,12 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 		setTimeout(function() {
 			_.each(self.answers, function(answer) {
 				self.appendAnswer(answer);
-				self.startTimer();
 			});
 		}, 0);
+		
+		setTimeout(function() {
+			self.startTimer();
+		}, 2000);
 		
 		return this;
 	},
@@ -75,14 +79,12 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 			element = $(this.el).find('#timer'),
 			inter;
 			
-		this.timer = this.time;
-			
 		inter = setInterval(function() {
 			if (self.task) {
 				self.showChallenger(self.timer);
 			}
 			
-			$(element).css('width', Math.round((self.timer / self.time) * 100) + '%');
+			$(element).css('width', (Math.round((self.timer / self.time) * 10000) / 100) + '%');
 			self.timer = self.timer - 100;
 			
 			if (self.stopTimer(self.timer)) {

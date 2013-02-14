@@ -36,11 +36,26 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 		}
 	},
 	
-	getWins: function(user1, user2) {
+	getWins: function(user1, user2, issue) {
 		var wins = 0;
 		
-		wins = wins + this.where({user_id: user1.get('id'), challenger_id: user2.get('id'), winner_id: user1.get('id')}).length;
-		wins = wins + this.where({user_id: user2.get('id'), challenger_id: user1.get('id'), winner_id: user1.get('id')}).length;
+		if (issue) {
+			wins = wins + this.where({
+				user_id: user1.get('id'), 
+				challenger_id: user2.get('id'), 
+				winner_id: user1.get('id'), 
+				issue_id: issue.get('id')
+			}).length;
+			wins = wins + this.where({
+				user_id: user2.get('id'), 
+				challenger_id: user1.get('id'), 
+				winner_id: user1.get('id'),
+				issue_id: issue.get('id')
+			}).length;
+		} else {
+			wins = wins + this.where({user_id: user1.get('id'), challenger_id: user2.get('id'), winner_id: user1.get('id')}).length;
+			wins = wins + this.where({user_id: user2.get('id'), challenger_id: user1.get('id'), winner_id: user1.get('id')}).length;
+		}
 		
 		return wins;
 	},
