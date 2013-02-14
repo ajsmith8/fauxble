@@ -30,6 +30,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			users: options.user_metrics
 		};
 		
+		this.header();
 		this.chat();
 	},
 	
