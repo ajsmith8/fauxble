@@ -154,7 +154,7 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 	},
 	
 	showCorrectAnswer: function(answer) {
-		$(this.el).find('.answer#' + answer.get('id')).addClass('correct');
+		$(this.el).find('.answer#' + answer.get('id')).find('#check').removeClass('hide');
 	},
 	
 	showRageComic: function(task) {
