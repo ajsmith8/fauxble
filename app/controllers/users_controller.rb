@@ -13,7 +13,9 @@ class UsersController < ApplicationController
   
   def create
     @user = User.create(params[:user])
-    session[:user_id] = @user.id
+    if !session[:user_id]
+      session[:user_id] = @user.id
+    end
     respond_with @user
   end
   

@@ -70,7 +70,8 @@ Fauxble.Views.UsersFacebook = Backbone.View.extend({
 		if (this.attr.users.where({uid: user['id']})[0]) {
 			this.setChallengeUser(this.attr.users.where({uid: user['id']})[0]);
 		} else {
-			this.setChallengeUser(this.attr.users.createFromFacebook(user));
+			//start loading
+			this.attr.users.createFromFacebook(user, this);
 		}
 	},
 	

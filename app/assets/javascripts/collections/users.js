@@ -53,14 +53,15 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 		});
 	},
 	
-	createFromFacebook: function(user) {
+	createFromFacebook: function(user, view) {
 		this.create({
 			name: user['name'],
 			uid: user['id'],
 			provider: 'facebook'
 		}, {
 			success: function(model, response) {
-				return model;
+				//end loading
+				view.setChallengeUser(model);
 			},
 			error: function(model, response) {
 				//alert error

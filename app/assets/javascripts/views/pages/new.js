@@ -67,13 +67,18 @@ Fauxble.Views.PagesNew = Backbone.View.extend({
 	},
 	
 	setChallengeUser: function(event) {
-		var user = this.attr.users.get(parseInt($(event.target).closest('.user').attr('id')));
+		var user;
 		
-		this.challenge.set({
-			user_id: user.get('id')
-		});
-		this.challenge.save();
-		Backbone.history.navigate('issues' + this.challenge.get('id'), true);
+		if (!$(event.target).closest('.user').hasClass('friend')) {
+			user = this.attr.users.get(parseInt($(event.target).closest('.user').attr('id')));
+
+			this.challenge.set({
+				user_id: user.get('id')
+			});
+			this.challenge.save();
+			
+			Backbone.history.navigate('issues' + this.challenge.get('id'), true);
+		}
 	},
 	
 	onClose: function() {
