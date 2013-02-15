@@ -62,7 +62,8 @@ Fauxble.Views.PagesNew = Backbone.View.extend({
 	},
 	
 	fbLogin: function() {
-		window.location = "http://localhost:3000/auth/facebook";
+		//window.location = "http://localhost:3000/auth/facebook";
+		window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";
 	},
 	
 	setChallengeUser: function(event) {
