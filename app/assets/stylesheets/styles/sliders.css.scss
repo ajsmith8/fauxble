@@ -26,6 +26,7 @@
 		top: -8px;
 		left: 0;
 		&.user {
+			z-index: 1;
 			cursor: pointer;
 			width: 30px;
 			height: 30px;
@@ -40,6 +41,7 @@
 		}
 		
 		&.challenger {
+			z-index: 0;
 			cursor: pointer;
 			width: 30px;
 			height: 30px;
