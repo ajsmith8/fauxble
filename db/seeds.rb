@@ -2,7 +2,7 @@
 # question_id -> 1
 Question.create(
   issue_id: 1,
-  title: 'What percent of all US arrests are marijuana-related?',
+  title: 'What percent of all U.S. arrests are marijuana-related?',
   is_slider: true
 )
 
@@ -25,7 +25,7 @@ Slider.create(
 # question_id -> 2
 Question.create(
   issue_id: 1,
-  title: 'What percent of all US drug arrests are marijuana-related?',
+  title: 'What percent of all U.S. drug arrests are marijuana-related?',
   is_slider: true
 )
 
@@ -48,7 +48,7 @@ Slider.create(
 # question_id -> 3  
 Question.create(
   issue_id: 1,
-  title: 'What percent of Americans have tried marijuana at least once?',
+  title: 'What percent of all Americans have reported trying marijuana at least once?',
   is_slider: true
 )
 
@@ -117,7 +117,7 @@ Slider.create(
 # question_id -> 6
 Question.create(
   issue_id: 1,
-  title: 'Given that the US has 5% of the worlds population, what percent of the worlds prison population does the US have?',
+  title: 'Given that the U.S. has 5% of the world\'s population, what percent of the world\'s prison population does the U.S. have?',
   is_slider: true
 )
   
@@ -140,7 +140,7 @@ Slider.create(
 # question_id -> 7
 Question.create(
   issue_id: 1,
-  title: 'What percent of Mexico\'s GDP is from marijuana sales?',
+  title: 'What percentage of Mexico\'s GDP comes from marijuana sales?',
   is_slider: true
 )
 
@@ -209,7 +209,7 @@ Slider.create(
 # question_id -> 10
 Question.create(
   issue_id: 18,
-  title: 'What percent of US women have an unintended pregnancy by age 45?',
+  title: 'What percent of U.S. women have an unintended pregnancy by age 45?',
   is_slider: false
 )
 
@@ -232,7 +232,7 @@ Slider.create(
 # question_id -> 11
 Question.create(
   issue_id: 18,
-  title: 'What percent of US women have an abortion by age 20?',
+  title: 'What percent of U.S. women have had an abortion by age 20?',
   is_slider: true
 )
 
@@ -255,7 +255,7 @@ Slider.create(
 # question_id -> 12
 Question.create(
   issue_id: 18,
-  title: 'What percent of US women who receive abortions are teenagers?',
+  title: 'What percent of U.S. women who receive abortions are teenagers?',
   is_slider: true
 )
 
@@ -370,7 +370,7 @@ Slider.create(
 # question_id -> 17
 Question.create(
   issue_id: 6,
-  title: 'How much have CO2 emissions by human activities increased since 1990?',
+  title: 'How much have human-caused Carbon Dioxide emissions increased since 1990?',
   is_slider: true
 )
 
@@ -508,7 +508,7 @@ Slider.create(
 # question_id -> 23
 Question.create(
   issue_id: 7,
-  title: 'Approximately what percent of unemployed Americans have attended at least some college?',
+  title: 'Approximately what percent of unemployed Americans have at least some college education?',
   is_slider: true
 )
 
@@ -531,7 +531,7 @@ Slider.create(
 # question_id -> 24
 Question.create(
   issue_id: 7,
-  title: 'Approximately what percent of US jobs require at least a 2 year degree?',
+  title: 'Approximately what percent of U.S. jobs require at least a two-year degree?',
   is_slider: true
 )
 
@@ -554,7 +554,7 @@ Slider.create(
 # question_id -> 25
 Question.create(
   issue_id: 7,
-  title: 'Approximately how much per year does it cost to attend a private US college?',
+  title: 'Approximately how much per year does it cost to attend a private U.S. college?',
   is_slider: true
 )
 
@@ -600,7 +600,7 @@ Slider.create(
 # question_id -> 27
 Question.create(
   issue_id: 7,
-  title: 'What is the median US family income?',
+  title: 'What is the median U.S. family income?',
   is_slider: true
 )
 
@@ -623,7 +623,7 @@ Slider.create(
 # question_id -> 28
 Question.create(
   issue_id: 7,
-  title: 'How much does the average working college graduate earn per year?',
+  title: 'How much does the average employed college graduate earn per year?',
   is_slider: true
 )
 
@@ -646,7 +646,7 @@ Slider.create(
 # question_id -> 29
 Question.create(
   issue_id: 7,
-  title: 'How much does the average working non-college graduate earn per year?',
+  title: 'How much does the average employed non-college graduate earn per year?',
   is_slider: true
 )
 
@@ -761,7 +761,7 @@ Slider.create(
 # question_id -> 34
 Question.create(
   issue_id: 7,
-  title: 'What is the US per capital student loan debt?',
+  title: 'What is the U.S. per capital student loan debt?',
   is_slider: true
 )
 
@@ -807,7 +807,7 @@ Slider.create(
 # question_id -> 36
 Question.create(
   issue_id: 4,
-  title: 'How many US presidents won the presidental race without winning the popular vote?',
+  title: 'How many U.S. presidents won the presidential race without winning the popular vote?',
   is_slider: true
 )
 
@@ -853,7 +853,7 @@ Slider.create(
 # question_id -> 38
 Question.create(
   issue_id: 4,
-  title: 'How many US presidents have openly supported abolishing the electoral college?',
+  title: 'How many U.S. presidents have openly supported abolishing the Electoral College?',
   is_slider: true
 )
 
@@ -876,7 +876,7 @@ Slider.create(
 # question_id -> 39
 Question.create(
   issue_id: 4,
-  title: 'According to a 2011 Gallup poll, approximately what percent of Americans support abolishing the electoral college?',
+  title: 'According to a 2011 Gallup poll, approximately what percent of Americans support abolishing the Electoral College?',
   is_slider: true
 )
 
@@ -899,7 +899,7 @@ Slider.create(
 # question_id -> 40
 Question.create(
   issue_id: 8,
-  title: 'How many pounds of corn is required to produce a gallon of ethanol?',
+  title: 'How many pounds of corn are required to produce a gallon of ethanol?',
   is_slider: true
 )
 
@@ -945,7 +945,7 @@ Slider.create(
 # question_id -> 42
 Question.create(
   issue_id: 8,
-  title: 'How much less fuel efficient is burning ethanol vs gasoline?',
+  title: 'How much less fuel efficient is burning ethanol vs. gasoline?',
   is_slider: true
 )
 
@@ -968,7 +968,7 @@ Slider.create(
 # question_id -> 43
 Question.create(
   issue_id: 8,
-  title: 'Per capita, how much have crop subsidies cost the US government?',
+  title: 'Per capita, how much do crop subsidies cost the U.S. government?',
   is_slider: true
 )
 
@@ -991,7 +991,7 @@ Slider.create(
 # question_id -> 44
 Question.create(
   issue_id: 10,
-  title: 'What percent of private-sector US employees are union members?',
+  title: 'What percent of private-sector U.S. employees are union members?',
   is_slider: true
 )
 
@@ -1014,7 +1014,7 @@ Slider.create(
 # question_id -> 45
 Question.create(
   issue_id: 10,
-  title: 'What percent of US federal employees are union members?',
+  title: 'What percent of U.S. federal employees are union members?',
   is_slider: true
 )
 
@@ -1037,7 +1037,7 @@ Slider.create(
 # question_id -> 46
 Question.create(
   issue_id: 10,
-  title: 'Adjusting for education, how much higher is total compensation for federal vs private sector employees?',
+  title: 'Adjusting for education, how much higher is total compensation for federal vs. private sector employees?',
   is_slider: true
 )
 
@@ -1198,7 +1198,7 @@ Slider.create(
 # question_id -> 53
 Question.create(
   issue_id: 14,
-  title: 'What is the US poverty line for a family of four?',
+  title: 'What is the U.S. poverty line for a family of four?',
   is_slider: true
 )
 
@@ -1221,7 +1221,7 @@ Slider.create(
 # question_id -> 54
 Question.create(
   issue_id: 14,
-  title: 'In what year was the first US minimum wage implemented?',
+  title: 'In what year was the first U.S. minimum wage implemented?',
   is_slider: true
 )
 
@@ -1244,7 +1244,7 @@ Slider.create(
 # question_id -> 55
 Question.create(
   issue_id: 14,
-  title: 'How many US states have a higher minimum wage than the federal level?',
+  title: 'How many U.S. states have a higher minimum wage than the federal level?',
   is_slider: true
 )
 
@@ -1290,7 +1290,7 @@ Slider.create(
 # question_id -> 57
 Question.create(
   issue_id: 5,
-  title: 'For primary education, how much does the US annually spend per student?',
+  title: 'For primary education, how much does the U.S. annually spend per student?',
   is_slider: true
 )
 
@@ -1359,7 +1359,7 @@ Slider.create(
 # question_id -> 60
 Question.create(
   issue_id: 5,
-  title: 'According to the Education Index, what is the US worldwide academic ranking?',
+  title: 'According to the Education Index, what is the U.S. worldwide academic ranking?',
   is_slider: true
 )
 
@@ -1382,7 +1382,7 @@ Slider.create(
 # question_id -> 61
 Question.create(
   issue_id: 16,
-  title: 'As a percent of annual net income, how much money did BP pay for the 2010 oil spill?',
+  title: 'As a percent of its annual net income, how much money did BP pay for the 2010 oil spill?',
   is_slider: true
 )
 
@@ -1405,7 +1405,7 @@ Slider.create(
 # question_id -> 62
 Question.create(
   issue_id: 16,
-  title: 'Where does the US rank worldwide for oil production?',
+  title: 'Where does the U.S. rank worldwide for oil production?',
   is_slider: true
 )
 
@@ -1428,7 +1428,7 @@ Slider.create(
 # question_id -> 63
 Question.create(
   issue_id: 16,
-  title: 'What percent of oil consumed in the US is imported?',
+  title: 'What percent of oil consumed in the U.S. is imported?',
   is_slider: true
 )
 
@@ -1451,7 +1451,7 @@ Slider.create(
 # question_id -> 64
 Question.create(
   issue_id: 16,
-  title: 'What percent of crude oil processed in US refineries is imported?',
+  title: 'What percent of crude oil processed in U.S. refineries is imported?',
   is_slider: true
 )
 
@@ -1543,7 +1543,7 @@ Slider.create(
 # question_id -> 68
 Question.create(
   issue_id: 2,
-  title: 'How many patent attorneys and agents are in the US?',
+  title: 'How many patent attorneys and agents are there in the U.S.?',
   is_slider: true,
 )
 
@@ -1566,7 +1566,7 @@ Slider.create(
 # question_id -> 69
 Question.create(
   issue_id: 2,
-  title: 'How many new software patents are issued each year in the US?',
+  title: 'How many new software patents are issued each year in the U.S.?',
   is_slider: true
 )
 
@@ -1612,7 +1612,7 @@ Slider.create(
 # question_id -> 71
 Question.create(
   issue_id: 2,
-  title: 'Per capita, how much money do patent trolls annually cost the US?',
+  title: 'Per capita, how much money do patent trolls annually cost the U.S.?',
   is_slider: true
 )
 
@@ -1635,7 +1635,7 @@ Slider.create(
 # question_id -> 72
 Question.create(
   issue_id: 12,
-  title: 'How many pounds of trans fat does an average American eat annually?',
+  title: 'How many pounds of trans fat does the average American eat per year?',
   is_slider: true
 )
 
@@ -1681,7 +1681,7 @@ Slider.create(
 # question_id -> 74
 Question.create(
   issue_id: 12,
-  title: 'How many annual deaths in the US are attributed to trans fat consumption?',
+  title: 'How many annual deaths in the U.S. are attributed to trans fat consumption?',
   is_slider: true
 )
 
@@ -1750,7 +1750,7 @@ Slider.create(
 # question_id -> 77
 Question.create(
   issue_id: 3,
-  title: 'How much does the TSA annually cost, per capita?',
+  title: 'How much does the TSA cost per year, per capita?',
   is_slider: true
 )
 
@@ -1865,7 +1865,7 @@ Slider.create(
 # question_id -> 82
 Question.create(
   issue_id: 9,
-  title: 'Each year in the US, how many people die prematurely due to lack of healthcare?',
+  title: 'Each year in the U.S., how many people die prematurely due to lack of healthcare?',
   is_slider: true
 )
 
@@ -1980,7 +1980,7 @@ Slider.create(
 # question_id -> 87
 Question.create(
   issue_id: 9,
-  title: 'How much does the US spend on healthcare relative to GDP?',
+  title: 'How much does the U.S. spend on healthcare relative to GDP?',
   is_slider: true
 )
 
@@ -2003,7 +2003,7 @@ Slider.create(
 # question_id -> 88
 Question.create(
   issue_id: 9,
-  title: 'In terms of percent of GDP spent on healthcare, where does the US rank globally?',
+  title: 'In terms of percent of GDP spent on healthcare, where does the U.S. rank globally?',
   is_slider: true
 )
 
@@ -2026,7 +2026,7 @@ Slider.create(
 # question_id -> 89
 Question.create(
   issue_id: 9,
-  title: 'What is the average wait time for a doctors visit in the current US system?',
+  title: 'What is the average wait time for a doctors visit in the current U.S. system?',
   is_slider: true
 )
 
@@ -2072,7 +2072,7 @@ Slider.create(
 # question_id -> 91
 Question.create(
   issue_id: 9,
-  title: 'Where does the US rank for globally for the lowest infant mortality rate?',
+  title: 'Where does the U.S. rank for globally for the lowest infant mortality rate?',
   is_slider: true
 )
 
@@ -2095,7 +2095,7 @@ Slider.create(
 # question_id -> 92
 Question.create(
   issue_id: 9,
-  title: 'Where does the US rank for globally for life expectancy?',
+  title: 'Where does the U.S. rank for globally for life expectancy?',
   is_slider: true
 )
 
@@ -2118,7 +2118,7 @@ Slider.create(
 # question_id -> 93
 Question.create(
   issue_id: 9, 
-  title: 'Medical bills cause what percent of US bankruptcies?',
+  title: 'Medical bills cause what percent of U.S. bankruptcies?',
   is_slider: true
 )
 
@@ -2187,7 +2187,7 @@ Slider.create(
 # question_id -> 96
 Question.create(
   issue_id: 9,
-  title: 'How much of every dollar spent on US health care is considered \'waste\'?',
+  title: 'How much of every dollar spent on U.S. health care is considered \'waste\'?',
   is_slider: true
 )
 
@@ -2233,7 +2233,7 @@ Slider.create(
 # question_id -> 98
 Question.create(
   issue_id: 9,
-  title: 'In terms of spending the most on pharmaceutical drugs, where does the US rank?',
+  title: 'In terms of spending the most on pharmaceutical drugs, where does the U.S. rank?',
   is_slider: true
 )
 
@@ -2256,7 +2256,7 @@ Slider.create(
 # question_id -> 99
 Question.create(
   issue_id: 9,
-  title: 'In terms of physicians per capita, where does the US rank?',
+  title: 'In terms of physicians per capita, where does the U.S. rank?',
   is_slider: true
 )
 
@@ -2279,7 +2279,7 @@ Slider.create(
 # question_id -> 100
 Question.create(
   issue_id: 9,
-  title: 'What percent of US citizens were medically uninsured in 2010?',
+  title: 'What percent of U.S. citizens were medically uninsured in 2010?',
   is_slider: true
 )
 
@@ -2348,7 +2348,7 @@ Slider.create(
 # question_id -> 103
 Question.create(
   issue_id: 13,
-  title: 'What percent of drone casualities are considered high-level targets?',
+  title: 'What percent of drone causalities are considered high-level targets?',
   is_slider: true
 )
 
@@ -2371,7 +2371,7 @@ Slider.create(
 # question_id -> 104
 Question.create(
   issue_id: 13,
-  title: 'How many drone strikes occured in Pakistan in 2012?',
+  title: 'How many drone strikes occurred in Pakistan in 2012?',
   is_slider: true
 )
 
@@ -2394,7 +2394,7 @@ Slider.create(
 # question_id -> 105
 Question.create(
   issue_id: 13,
-  title: 'What percent of the US support domestic drone use?',
+  title: 'What percent of the Americans support domestic drone use?',
   is_slider: true
 )
 
@@ -2440,7 +2440,7 @@ Slider.create(
 # question_id -> 107
 Question.create(
   issue_id: 13,
-  title: 'How many Pakistani civilians have been killed by US drones?',
+  title: 'How many Pakistani civilians have been killed by U.S. drones?',
   is_slider: true
 )
 
@@ -2493,7 +2493,7 @@ Issue.create(
 # Finland issue_id -> 5
 Issue.create(
   title: 'Finland\'s education system',
-  description: "The United States is ranked very low in worldwide education standards. Finland is continuously ranked among the highest. Should the US adopt an education system similar to Finland\'s?",
+  description: "The United States is ranked very low in worldwide education standards. Finland is continuously ranked among the highest. Should the U.S. adopt an education system similar to Finland\'s?",
   image: 'finland'
 )
 
@@ -2532,11 +2532,11 @@ Issue.create(
   image: 'employee'
 )
 
-# Fracking issue_id -> 11
+# Fracturing issue_id -> 11
 Issue.create(
-  title: 'Hydraulic fracking',
-  description: "Hydraulic Fracking is used to release petroleum, natural gas, or other fossil fuels for extraction by way of injecting water, sand, and chemicals deep into the earth\'s surface.",
-  image: 'fracking'
+  title: 'Hydraulic fracturing',
+  description: "Hydraulic Fracturing is used to release petroleum, natural gas, or other fossil fuels for extraction by way of injecting water, sand, and chemicals deep into the earth\'s surface.",
+  image: 'fracturing'
 )
 
 # Trans fat issue_id -> 12
@@ -2570,7 +2570,7 @@ Issue.create(
 # Offshore oil issue_id -> 16
 Issue.create(
   title: 'Offshore drilling',
-  description: 'The rising cost of oil and fears about US dependence on foreign oil have lead to desires for increased drilling off of US coastlines. Opponents fear offshore drilling will have minimal economic benefit and substantial harmful effects on the environment.',
+  description: 'The rising cost of oil and fears about U.S. dependence on foreign oil have lead to desires for increased drilling off of U.S. coastlines. Opponents fear offshore drilling will have minimal economic benefit and substantial harmful effects on the environment.',
   image: 'offshoreoil'
 )
 
@@ -2591,7 +2591,7 @@ Issue.create(
 # question_id -> 108
 Question.create(
   issue_id: 1,
-  title: "A 2010 Rand Corporation report estimated that __ to __ percent of marijuana sold within the US originates in Mexico",
+  title: "A 2010 Rand Corporation report estimated that __ to __ percent of marijuana sold within the U.S. originates in Mexico",
   is_slider: false
 )
 Source.create(
@@ -2630,7 +2630,7 @@ Answer.create(
 # question_id -> 109
 Question.create(
   issue_id: 1, 
-  title: "The U.S. State Department found that U.S. drug users send between $__ and $__ billion annually to Mexican drug cartels.",
+  title: "The U.S. State Department found that U.S. drug users send between $__ and $__  annually to Mexican drug cartels.",
   is_slider: false
 )
 
@@ -2643,21 +2643,21 @@ Source.create(
 Answer.create(
   issue_id: 1,
   question_id: 109,
-  title: "$19 and $29",
+  title: "$19 billion  and $29 billion",
   is_correct: true
 )
 
 Answer.create(
   issue_id: 1,
   question_id: 109,
-  title: "$1 and $2", 
+  title: "$1 thousand and $2 thousand", 
   is_correct: false
 )
 
 Answer.create(
   issue_id: 1,
   question_id: 109,
-  title: "$100 and $200",
+  title: "$1 trillion and $2 trillion",
   is_correct: false
 )
 
@@ -2683,35 +2683,35 @@ Source.create(
 Answer.create(
   issue_id: 1,
   question_id: 110,
-  title: "3 to 4", 
+  title: "3% to 4%", 
   is_correct: true
 )
 
 Answer.create(
   issue_id: 1,
   question_id: 110,
-  title: "80 to 85",
+  title: "80% to 85%",
   is_correct: false
 )
 
 Answer.create(
   issue_id: 1,
   question_id: 110,
-  title: "20 to 24",
+  title: "20% to 24%",
   is_correct: false
 )
   
 Answer.create(
   issue_id: 1,
   question_id: 110,
-  title: "51 to 53",
+  title: "51% to 53%",
   is_correct: false
 )
  
 # question_id -> 111 
 Question.create(
   issue_id: 1,
-  title: "A fatal accident is 10 times more likely to occur to a driver under the influece alcohol than of marijuana",
+  title: "A fatal accident is __ times more likely to occur to a driver under the influence alcohol than of marijuana",
   is_slider: false
 )
   
@@ -2724,21 +2724,35 @@ Source.create(
 Answer.create(
   issue_id: 1,
   question_id: 111,
-  title: "true",
+  title: "10",
   is_correct: true
 )
   
 Answer.create(
   issue_id: 1,
   question_id: 111,
-  title: "false",
+  title: "2",
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 111,
+  title: "50",
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 111,
+  title: "100",
   is_correct: false
 )
 
 # question_id -> 112
 Question.create(
   issue_id: 1,
-  title: "Which states have legalized mariguana for recreational use?",
+  title: "Which states have legalized marijuana for recreational use?",
   is_slider: false
 )
   
@@ -2751,8 +2765,8 @@ Source.create(
 Answer.create(
   issue_id: 1,
   question_id: 112,
-  title: "Colorado and Wahsington",
-  is_correct: false
+  title: "Colorado and Washington",
+  is_correct: true
 )
   
 Answer.create(
@@ -2772,7 +2786,7 @@ Answer.create(
 Answer.create(
   issue_id: 1,
   question_id: 112,
-  title: "Vermont and Califonia",
+  title: "Vermont and California",
   is_correct: false
 )
 
@@ -2820,7 +2834,7 @@ Answer.create(
 # question_id -> 114
 Question.create(
   issue_id: 1,
-  title: "Which U.S. presidents are known to have tried mariguana at least once?",
+  title: "Which U.S. presidents have admitted to have tried marijuana at least once?",
   is_slider: false
 )
 
@@ -2866,30 +2880,45 @@ Answer.create(
 
 # question_id -> 115
 Question.create(
-  issue_id: 1,
-  title: "The amount of drug-related prisoners has increased since the 1970\'s?",
+  issue_id: 12,
+  title: 'Why do producers want to use trans fats ?',
   is_slider: false
 )
 
 Source.create(
-  issue_id: 1,
+  issue_id: 12,
   question_id: 115,
-  url: "http://en.wikipedia.org/wiki/File:US_incarceration_rate_timeline.gif",
+  url: "http://www.mayoclinic.com/health/trans-fat/CL00032",
 )
   
 Answer.create(
-  issue_id: 1,
+  issue_id: 12,
   question_id: 115,
-  title: "true",
+  title: "To increase shelf life",
   is_correct: true
 )
   
 Answer.create(
-  issue_id: 1,
+  issue_id: 12,
   question_id: 115,
-  title: "false",
+  title: "To make food healthier",
   is_correct: false
 )
+
+Answer.create(
+  issue_id: 12,
+  question_id: 115,
+  title: "To increase protein",
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 12,
+  question_id: 115,
+  title: "For coloring",
+  is_correct: false
+)
+
 
 # question_id -> 116
 Question.create(
@@ -2934,61 +2963,83 @@ Answer.create(
 
 # question_id -> 117
 Question.create(
-  issue_id: 1, 
-  title: "There are more health concerns related to smoking marijuana than to smoking tobacco",
+  issue_id: 12, 
+  title: "What percent of your total daily calories should come from trans fats?",
   is_slider: false
 )
 
 Source.create(
-  issue_id: 1,
+  issue_id: 12,
   question_id: 117,
-  url: "http://en.wikipedia.org/wiki/Medical_cannabis#Recent_studies"
+  url: "http://www.heart.org/HEARTORG/GettingHealthy/FatsAndOils/Fats101/Trans-Fats"
 )
   
 Answer.create(
-  issue_id: 1,
+  issue_id: 12,
   question_id: 117,
-  title: "false",
+  title: "Less than 1%",
   is_correct: true
 )
 
 Answer.create(
-  issue_id: 1,
+  issue_id: 12,
   question_id: 117,
-  title: "true",
+  title: "10%",
   is_correct: false
 )
-  
+
+Answer.create(
+  issue_id: 12,
+  question_id: 117,
+  title: "8%",
+  is_correct: false
+)
+ 
+Answer.create(
+  issue_id: 1,
+  question_id: 117,
+  title: "25%",
+  is_correct: false
+)
+
 # question_id -> 118
 Question.create(
-  issue_id: 1,
-  title: "Marijuana is generally believed to be psychologically addicting",
+  issue_id: 3,
+  title: "TSA employees are suing the TSA for issues related to ___ due to exposure to the scanners",
   is_slider: false
 )
 
 Source.create(
-  issue_id: 1,
+  issue_id: 3,
   question_id: 118,
-  url: "http://www.drugabuse.gov/publications/research-reports/marijuana-abuse/marijuana-addictive"
+  url: " http://intransit.blogs.nytimes.com/2011/07/12/airport-body-scanners-and-health/?src=twr"
 )
 
-Source.create(
-  issue_id: 1,
-  question_id: 118,
-  url: "http://www.webmd.com/mental-health/marijuana-use-and-its-effects"
-)  
-
 Answer.create(
-  issue_id: 1,
+  issue_id: 3,
   question_id: 118,
-  title: "true",
+  title: "Cancer",
   is_correct: true
 )
   
 Answer.create(
   issue_id: 1,
   question_id: 118,
-  title: "false",
+  title: "Depression",
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 3,
+  question_id: 118,
+  title: "Heart failure",
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 3,
+  question_id: 118,
+  title: "Broken bones",
   is_correct: false
 )
 
@@ -3029,7 +3080,7 @@ Answer.create(
 # question_id -> 120
 Question.create(
   issue_id: 1,
-  title: "States that have legalized medical marijuana have seen traffic fatalities __",
+  title: 'States that have legalized medical marijuana have seen traffic fatalities __',
   is_slider: false
 )
 
@@ -3042,21 +3093,21 @@ Source.create(
 Answer.create(
   issue_id: 1,
   question_id: 120,
-  title: "increase by 9%",
-  is_correct: true
-)
-  
-Answer.create(
-  issue_id: 1,
-  question_id: 120,
-  title: "decrease bu 9%",
+  title: "Increase by 9%",
   is_correct: false
 )
   
 Answer.create(
   issue_id: 1,
   question_id: 120,
-  title: "stay the same",
+  title: "Decrease by 9%",
+  is_correct: true
+)
+  
+Answer.create(
+  issue_id: 1,
+  question_id: 120,
+  title: "Stay the same",
   is_correct: false
 )
 
@@ -3157,7 +3208,7 @@ Answer.create(
 # question_id -> 123
 Question.create(
   issue_id: 1,
-  title: "For marijuana possession, African Americans are arrested at 4-12 times the rate of whites",
+  title: "For marijuana possession, African Americans are arrested at ___ times the rate of whites",
   is_slider: false
 )
   
@@ -3170,14 +3221,28 @@ Source.create(
 Answer.create(
   issue_id: 1,
   question_id: 123,
-  title: "true",
+  title: "4-12",
   is_correct: true
 )
   
 Answer.create(
   issue_id: 1,
   question_id: 123,
-  title: "false",
+  title: "100",
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 123,
+  title: "20-30",
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 1,
+  question_id: 123,
+  title: "50-53",
   is_correct: false
 )
 
@@ -3320,21 +3385,21 @@ Source.create(
 Answer.create(
   issue_id: 18,
   question_id: 127,
-  title: "sharply decreased",
+  title: "Sharply decreased",
   is_correct: true
 )
   
 Answer.create(
   issue_id: 18,
   question_id: 127,
-  title: "sharply increased",
+  title: "Sharply increased",
   is_correct: false
 )
   
 Answer.create(
   issue_id: 18,
   question_id: 127,
-  title: "stayed the same",
+  title: "Stayed the same",
   is_correct: false
 )
 
@@ -3436,28 +3501,28 @@ Source.create(
 Answer.create(
   issue_id: 17,
   question_id: 130,
-  title: 'corporations',
+  title: 'Corporations',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 17,
   question_id: 130,
-  title: 'unions and individuals',
+  title: 'Unions and individuals',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 17,
   question_id: 130,
-  title: 'individuals',
+  title: 'Individuals',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 17,
   question_id: 130,
-  title: 'corporations, individuals, and unions',
+  title: 'Corporations, individuals, and unions',
   is_correct: true
 )
 
@@ -3477,14 +3542,14 @@ Source.create(
 Answer.create(
   issue_id: 6,
   question_id: 131,
-  title: 'true',
+  title: 'True',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 6,
   question_id: 131,
-  title: 'false',
+  title: 'False',
   is_correct: false
 )
 
@@ -3504,28 +3569,28 @@ Source.create(
 Answer.create(
   issue_id: 6,
   question_id: 132,
-  title: 'the sun',
+  title: 'The sun',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 6,
   question_id: 132,
-  title: 'the sun and greenhouse gases',
+  title: 'The sun and greenhouse gases',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 6,
   question_id: 132,
-  title: "the earth\'s reflectivty",
+  title: "The earth\'s reflectivity",
   is_correct: false
 )
 
 Answer.create(
   issue_id: 6,
   question_id: 132,
-  title: 'The sun, greenhoue gases, and the earth\'s reflectivity',
+  title: 'The sun, greenhouse gases, and the earth\'s reflectivity',
   is_correct: true
 ) 
 
@@ -3545,14 +3610,14 @@ Source.create(
 Answer.create(
   issue_id: 6,
   question_id: 133,
-  title: "true",
+  title: "True",
   is_correct: true
 )
 
 Answer.create(
   issue_id: 6,
   question_id: 133,
-  title: 'false',
+  title: 'False',
   is_correct: false
 )
 
@@ -3613,21 +3678,21 @@ Source.create(
 Answer.create(
   issue_id: 6,
   question_id: 135,
-  title: 'true',
+  title: 'True',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 6,
   question_id: 135,
-  title: 'false',
+  title: 'False',
   is_correct: true
 )
 
 # question_id -> 136
 Question.create(
   issue_id: 7,
-  title: 'The majority of unemployed Americans have atteneded some college',
+  title: 'The majority of unemployed Americans have attended ___',
   is_slider: false
 )
 
@@ -3640,14 +3705,28 @@ Source.create(
 Answer.create(
   issue_id: 7,
   question_id: 136,
-  title: 'true',
+  title: 'Some college',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 7,
   question_id: 136,
-  title: 'false',
+  title: 'Graduate school',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 7,
+  question_id: 136,
+  title: 'No college',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 7,
+  question_id: 136,
+  title: 'Vocational school',
   is_correct: false
 )
 
@@ -3667,28 +3746,28 @@ Source.create(
 Answer.create(
   issue_id: 7,
   question_id: 137,
-  title:'higher income levels',
+  title: 'Higher income levels',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 7,
   question_id: 137,
-  title: 'lower income levels',
+  title: 'Lower income levels',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 7,
   question_id: 137,
-  title: 'Education level does not effect income levels',
+  title: 'No change in income',
   is_correct: false
 )
 
 # question_id -> 138
 Question.create(
   issue_id: 7,
-  title: 'jobs requiring a college degree being created __ than jobs that do not require a degree',
+  title: 'Jobs requiring a college degree are being created __ than jobs that do not require a degree',
   is_slider: false
 )
 
@@ -3701,21 +3780,21 @@ Source.create(
 Answer.create(
   issue_id: 7,
   question_id: 138,
-  title: 'faster',
+  title: 'Faster',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 7,
   question_id: 138,
-  title: 'slower',
+  title: 'Slower',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 7,
   question_id: 138,
-  title: 'at the same rate',
+  title: 'At the same rate',
   is_correct: false
 )
 
@@ -3735,35 +3814,35 @@ Source.create(
 Answer.create(
   issue_id: 7,
   question_id: 139,
-  title: 'frequently',
+  title: 'Frequently',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 7,
   question_id: 139,
-  title: 'always',
+  title: 'Always',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 7,
   question_id: 139,
-  title: 'sometimes',
+  title: 'Sometimes',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 7,
   question_id: 139,
-  title: 'almost never',
+  title: 'Almost never',
   is_correct: true
 )
 
 # question_id -> 140
 Question.create(
   issue_id: 4,
-  title: 'Which states are given an advantage under the electoral system?',
+  title: 'Relative to population, which states are given disportionate voting power under the electoral system?',
   is_slider: false
 )
 
@@ -3776,28 +3855,28 @@ Source.create(
 Answer.create(
   issue_id: 4,
   question_id: 140,
-  title: 'small states',
+  title: 'States with smaller populations',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 4,
   question_id: 140,
-  title: 'large states',
+  title: 'States with larger populations',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 4,
   question_id: 140,
-  title: 'none',
+  title: 'None',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 4,
   question_id: 140,
-  title: 'highly populated states',
+  title: 'States with large cities',
   is_correct: false
 )
 
@@ -3816,14 +3895,14 @@ Source.create(
 Answer.create(
   issue_id: 4,
   question_id: 141,
-  title: 'true',
+  title: 'True',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 4,
   question_id: 141,
-  title: 'false',
+  title: 'False',
   is_correct: false
 )
 
@@ -3878,27 +3957,27 @@ Question.create(
 Source.create(
   issue_id: 4,
   question_id: 143,
-  url: 'http://www.statemaster.com/graph/gov_200_tot_vot_as_per-2004-election-total-votes-percentage',
+  url: 'http://www.statemaster.com/graph/gov_200_tot_vot_as_per-2004-election-total-votes-percentage'
 )
 
 Answer.create(
   issue_id: 4,
   question_id: 143,
-  title: 'deters voter turnout',
+  title: 'Deters voter turnout',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 4,
   question_id: 143,
-  title: 'increases voter turnout',
+  title: 'Increases voter turnout',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 4,
   question_id: 143,
-  title: 'has no effect',
+  title: 'Has no effect',
   is_correct: true
 )
 
@@ -3918,28 +3997,28 @@ Source.create(
 Answer.create(
   issue_id: 4,
   question_id: 144,
-  title: 'more than',
+  title: 'More than',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 4,
   question_id: 144,
-  title: 'the same as',
+  title: 'The same as',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 4,
   question_id: 144,
-  title: 'less than',
+  title: 'Less than',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 4,
   question_id: 144,
-  title: 'both are worthless',
+  title: 'Both are worthless',
   is_correct: false
 )
 
@@ -3977,21 +4056,21 @@ Answer.create(
 Answer.create(
   issue_id: 4,
   question_id: 145,
-  title: 'incumbents',
+  title: 'Incumbents',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 4,
   question_id: 145,
-  title: 'primary candidates',
+  title: 'Primary candidates',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 4,
   question_id: 145,
-  title: 'challengers',
+  title: 'Challengers',
   is_correct: false
 )
 
@@ -4011,28 +4090,28 @@ Source.create(
 Answer.create(
   issue_id: 4,
   question_id: 146,
-  title: 'non-swing states',
+  title: 'Non-swing states',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 4,
   question_id: 146,
-  title: 'swing states',
+  title: 'Swing states',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 4,
   question_id: 146,
-  title: 'highly populated states',
+  title: 'Highly populated states',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 4,
   question_id: 146,
-  title: 'none',
+  title: 'None',
   is_correct: false
 )
 
@@ -4052,55 +4131,63 @@ Source.create(
 Answer.create(
   issue_id: 8,
   question_id: 147,
-  title: 'true',
+  title: 'True',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 8,
   question_id: 147,
-  title: 'false',
+  title: 'False',
   is_correct: false
 )
 
 # question_id -> 148
 Question.create(
-  issue_id: 10,
-  title: 'What type of pension plans do federal employees receive?',
+  issue_id: 3,
+  title: 'A blogger successfully snuck ____ through a TSA full-body scanner?',
   is_slider: false
 )
 
 Source.create(
-  issue_id: 10,
+  issue_id: 3,
   question_id: 148,
-  url: 'http://retireplan.about.com/lw/Business-Finance/Personal-finance/What-is-the-Thrift-Savings-Plan-for-Federal-Employees-.htm'
+  url: 'http://www.bgr.com/2012/03/08/blogger-shows-the-world-how-to-sneak-anything-past-tsas-nude-body-scanners-video/'
 )
 
 Answer.create(
-  issue_id: 10,
+  issue_id: 3,
   question_id: 148,
-  title: 'A thrift savings plan',
+  title: 'Metal objects',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 10,
   question_id: 148,
-  title: 'none',
+  title: 'Guns',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 10,
   question_id: 148,
-  title: 'It depends on the job title',
+  title: 'A bomb',
   is_correct: false
 )
+
+Answer.create(
+  issue_id: 10,
+  question_id: 148,
+  title: 'Knives',
+  is_correct: false
+)
+
 
 # question_id -> 149
 Question.create(
   issue_id: 10,
-  title: 'How do federal employee wages and benefits compare to the private sector?',
+  title: 'Federal employee wages and benefits are ___ than in the private sector?',
   is_slider: false
 )
 
@@ -4154,14 +4241,14 @@ Source.create(
 Answer.create(
   issue_id: 10,
   question_id: 150,
-  title: 'true',
+  title: 'True',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 10,
   question_id: 150,
-  title: 'false',
+  title: 'False',
   is_correct: false
 )
 
@@ -4181,14 +4268,14 @@ Source.create(
 Answer.create(
   issue_id: 10,
   question_id: 151,
-  title: 'true',
+  title: 'True',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 10,
   question_id: 151,
-  title: 'false',
+  title: 'False',
   is_correct: true
 )
 
@@ -4208,28 +4295,28 @@ Source.create(
 Answer.create(
   issue_id: 10,
   question_id: 152,
-  title: 'more than',
+  title: 'More than',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 10,
   question_id: 152,
-  title: 'less than',
+  title: 'Less than',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 10,
   question_id: 152,
-  title: 'the same as',
+  title: 'The same as',
   is_correct: true
 )
 
 # question_id -> 153
 Question.create(
   issue_id: 10,
-  title: 'How much less do employees with a doctorate or professional degree earn in the public vs. private sector?',
+  title: 'How much do employees with a doctorate or professional degree earn in the public sector compared to the private sector?',
   is_slider: false
 )
 
@@ -4242,28 +4329,28 @@ Source.create(
 Answer.create(
   issue_id: 10,
   question_id: 153,
-  title: '23% less in the public sector',
+  title: '23% less',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 10,
   question_id: 153,
-  title: '23% more in the public sector',
+  title: '23% more',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 10,
   question_id: 153,
-  title: '58% less in the public sector',
+  title: '58% less',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 10,
   question_id: 153,
-  title: '58% more in the public sector',
+  title: '58% more',
   is_correct: false
 )
 
@@ -4365,35 +4452,35 @@ Source.create(
 Answer.create(
   issue_id: 14,
   question_id: 156,
-  title: '$10.04/hr',
+  title: '$10.04/hr.',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 14,
   question_id: 156,
-  title: '$8.00/hr',
+  title: '$8.00/hr.',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 14,
   question_id: 156,
-  title: '$7.51/hr',
+  title: '$7.51/hr.',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 14,
   question_id: 156,
-  title: '$15.75/hr',
+  title: '$15.75/hr.',
   is_correct: false
 )
 
 # question_id -> 157
 Question.create(
   issue_id: 14,
-  title: 'What\'s the minimum wage for tipped employees?',
+  title: 'What is the minimum wage for tipped employees?',
   is_slider: false
 )
 
@@ -4406,28 +4493,28 @@ Source.create(
 Answer.create(
   issue_id: 14,
   question_id: 157,
-  title: '$2.13/hr',
+  title: '$2.13/hr.',
   is_correct: true
 )  
 
 Answer.create(
   issue_id: 14,
   question_id: 157,
-  title: '$8.13/hr',
+  title: '$8.13/hr.',
   is_correct: false
 )  
 
 Answer.create(
   issue_id: 14,
   question_id: 157,
-  title: '$6.13/hr',
+  title: '$6.13/hr.',
   is_correct: false
 )  
 
 Answer.create(
   issue_id: 14,
   question_id: 157,
-  title: '$10.13/hr',
+  title: '$10.13/hr.',
   is_correct: false
 )  
 
@@ -4474,7 +4561,7 @@ Answer.create(
 # question_id -> 159
 Question.create(
   issue_id: 14,
-  title: 'What\'s the poverty line for one person in the U.S.?',
+  title: 'What is the poverty line for one person in the U.S.?',
   is_slider: false
 )
 
@@ -4556,7 +4643,7 @@ Answer.create(
 # question_id -> 161
 Question.create(
   issue_id: 5,
-  title: 'If the U.S. adopted Findlands education system all schools would be allocated the same amount of money',
+  title: 'If the U.S. adopted Finland\'s education system all schools would be allocated the same amount of money',
   is_slider: false
 )
 
@@ -4569,21 +4656,21 @@ Source.create(
 Answer.create(
   issue_id: 5,
   question_id: 161,
-  title: 'true',
+  title: 'True',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 5,
   question_id: 161,
-  title: 'false',
+  title: 'False',
   is_correct: false
 )
 
 # question_id -> 162
 Question.create(
   issue_id: 5,
-  title: 'How much larger is the population size of the US compared to Finland?',
+  title: 'How much larger is the population size of the U.S. compared to Finland\'s?',
   is_slider: false
 )
 
@@ -4603,7 +4690,7 @@ Answer.create(
 Answer.create(
   issue_id: 5,
   question_id: 162,
-  title: 'it\'s the same',
+  title: 'It\'s the same',
   is_correct: false
 ) 
 
@@ -4624,7 +4711,7 @@ Answer.create(
 # question_id -> 163
 Question.create(
   issue_id: 11,
-  title: 'The oil produced from hydraulic fracking is different than oil produced from traditional methods',
+  title: 'The oil produced from hydraulic fracturing is different than oil produced from traditional methods',
   is_slider: false
 )
 
@@ -4637,14 +4724,14 @@ Source.create(
 Answer.create(
   issue_id: 11,
   question_id: 163,
-  title: 'true',
+  title: 'True',
   is_correct: true
 )  
 
 Answer.create(
   issue_id: 11,
   question_id: 163,
-  title: 'false',
+  title: 'False',
   is_correct: false
 )
 
@@ -4664,21 +4751,21 @@ Source.create(
 Answer.create(
   issue_id: 11,
   question_id: 164,
-  title: 'true',
+  title: 'True',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 11,
   question_id: 164,
-  title: 'false',
+  title: 'False',
   is_correct: false
 )
 
 # question_id -> 165
 Question.create(
   issue_id: 11,
-  title: 'What effects can hydraulic fracking have on groundwater?',
+  title: 'What effects can hydraulic fracturing have on groundwater?',
   is_slider: false
 )
 
@@ -4691,7 +4778,7 @@ Source.create(
 Answer.create(
   issue_id: 11,
   question_id: 165,
-  title: 'contamination',
+  title: 'Contamination',
   is_correct: true
 )
 
@@ -4705,21 +4792,21 @@ Answer.create(
 Answer.create(
   issue_id: 11,
   question_id: 165,
-  title: 'freezing',
+  title: 'Freezing',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 11,
   question_id: 165,
-  title: "purification",
+  title: "Purification",
   is_correct: false
 )
 
 # question_id -> 166
 Question.create(
   issue_id: 11,
-  title: 'Hydraulic fracking can pollute the air',
+  title: 'What effects can hydraulic fracturing have on the air',
   is_slider: false
 )
 
@@ -4738,21 +4825,35 @@ Source.create(
 Answer.create(
   issue_id: 11,
   question_id: 166,
-  title: 'true',
+  title: 'Pollution',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 11,
   question_id: 166,
-  title: 'false',
+  title: 'Purification',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 11,
+  question_id: 166,
+  title: 'Extreme heating',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 11,
+  question_id: 166,
+  title: 'Freezing',
   is_correct: false
 )
 
 # question_id -> 167
 Question.create(
   issue_id: 11,
-  title: 'What is a possible effect of hydraulic fracking?',
+  title: 'What is a possible effect of hydraulic fracturing?',
   is_slider: false
 )
 
@@ -4765,35 +4866,35 @@ Source.create(
 Answer.create(
   issue_id: 11,
   question_id: 167,
-  title: 'microquakes',
+  title: 'Micro earthquakes',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 11,
   question_id: 167,
-  title: 'tornados',
+  title: 'Tornados',
   is_correct: false
 )
   
 Answer.create(
   issue_id: 11,
   question_id: 167,
-  title: 'blizzards',
+  title: 'Blizzards',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 11,
   question_id: 167,
-  title: 'increased crop yield',
+  title: 'Increased crop yield',
   is_correct: false
 )
 
 # question_id -> 168
 Question.create(
   issue_id: 11,
-  title: 'How many jobs can hydraulic fracking contribute to the economy?',
+  title: 'How many jobs can hydraulic fracturing contribute to the economy?',
   is_slider: false
 )
 
@@ -4828,7 +4929,7 @@ Answer.create(
 Answer.create(
   issue_id: 11,
   question_id: 168,
-  title: 'one million direct jobs',
+  title: 'One million direct jobs',
   is_correct: false
 )
 
@@ -4854,28 +4955,28 @@ Question.create(
 Answer.create(
   issue_id: 16,
   question_id: 169,
-  title: 'has little effect on',
+  title: 'Has little effect on',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 16,
   question_id: 169,
-  title: 'increases',
+  title: 'Increases',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 16,
   question_id: 169,
-  title: 'decreases',
+  title: 'Decreases',
   is_correct: false
 )
 
 # question_id -> 170
 Question.create(
   issue_id: 16,
-  title: 'Offshore drilling can contribute to coastal erosion',
+  title: 'Offshore drilling can contribute to _____',
   is_slider: false
 )
 
@@ -4888,14 +4989,28 @@ Source.create(
 Answer.create(
   issue_id: 16,
   question_id: 170,
-  title: 'true',
+  title: 'Coastal erosion',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 16,
   question_id: 170,
-  title: 'false',
+  title: 'Cleaner waters',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 16,
+  question_id: 170,
+  title: 'Increased crop yields',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 16,
+  question_id: 170,
+  title: 'Increased fish populations',
   is_correct: false
 )
 
@@ -4915,55 +5030,55 @@ Source.create(
 Answer.create(
   issue_id: 16,
   question_id: 171,
-  title: 'true',
+  title: 'True',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 16,
   question_id: 171,
-  title: 'false',
+  title: 'False',
   is_correct: true
 )
 
 # question_id -> 172
 Question.create(
-  issue_id: 15,
-  title: 'How much in tax breaks do the Big Five receive every day?',
+  issue_id: 3,
+  title: 'When actually tested, how much more radiation were TSA scanners emitting than they were theoretically suppose to be?',
   is_slider: false
 )
 
 Source.create(
-  issue_id: 15,
+  issue_id: 3,
   question_id: 172,
-  url: 'http://oilprice.com/Energy/Crude-Oil/How-the-Big-Five-Oil-Companies-Spend-their-375-Million-Daily-Profits.html'
+  url: 'http://www.usatoday.com/news/washington/2011-03-11-tsa-scans_N.htm'
 )
 
 Answer.create(
-  issue_id: 15,
+  issue_id: 3,
   question_id: 172,
-  title: '$6.6 million',
+  title: '10 times',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 15,
   question_id: 172,
-  title: '$1 billion',
+  title: '2 times',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 15,
   question_id: 172,
-  title: '$1 thousand',
+  title: '50 times',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 15,
   question_id: 172,
-  title: '$0',
+  title: '100 times',
   is_correct: false
 )
 
@@ -5010,47 +5125,41 @@ Answer.create(
 
 # question_id -> 174
 Question.create(
-  issue_id: 15,
-  title: 'How much money did the Big Five oil companies make in 2011?',
+  issue_id: 13,
+  title: 'According to the New America Foundation, how many civilian casualties occurred due to drone strikes in Pakistan in 2012?',
   is_slider: false
 )
 
 Source.create(
-  issue_id: 15,
+  issue_id: 13,
   question_id: 174,
-  url: 'http://www.350.org/en/node/28553'
-)
-
-Source.create(
-  issue_id: 15,
-  question_id: 174,
-  url: 'http://oilprice.com/Energy/Crude-Oil/How-the-Big-Five-Oil-Companies-Spend-their-375-Million-Daily-Profits.html'
+  url: 'http://counterterrorism.newamerica.net/drones/2012'
 )
 
 Answer.create(
-  issue_id: 15,
+  issue_id: 13,
   question_id: 174,
-  title: '$137 billion',
+  title: '5',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 15,
   question_id: 174,
-  title: '$100',
+  title: '1',
   is_correct: false
 )
 Answer.create(
   issue_id: 15,
   question_id: 174,
-  title: '$113 thousand',
+  title: '100',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 15,
   question_id: 174,
-  title: '$1 trillion',
+  title: '53',
   is_correct: false
 )
 
@@ -5098,7 +5207,7 @@ Answer.create(
 # question_id -> 176
 Question.create(
   issue_id: 15,
-  title: 'Fossil fuels are subsidized nearly  ____ than renewable enery',
+  title: 'Fossil fuels are subsidized nearly  ____ than renewable energy',
   is_slider: false
 )
 
@@ -5138,76 +5247,91 @@ Answer.create(
 
 # question_id -> 177
 Question.create(
-  issue_id: 15,
-  title: 'What is the largest tax break that oil companies receive?',
+  issue_id: 13,
+  title: 'What legal restrictions are currently in place for domestic drone use?',
   is_slider: false
 )
 
 Source.create(
-  issue_id: 15,
+  issue_id: 13,
   question_id: 177,
-  url: 'http://www.forbes.com/sites/energysource/2012/04/25/the-surprising-reason-that-oil-subsidies-persist-even-liberals-love-them/'
+  url: 'http://www.aclu.org/blog/tag/domestic-drones'
 )
 
 Answer.create(
-  issue_id: 15,
+  issue_id: 13,
   question_id: 177,
-  title: 'A manufacturer\'s tax deduction',
+  title: 'None',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 15,
   question_id: 177,
-  title: 'A specialized tax deduction for oil companies',
+  title: "Usage limits",
   is_correct: false
 )
 
 Answer.create(
-  issue_id: 15,
+  issue_id: 13,
   question_id: 177,
-  title: 'A small business deduction',
+  title: 'Data retention limits',
   is_correct: false
 )
 
 Answer.create(
-  issue_id: 15,
+  issue_id: 13,
   question_id: 177,
-  title: 'none',
+  title: 'Restrictions on weapons',
   is_correct: false
 )
 
 # question_id -> 178
 Question.create(
-  issue_id: 15,
-  title: 'the manufacturer\'s tax deduction is not limited for oil companies',
+  issue_id: 13,
+  title: 'Military-age males are considered militants by U.S. officials if they are?',
   is_slider: false
 )
 
 Source.create(
-  issue_id: 15,
+  issue_id: 13,
   question_id: 178,
-  url: 'http://www.forbes.com/sites/energysource/2012/04/25/the-surprising-reason-that-oil-subsidies-persist-even-liberals-love-them/'
+  url: 'http://www.salon.com/2012/05/29/militants_media_propaganda/'
 )
 
 Answer.create(
-  issue_id: 15,
+  issue_id: 13,
   question_id: 178,
-  title: 'true',
+  title: 'Known terrorists',
   is_correct: false
 )
 
 Answer.create(
   issue_id: 15,
   question_id: 178,
-  title: 'false',
+  title: 'In a military strike zone',
   is_correct: true
 )
+
+Answer.create(
+  issue_id: 15,
+  question_id: 178,
+  title: 'Linked to terrorists',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 178,
+  title: 'Official military personnel',
+  is_correct: false
+)
+
 
 # question_id -> 179
 Question.create(
   issue_id: 15,
-  title: 'Apple is able to take a 9% manufacturer\'s tax deduction, but ExxonMobil is only allowed to take a 6% deduction.',
+  title: "Apple is able to take a __% manufacturer\'s tax deduction, but ExxonMobil is only allowed to take a __% deduction.",
   is_slider: false
 )
 
@@ -5220,13 +5344,673 @@ Source.create(
 Answer.create(
   issue_id: 15,
   question_id: 179,
-  title: 'true',
+  title: '9%, 6%',
   is_correct: true
 )
 
 Answer.create(
   issue_id: 15,
   question_id: 179,
-  title: 'true',
+  title: '2%, 1%',
+  is_correct: false
+)
+Answer.create(
+  issue_id: 15,
+  question_id: 179,
+  title: '75%, 64%',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 15,
+  question_id: 179,
+  title: '50%, 37%',
+  is_correct: false
+)
+
+Issue.create(
+  title: 'Facts about Americans',
+  description: 'Some interesting facts about how uninformed Americans really are',
+  image: 'homer'
+)
+
+Question.create(
+  issue_id: 19,
+  title: 'When Newsweek gave 1,000 Americans the U.S. Citizenship Test, what percent could not define the Bill of Rights?',
+  is_slider: true
+)
+
+Source.create(
+  issue_id: 19,
+  question_id: 180,
+  url: 'http://www.thedailybeast.com/newsweek/2011/03/20/how-dumb-are-we.html'
+)
+
+Slider.create(
+  issue_id: 19,
+  question_id: 180,
+  is_exponential: false,
+  min: 1,
+  max: 100,
+  correct: 44,
+  units: '/%'
+)
+
+Question.create(
+	issue_id: 19,
+	title: 'What percent of Americans do not believe in Darwin\'s theory of evolution?',
+	is_slider: true
+)
+
+Source.create(
+  issue_id: 19,
+  question_id: 181,
+  url: 'http://www.npr.org/blogs/13.7/2012/01/18/145338804/why-do-so-many-have-trouble-with-evolution'
+)
+
+Slider.create(
+  issue_id: 19,
+  question_id: 181,
+  is_exponential: false,
+  min: 1,
+  max: 100,
+  correct: 25,
+  units: '/%'
+)
+
+Question.create(
+  issue_id: 19,
+  title: 'What percent of Americans believe that Judaism did not come before Christianity?',
+  is_slider: true
+)
+
+Source.create(
+  issue_id: 19,
+  question_id: 182,
+  url: 'http://coedmagazine.com/2010/01/24/the-10-most-ridiculous-things-people-believe/'
+)
+
+Slider.create(
+  issue_id: 19,
+  question_id: 182,
+  is_exponential: false,
+  min: 1,
+  max: 100,
+  correct: 50,
+  units: '/%'
+)
+
+Question.create(
+  issue_id: 19,
+  title: 'What percent of Americans believe in creationism?',
+  is_slider: true
+)
+
+Source.create(
+  issue_id: 19,
+  question_id: 183,
+  url: 'http://www.huffingtonpost.com/2012/06/05/americans-believe-in-creationism_n_1571127.html'
+)
+
+Slider.create(
+  issue_id: 19,
+  question_id: 183,
+  is_exponential: false,
+  min: 1,
+  max: 100,
+  correct: 46,
+  units: '/%'
+)
+
+Question.create(
+  issue_id: 19,
+  title: 'What percent of Americans think that the president has the authority to suspend the Constitution?',
+  is_slider: true
+)
+
+Source.create(
+  issue_id: 19,
+  question_id: 184,
+  url: 'http://www.usnews.com/news/national/articles/2008/06/03/the-ignorant-american-voter'
+)
+
+Slider.create(
+  issue_id: 19,
+  question_id: 184,
+  is_exponential: false,
+  min: 1,
+  max: 100,
+  correct: 49,
+  units: '/%'
+)
+
+Question.create(
+  issue_id: 19,
+  title: 'When Newsweek gave 1,000 Americans the U.S. Citizenship Test, what percent could not name the vice president?',
+  is_slider: true
+)
+
+Source.create(
+  issue_id: 19,
+  question_id: 185,
+  url: 'http://www.thedailybeast.com/newsweek/2011/03/20/how-dumb-are-we.html'
+)
+
+Slider.create(
+  issue_id: 19,
+  question_id: 185,
+  is_exponential: false,
+  min: 1,
+  max: 100,
+  correct: 29,
+  units: '/%'
+)
+
+Question.create(
+  issue_id: 19,
+  title: 'When Newsweek gave 1,000 Americans the U.S. Citizenship Test, what percent could not circle Independence Day on a calendar?',
+  is_slider: true
+)
+
+Source.create(
+  issue_id: 19,
+  question_id: 186,
+  url: 'http://www.thedailybeast.com/newsweek/2011/03/20/how-dumb-are-we.html'
+)
+
+Slider.create(
+  issue_id: 19,
+  question_id: 186,
+  is_exponential: false,
+  min: 1,
+  max: 100,
+  correct: 6,
+  units: '/%'
+)
+
+Question.create(
+  issue_id: 19,
+  title: 'What percent of Americans think Obama is a Muslim?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 19,
+  question_id: 187,
+  url: 'http://www.huffingtonpost.com/2012/07/26/obama-muslim_n_1706522.html'
+)
+
+Answer.create(
+  issue_id: 19,
+  question_id: 187,
+  title: '17%',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 19,
+  question_id: 187,
+  title: '80%',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 19,
+  question_id: 187,
+  title: '2%',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 19,
+  question_id: 187,
+  title: '50%',
+  is_correct: false
+)
+
+Question.create(
+  issue_id: 19,
+  title: 'A Gallup poll shows that ____ Americans believe the U.S. won independence from a country other than Great Britain.',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 19,
+  question_id: 188,
+  url: 'http://www.funnyordie.com/lists/ef02e86313/stupid-things-americans-believe'
+)
+
+Answer.create(
+  issue_id: 19,
+  question_id: 188,
+  title: '1 in 4',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 19,
+  question_id: 188,
+  title: '1 in 20',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 19,
+  question_id: 188,
+  title: '1 in 2',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 19,
+  question_id: 188,
+  title: '1 in 100',
+  is_correct: false
+)
+
+Question.create(
+  issue_id: 19,
+  title: 'What percent of Americans aged 18 to 24 can not find Iraq on a map?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 19,
+  question_id: 189,
+  url: 'http://edition.cnn.com/2006/EDUCATION/05/02/geog.test/'
+)
+
+Answer.create(
+  issue_id: 19,
+  question_id: 189,
+  title: '63%',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 19,
+  question_id: 189,
+  title: '90%',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 19,
+  question_id: 189,
+  title: '24%',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 19,
+  question_id: 189,
+  title: '1%',
+  is_correct: false
+)
+
+Question.create(
+  issue_id: 19,
+  title: 'What percent of Americans can name more than one of the five freedoms guaranteed by the First Amendment (freedom of speech, religion, press, assembly and petition for redress of grievances.)',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 19,
+  question_id: 190,
+  url: 'http://www.livescience.com/7069-doh-americans-simpsons-amendment.html'
+)
+
+Answer.create(
+  issue_id: 19,
+  question_id: 190,
+  title: '25%',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 19,
+  question_id: 190,
+  title: '87%',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 19,
+  question_id: 190,
+  title: '2%',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 19,
+  question_id: 190,
+  title: '64%',
+  is_correct: false
+)
+
+Question.create(
+  issue_id: 19,
+  title: 'Only ___ U.S. voters can name the three branches of the federal government',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 19,
+  question_id: 191,
+  url: 'http://www.usnews.com/news/national/articles/2008/06/03/the-ignorant-american-voter'
+)
+
+Answer.create(
+  issue_id: 19,
+  question_id: 191,
+  title: '2 in 5',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 19,
+  question_id: 191,
+  title: '1 in 10',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 19,
+  question_id: 191,
+  title: '1 in 100',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 19,
+  question_id: 191,
+  title: '2 in 10',
+  is_correct: false
+)
+Question.create(
+  issue_id: 2,
+  title: 'Do patent trolls actually produce their own inventions?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 2,
+  question_id: 192,
+  url: 'http://en.wikipedia.org/wiki/Patent_troll'
+)
+
+Answer.create(
+  issue_id: 2,
+  question_id: 192,
+  title: 'Always',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 2,
+  question_id: 192,
+  title: 'Usually',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 2,
+  question_id: 192,
+  title: 'Sometimes',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 2,
+  question_id: 192,
+  title: 'Almost never',
+  is_correct: true
+)
+
+Question.create(
+  issue_id: 2,
+  title: 'In order to own a patent you have to actually create the product',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 2,
+  question_id: 193,
+  url: 'http://en.wikipedia.org/wiki/Patent_troll'
+)
+
+Answer.create(
+  issue_id: 2,
+  question_id: 193,
+  title: 'False',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 2,
+  question_id: 193,
+  title: 'True',
+  is_correct: false
+)
+
+Question.create(
+  issue_id: 2,
+  title: 'Which companies are considered part of the software industry?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 2,
+  question_id: 194,
+  url: 'http://www.techdirt.com/articles/20120309/04304018046/why-its-mathematically-impossible-to-avoid-infringing-software-patents.shtml'
+)
+
+Answer.create(
+  issue_id: 2,
+  question_id: 194,
+  title: 'Most that use the internet for business',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 2,
+  question_id: 194,
+  title: 'Only software sellers',
+  is_correct: false
+)
+ 
+Answer.create(
+  issue_id: 2,
+  question_id: 194,
+  title: 'Only profitable websites',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 2,
+  question_id: 194,
+  title: 'Only technology startups',
+  is_correct: false
+)
+
+Question.create(
+  issue_id: 12,
+  title: 'Where are trans fats usually found?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 12,
+  question_id: 195,
+  url: 'http://www.mayoclinic.com/health/trans-fat/CL00032'
+)
+
+Answer.create(
+  issue_id: 12,
+  question_id: 195,
+  title: 'Fruits',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 12,
+  question_id: 195,
+  title: 'Vegetables',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 12,
+  question_id: 195,
+  title: 'Meat',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 12,
+  question_id: 195,
+  title: 'Deep fried foods',
+  is_correct: true
+)
+
+Question.create(
+  issue_id: 19,
+  title: 'What percent of Americans aged 18-24 can not find Iran on a map?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 19,
+  question_id: 196,
+  url: 'http://edition.cnn.com/2006/EDUCATION/05/02/geog.test/'
+)
+
+Slider.create(
+  issue_id: 19,
+  question_id: 196,
+  is_exponential: false,
+  min: 1,
+  max: 100,
+  correct: 75,
+  units: '/%'
+)
+
+Question.create(
+  issue_id: 9,
+  title: 'What percent of uninsured Americans work for small businesses?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 9,
+  question_id: 197,
+  url: 'http://articles.cnn.com/2009-06-13/politics/small.business.health.care_1_health-care-premiums-small-businesses?_s=PM:POLITICS'
+)
+
+Answer.create(
+  issue_id: 9,
+  question_id: 197,
+  title: '60%',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 9,
+  question_id: 197,
+  title: '10%',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 9,
+  question_id: 197,
+  title: '90%',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 9,
+  question_id: 197,
+  title: '30%',
+  is_correct: false
+)
+
+Question.create(
+  issue_id: 9,
+  title: 'How much does an average emergancy room visit cost for the uninsured?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 9,
+  question_id: 198,
+  url: 'http://www.nctimes.com/news/local/sdcounty/hospitals-clinics-help-shoulder-burden-of-uninsured/article_d7a2cc3c-7be6-517d-a817-d4b949ca90b3.html'
+)
+
+Answer.create(
+  issue_id: 9,
+  question_id: 198,
+  title: '$3,300',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 9,
+  question_id: 198,
+  title: '$31,000',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 9,
+  question_id: 198,
+  title: '$100',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 9,
+  question_id: 198,
+  title: '$100,000',
+  is_correct: false
+)
+
+Question.create(
+  issue_id: 9,
+  title: 'Among the 34 OECD countries, how many do not provide universal health care coverage?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 9,
+  question_id: 199,
+  url: 'http://www.cbsnews.com/8301-505103_162-57522437/issue-brief-health-care/'
+)
+
+Answer.create(
+  issue_id: 9,
+  question_id: 199,
+  title: '10',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 9,
+  question_id: 199,
+  title: '1',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 9,
+  question_id: 199,
+  title: '21',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 9,
+  question_id: 199,
+  title: '3',
   is_correct: true
 )
