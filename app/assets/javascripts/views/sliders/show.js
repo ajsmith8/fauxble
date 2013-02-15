@@ -73,8 +73,8 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 		}
 		
 		margin = parseInt($('.page').css('margin-left')) + parseInt($('.column.right').css('margin-left'));
-		if (!isNaN(parseInt($(this.el).find('#slider').css('left-margin')))) {
-			margin = margin + parseInt($(this.el).find('#slider').css('left-margin'));
+		if (!isNaN(parseInt($('.slider-answers').css('left-margin')))) {
+			margin = margin + parseInt($('.slider-answers').css('left-margin'));
 		}
 		
 		this.slider.setDefaults({

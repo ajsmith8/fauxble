@@ -8,22 +8,18 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 			if (this.isUnique(name)) {
 				if (password.length > min_length - 1) {
 					if (password === confirm) {
-						return this.createUser(name, password);
+						this.createUser(name, password);
 					} else {
-						//alert passwords don't match
-						return false;
+						alert('passwords don\'t match');
 					}
 				} else {
-					//alert password too short
-					return false;
+					alert('password must be at least ' + min_length + ' characters long');
 				}
 			} else {
-				//alert name is unavailable
-				return false;
+				alert('that user name is unavailable');
 			}
 		} else {
-			//alert name too short
-			return false;
+			alert('user name must be at least ' + min_length + ' characters long');
 		}
 	},
 	
@@ -47,13 +43,12 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 			password: password,
 			signed_in: true
 		}, {
-			wait: true,
 			success: function(model, response) {
-				//set default challegnes
-				return true;
+				//set default challenges
+				window.location.reload();
 			},
 			error: function(model, response) {
-				return false;
+				// fail
 			}
 		});
 	},

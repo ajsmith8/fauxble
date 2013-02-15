@@ -56,13 +56,7 @@ Fauxble.Views.PagesSignin = Backbone.View.extend({
 			confirm = $('#confirm_password').val();
 		
 		//start loading 'waiting for authentication'	
-		if (this.attr.users.authenticateUser(name, password, confirm, 6)) {
-			//stop loading
-			Backbone.history.navigate('', true);
-		} else {
-			//stop loading
-			//reset input fields
-		}
+		this.attr.users.authenticateUser(name, password, confirm, 6);
 	},
 	
 	fbLogin: function() {
