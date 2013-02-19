@@ -5,7 +5,8 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 	events: {
 		'click .answer' : 'submitAnswer',
 		'click #next' 	: 'nextQuestion',
-		'click #source' : 'goToSource'
+		'click #source' : 'goToSource',
+		'click #start_timer' : 'revealAnswers'
 	},
 	
 	initialize: function(options) {
@@ -49,18 +50,20 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 		var self = this;
 		$(this.el).addClass('multiple-choice');
 		$(this.el).html(this.template());
-		
-		setTimeout(function() {
-			_.each(self.answers, function(answer) {
-				self.appendAnswer(answer);
-			});
-		}, 0);
-		
-		setTimeout(function() {
-			self.startTimer();
-		}, 2000);
-		
 		return this;
+	},
+	
+	revealAnswers: function() {
+		var self = this;
+		
+		$(this.el).find('#answers').empty();
+		$(this.el).find('.timer.container').removeClass('hide');
+		
+		_.each(self.answers, function(answer) {
+			self.appendAnswer(answer);
+		});
+		
+		this.startTimer();
 	},
 	
 	appendAnswer: function(answer) {
