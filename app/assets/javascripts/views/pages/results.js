@@ -63,6 +63,7 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 		
 		setTimeout(function() {
 			$(self.el).find('#finish').removeClass('hide');
+			$(self.el).find('#result_text').removeClass('invis');
 		}, time);
 	},
 	
