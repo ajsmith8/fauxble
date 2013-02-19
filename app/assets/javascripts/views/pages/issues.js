@@ -3,7 +3,8 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 	template: JST['pages/issues'],
 	
 	events: {
-		'click #play' : 'setChallengeIssue'
+		'click #play' : 'setChallengeIssue',
+		'click #shuffle' : 'renderIssues'
 	},
 	
 	initialize: function(options) {
@@ -25,14 +26,22 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 	
 	renderIssues: function() {
 		var self = this,
-			count = 0;
+			num_questions,
+			issues = [];
+		
 		this.attr.issues.each(function(issue) {
 			num_questions = self.attr.questions.getNumQuestions(issue);
 			if (num_questions > 3) {
-				self.appendIssue(issue, num_questions, count);
-				count = count + 1;
+				issues.push({issue: issue, facts: num_questions});
 			}
 		});
+		
+		issues = _.shuffle(issues);
+		$(this.el).find('#issues').empty();
+		
+		for (i = 0; i < 4; i++) {
+			this.appendIssue(issues[i].issue, issues[i].facts, i);
+		}
 	},
 	
 	appendIssue: function(issue, num_questions, count) {

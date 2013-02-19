@@ -26,6 +26,7 @@ class Challenge < ActiveRecord::Base
 
             (0..3).each do |q|
                 answers = Answer.where(question_id: questions[q].id)
+                answers = answers.shuffle
                 slider = Slider.where(question_id: questions[q].id)[0]
                 time = (1 + rand(150)) * 100
 
