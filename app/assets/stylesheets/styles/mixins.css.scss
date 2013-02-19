@@ -3,6 +3,7 @@
 }
 
 @mixin linear-gradient($from, $to) {
+	background: $to;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
   background-image: -webkit-linear-gradient(top, $from, $to);
   background-image:    -moz-linear-gradient(top, $from, $to);
@@ -11,6 +12,7 @@
 }
 
 @mixin horizontal-gradient($from, $to) {
+	background: $to;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
   background-image: -webkit-linear-gradient(left, $from, $to);
   background-image:    -moz-linear-gradient(left, $from, $to);
