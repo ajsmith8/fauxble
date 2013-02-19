@@ -11,6 +11,7 @@ Fauxble.Views.IssuesShow = Backbone.View.extend({
 		this.issue = options.issue;
 		this.challenge = options.challenge;
 		this.num_questions = options.num_questions;
+		this.count = options.count;
 		this.subviews = [];
 	},
 	
@@ -18,6 +19,11 @@ Fauxble.Views.IssuesShow = Backbone.View.extend({
 		var self = this;
 		$(this.el).attr('id', this.issue.get('id'));
 		$(this.el).addClass('issue');
+		if (this.count % 2 === 0) {
+			$(this.el).addClass('light');
+		} else {
+			$(this.el).addClass('dark');
+		}
 		$(this.el).html(this.template({
 			issue: this.issue,
 			num_questions: this.num_questions

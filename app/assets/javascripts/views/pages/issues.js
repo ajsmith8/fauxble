@@ -24,21 +24,24 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 	},
 	
 	renderIssues: function() {
-		var self = this;
+		var self = this,
+			count = 0;
 		this.attr.issues.each(function(issue) {
 			num_questions = self.attr.questions.getNumQuestions(issue);
 			if (num_questions > 3) {
-				self.appendIssue(issue, num_questions);
+				self.appendIssue(issue, num_questions, count);
+				count = count + 1;
 			}
 		});
 	},
 	
-	appendIssue: function(issue, num_questions) {
+	appendIssue: function(issue, num_questions, count) {
 		var view = new Fauxble.Views.IssuesShow({
 			attr: this.attr,
 			issue: issue,
 			challenge: this.challenge,
-			num_questions: num_questions
+			num_questions: num_questions,
+			count: count
 		});
 		this.subviews.push(view);
 		$(this.el).find('#issues').append(view.render().el);

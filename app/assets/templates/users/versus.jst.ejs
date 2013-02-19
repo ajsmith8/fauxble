@@ -9,7 +9,13 @@
 		</div>
 	</div>
 	<div class = 'name container'>
-		<div class = 'name'><%= user.get('name') %></div>
+		<div class = 'name'>
+			<% if (user.get('name').split(' ').length > 1) { %>
+			    <%= user.get('name').split(' ')[0] + " " + user.get('name').split(' ')[user.get('name').split(' ').length - 1].charAt(0) %>.
+			<% } else { %>
+			    <%= user.get('name').split(' ')[0] %>
+			<% } %>
+		</div>
 	</div>
 	<div id = 'rank' class = 'rank'></div>
 	<div class = 'score container'>
@@ -20,7 +26,13 @@
 		<div id = 'score' class = 'score'><%= score %></div>
 	</div>
 	<div class = 'name container'>
-		<div class = 'name'><%= user.get('name') %></div>
+		<div class = 'name'>
+			<% if (user.get('name').split(' ').length > 1) { %>
+			    <%= user.get('name').split(' ')[0] + " " + user.get('name').split(' ')[user.get('name').split(' ').length - 1].charAt(0) %>.
+			<% } else { %>
+			    <%= user.get('name').split(' ')[0] %>
+			<% } %>
+		</div>
 	</div>
 	<div id = 'rank' class = 'rank'></div>
 	<div class = 'picture container'>

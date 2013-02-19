@@ -3,6 +3,10 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 	model: Fauxble.Models.User,
 	url: 'users',
 	
+	initialize: function(models, options) {
+		
+	},
+	
 	authenticateUser: function(name, password, confirm, min_length) {
 		if (name.length > min_length - 1) {
 			if (this.isUnique(name)) {
@@ -38,13 +42,14 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 	},
 	
 	createUser: function(name, password) {
+		var self = this;
+		
 		this.create({
 			name: name,
 			password: password,
 			signed_in: true
 		}, {
 			success: function(model, response) {
-				//set default challenges
 				window.location.reload();
 			},
 			error: function(model, response) {

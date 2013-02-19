@@ -10,6 +10,8 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	initialize: function(options) {
+		this.page = null;
+		
 		this.attr = {
 			current_user: options.current_user,
 			users: options.users,
@@ -25,17 +27,47 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			user_achievables: options.user_achievables
 		};
 		
-		this.metrics = {
-			pages: options.page_metrics,
-			users: options.user_metrics
-		};
-		
 		this.header();
 		this.chat();
+		
+		$(window).bind('onbeforeunload', this.leaveSite);
 	},
 	
-	pageTimers: function() {
+	pageTimer: function(run) {
+		var self = this,
+			inter;
+		this.time = 0;
+		clearInterval(inter);
 		
+		if (run) {
+			inter = setInterval(function() {
+				self.time = self.time + 0.1
+			}, 100);
+		}
+	},
+	
+	triggerPage: function(page) {
+		if (this.page) {
+			this.attr.users.trigger('page', {
+				user: this.attr.users.get(this.attr.current_user.get('id')),
+				time: this.time,
+				page: this.page
+			});
+		}
+		this.pageTimer(true);
+		this.page = page;
+	},
+	
+	leaveSite: function() {
+		if (this.page) {
+			this.attr.users.trigger('page', {
+				user: this.attr.users.get(this.attr.current_user.get('id')),
+				time: this.time,
+				page: this.page
+			});
+		}
+		this.pageTimer(false);
+		this.page = null;
 	},
 	
 	setCurrentView: function(view) {
@@ -84,12 +116,12 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	
 	pagesHome: function() {
 		var view = new Fauxble.Views.PagesHome({
-			attr: this.attr,
-			metrics: this.metrics
+			attr: this.attr
 		});
 		this.setCurrentView(view);
 		this.signin();
 		$('.right.column').html(view.render().el);
+		this.triggerPage('video');
 	},
 	
 	signin: function() {
@@ -101,12 +133,12 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	
 	challenges: function() {
 		var view = new Fauxble.Views.PagesChallenges({
-			attr: this.attr,
-			metrics: this.metrics
+			attr: this.attr
 		});
 		this.setCurrentView(view);
 		this.feed();
 		$('.right.column').html(view.render().el);
+		this.triggerPage('challenges');
 	},
 	
 	feed: function() {
@@ -126,31 +158,30 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	pagesNew: function(id) {
 		var view = new Fauxble.Views.PagesNew({
 			attr: this.attr,
-			challenge: this.attr.challenges.get(parseInt(id)),
-			metrics: this.metrics
+			challenge: this.attr.challenges.get(parseInt(id))
 		});
 		this.setCurrentView(view);
 		this.feed();
 		$('.right.column').html(view.render().el);
+		this.triggerPage('users');
 	},
 	
 	issues: function(id) {
 		var view = new Fauxble.Views.PagesIssues({
 			attr: this.attr,
-			challenge: this.attr.challenges.get(parseInt(id)),
-			metrics: this.metrics
+			challenge: this.attr.challenges.get(parseInt(id))
 		});
 		this.setCurrentView(view);
 		this.feed();
 		$('.right.column').html(view.render().el);
+		this.triggerPage('issues');
 	},
 	
 	question: function(c_id, id) {
 		var view = new Fauxble.Views.PagesQuestion({
 			attr: this.attr,
 			challenge: this.attr.challenges.get(parseInt(c_id)),
-			question: this.attr.questions.get(parseInt(id)),
-			metrics: this.metrics
+			question: this.attr.questions.get(parseInt(id))
 		});
 		this.setCurrentView(view);
 		this.feed();
@@ -159,6 +190,8 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		if ($(view.el).find('#versus').children().length === 0) {
 			this.versus(this.attr.challenges.get(parseInt(c_id)), view);
 		}
+		
+		this.triggerPage('question');
 	},
 	
 	versus: function(challenge, view) {
@@ -173,8 +206,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	results: function(id) {
 		var view = new Fauxble.Views.PagesResults({
 			attr: this.attr,
-			challenge: this.attr.challenges.get(parseInt(id)),
-			metrics: this.metrics
+			challenge: this.attr.challenges.get(parseInt(id))
 		});
 		this.setCurrentView(view);
 		this.feed();
@@ -183,16 +215,18 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		if ($(view.el).find('#versus').children().length === 0) {
 			this.versus(this.attr.challenges.get(parseInt(id)), view);
 		}
+		
+		this.triggerPage('results');
 	},
 	
 	profile: function(id) {
 		var view = new Fauxble.Views.PagesProfile({
 			attr: this.attr,
-			user: this.attr.users.get(parseInt(id)),
-			metrics: this.metrics
+			user: this.attr.users.get(parseInt(id))
 		});
 		this.setCurrentView(view);
 		this.feed();
 		$('.right.column').html(view.render().el);
+		this.triggerPage('profile');
 	}
 });

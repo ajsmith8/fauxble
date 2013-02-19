@@ -1,14 +1,14 @@
 Fauxble.Views.UsersShow = Backbone.View.extend({
 	
 	events: {
-		'click #profile' : 'userProfile',
-		'click #back' : 'goBack'
+		'click .button' : 'profileOrBack'
 	},
 	
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.user = options.user;
 		this.is_sidebar = options.is_sidebar;
+		this.count = options.count;
 		this.subviews = [];
 		if (this.is_sidebar) {
 			this.template = JST['users/show_sidebar'];
@@ -22,6 +22,13 @@ Fauxble.Views.UsersShow = Backbone.View.extend({
 		var self = this;
 		$(this.el).attr('id', this.user.get('id'));
 		$(this.el).addClass('user');
+		if (!this.is_sidebar) {
+			if (this.count % 2 === 0) {
+				$(this.el).addClass('light');
+			} else {
+				$(this.el).addClass('dark');
+			}
+		}
 		$(this.el).html(this.template({
 			user: this.user
 		}));
@@ -61,16 +68,18 @@ Fauxble.Views.UsersShow = Backbone.View.extend({
 		}
 	},
 	
-	userProfile: function() {
-		$(this.el).find('#profile').addClass('hide');
-		$(this.el).find('#back').removeClass('hide');
-		Backbone.history.navigate('user' + this.user.get('id'), true);
-	},
-	
-	goBack: function() {
-		$(this.el).find('#back').addClass('hide');
-		$(this.el).find('#profile').removeClass('hide');
-		parent.history.back();
+	profileOrBack: function(event) {
+		var element = $(event.target).closest('.button');
+		
+		if ($(element).find('#profile').hasClass('hide')) {
+			$(this.el).find('#back').addClass('hide');
+			$(this.el).find('#profile').removeClass('hide');
+			parent.history.back();
+		} else {
+			$(this.el).find('#profile').addClass('hide');
+			$(this.el).find('#back').removeClass('hide');
+			Backbone.history.navigate('user' + this.user.get('id'), true);
+		}
 	},
 	
 	onClose: function() {

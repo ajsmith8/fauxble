@@ -18,6 +18,11 @@ Fauxble.Views.UsersFriend = Backbone.View.extend({
 		
 		$(this.el).addClass('user friend');
 		$(this.el).attr('id', this.loc);
+		if (this.loc % 2 === 0) {
+			$(this.el).addClass('light');
+		} else {
+			$(this.el).addClass('dark');
+		}
 		$(this.el).html(this.template({
 			friend: this.friend
 		}));

@@ -71,10 +71,10 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 		if (this.slider.get('is_exponential')) {
 			exponent = 3;
 		}
-		
+
 		margin = parseInt($('.page').css('margin-left')) + parseInt($('.column.right').css('margin-left'));
-		if (!isNaN(parseInt($('.slider-answers').css('left-margin')))) {
-			margin = margin + parseInt($('.slider-answers').css('left-margin'));
+		if (!isNaN(parseInt($(this.el).parent().css('margin-left')))) {
+			margin = margin + parseInt($(this.el).parent().css('margin-left'));
 		}
 		
 		this.slider.setDefaults({

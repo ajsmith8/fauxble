@@ -37,7 +37,7 @@ Fauxble.Views.PagesNew = Backbone.View.extend({
 		}
 
 		for (i = 0; i < length; i++) {
-			this.appendUser(users[i], $(this.el).find('#active_fusers'));
+			this.appendUser(users[i], $(this.el).find('#active_fusers'), i);
 		}
 	},
 	
@@ -51,19 +51,20 @@ Fauxble.Views.PagesNew = Backbone.View.extend({
 		$(this.el).find('#facebook').html(view.render().el);
 	},
 	
-	appendUser: function(user, element) {
+	appendUser: function(user, element, count) {
 		var view = new Fauxble.Views.UsersShow({
 			attr: this.attr,
 			user: user,
-			is_sidebar: false
+			is_sidebar: false,
+			count: count
 		});
 		this.subviews.push(view);
 		$(element).append(view.render().el);
 	},
 	
 	fbLogin: function() {
-		//window.location = "http://localhost:3000/auth/facebook";
-		window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";
+		window.location = "http://localhost:3000/auth/facebook";
+		//window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";
 	},
 	
 	setChallengeUser: function(event) {
