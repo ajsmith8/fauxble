@@ -1,5 +1,12 @@
 .challenge {
 position: relative;
+	&.dark {
+		background: rgba(#000,0.06);
+	}
+	&.dark-alt {
+		background: rgba($bluegreen, 0.15);
+	}
+
 	.container {
 		
 		&.issue {
