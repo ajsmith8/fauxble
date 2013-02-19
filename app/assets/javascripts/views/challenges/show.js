@@ -10,6 +10,7 @@ Fauxble.Views.ChallengesShow = Backbone.View.extend({
 		this.challenge = options.challenge;
 		this.issue = this.attr.issues.get(this.challenge.get('issue_id'));
 		this.is_sent = options.is_sent;
+		this.count = options.count;
 		this.subviews = [];
 	},
 	
@@ -20,8 +21,18 @@ Fauxble.Views.ChallengesShow = Backbone.View.extend({
 		$(this.el).addClass('challenge');
 		if (this.is_sent) {
 			$(this.el).html(JST['challenges/sent']);
+			if (this.count % 2 === 0) {
+				$(this.el).addClass('dark');
+			} else {
+				$(this.el).addClass('light');
+			}
 		} else {
 			$(this.el).html(JST['challenges/recieved']);
+			if (this.count % 2 === 0) {
+				$(this.el).addClass('dark-alt');
+			} else {
+				$(this.el).addClass('light');
+			}
 		}
 		
 		setTimeout(function() {

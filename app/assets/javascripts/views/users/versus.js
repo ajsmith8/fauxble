@@ -44,7 +44,7 @@ Fauxble.Views.UsersVersus = Backbone.View.extend({
 	},
 	
 	incrementScore: function(score) {
-		this.user.incrementScore($(this.el).find('#score'), 10, parseInt($(this.el).find('#score').html()), score);
+		this.user.incrementScore($(this.el).find('#score'), 5, parseInt($(this.el).find('#score').html()), score);
 	},
 	
 	getQuestionIdsFromHash: function() {
