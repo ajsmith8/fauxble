@@ -86,11 +86,15 @@ Fauxble.Views.UsersFacebook = Backbone.View.extend({
 	},
 	
 	bindFilterUsers: function() {
+		var self = this;
 		
+		$(document).on('keyup', function(event) {
+			filterKeyUp(event, self.friends, self);
+		});
 	},
 	
 	unbindFilterUsers: function() {
-		
+		$(document).off('keyup');
 	},
 	
 	onClose: function() {

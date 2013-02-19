@@ -15,6 +15,7 @@
 //= require knob
 //= require underscore
 //= require backbone
+//= require user_filter
 //= require fauxble
 //= require_tree ../templates
 //= require_tree ./models
