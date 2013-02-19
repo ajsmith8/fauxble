@@ -47,7 +47,7 @@ class Challenge < ActiveRecord::Base
                     if slider.is_exponential
                         score = 100 - ((((slider.correct ** (1.0 / 3)) - (answer ** (1.0 / 3))).abs / ((slider.max ** (1.0 / 3)) - (slider.min ** (1.0 / 3)))) * 100).round
                     else
-                        score = 100 - ((answer - slider.correct).abs / (slider.max - slider.min)).round
+                        score = 100 - (((answer - slider.correct).abs / (slider.max - slider.min)) * 100).round
                     end
                 else
                     answer = nil 

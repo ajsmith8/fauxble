@@ -3,7 +3,9 @@ Fauxble.Views.UsersFacebook = Backbone.View.extend({
 	template: JST['users/facebook'],
 	
 	events: {
-		'click .friend' : 'checkUser'
+		'click .friend' : 'checkUser',
+		'focus #filter' : 'bindFilterUsers',
+		'blur #filter' : 'unbindFilterUsers'
 	},
 	
 	initialize: function(options) {
@@ -81,6 +83,14 @@ Fauxble.Views.UsersFacebook = Backbone.View.extend({
 		});
 		this.challenge.save();
 		Backbone.history.navigate('issues' + this.challenge.get('id'), true);
+	},
+	
+	bindFilterUsers: function() {
+		
+	},
+	
+	unbindFilterUsers: function() {
+		
 	},
 	
 	onClose: function() {
