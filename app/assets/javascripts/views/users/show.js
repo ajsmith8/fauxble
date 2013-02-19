@@ -24,9 +24,9 @@ Fauxble.Views.UsersShow = Backbone.View.extend({
 		$(this.el).addClass('user');
 		if (!this.is_sidebar) {
 			if (this.count % 2 === 0) {
-				$(this.el).addClass('light');
-			} else {
 				$(this.el).addClass('dark');
+			} else {
+				$(this.el).addClass('light');
 			}
 		}
 		$(this.el).html(this.template({
