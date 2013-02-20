@@ -18,11 +18,11 @@ function filterKeyUp(event, users, view) {
 function renderFiltered(new_users, old_users, view) {
 	$(view.el).find('#friends').empty();
 	
-	for (u = 0; u < users.length; u++) {
+	for (u = 0; u < new_users.length; u++) {
 		if (new_users.length === old_users.length) {
-			view.appendFbFriend(users[u], u);
+			view.appendFbFriend(new_users[u], u);
 		} else {
-			view.appendFbFriend(users[u], old_users.indexOf(users[u]));
+			view.appendFbFriend(new_users[u], old_users.indexOf(new_users[u]));
 		}
 	}
 }
