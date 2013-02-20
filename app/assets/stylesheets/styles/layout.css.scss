@@ -229,10 +229,10 @@ body {
 		width: 100px;
 		text-align: center;
 		border: none;
-		box-shadow: 1px 1px 1px rgba(darken($orange,40%), 0.7) inset;
-		&:active {
-			box-shadow: -1px 0px 1px rgba(darken($orange,10%), 0.5) inset,
-						1px 0px 1px rgba(darken($orange,10%), 0.5) inset;
+		box-shadow: 1px 1px 1px rgba($bluegreen, 0.8) inset;
+		&:focus {
+			box-shadow: 1px 1px 1px rgba($bluegreen, 0.95) inset;
+			outline-width: 0;
 		}
 	}
 }
@@ -276,4 +276,9 @@ body {
 	/*@include linear-gradient(lighten($bluegreen,8%), darken($bluegreen,12%));*/
 	background-image: url(misc/green_texture.png); background-repeat: repeat;
 	@include border-top-radius(11px);
+}
+
+.like-button {
+	width: 94%;
+	margin: 20px 0 0 2.5%;
 }
