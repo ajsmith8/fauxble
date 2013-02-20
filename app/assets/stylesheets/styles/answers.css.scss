@@ -1,25 +1,24 @@
 .multiple-choice {
 	.answers {
-
 		.answer {
 			float: left;
 			width: 90%;
 			margin-left: 5%;
-			height: 45px;
+			height: 46px;
 			position: relative;
 			.title {
 				text-align: center;
 				font-size: 12px;
-				width: 90%;
+				width: 95%;
 				left: 10px;
 				color: #333333;
 				@include text-shadow(0px 1px 0 rgba(#000,0.2));
 				&.container {
 					position: absolute;
-					height: 35px;
-					width: 66%;
-					left: 17%;
-					top: 10px;
+					height: 37px;
+					width: 76%;
+					left: 12%;
+					top: 11px;
 					
 					cursor: pointer;
 					font-weight: bold;
@@ -109,6 +108,27 @@
 			
 		}
 	}
+	#start_timer {
+		.reveal_answers_button {
+			height: 26px;
+			text-align: center;
+			font-size: 16px;
+			width: 30%;
+			margin-left: 35%;
+			color: #333333;
+			@include text-shadow(0px 1px 0 rgba(#000,0.2));
+			cursor: pointer;
+			font-weight: bold;
+			@include border-radius(16px);					
+			border: none;
+			padding-top: 11px;					
+			@include linear-gradient(lighten($orange,18%), lighten($orange,1%));					
+			@include single-box-shadow(rgba(#000, 0.3), 0px, 1px, 1px, 0);
+			&:hover {
+				@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
+			}
+		}
+	}
 }
 
 .timer {
@@ -127,6 +147,5 @@
 		@include linear-gradient(rgba(#000,0.05), rgba(#000,0.17));
 		@include single-box-shadow(rgba(#000, 0.13), 0px, 1px, 1px, 0);
 		margin: 0 auto;
-		margin-bottom: 10px;
 	}
 }

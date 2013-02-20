@@ -1,5 +1,22 @@
 .challenge {
 position: relative;
+	&.dark {
+		.issue {
+			&.container {
+				background: rgba(#000,0.06);
+				@include border-radius(10px);
+			}
+		}
+	}
+	&.dark-alt {
+		.issue {
+			&.container {
+				background: rgba($bluegreen, 0.17);
+				@include border-radius(10px);
+			}
+		}
+	}
+
 	.container {
 		
 		&.issue {
@@ -8,16 +25,16 @@ position: relative;
 		
 		&.challenger {
 			position: absolute;
-			right: 100px;
-			top: 28px;
+			right: 90px;
+			top: 38px;
 			width: 180px;
 			height: 30px;
 		}
 		
 		&.user {
 			position: absolute;
-			right: 100px;
-			top: 4px;		
+			right: 90px;
+			top: 10px;		
 			width: 180px;
 			height: 30px;
 		}
@@ -34,7 +51,7 @@ position: relative;
 
 		&.learn {
 			cursor: pointer;	
-			top: 18px;
+			top: 22px;
 			left: 220px;
 			font-size: 11px;
 			@include border-radius(16px);	
@@ -51,13 +68,13 @@ position: relative;
 		
 		&.play {			
 			cursor: pointer;	
-			top: 10px;
-			right: 30px;
+			top: 22px;
+			right: 20px;
 			font-size: 12px;
 			@include border-radius(16px);	
 			height: 22px;
-			padding-top: 7px;
-			width: 15%;
+			padding-top: 9px;
+			width: 13%;
 			@include linear-gradient(lighten($orange,18%), lighten($orange,1%));
 			@include text-shadow(0px 1px 0 rgba(#000,0.2));
 			@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);
@@ -66,16 +83,26 @@ position: relative;
 			}
 		}
 		&.waiting {
-			top: 10px;
-			right: 30px;
+			top: 22px;
+			right: 20px;
 			font-size: 12px;
 			@include border-radius(16px);	
 			height: 22px;
-			padding-top: 7px;
-			width: 15%;
+			padding-top: 9px;
+			width: 13%;
 			@include linear-gradient(lighten(#000,95%), lighten(#000,77%));
 			@include text-shadow(0px 1px 0 rgba(#fff,0.4));
 			@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);
+		}
+	}
+	
+	.challenger {
+		&.container {
+			.user {
+				.name {
+					
+				}
+			}
 		}
 	}
 }
@@ -250,11 +277,12 @@ position: relative;
 }
 
 .challenges_subheader {
-	text-align: center;
+	text-align: left;
 	font-weight: bold;
 	color: rgba(#000, 0.5);
-	font-size: 14px;
-	margin: 12px 0 -5px 0;
+	font-size: 13px;
+	margin: 12px 0 4px 12px;
+	@include text-shadow(0px 1px 0 rgba(#000,0.15));
 	&.their_turn {
 		margin-top: 60px;
 	}

@@ -46,14 +46,14 @@
 			position: absolute;
 			top: 2px;
 			right: 35px;
-			width: 21px;
-			height: 21px;
+			width: 24px;
+			height: 24px;
 			margin-left: 2px;
-			@include border-radius(3px);
+			@include border-radius(4px);
 		}
 		
 		&.wrapper {
-			@include border-radius(3px);
+			@include border-radius(4px);
 		}
 	}
 	
@@ -63,10 +63,10 @@
 			position: absolute;
 			left: 0;
 			height: 14px;
-			font-size: 10px;
-			color: rgb(92,92,92);			
+			font-size: 11px;
+			color: rgb(112,112,112);			
 			padding-top: 1px;
-			width: 100px;
+			width: 109px;
 			text-align: right;
 		}
 	}
@@ -74,7 +74,7 @@
 	.rank {
 		position: absolute;
 		top: 16px;
-		right: 60px;
+		right: 64px;
 		color: $bluegreen;
 		float: right;
 		height: 11px;
@@ -85,7 +85,7 @@
 		
 		&.container {
 			position: absolute;
-			top: 2px;
+			top: 3px;
 			right: 13px;
 			float: left;
 			font-weight: bold;
@@ -372,7 +372,10 @@
 		width: 80%;
 		margin-left: 10%;
 		position: relative;
-		border-bottom: 1px solid rgba($bluegreen, 0.4);
+		&.dark {
+			background: rgba($bluegreen, 0.17);
+			@include border-radius(10px);
+		}
 		.picture {
 
 			&.container {
@@ -445,7 +448,10 @@
 	width: 80%;
 	margin-left: 10%;
 	position: relative;
-	border-bottom: 1px solid rgba($bluegreen, 0.4);
+	&.dark {
+		background: rgba(#000,0.06);
+		@include border-radius(10px);
+	}
 	.picture {
 		
 		&.container {
@@ -556,15 +562,15 @@
 	
 	.button {
 		position: absolute;
-		top: 14px;
+		top: 12px;
 		right: 12px;
 		cursor: pointer;
 		@include border-radius(13px);
 		@include linear-gradient(lighten($orange,27%), darken($orange,1%));
 		@include fonts;
 		float: left;
-		height: 20px;
-		padding-top: 8px;
+		height: 15px;
+		padding-top: 3px;
 		width: 77px;
 
 		color: rgba(#000, 0.7);
@@ -588,10 +594,35 @@
 }
 
 .choose_opponent_label {
+	float: left;
 	font-weight:bold;
 	font-size: 13px;
-	margin: 10px 0 5px 0;
-	text-align: center;
-	color: rgba(#000,0.6);
+	margin: 12px 0 5px 11px;
+	text-align: left;
+	color: rgba(#000,0.55);
+	width: 150px;
 	@include text-shadow(0px 1px 0 rgba(#000,0.15));	
+}
+
+.friend_search_bar_container {
+	text-align: center;
+	width: 300px;
+	margin: 12px 6px 2px 0;
+	float: right;
+	input {
+		@include border-radius(8px);
+		color: rgba(#000, 0.5);
+		
+		font-size: 12px;
+		height: 24px;
+		width: 200px;
+		text-align: center;
+		border: 1px solid rgba($bluegreen, 0.6);
+		box-shadow: 1px 1px 1px rgba($bluegreen, 0.6) inset;
+		&:focus {
+			border: 1px solid rgba($bluegreen, 0.9);
+			box-shadow: 1px 1px 1px rgba($bluegreen, 0.9) inset;
+			outline-width: 0;
+		}
+	}
 }
