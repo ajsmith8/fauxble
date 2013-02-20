@@ -25,6 +25,8 @@ Fauxble.Views.AchievablesIndex = Backbone.View.extend({
 	},
 	
 	renderAchievables: function() {
+		var self = this;
+		
 		this.attr.achievables.each(function(achievable) {
 			if (self.attr.user_achievables.hasEarned(self.user, achievable)) {
 				self.appendAchievable(achievable, $(self.el).find('#earned'), true);

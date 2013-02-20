@@ -9,5 +9,12 @@ Fauxble.Collections.UserAchievables = Backbone.Collection.extend({
 		} else {
 			return false;
 		}
+	},
+	
+	createUserAchievable: function(user, achievable) {
+		this.create({
+			user_id: user.get('id'),
+			achievable_id: achievable.get('id')
+		});
 	}
 });

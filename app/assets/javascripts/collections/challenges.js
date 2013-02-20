@@ -129,6 +129,32 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 		return won;
 	},
 	
+	getStreakWon: function(user) {
+		var challenges = [],
+			won = 0;
+		
+		_.each(this.where({user_id: user.get('id')}), function(c) {
+			challenges.push(c);
+		});
+		_.each(this.where({challenger_id: user.get('id')}), function(c) {
+			challenges.push(c);
+		});
+		
+		challenges.sort(function(a, b) {
+			return b.get('updated_at') - a.get('updated_at');
+		});
+		
+		for (c = 0; c < challenges.length; c++) {
+			if (challenges[c].get('winner_id') === user.get('id')) {
+				won = won + 1;
+			} else {
+				break;
+			}
+		}
+		
+		return won;
+	},
+	
 	getTotalLost: function(user) {
 		var lost = 0;
 		
@@ -142,6 +168,32 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 				lost = lost + 1;
 			}
 		});
+		
+		return lost;
+	},
+	
+	getStreakLost: function(user) {
+		var challenges = [],
+			lost = 0;
+		
+		_.each(this.where({user_id: user.get('id')}), function(c) {
+			challenges.push(c);
+		});
+		_.each(this.where({challenger_id: user.get('id')}), function(c) {
+			challenges.push(c);
+		});
+		
+		challenges.sort(function(a, b) {
+			return b.get('updated_at') - a.get('updated_at');
+		});
+		
+		for (c = 0; c < challenges.length; c++) {
+			if (challenges[c].get('winner_id') !== user.get('id')) {
+				lost = lost + 1;
+			} else {
+				break;
+			}
+		}
 		
 		return lost;
 	},

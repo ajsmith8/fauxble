@@ -10,30 +10,113 @@ Fauxble.Collections.Achievables = Backbone.Collection.extend({
 		this.users = options.users;
 		this.user_achievables = options.user_achievables;
 		
-		//this.tasks.on('add', this.checkTaskAchievable, this);
-		//this.challenges.on('add', this.checkChallengeAchievable, this);
+		this.tasks.on('add', this.checkTaskAchievable, this);
+		this.challenges.on('change:winner_id', this.checkChallengeAchievable, this);
 	},
 	
 	checkTaskAchievable: function(model) {
-		var achievables = this.where(), //no idea
+		var user = this.users.get(model.get('user_id'));
+		
+		this.learnedFacts(user);
+	},
+	
+	checkChallengeAchievable: function(model) {
+		var user = this.users.get(model.get('user_id')),
+			challenger = this.users.get(model.get('challenger_id'));
+			
+		if (model.get('winner_id')) {
+			if (user.get('id') === model.get('winner_id')) {
+				this.wonGames(user);
+				this.wonGamesStreak(user);
+				this.lostGames(challenger);
+				this.lostGamesStreak(challenger);
+			} else {
+				this.wonGames(challenger);
+				this.wonGamesStreak(challenger);
+				this.lostGames(user);
+				this.lostGamesStreak(user);
+			}
+		}
+	},
+	
+	learnedFacts: function(user) {
+		var achievables = this.where({name: 'facts learned'}),
 			achievable = null;
 		
-		for (i = 0; i < achievables.length; i++) {
-			if (this.user_achievables.where({achievable_id: achievables[i].get('id'), user_id: model.get('user_id')})[0]) {
-				if (achievables[i + 1]) {
-					achievable = achievables[i + 1];
-				}
+		for (a = 0; a < achievables.length; a++) {
+			if (!this.user_achievables.hasEarned(user, achievables[a])) {
+				achievable = achievables[a];
 				break;
 			}
 		}
 		
-		if (this.tasks.where({user_id: model.get('user_id')}).length === achievable.get('count')) {
-			this.user_achievables.createUserAchievable(this.users.get(model.get('user_id')), achievable);
+		if (achievable && achievable.get('count') <= this.tasks.getFactsLearned(user)) {
+			this.user_achievables.createUserAchievable(user, achievable);
 		}
 	},
 	
-	checkChallengeAchievable: function(model) {
+	lostGamesStreak: function(user) {
+		var achievables = this.where({name: 'losses streak'}),
+			achievable = null;
+			
+		for (a = 0; a < achievables.length; a++) {
+			if (!this.user_achievables.hasEarned(user, achievables[a])) {
+				achievable = achievables[a];
+				break;
+			}
+		}
 		
+		if (achievable && achievable.get('count') <= this.challenges.getStreakLost(user)) {
+			this.user_achievables.createUserAchievable(user, achievable);
+		}
+	},
+	
+	lostGames: function(user) {
+		var achievables = this.where({name: 'losses'}),
+			achievable = null;
+			
+		for (a = 0; a < achievables.length; a++) {
+			if (!this.user_achievables.hasEarned(user, achievables[a])) {
+				achievable = achievables[a];
+				break;
+			}
+		}
+		
+		if (achievable && achievable.get('count') <= this.challenges.getTotalLost(user)) {
+			this.user_achievables.createUserAchievable(user, achievable);
+		}
+	},
+	
+	wonGamesStreak: function(user) {
+		var achievables = this.where({name: 'wins streak'}),
+			achievable = null;
+			
+		for (a = 0; a < achievables.length; a++) {
+			if (!this.user_achievables.hasEarned(user, achievables[a])) {
+				achievable = achievables[a];
+				break;
+			}
+		}
+		
+		if (achievable && achievable.get('count') <= this.challenges.getStreakWon(user)) {
+			this.user_achievables.createUserAchievable(user, achievable);
+		}
+	},
+	
+	wonGames: function(user) {
+		var achievables = this.where({name: 'wins'}),
+			achievable = null;
+			
+		for (a = 0; a < achievables.length; a++) {
+			if (!this.user_achievables.hasEarned(user, achievables[a])) {
+				achievable = achievables[a];
+				break;
+			}
+		}
+		
+		if (achievable && achievable.get('count') <= this.challenges.getTotalWon(user)) {
+			this.user_achievables.createUserAchievable(user, achievable);
+		}
 	}
 	// ***ACHIEVABLES FOR THIS VERSION***
 	// learned 4 facts (answered 4 questions) 	-> check for this upon task creation
