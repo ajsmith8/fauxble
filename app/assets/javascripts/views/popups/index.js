@@ -5,7 +5,7 @@ Fauxble.Views.PopupsIndex = Backbone.View.extend({
 		this.user = this.attr.users.get(this.attr.current_user.get('id'));
 		this.subviews = [];
 		
-		//this.attr.user_achievables.on('add', this.popupAchievable, this);
+		this.attr.user_achievables.on('add', this.popupAchievable, this);
 	},
 	
 	render: function() {
