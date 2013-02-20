@@ -130,9 +130,13 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 			
 			if (this.task) {
 				this.attr.users.get(this.task.get('user_id')).trigger('submit', this.task.get('score'));
+				this.challenge.set({user_score: this.challenge.get('user_score') + score});
 				this.showRageComic(task);
+			} else {
+				this.challenge.set({challenger_score: this.challenge.get('challenger_score') + score});
 			}
 			
+			this.challenge.save();
 			this.showCorrectAnswer(this.attr.answers.where({question_id: this.question.get('id'), is_correct: true})[0]);
 			this.showUser(answer_id);
 			this.showPoints(answer_id, score);

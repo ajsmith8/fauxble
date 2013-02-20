@@ -133,10 +133,10 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 		var challenges = [],
 			won = 0;
 		
-		_.each(this.where({user_id: user.get('id')}), function(c) {
+		_.each(this.where({user_id: user.get('id'), is_finished: true}), function(c) {
 			challenges.push(c);
 		});
-		_.each(this.where({challenger_id: user.get('id')}), function(c) {
+		_.each(this.where({challenger_id: user.get('id'), is_finished: true}), function(c) {
 			challenges.push(c);
 		});
 		
@@ -176,10 +176,10 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 		var challenges = [],
 			lost = 0;
 		
-		_.each(this.where({user_id: user.get('id')}), function(c) {
+		_.each(this.where({user_id: user.get('id'), is_finished: true}), function(c) {
 			challenges.push(c);
 		});
-		_.each(this.where({challenger_id: user.get('id')}), function(c) {
+		_.each(this.where({challenger_id: user.get('id'), is_finished: true}), function(c) {
 			challenges.push(c);
 		});
 		
