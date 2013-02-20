@@ -55,7 +55,6 @@
 				top: 4px;
 				left: 30px;
 				overflow: hidden;
-				@include single-box-shadow(rgba(#000, 0.35), 1px, 1px, 1px, 0);
 				width: 60px;
 				height: 60px;
 				@include border-radius(9px);
@@ -100,9 +99,92 @@
 }
 
 .popup {
-	.achievable {
+	z-index: 2;
+	width: 100%;
+	position: relative;
+	.achievable_big_background {
 		position: absolute;
-		top: 0;
-		left: 0;
+		height: 650px;
+		width: 100%;
+		background: rgba(#000, 0.25);
+	}
+	.achievable {		
+		position: absolute;
+		@include horizontal-gradient(lighten($orange, 20%), lighten($orange,5%));
+		height: 100px;
+		@include border-radius(15px);
+		width: 36%;
+		left: 32%;
+		top: 7px;
+		overflow: hidden;
+		@include single-box-shadow(rgba($orange, 0.6), 0px, 0px, 6px, 4px);
+		
+		.filler_text {
+			font-size: 15px;
+			position: absolute;
+			position: absolute;
+			text-align: center;
+			width: 60%;
+			left: 20%;
+			top: 6px;
+			font-weight: bold;
+			color: rgba(#000, 0.75);
+			@include text-shadow(0px 1px 0 rgba(#000, 0.15));
+		}
+		
+		.title {
+			&.container {
+				line-height: 17px;
+				position: absolute;
+				left: 63px;
+				top: 33px;
+				margin-right: 7px;
+				color: rgba(#000, 0.7);
+				font-size: 13px;
+				@include text-shadow(0px 1px 0 rgba(#000, 0.15));
+				span {
+					font-size: 14px;
+					font-weight: bold;
+					color: darken($bluegreen, 10%);
+					
+				}
+			}
+		}
+		
+		.dismiss_text {
+			position: absolute;
+			text-align: center;
+			width: 40%;
+			left: 30%;
+			bottom: 3px;
+			font-size: 11px;
+			color: rgba(#000, 0.7);
+			font-style: italic;
+		}
+		
+		.image {			
+			&.container {
+				position: absolute;
+				top: 25px;
+				left: 5px;
+				overflow: hidden;
+				@include single-box-shadow(rgba(#000, 0.35), 1px, 1px, 1px, 0);
+				width: 50px;
+				height: 50px;
+				@include border-radius(9px);
+			}
+			
+			&.wrapper {
+				overflow: hidden;
+				position: static;
+				height: 100%;
+				width: 100%;
+				@include border-radius(9px);
+				img {
+					height: 100%;
+					width: 100%;
+				}
+			}
+		}
 	}
 }
