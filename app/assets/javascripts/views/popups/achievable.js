@@ -3,7 +3,7 @@ Fauxble.Views.PopupsAchievable = Backbone.View.extend({
 	template: JST['popups/achievable'],
 	
 	events: {
-		'click .achievable' : 'closePopup'
+		'click' : 'closePopup'
 	},
 	
 	initialize: function(options) {
@@ -11,21 +11,30 @@ Fauxble.Views.PopupsAchievable = Backbone.View.extend({
 	},
 	
 	render: function() {
+		var self = this;
+		
 		$(this.el).addClass('achievable');
 		$(this.el).html(this.template({
 			achievable: this.achievable
 		}));
-		$(this.el).animate({
-			top: '+=100'
-		}, 500);
+		
+		setTimeout(function() {
+			$(self.el).animate({
+				top: '7px'
+			}, 500);
+		}, 0);
+		
 		return this;
 	},
 	
 	closePopup: function() {
+		var self = this;
+		
 		$(this.el).animate({
-			top: '-=100'
+			top: '-150px'
 		}, 500, function() {
-			$(this.el).parent().empty();
+			$(self.el).parent().removeClass('achievable_big_background');
+			$(self.el).parent().empty();
 		});
 	}
 });
