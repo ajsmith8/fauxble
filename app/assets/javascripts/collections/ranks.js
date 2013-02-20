@@ -5,7 +5,7 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 	
 	createRank: function(user, challenge, score) {
 		var rank = this.where({user_id: user.get('id'), issue_id: challenge.get('issue_id')})[0];
-		
+
 		if (!rank) {
 			rank = this.create({
 				user_id: user.get('id'),
@@ -84,10 +84,10 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 	
 	fillActiveStar: function(rank, fill_num, active_ele, filled_ele) {
 		var count = parseInt($(active_ele).find('.dial').val()),
-			score = Math.round(((rank.get('score') % fill_num) / fill_num) * 100) - count,
+			score = Math.abs(Math.round(((rank.get('score') % fill_num) / fill_num) * 100) - count),
 			self = this,
 			inter;
-		
+
 		inter = setInterval(function() {
 			if (score <= 0) {
 				clearInterval(inter);
