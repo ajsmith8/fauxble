@@ -9,17 +9,21 @@ function filterKeyUp(event, users, view) {
 	
 	if (input.length > 2) {
 		new_users = filterUsers(input, users);
-		renderFiltered(new_users, view);
+		renderFiltered(new_users, users,view);
 	} else {
-		renderFiltered(users, view);
+		renderFiltered(users, users ,view);
 	}
 }
 
-function renderFiltered(users, view) {
+function renderFiltered(new_users, old_users, view) {
 	$(view.el).find('#friends').empty();
 	
 	for (u = 0; u < users.length; u++) {
-		view.appendFbFriend(users[u], u);
+		if (new_users.length === old_users.length) {
+			view.appendFbFriend(users[u], u);
+		} else {
+			view.appendFbFriend(users[u], old_users.indexOf(users[u]));
+		}
 	}
 }
 
