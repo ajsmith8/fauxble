@@ -9,10 +9,11 @@ Fauxble.Views.PopupsIndex = Backbone.View.extend({
 	},
 	
 	render: function() {
-		return true;
+		return this;
 	},
 	
 	popupAchievable: function(model) {
+		$(this.el).addClass('achievable_big_background');
 		if (this.isCurrentUser(model)) {
 			var view = new Fauxble.Views.PopupsAchievable({
 				achievable: model
