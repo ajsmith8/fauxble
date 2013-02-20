@@ -29,6 +29,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		
 		this.header();
 		this.chat();
+		this.popup();
 		
 		$(window).bind('onbeforeunload', this.leaveSite);
 	},
@@ -112,6 +113,13 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			attr: this.attr
 		});
 		$('.header').html(view.render().el);
+	},
+	
+	popup: function() {
+		var view = new Fauxble.Views.PopupsIndex({
+			attr: this.attr
+		});
+		$('.popup').html(view.render().el);
 	},
 	
 	pagesHome: function() {
