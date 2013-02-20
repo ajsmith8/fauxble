@@ -107,145 +107,155 @@ position: relative;
 	}
 }
 
-.challenge.history {
-	position: relative;
-	width: 80%;
-	height: 40px;
-	margin: 5px 0 0 10%;
-	.winning {
-		position: absolute;
-		left: 3px;
-		width: 160px;
-		height: 40px;
-		.picture {
-			
-			&.container {
-				overflow: hidden;
-				@include single-box-shadow(rgba(#000, 0.35), 1px, 1px, 1px, 0);
-				position: absolute;
-				left: 2px;
-				top: 2px;
-				width: 35px;
-				height: 35px;
-				margin-left: 2px;
-				@include border-radius(7px);
-				
-			}
-			
-			&.wrapper {
-				overflow: hidden;
-				position: static;
-				height: 100%;
-				width: 100%;
-				@include border-radius(7px);
-				img {
-					height: 100%;
-					width: 100%;
-				}
-			}
-		}
-		
-		.name {
-			
-			&.container {
-				font-weight: bold;
-				position: absolute;
-				left: 45px;
-				top: 7px;
-				height: 11px;
-				font-size: 12px;
-				color: rgb(92,92,92);
-				@include text-shadow(0px 1px 0 rgba(#000, 0.15));
-			}
-		}
-		
-		.rank {
-			
-		}
-	}
+#history {
+	float: left;
+	width: 86%;
+	margin: 4px 0 0 7%;
+	padding-top: 1px;
+	@include border-radius(12px);
+	background: rgba(#000, 0.03);
 	
-	.losing {
-		position: absolute;
-		right: 3px;
-		top: 0px;
-		width: 160px;
-		height: 40px;
-		.picture {
-			
-			&.container {
-				overflow: hidden;
-				@include single-box-shadow(rgba(#000, 0.35), 1px, 1px, 1px, 0);
-				position: absolute;
-				right: 3px;
-				top: 2px;
-				width: 30px;
-				height: 30px;
-				margin-left: 2px;
-				@include border-radius(7px);
-				
-			}
-			
-			&.wrapper {
-				overflow: hidden;
-				position: static;
-				height: 100%;
-				width: 100%;
-				@include border-radius(7px);
-				img {
-					height: 100%;
-					width: 100%;
-				}
-			}
-		}
-		
-		.name {
-			
-			&.container {
-				font-weight: bold;
-				position: absolute;
-				right: 45px;
-				top: 7px;
-				height: 11px;
-				font-size: 12px;
-				color: rgb(92,92,92);
-				@include text-shadow(0px 1px 0 rgba(#000, 0.15));
-			}
-		}
-		
-		.rank {
-			
-		}
-	}
-	
-	.win-loss {
-		width: 20%;
-		margin-left: 40%;
+	.challenge.history {
 		position: relative;
-		text-align: center;
-		.number {
+		width: 90%;
+		height: 40px;
+		margin: 5px 0 0 5%;
+		.winning {
 			position: absolute;
-			@include text-shadow(0px 1px 0 rgba(#000, 0.2));
-			width: 25px;
-			font-size: 16px;
-			font-weight: bold;
-			color: darken($orange,2%);
-			top: 1px;
-			&.winner {
-				left: 7px;
-				text-align: right;
+			left: 3px;
+			width: 160px;
+			height: 40px;
+			.picture {
+			
+				&.container {
+					overflow: hidden;
+					@include single-box-shadow(rgba(#000, 0.35), 1px, 1px, 1px, 0);
+					position: absolute;
+					left: 2px;
+					top: 2px;
+					width: 35px;
+					height: 35px;
+					margin-left: 2px;
+					@include border-radius(7px);
+				
+				}
+			
+				&.wrapper {
+					overflow: hidden;
+					position: static;
+					height: 100%;
+					width: 100%;
+					@include border-radius(7px);
+					img {
+						height: 100%;
+						width: 100%;
+					}
+				}
 			}
-			&.loser {
-				right: 7px;
-				text-align: left;
+		
+			.name {
+			
+				&.container {
+					font-weight: bold;
+					position: absolute;
+					left: 45px;
+					top: 7px;
+					height: 11px;
+					font-size: 12px;
+					color: rgb(92,92,92);
+					@include text-shadow(0px 1px 0 rgba(#000, 0.15));
+				}
+			}
+		
+			.rank {
+			
 			}
 		}
+	
+		.losing {
+			position: absolute;
+			right: 3px;
+			top: 0px;
+			width: 160px;
+			height: 40px;
+			.picture {
+			
+				&.container {
+					overflow: hidden;
+					@include single-box-shadow(rgba(#000, 0.35), 1px, 1px, 1px, 0);
+					position: absolute;
+					right: 3px;
+					top: 2px;
+					width: 35px;
+					height: 35px;
+					margin-left: 2px;
+					@include border-radius(7px);
+				
+				}
+			
+				&.wrapper {
+					overflow: hidden;
+					position: static;
+					height: 100%;
+					width: 100%;
+					@include border-radius(7px);
+					img {
+						height: 100%;
+						width: 100%;
+					}
+				}
+			}
 		
-		.colon {
-			font-weight: bold;
-			font-size: 12px;
-			color: rgba(#000,0.5);
+			.name {
+			
+				&.container {
+					font-weight: bold;
+					position: absolute;
+					right: 45px;
+					top: 7px;
+					height: 11px;
+					font-size: 12px;
+					color: rgb(92,92,92);
+					@include text-shadow(0px 1px 0 rgba(#000, 0.15));
+				}
+			}
+		
+			.rank {
+			
+			}
+		}
+	
+		.win-loss {
+			width: 20%;
+			margin-left: 40%;
+			position: relative;
+			text-align: center;
+			.number {
+				position: absolute;
+				@include text-shadow(0px 1px 0 rgba(#000, 0.2));
+				width: 25px;
+				font-size: 16px;
+				font-weight: bold;
+				color: darken($orange,2%);
+				top: 1px;
+				&.winner {
+					left: 7px;
+					text-align: right;
+				}
+				&.loser {
+					right: 7px;
+					text-align: left;
+				}
+			}
+		
+			.colon {
+				font-weight: bold;
+				font-size: 12px;
+				color: rgba(#000,0.5);
+			}
 		}
 	}
+
 }
 
 .new_game_button_container {

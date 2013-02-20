@@ -268,8 +268,9 @@
 
 .user.profile {
 	height: 65px;
-	border-bottom: 1px solid rgb(217,217,217);
 	position: relative;
+	background: rgba(#000, 0.03);
+	margin-right: -1px;
 	.picture {
 		
 		&.container {
