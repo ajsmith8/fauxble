@@ -184,7 +184,7 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 				this.challenge.set({user_score: this.challenge.get('user_score') + score});
 				this.showRageComic(task);
 			} else {
-				this.challenge.set({challenger_score: this.challenge.get('challegner_score') + score});
+				this.challenge.set({challenger_score: this.challenge.get('challenger_score') + score});
 			}
 			this.challenge.save();
 			this.showNextAndSource();
