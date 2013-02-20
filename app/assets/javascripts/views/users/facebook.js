@@ -88,6 +88,7 @@ Fauxble.Views.UsersFacebook = Backbone.View.extend({
 	bindFilterUsers: function() {
 		var self = this;
 		
+		$(this.el).find('#filter').val('');
 		$(document).on('keyup', function(event) {
 			filterKeyUp(event, self.friends, self);
 		});
@@ -95,6 +96,7 @@ Fauxble.Views.UsersFacebook = Backbone.View.extend({
 	
 	unbindFilterUsers: function() {
 		$(document).off('keyup');
+		$(this.el).find('#filter').val('Search for a friend...');
 	},
 	
 	onClose: function() {
