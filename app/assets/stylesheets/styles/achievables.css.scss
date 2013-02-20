@@ -6,36 +6,61 @@
 	.text {
 		
 		&.container {
-			margin-top: 15px;
+			margin: 15px 0 3px 0;
 			text-align: center;
 			font-weight: bold;
-			color: darken($bluegreen, 10%);
+			color: rgba(#000, 0.75);
 			@include text-shadow(0px 1px 0 rgba(#000, 0.1));
 			font-size: 14px;	
-			&.earned {
+		}
+		.earned_text {
+			color: darken($bluegreen, 10%);
+			@include text-shadow(0px 1px 0 rgba(#000, 0.3));
+		}
+		.locked_text {
 
-			}
-
-			&.locked {
-
-			}
 		}
 	}
 	
 	.earned {
 		width: 96%;
-		margin: 0 0 5px 2%;
-		background: rgba(#000, 0.03);
+		margin: 0 0 30px 2%;
+		background: rgba($bluegreen, 0.15);
 		overflow: auto;
-		@include border-radius(12px);
+		@include border-radius(18px);
 	}
 	
 	.locked {
 		width: 96%;
 		margin: 0 0 5px 2%;
-		background: rgba(#000, 0.03);
+		background: rgba(#000, 0.06);
 		overflow: auto;
-		@include border-radius(12px);
+		@include border-radius(18px);
+		.achievable {
+			height: 50px;
+			width: 50px;
+			.image {
+				&.container {
+					position: absolute;
+					top: 7px;
+					left: 7px;
+					overflow: hidden;
+					width: 35px;
+					height: 35px;
+					@include border-radius(6px);
+					@include single-box-shadow(rgba(#000, 0.2), 1px, 1px, 1px, 0);
+				}
+
+				&.wrapper {
+					@include border-radius(6px);
+				}
+			}
+			.title {
+				&.container {
+					display: none;
+				}
+			}
+		}
 	}
 
 	.achievable {
