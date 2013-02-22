@@ -4,7 +4,7 @@ class CreatePageMetrics < ActiveRecord::Migration
       t.string :user_name
       t.integer :user_id
       t.string :page_name
-      t.integer :time
+      t.integer :time, default: 0
       t.timestamps
     end
   end

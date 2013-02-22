@@ -3,7 +3,7 @@ Fauxble.Views.UsersVersus = Backbone.View.extend({
 	template: JST['users/versus'],
 	
 	events: {
-		
+		'click' : 'userProfile'
 	},
 	
 	initialize: function(options) {
@@ -65,6 +65,10 @@ Fauxble.Views.UsersVersus = Backbone.View.extend({
 		}
 		
 		return ids;
+	},
+	
+	userProfile: function() {
+		Backbone.history.navigate('user' + this.user.get('id'), true);
 	},
 	
 	onClose: function() {

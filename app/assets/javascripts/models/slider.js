@@ -160,9 +160,9 @@ Fauxble.Models.Slider = Backbone.Model.extend({
 		);
 	},
 	
-	defaultSliderPosition: function() {
+	defaultSliderPosition: function(element) {
 		var position = (this.bar_width / 2) + this.left_margin + (0.5 * this.slider_width);
-		this.moveSlider(position, this.slider_element);
+		this.moveSlider(position, element);
 	},
 	
 	getScore: function(element) {

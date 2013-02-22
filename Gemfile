@@ -8,7 +8,6 @@ gem 'rails', '3.2.6'
 gem 'backbone-on-rails'
 gem 'thin'
 gem 'sass-rails'
-gem 'bcrypt-ruby'
 
 gem 'omniauth-facebook'
 

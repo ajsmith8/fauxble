@@ -2,7 +2,8 @@ Fauxble.Views.ChallengesShow = Backbone.View.extend({
 
 	events: {
 		'click #learn' : 'toggleDescription',
-		'click #play' : 'startChallenge'
+		'click #play' : 'startChallenge',
+		'click .user' : 'userProfile'
 	},
 	
 	initialize: function(options) {
@@ -76,6 +77,12 @@ Fauxble.Views.ChallengesShow = Backbone.View.extend({
 	
 	startChallenge: function() {
 		Backbone.history.navigate(this.challenge.get('id') + '/question' + this.challenge.get('question_ids').split('/')[0], true);
+	},
+	
+	userProfile: function(event) {
+		var element = $(event.target).closest('.user');
+		
+		Backbone.history.navigate('user' + $(element).attr('id'), true);
 	},
 	
 	onClose: function() {

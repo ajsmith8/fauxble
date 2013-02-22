@@ -21,7 +21,10 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = User.update(params[:id], params[:user])
+    @user = User.find(params[:id])
+    if !session[:user_id]
+      session[:user_id] = @user.id
+    end
     respond_with @user
   end
   

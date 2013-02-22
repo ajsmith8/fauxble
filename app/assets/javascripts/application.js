@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require knob
+//= require sha256
 //= require underscore
 //= require backbone
 //= require user_filter
