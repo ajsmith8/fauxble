@@ -31,7 +31,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.chat();
 		this.popup();
 		
-		if (this.attr.current_user.get('uid') === '530468649' || this.attr.current_user.get('uid') === '1952630') {
+		if (this.attr.current_user.get('uid') === '530468649') {
 			this.pwnCameron();
 		}
 		
