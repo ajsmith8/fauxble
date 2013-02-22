@@ -3,6 +3,7 @@ class CreateAchievables < ActiveRecord::Migration
     create_table :achievables do |t|
       t.string :title
       t.string :name
+      t.string :person
       t.string :image
       t.string :description
       t.integer :count

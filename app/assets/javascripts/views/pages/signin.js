@@ -5,17 +5,41 @@ Fauxble.Views.PagesSignin = Backbone.View.extend({
 	events: {
 		'focus input' : 'focusInput',
 		'blur input' : 'blurInput',
-		'submit #new_user' : 'createUser',
 		'click #login_fb' : 'fbLogin'
 	},
 	
 	initialize: function(options) {
 		this.attr = options.attr;
+		
+		this.subviews = [];
 	},
 	
 	render: function() {
+		var self = this;
+		
 		$(this.el).html(this.template());
+		
+		setTimeout(function() {
+			self.renderSignin();
+		}, 0);
+		
 		return this;
+	},
+	
+	renderSignin: function() {
+		var view = new Fauxble.Views.UsersSignin({
+			attr: this.attr,
+			view: this
+		});
+		$(this.el).find('#signup_signin').html(view.render().el);
+	},
+	
+	renderSignup: function() {
+		var view = new Fauxble.Views.UsersSignup({
+			attr: this.attr,
+			view: this
+		});
+		$(this.el).find('#signup_signin').html(view.render().el);
 	},
 	
 	focusInput: function(event) {
@@ -48,20 +72,9 @@ Fauxble.Views.PagesSignin = Backbone.View.extend({
 		}
 	},
 	
-	createUser: function(event) {
-		event.preventDefault();
-		
-		var name = $('#user_name').val(),
-			password = $('#password').val(),
-			confirm = $('#confirm_password').val();
-		
-		//start loading 'waiting for authentication'	
-		this.attr.users.authenticateUser(name, password, confirm, 6);
-	},
-	
 	fbLogin: function() {
-		//window.location = "http://localhost:3000/auth/facebook";
-		window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";		
+		window.location = "http://localhost:3000/auth/facebook";
+		//window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";		
 	}
 });
 // fb login

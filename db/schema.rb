@@ -11,17 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130220035407) do
+ActiveRecord::Schema.define(:version => 20130205061710) do
 
   create_table "achievables", :force => true do |t|
     t.string   "title"
     t.string   "name"
+    t.string   "person"
     t.string   "image"
     t.string   "description"
     t.integer  "count"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.string   "person"
   end
 
   create_table "answers", :force => true do |t|
@@ -60,9 +60,9 @@ ActiveRecord::Schema.define(:version => 20130220035407) do
     t.string   "user_name"
     t.integer  "user_id"
     t.string   "page_name"
-    t.integer  "time"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "time",       :default => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "questions", :force => true do |t|
@@ -140,12 +140,14 @@ ActiveRecord::Schema.define(:version => 20130220035407) do
     t.string   "name"
     t.string   "provider"
     t.string   "uid"
-    t.string   "password"
-    t.string   "token"
-    t.boolean  "signed_in",    :default => false
-    t.boolean  "signed_in_fb", :default => false
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.string   "encrypted_token"
+    t.string   "encrypted_email"
+    t.string   "encrypted_password"
+    t.string   "password_salt"
+    t.boolean  "signed_in",          :default => false
+    t.boolean  "signed_in_fb",       :default => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
   end
 
 end

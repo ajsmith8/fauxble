@@ -88,7 +88,7 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 			left_margin: margin
 		});
 		
-		this.slider.defaultSliderPosition();
+		this.slider.defaultSliderPosition($(this.el).find('#user'));
 		if (this.task) {
 			this.showChallenger();
 		}
@@ -100,8 +100,15 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 	},
 	
 	showChallenger: function() {
-		this.slider.moveSliderFromInput(this.task.get('answer'), $(this.el).find('#challenger'));
-		$(this.el).find('#challenger').removeClass('hide');
+		var element = $(this.el).find('#challenger'),
+			self = this;
+		
+		this.slider.defaultSliderPosition(element);
+		$(element).removeClass('hide');
+		
+		$(element).animate({
+			left: Math.round(self.slider.getInputField(self.task.get('answer'))) + 'px'
+		}, 10000);
 	},
 	
 	showUser: function() {
