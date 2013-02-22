@@ -33,3 +33,14 @@
 	background: rgba(#000, 0.6);
 	@include border-radius(15px);
 }
+
+.locked {
+	.achievable {
+		.tooltip {
+			width: 60px;
+			.person {
+				font-size: 11px;
+			}
+		}
+	}
+}
