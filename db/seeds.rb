@@ -2596,7 +2596,7 @@ Issue.create(
 Issue.create(
   title: 'Hydraulic fracturing',
   description: "Hydraulic Fracturing is used to release petroleum, natural gas, or other fossil fuels for extraction by way of injecting water, sand, and chemicals deep into the earth\'s surface.",
-  image: 'fracturing'
+  image: 'fracking'
 )
 
 # Trans fat issue_id -> 12
@@ -6128,7 +6128,7 @@ Slider.create(
 
 Question.create(
   issue_id: 20,
-  title: 'According to Rideshare.com, \"The US could save ____million gallons of gas-each day-if the average commuting vehicle carried one additional person.\"',
+  title: 'According to Rideshare.com, "The US could save ____million gallons of gas-each day-if the average commuting vehicle carried one additional person."',
   is_slider: true
 )
 
