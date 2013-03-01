@@ -1,0 +1,12 @@
+<div>
+	<% if (user.get('uid')) { %>
+		<img src = 'https://graph.facebook.com/<%= user.get('uid') %>/picture' />
+	<% } else { %>
+		<img src = 'assets/misc/user.png' />
+	<% } %>
+</div>
+<div><%= user.get('name') %></div>
+<div>
+	<img src = 'assets/achievables/<%= achievable.get('image') %>.png' />
+</div>
+<div><%= achievable.get('title') %></div>

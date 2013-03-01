@@ -1,0 +1,20 @@
+<div>
+	<% if (user.get('uid')) { %>
+		<img src = 'https://graph.facebook.com/<%= user.get('uid') %>/picture' />
+	<% } else { %>
+		<img src = 'assets/misc/user.png' />
+	<% } %>
+</div>
+<div><%= user.get('name') %></div>
+<div>
+	<img src = 'assets/issues/<%= issue.get('image') %>.png' />
+</div>
+<div><%= issue.get('title') %></div>
+<div>
+	<% if (challenger.get('uid')) { %>
+		<img src = 'https://graph.facebook.com/<%= challenger.get('uid') %>/picture' />
+	<% } else { %>
+		<img src = 'assets/misc/user.png' />
+	<% } %>
+</div>
+<div><%= challenger.get('name') %></div>

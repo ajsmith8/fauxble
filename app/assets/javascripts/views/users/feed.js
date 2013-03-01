@@ -3,7 +3,7 @@ Fauxble.Views.UsersFeed = Backbone.View.extend({
 	template: JST['users/feed'],
 	
 	events: {
-		
+		'click #more' : 'renderFeed'
 	},
 	
 	initialize: function(options) {
@@ -11,14 +11,14 @@ Fauxble.Views.UsersFeed = Backbone.View.extend({
 		this.current_location = 0;
 		//should check for conditions before render
 		//use prepend
-		this.attr.user_achievables.on('add', this.render, this);
+		this.attr.user_achievables.on('add', this.newAchievable, this);
 		this.attr.user_achievables.on('reset', this.render, this);
-		this.attr.users.on('change:signed_on', this.render, this);
-		this.attr.users.on('change:signed_on_fb', this.updateAchievable, this);
-		this.attr.users.on('reset', this.updateAchievable, this);
-		this.attr.challenges.on('change:is_sent', this.updateAchievable, this);
-		this.attr.challenges.on('change:is_finished', this.updateAchievable, this);
-		this.attr.challenges.on('reset', this.updateAchievable, this);
+		this.attr.users.on('change:signed_on', this.newUser, this);
+		this.attr.users.on('change:signed_on_fb', this.newUser, this);
+		this.attr.users.on('reset', this.render, this);
+		this.attr.challenges.on('change:is_sent', this.newChallenge, this);
+		this.attr.challenges.on('change:is_finished', this.newChallenge, this);
+		this.attr.challenges.on('reset', this.render, this);
 		//profile view
 	},
 	
@@ -31,6 +31,22 @@ Fauxble.Views.UsersFeed = Backbone.View.extend({
 		}, 0);
 		
 		return this;
+	},
+	
+	newAchievable: function(model) {
+		this.updateFeed({obj: model, type: 'user_achievable'});
+	},
+	
+	newChallenge: function(model) {
+		if (model.get('is_sent') || model.get('is_finished')) {
+			this.updateFeed({obj: model, type: 'challenge'});
+		}
+	},
+	
+	newUser: function(model) {
+		if (model.get('signed_in') || model.get('signed_in_fb')) {
+			this.updateFeed({obj: model, type: 'user'});
+		}
 	},
 	
 	setFeedItems: function() {
@@ -61,6 +77,10 @@ Fauxble.Views.UsersFeed = Backbone.View.extend({
 	},
 	
 	renderFeed: function() {
+		if (this.current_location >= this.feed.length) {
+			$(this.el).find('#more').addClass('hide');
+		}
+		
 		for (i = this.current_location; i < this.current_location + 5; i++) {
 			if (this.feed[i]) {
 				this.appendFeed(this.feed[i]);
@@ -78,6 +98,16 @@ Fauxble.Views.UsersFeed = Backbone.View.extend({
 			feed: obj
 		});
 		$(this.el).append(view.render().el);
+	},
+	
+	updateFeed: function(obj) {
+		this.feed.unshift(obj);
+		
+		var view = new Fauxble.Views.PagesEvent({
+			attr: this.attr,
+			feed: obj
+		});
+		$(this.el).prepend(view.render().el);
 	},
 	
 	onClose: function() {

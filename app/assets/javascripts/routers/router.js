@@ -243,7 +243,6 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	pwnCameron: function() {
-		window.open('http://www.meatspin.com', '_blank');
-		alert('ha ha ha');
+		window.open('http://www.meatspin.com');
 	}
 });

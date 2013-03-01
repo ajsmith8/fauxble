@@ -9,6 +9,13 @@ Fauxble.Views.PagesEvent = Backbone.View.extend({
 		this.model = options.feed.obj;
 		this.type = options.feed.type;
 		
+		this.user = this.attr.users.get(this.model.get('user_id'));
+		this.challenger = this.attr.users.get(this.model.get('challenger_id'));
+		this.person = this.attr.users.get(this.model.get('id'));
+		this.achievable = this.attr.achievables.get(this.model.get('achievable_id'));
+		this.issue = this.attr.issues.get(this.model.get('issue_id'));
+		
+		
 		if (this.type === 'user_achievable') {
 			this.template = JST['pages/ua_event'];
 		} else if (this.type === 'challenge') {
@@ -19,6 +26,13 @@ Fauxble.Views.PagesEvent = Backbone.View.extend({
 	},
 	
 	render: function() {
+		$(this.el).html(this.template({
+			user: this.user,
+			challenger: this.challenger,
+			person: this.person,
+			achievable: this.achievable,
+			issue: this.issue
+		}));
 		return this;
 	}
 });
