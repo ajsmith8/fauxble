@@ -4,7 +4,8 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 	
 	events: {
 		'click #play' : 'setChallengeIssue',
-		'click #shuffle' : 'renderIssues'
+		'click #shuffle' : 'renderIssues',
+		'click #all' : 'showAllIssues'
 	},
 	
 	initialize: function(options) {
@@ -56,13 +57,33 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 		$(this.el).find('#issues').append(view.render().el);
 	},
 	
+	showAllIssues: function() {
+		
+		var self = this,
+			num_questions,
+			issues = [];
+		
+		this.attr.issues.each(function(issue) {
+			num_questions = self.attr.questions.getNumQuestions(issue);
+			if (num_questions > 3) {
+				issues.push({issue: issue, facts: num_questions});
+			}
+		});
+		
+		$(this.el).find('#issues').empty();
+		
+		for (i = issues.length - 1; i >= 0 ; i--) {
+			this.appendIssue(issues[i].issue, issues[i].facts, i);
+		}
+	},
+	
 	setChallengeIssue: function(event) {
 		var issue = this.attr.issues.get(parseInt($(event.target).closest('.issue').attr('id')));
 		
-		if (issue.get('id') === 1) {
+		if (issue.get('id') === 20) {
 			this.challenge.set({
 				issue_id: issue.get('id'),
-				question_ids: '120/2/6/116'
+				question_ids: this.attr.questions.getRandomIds(issue, 8)
 			});
 		} else {
 			this.challenge.set({

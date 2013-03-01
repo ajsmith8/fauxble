@@ -55,6 +55,10 @@ Fauxble.Views.PagesQuestion = Backbone.View.extend({
 		var ids = this.challenge.get('question_ids').split('/'),
 			question_num = 4;
 		
+		if (this.challenge.get('issue_id') === 20) {
+			question_num = 8;
+		}
+		
 		for (n = 0; n < ids.length; n ++) {
 			if (parseInt(ids[n]) === this.question.get('id')) {
 				question_num = n + 1;

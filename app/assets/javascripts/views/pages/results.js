@@ -3,7 +3,8 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 	template: JST['pages/results'],
 
 	events: {
-		'click #finish' : 'sendOrFinish'
+		'click #finish' : 'sendOrFinish',
+		'click #here' : 'sidecar'
 	},
 	
 	initialize: function(options) {
@@ -22,7 +23,8 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 		var self = this;
 		$(this.el).html(this.template({
 			is_finished: this.challenge.get('is_finished'),
-			header: this.getHeaderText()
+			header: this.getHeaderText(),
+			challenge: this.challenge
 		}));
 		
 		setTimeout(function() {
@@ -89,6 +91,10 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 		} else {
 			Backbone.history.navigate('', true);
 		}
+	},
+	
+	sidecar: function() {
+		window.open('http://us4.campaign-archive1.com/?u=f796d9cc4b2b1918b21fa8f53&id=822bc10003&e=de126c62bb', '_blank');
 	},
 	
 	onClose: function() {

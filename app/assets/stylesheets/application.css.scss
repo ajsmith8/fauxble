@@ -25,3 +25,54 @@
 .border {
 	border: 1px solid #000;
 }
+
+.sidecar {
+	
+	&.container {
+		position: relative;
+		float: left;
+		height: 20px;
+		width: 70%;
+		margin: 0;
+	}
+	
+	&.text {
+		position: absolute;
+		top: 20px;
+		left: 0;
+		
+		span {
+			cursor: pointer;
+			background: #e5e5e5;
+			@include border-radius(10px);
+			color: $bluegreen;
+			padding: 8px;
+			
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		
+		a {
+			font-weight: bold;
+			text-decoration: none;
+			color: $bluegreen;
+
+			&:hover {
+				text-decoration: underline;
+			}
+			&:visited {
+				color: mix($bluegreen, #333333, 40%);
+				color: $bluegreen;
+			}
+		}
+	}
+}
+
+.thingy {
+	float: left;
+	position: relative;
+	width: 90%;
+	margin: 0 0 15px 5%;
+	height: 50px;
+}

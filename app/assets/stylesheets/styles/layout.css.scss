@@ -57,6 +57,7 @@ body {
 		margin-left: 361px;
 		width: 554px;
 		padding-right: 1px;
+		overflow-y: scroll;
 
 	}
 	
@@ -139,9 +140,7 @@ body {
 }
 
 .send_result_button {
-	float: left;
 	width: 20%;
-	margin: 12px 0 0 40%;
 	
 	height: 26px;
 	text-align: center;
@@ -158,6 +157,16 @@ body {
 	@include linear-gradient(lighten($orange,18%), lighten($orange,1%));
 	&:hover {
 		@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
+	}
+	
+	&.right {
+		margin: 10px 0 0 10px;
+		float: right;
+	}
+	
+	&.centered {
+		float: left;
+		margin: 10px 0 0 40%;
 	}
 }
 

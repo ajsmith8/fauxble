@@ -7,8 +7,24 @@
 	</div>
 </div>
 
-<% if (is_finished) { %>
-	<div id = 'finish' class = 'hide send_result_button'>Next</div>
-<% } else { %>
-	<div id = 'finish' class = 'hide send_result_button'>Send!</div>
-<% } %>
+<div class = 'thingy'>
+	<% if (challenge.get('issue_id') === 20) { %>
+		<div class = 'sidecar container'>
+			<div class = 'sidecar text'>
+				Defend ridesharing: 
+				<span id = 'here'>sign the petition</span>
+			</div>
+		</div>
+		<% if (is_finished) { %>
+			<div id = 'finish' class = 'hide send_result_button right'>Next</div>
+		<% } else { %>
+			<div id = 'finish' class = 'hide send_result_button right'>Send!</div>
+		<% } %>
+	<% } else { %>
+		<% if (is_finished) { %>
+			<div id = 'finish' class = 'hide send_result_button centered'>Next</div>
+		<% } else { %>
+			<div id = 'finish' class = 'hide send_result_button centered'>Send!</div>
+		<% } %>
+	<% } %>
+</div>
