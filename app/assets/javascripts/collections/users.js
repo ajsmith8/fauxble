@@ -3,8 +3,8 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 	model: Fauxble.Models.User,
 	url: 'users',
 	
-	initialize: function(models, options) {
-		
+	getTopFive: function(user, issue) {
+
 	},
 	
 	authenticateUser: function(name, password, confirm, min_length) {

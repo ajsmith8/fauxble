@@ -108,7 +108,7 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 	},
 	
 	showChallenger: function(time) {		
-		if (parseInt(this.task.get('time')) === this.time - time) {
+		if (parseInt(this.task.get('time')) === time) {
 			$(this.el).find('.answer#' + this.task.get('answer_id')).find('#challenger').removeClass('hide');
 		}
 	},

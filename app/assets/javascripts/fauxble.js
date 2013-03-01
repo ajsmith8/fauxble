@@ -21,10 +21,11 @@ window.Fauxble = {
 			questions: this.questions,
 			tasks: this.tasks
 		});
-		this.users 				= new Fauxble.Collections.Users(data.users, {
-			challenges: this.challenges
-		});
 		this.ranks 				= new Fauxble.Collections.Ranks(data.ranks);
+		this.users 				= new Fauxble.Collections.Users(data.users, {
+			challenges: this.challenges,
+			ranks: this.ranks
+		});
 		this.user_achievables 	= new Fauxble.Collections.UserAchievables(data.user_achievables);
 		this.achievables 		= new Fauxble.Collections.Achievables(data.achievables, {
 			tasks: this.tasks,

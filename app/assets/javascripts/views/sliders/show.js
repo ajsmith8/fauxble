@@ -108,7 +108,7 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 		
 		$(element).animate({
 			left: Math.round(self.slider.getInputField(self.task.get('answer'))) + 'px'
-		}, 10000);
+		}, 1000);
 	},
 	
 	showUser: function() {
