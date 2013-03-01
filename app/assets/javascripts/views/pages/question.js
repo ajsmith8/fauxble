@@ -17,7 +17,8 @@ Fauxble.Views.PagesQuestion = Backbone.View.extend({
 	render: function() {
 		var self = this;
 		$(this.el).html(this.template({
-			number: this.getQuestionNumber()
+			number: this.getQuestionNumber(),
+			total: this.challenge.get('question_ids').split('/').length
 		}));
 		
 		setTimeout(function() {
