@@ -21,7 +21,7 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 			});
 		} else {
 			this.each(function(u) {
-				ranks = self.ranks.where(user_id: u.get('id'));
+				ranks = self.ranks.where({user_id: u.get('id')});
 				score = 0;
 				
 				_.each(ranks, function(r) {
