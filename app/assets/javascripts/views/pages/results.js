@@ -80,7 +80,7 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 	},
 	
 	sendOrFinish: function() {
-		if (this.challenge.get('is_finished')) {
+		if (this.challenge.get('is_finished') && this.challenge.get('challenger_id') !== 1) { //prevent replies to default challenges
 			//start loading
 			this.attr.challenges.createChallenge(
 				this.attr.users.get(this.challenge.get('user_id')), 
