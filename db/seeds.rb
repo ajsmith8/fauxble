@@ -270,7 +270,7 @@ Slider.create(
 Question.create(
   issue_id: 18,
   title: 'What percent of U.S. women have an unintended pregnancy by age 45?',
-  is_slider: false
+  is_slider: true
 )
 
 Source.create(
@@ -5431,7 +5431,7 @@ Answer.create(
 Issue.create(
   title: 'Facts about Americans',
   description: 'Some interesting facts about how uninformed Americans really are',
-  image: 'Homer Simpson'
+  image: 'homer'
 )
 
 Question.create(
@@ -6073,4 +6073,263 @@ Answer.create(
   question_id: 199,
   title: '3',
   is_correct: true
+)
+
+Question.create(
+  issue_id: 1,
+  title: "Patients with mental illness accounted for what percent of all U.S. cannabis consumption, according to a study in Comprehensive Psychiatry?",
+  is_slider: true
+)
+
+Slider.create(
+  issue_id: 1,
+  question_id: 200,
+  is_exponential: false,
+  min: 1,
+  max: 100,
+  correct: 83,
+  units: '/%'
+)
+
+Source.create(
+  issue_id: 1,
+  question_id: 200,
+  url: 'http://firstwatch.jwatch.org/'
+)
+
+# RideSharing issue_id -> 20
+Issue.create(
+  title: 'Ridesharing',
+  description: 'Ridesharing is the sharing of car journeys so that more than one person travels in a car.',
+  image: 'rideshare'
+)
+
+Question.create(
+  issue_id: 20,
+  title: 'If it costs you $40 per week to fill your gas tank and you do this every week, how much in gas will you spend annually?',
+  is_slider: true
+)
+
+Source.create(
+  issue_id: 20,
+  question_id: 201,
+  url: 'http://www.ehow.com/how_5357959_diagnose-automatic-transmission-problems.html'
+)
+
+Slider.create(
+  issue_id: 20,
+  question_id: 201,
+  is_exponential: true,
+  min: 0,
+  max: 5000,
+  correct: 2080,
+  units: '$/'
+)
+
+Question.create(
+  issue_id: 20,
+  title: 'According to Rideshare.com, \"The US could save ____million gallons of gas-each day-if the average commuting vehicle carried one additional person.\"',
+  is_slider: true
+)
+
+Source.create(
+  issue_id: 20,
+  question_id: 202,
+  url: 'http://www.ehow.com/about_6192716_carpool-information.html#ixzz2M9YsO3xj'
+)
+
+Slider.create(
+  issue_id: 20,
+  question_id: 202,
+  is_exponential: false,
+  min: 0,
+  max: 100,
+  correct: 33,
+  units: '/million'
+)
+
+Question.create(
+  issue_id: 20,
+  title: 'Most Americans spend over ____ hours a year commuting to work.',
+  is_slider: true
+)
+
+Source.create(
+  issue_id: 20,
+  question_id: 203,
+  url: 'http://www.ehow.com/about_6192716_carpool-information.html#ixzz2M9ZbbeIy'
+)
+
+Slider.create(
+  issue_id: 20,
+  question_id: 203,
+  is_exponential: true,
+  min: 0,
+  max: 1000,
+  correct: 400,
+  units: '/hrs'
+)
+
+Question.create(
+  issue_id: 20,
+  title: 'The U.S.\'s 250 million cars use  ___ of the world\'s oil.',
+  is_slider: true
+)
+
+Source.create(
+  issue_id: 20,
+  question_id: 204,
+  url: 'http://blog.side.cr/2013/02/14/sidecar-matches-100000-rides/'
+)
+
+Slider.create(
+  issue_id: 20,
+  question_id: 204,
+  is_exponential: false,
+  min: 0,
+  max: 100,
+  correct: 20,
+  units: '/%'
+)
+
+Question.create(
+  issue_id: 20,
+  title: 'In early 2013, three Philadelphia drivers were fined ______ for sharing rides.',
+  is_slider: true
+)
+
+Source.create(
+  issue_id: 20,
+  question_id: 205,
+  url: 'http://articles.philly.com/2013-02-26/news/37311915_1_sidecar-taxi-medallion-philadelphia-cabs'
+)
+
+Slider.create(
+  issue_id: 20,
+  question_id: 205,
+  is_exponential: true,
+  min: 0,
+  max: 2000,
+  correct: 1000,
+  units: '$/'
+)
+
+Question.create(
+  issue_id: 20,
+  title: 'Carpooling in exchange for gas money is illegal in which state?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 20,
+  question_id: 206,
+  url: 'http://austinpedicab.org/2008/01/03/regulations-for-austins-pedicabs-chapter-13-section-2-subpart-e-of-austin-city-code/'
+)
+
+Answer.create(
+  issue_id: 20,
+  question_id: 206,
+  title: 'Austin',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 20,
+  question_id: 206,
+  title: 'Chicago',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 20,
+  question_id: 206,
+  title: 'Los Angeles',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 20,
+  question_id: 206,
+  title: 'Memphis',
+  is_correct: false
+)
+
+Question.create(
+  issue_id: 20,
+  title: 'Philadelphia taxi medallions currently sell for?',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 20,
+  question_id: 207,
+  url: 'http://www.philly.com/philly/business/20130226_City_stops_illegal_cab_service.html'
+)
+
+Answer.create(
+  issue_id: 20,
+  question_id: 207,
+  title: '$450,000',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 20,
+  question_id: 207,
+  title: '$1,000',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 20,
+  question_id: 207,
+  title: '$450',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 20,
+  question_id: 207,
+  title: '$40,000',
+  is_correct: false
+)
+
+Question.create(
+  issue_id: 20,
+  title: 'Cars are the __ highest expense in U.S. households',
+  is_slider: false
+)
+
+Source.create(
+  issue_id: 20,
+  question_id: 208,
+  url: 'http://thesidecarblog.files.wordpress.com/2013/02/infographic-small.png'
+)
+
+Answer.create(
+  issue_id: 20,
+  question_id: 208,
+  title: '2nd',
+  is_correct: true
+)
+
+Answer.create(
+  issue_id: 20,
+  question_id: 208,
+  title: '1st',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 20,
+  question_id: 208,
+  title: '3rd',
+  is_correct: false
+)
+
+Answer.create(
+  issue_id: 20,
+  question_id: 208,
+  title: '4th',
+  is_correct: false
 )

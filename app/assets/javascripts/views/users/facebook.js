@@ -20,7 +20,7 @@ Fauxble.Views.UsersFacebook = Backbone.View.extend({
 		$(this.el).html(this.template());
 		
 		setTimeout(function() {
-			FB.api('/me/friends?access_token=' + self.user.get('token'), function(response) {
+			FB.api('/me/friends?access_token=' + self.user.get('encrypted_token'), function(response) {
 				self.renderFriends(response['data']);
 				//stop loading
 			});
