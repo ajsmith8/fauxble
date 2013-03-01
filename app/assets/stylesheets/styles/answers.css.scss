@@ -1,11 +1,13 @@
 .multiple-choice {
 	.answers {
+		margin-top: 11px;
 		.answer {
 			float: left;
 			width: 90%;
-			margin-left: 5%;
+			margin: 0 0 0 5%;
 			height: 46px;
 			position: relative;
+			border: 1px solid;
 			.title {
 				text-align: center;
 				font-size: 12px;
@@ -18,7 +20,7 @@
 					height: 37px;
 					width: 76%;
 					left: 12%;
-					top: 11px;
+					top: -3px;
 					
 					cursor: pointer;
 					font-weight: bold;
@@ -66,7 +68,7 @@
 				position: absolute;
 				&.container {
 					font-size: 20px;
-					bottom: 19px;
+					bottom: 32px;
 					width: 50px;
 					color: $orange;
 				}
@@ -85,7 +87,7 @@
 				&.container {
 					position: absolute;
 					right: 27px;
-					bottom: -5px;
+					bottom: 8px;
 				}
 			}
 		}
