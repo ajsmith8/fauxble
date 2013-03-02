@@ -26,7 +26,6 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 		
 		console.log('challenge id: ' + this.challenge.get('id'));
 		console.log('question id: ' + this.question.get('id'));
-		console.log('next question id: ' + this.next_question.get('id'));
 		console.log('user id: ' + this.user.get('id'));
 		console.log('slider id: ' + this.slider.get('id'));
 		
