@@ -6,7 +6,7 @@ User.create(
 
 Achievable.create(
   title: "Learning Lover",
-  description: "You love to learn! Look at all those sexy facts!",
+  description: "You love to learn! Look at all those hot facts!",
   name: "facts learned",
   person: "Isaac Newton",
   image: "newton",
@@ -6145,7 +6145,7 @@ Slider.create(
   min: 0,
   max: 100,
   correct: 33,
-  units: '/million'
+  units: '/ million'
 )
 
 Question.create(
