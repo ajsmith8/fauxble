@@ -103,7 +103,7 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 	},
 	
 	fbPopup: function(user, challenger, issue) {
-		if (user.get('signed_in_fb') && challenger.get('signed_in_fb')) {
+		if (user.get('uid') && challenger.get('signed_in_fb')) {
 			var obj = { 
 				method: 'feed', 
 				link: 'http://fusegap.org', 
