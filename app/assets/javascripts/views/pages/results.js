@@ -109,7 +109,7 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 			name: 'fuseGap', 
 			to: user.get('uid'), 
 			from: challenger.get('uid'),
-			description: challenger.get('name') + ' has challenged your knowledge in ' + '<b>' + issue.get('title') + '</b>' + ', think you can beat them?'
+			description: challenger.get('name') + ' has challenged your knowledge of ' + '<b>' + issue.get('title') + '</b>' + ', think you can beat them?'
 		};
 		function callback(response) 
 		{
