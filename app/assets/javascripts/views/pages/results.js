@@ -103,19 +103,23 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 	},
 	
 	fbPopup: function(user, challenger, issue) {
-		var obj = { 
-			method: 'feed', 
-			link: 'http://fusegap.org', 
-			name: 'fuseGap', 
-			to: user.get('uid'), 
-			from: challenger.get('uid'),
-			description: challenger.get('name') + ' has challenged your knowledge of ' + '<b>' + issue.get('title') + '</b>' + ', think you can beat them?'
-		};
-		function callback(response) 
-		{
+		if (user.get('signed_in_fb') && challenger.get('signed_in_fb')) {
+			var obj = { 
+				method: 'feed', 
+				link: 'http://fusegap.org', 
+				name: 'fuseGap', 
+				to: user.get('uid'), 
+				from: challenger.get('uid'),
+				description: challenger.get('name') + ' has challenged your knowledge of ' + '<b>' + issue.get('title') + '</b>' + ', think you can beat them?'
+			};
+			function callback(response) 
+			{
+				Backbone.history.navigate('', true);
+	        }
+			FB.ui(obj, callback);
+		} else {
 			Backbone.history.navigate('', true);
-        }
-		FB.ui(obj, callback);
+		}
 	},
 	
 	sidecar: function() {
