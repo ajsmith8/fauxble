@@ -6216,7 +6216,7 @@ Slider.create(
 
 Question.create(
   issue_id: 20,
-  title: 'Carpooling in exchange for gas money is illegal in which state?',
+  title: 'Carpooling in exchange for gas money is illegal in which city?',
   is_slider: false
 )
 

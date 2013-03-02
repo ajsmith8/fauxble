@@ -48,7 +48,7 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 			return self.getScore(b, issue) - self.getScore(a, issue);
 		});
 
-		return {user: users.indexOf(user) + 1, users: users.length}; // need to adjust users based on # of ranks not total users
+		return users.indexOf(user) + 1;
 	},
 	
 	setFilledStars: function(num, element) {
