@@ -82,15 +82,40 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 	},
 	
 	sendOrFinish: function() {
-		if (this.challenge.get('is_finished') && this.challenge.get('challenger_id') !== 1) { //prevent replies to default challenges
+		if (this.challenge.get('is_finished')) { //prevent replies to default challenges
 			//start loading
-			this.attr.challenges.createChallenge(
-				this.attr.users.get(this.challenge.get('user_id')), 
-				this.attr.users.get(this.challenge.get('challenger_id'))
-			);
+			
+			if (this.challenge.get('challenger_id') === 1) {
+				Backbone.history.navigate('', true);
+			} else {
+				this.attr.challenges.createChallenge(
+					this.attr.users.get(this.challenge.get('user_id')), 
+					this.attr.users.get(this.challenge.get('challenger_id'))
+				);
+			}
 		} else {
-			Backbone.history.navigate('', true);
+			this.fbPopup(
+				this.attr.users.get(this.challenge.get('user_id')), 
+				this.attr.users.get(this.challenge.get('challenger_id')), 
+				this.attr.issues.get(this.challenge.get('issue_id'))
+			);
 		}
+	},
+	
+	fbPopup: function(user, challenger, issue) {
+		var obj = { 
+			method: 'feed', 
+			link: 'http://fusegap.org', 
+			name: 'fuseGap', 
+			to: user.get('uid'), 
+			from: challenger.get('uid'),
+			description: challenger.get('name') + ' has challenged your knowledge in ' + '<b>' + issue.get('title') + '</b>' + ', think you can beat them?'
+		};
+		function callback(response) 
+		{
+			Backbone.history.navigate('', true);
+        }
+		FB.ui(obj, callback);
 	},
 	
 	sidecar: function() {
