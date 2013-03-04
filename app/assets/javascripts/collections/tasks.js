@@ -18,7 +18,7 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 		})[0];
 		
 		if (!task) {
-			task = this.create({
+			this.create({
 				issue_id: question.get('issue_id'),
 				question_id: question.get('id'),
 				challenge_id: challenge.get('id'),
@@ -27,12 +27,19 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 				answer: answer,
 				score: score,
 				time: time
+			}, {
+				success: function(model, response) {
+					return model;
+				},
+				error: function(model, response) {
+					//fail
+				}
 			});
 			
 			ranks.createRank(user, challenge, score);
+		} else {
+			return task;
 		}
-		
-		return task;
 	},
 	
 	getVersusScore: function(user, ids, challenge) {
