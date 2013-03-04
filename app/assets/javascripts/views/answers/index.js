@@ -138,7 +138,6 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 			
 			console.log('answer id: ' + answer_id);
 			console.log('score: ' + score);
-			console.log('created task id: ' + task.get('id'));
 			
 			if (this.task) {
 				this.attr.users.get(this.task.get('user_id')).trigger('submit', this.task.get('score'));
