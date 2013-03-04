@@ -27,16 +27,11 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 				answer: answer,
 				score: score,
 				time: time
-			}, {
-				success: function(model, response) {
-					return model;
-				},
-				error: function(model, response) {
-					//fail
-				}
 			});
 			
 			ranks.createRank(user, challenge, score);
+			
+			return null;
 		} else {
 			return task;
 		}

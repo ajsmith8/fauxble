@@ -131,6 +131,9 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 				score = 0;
 			}
 			task = this.attr.tasks.createTask(this.question, this.challenge, this.user, answer_id, null, score, this.timer, this.attr.ranks);
+			if (task) {
+				score = task.get('score');
+			}
 			this.user.trigger('submit', score);
 			
 			console.log('answer id: ' + answer_id);
@@ -140,7 +143,7 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 			if (this.task) {
 				this.attr.users.get(this.task.get('user_id')).trigger('submit', this.task.get('score'));
 				this.challenge.set({user_score: this.challenge.get('user_score') + score});
-				this.showRageComic(task);
+				this.showRageComic(score);
 			} else {
 				this.challenge.set({challenger_score: this.challenge.get('challenger_score') + score});
 			}
@@ -175,11 +178,11 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 		$(this.el).find('.answer#' + answer.get('id')).find('#check').removeClass('hide');
 	},
 	
-	showRageComic: function(task) {
+	showRageComic: function(score) {
 		var is_win = false,
 			view;
 			
-		if (task.get('score') >= this.task.get('score')) {
+		if (score >= this.task.get('score')) {
 			is_win = true;
 		}
 		
