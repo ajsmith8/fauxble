@@ -185,6 +185,9 @@
 			font-size: 11px;
 			color: rgba(#000, 0.7);
 			font-style: italic;
+			&:hover {
+				cursor: pointer
+			}
 		}
 		
 		.image {			

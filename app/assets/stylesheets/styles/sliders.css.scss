@@ -3,7 +3,7 @@
 		position: relative; 
 		height: 12px; 
 		@include border-radius(6px);
-		@include linear-gradient(rgba(#000,0.05), rgba(#000,0.17));
+		background-image: url(misc/green_texture.png); background-repeat: repeat;
 		@include single-box-shadow(rgba(#000, 0.13), 0px, 1px, 1px, 0);
 		width: 100%; 
 		top: 0px; 
