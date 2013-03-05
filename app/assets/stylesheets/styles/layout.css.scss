@@ -56,7 +56,6 @@ body {
 		margin-left: 361px;
 		width: 554px;
 		padding-right: 1px;
-		border-left: 1px solid rgb(229,229,229);
 	}
 	
 	&.left {
@@ -64,7 +63,8 @@ body {
 		&.top {
 			margin-left: 14px;
 			width: 331px;
-			height: 400px;
+			height: 622px;
+			border-right: 1px solid rgb(229,229,229);
 		}
 		
 		&.bottom {
