@@ -22,17 +22,15 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 			length = users.length;
 		}
 		
-		for (i = 0; i < length - 2; i++) {
+		for (i = 0; i < length - 1; i++) {
 			top_users.push(users[i]);
 			if (users[i].user.get('id') === user.get('id')) {
 				has_current_user = true;
 			}
 		}
 		
-		if (has_current_user) {
-			top_users.push(users[length - 1]);
-		} else {
-			top_users.push({user: user, rank: this.ranks.getRank(this, user, issue)});
+		if (!has_current_user) {
+			top_users[4] = {user: user, rank: this.ranks.getRank(this, user, issue)};
 		}
 		
 		return top_users;

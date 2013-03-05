@@ -5,12 +5,15 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.current_user = this.attr.users.get(this.attr.current_user.get('id'));
+		this.is_global = false;
+		var hash = window.location.hash;
 		
-		//initially from hash
-		//also triggers
+		if (hash.split('question').length > 1 || hash.split('challenge').length > 1) {
+			this.is_global = true;
+			this.issue = this.attr.issues.get(this.attr.challenges.get(parseInt(hash.split(''))).get('issue_id'));
+		}
 		
-		this.attr.users.trigger('global', this.doGlobalStuff, this);
-		this.attr.users.trigger('issue', this.doIssueStuff, this);
+		this.attr.users.trigger('scope', this.switchScope, this);
 	},
 	
 	render: function() {
@@ -18,20 +21,41 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 		
 		$(this.el).html(this.template());
 		
+		setTimeout(function() {
+			if (self.is_global) {
+				self.topUsers();
+				self.activityFeed();
+				self.userPictures();
+			} else {
+				self.topUsers();
+				self.recentAnswers();
+				self.userPictures();
+			}
+		}, 0);
+		
 		return this;
 	},
 	
+	switchScope: function(is_global) {
+		if (this.is_global !== is_global) {
+			this.is_global = is_global;
+			this.render();
+		}
+	},
+	
 	topUsers: function() {
-		var users = this.attr.users.getTopFive(this.current_user, this.issue),
-			view = new Fauxble.Views.UsersIndex({
-				attr: this.attr,
-				users: users
+		var view = new Fauxble.Views.UsersIndex({
+			attr: this.attr,
+			users: this.attr.users.getTopFive(this.current_user, this.issue)
 		});
-		$(this.el).find('#top_users').html(view.render().el);
+		$(this.el).find('#top').html(view.render().el);
 	},
 	
 	activityFeed: function() {
-		
+		var view = new Fauxble.Views.UsersFeed({
+			attr: this.attr
+		});
+		$(this.el).find('#middle').html(view.render().el);
 	},
 	
 	recentAnswers: function() {
