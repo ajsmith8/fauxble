@@ -154,7 +154,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	feed: function() {
-		var view = new Fauxble.Views.PagesFeed({
+		var view = new Fauxble.Views.PagesAux({
 			attr: this.attr
 		});
 		this.setSubview(view, 'feed');
