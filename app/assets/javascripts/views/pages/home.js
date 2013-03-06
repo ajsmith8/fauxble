@@ -7,7 +7,9 @@ Fauxble.Views.PagesHome = Backbone.View.extend({
 	},
 	
 	initialize: function(options) {
+		this.attr = options.attr;
 		
+		this.attr.users.trigger('scope', {is_global: true, is_question: false});
 	},
 	
 	render: function() {

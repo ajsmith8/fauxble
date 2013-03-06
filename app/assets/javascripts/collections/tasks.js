@@ -130,5 +130,25 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 			is_sent: true
 		});
 		challenge.save();
+	},
+	
+	getRecents: function(question, num) {
+		var tasks = this.where({question_id: question.get('id')}),
+			recents = [],
+			length = num;
+		
+		if (tasks.length < length) {
+			length = tasks.length;
+		}
+		
+		tasks.sort(function(a, b) {
+			return a.get('created_at') - b.get('created_at');
+		});
+		
+		for (t = 0; t < length; t++) {
+			recents.push(tasks[t]);
+		}
+		
+		return recents;
 	}
 });

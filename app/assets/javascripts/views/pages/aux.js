@@ -11,7 +11,8 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 		
 		if (hash.split('/question').length > 1 || hash.split('challenge').length > 1) {
 			this.is_global = false;
-			this.setIssue();	
+			this.setIssue();
+			this.setQuestion();	
 		}
 		
 		this.attr.users.on('scope', this.switchScope, this);
@@ -25,39 +26,58 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 		setTimeout(function() {
 			if (self.is_global) {
 				self.topUsers();
-				self.activityFeed();
-				self.userPictures();
+				self.likeButton();
 			} else {
 				self.topUsers();
-				self.recentAnswers();
 				self.userPictures();
+			}
+			
+			if (self.question) {
+				self.recentAnswers();
+			} else {
+				self.activityFeed();
 			}
 		}, 0);
 		
 		return this;
 	},
 	
-	switchScope: function(is_global) {
-		if (this.is_global !== is_global) {
+	switchScope: function(options) {
+		var is_global = options.is_global,
+			is_question = options.is_question;
+			
+		if (this.is_global !== is_global || is_question) {
 			this.is_global = is_global;
 			this.setIssue();
+			this.setQuestion();
 			this.render();
 		}
 	},
-	
+
 	setIssue: function() {
 		var hash = window.location.hash,
 			challenge;
 		
 		if (!this.is_global) {
 			if (hash.split('/question').length > 1) {
-				challenge = this.attr.challenges.get(parseInt(hash.split('/question')[0]));
+				challenge = this.attr.challenges.get(parseInt(hash.split('/question')[0].substring(1)));
 			} else {
 				challenge = this.attr.challenges.get(parseInt(hash.split('challenge')[1]));
 			}
 			this.issue = this.attr.issues.get(challenge.get('issue_id'));
 		} else {
 			this.issue = null;
+		}
+	},
+	
+	setQuestion: function() {
+		var hash = window.location.hash;
+		this.question = null;
+		
+		if (!this.is_global) {
+			if (hash.split('/question').length > 1) {
+				this.question = this.attr.questions.get(parseInt(hash.split('/question')[1]));
+			}
 		}
 	},
 	
@@ -77,11 +97,19 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 	},
 	
 	recentAnswers: function() {
-		
+		var view = new Fauxble.Views.QuestionsAnswers({
+			attr: this.attr,
+			question: this.question
+		});
+		$(this.el).find('#middle').html(view.render().el);
 	},
 	
 	userPictures: function() {
 		
+	},
+	
+	likeButton: function() {
+		$(this.el).find('#bottom').html(JST['pages/like']);
 	}
 });
 
