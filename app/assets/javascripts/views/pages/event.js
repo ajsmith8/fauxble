@@ -26,6 +26,7 @@ Fauxble.Views.PagesEvent = Backbone.View.extend({
 	},
 	
 	render: function() {
+		$(this.el).addClass('border');
 		$(this.el).html(this.template({
 			user: this.user,
 			challenger: this.challenger,

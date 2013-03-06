@@ -72,7 +72,7 @@ Fauxble.Views.UsersFeed = Backbone.View.extend({
 		});
 		
 		this.feed = feed;
-		
+
 		this.renderFeed();
 	},
 	

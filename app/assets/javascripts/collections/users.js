@@ -3,6 +3,10 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 	model: Fauxble.Models.User,
 	url: 'users',
 	
+	initialize: function(models, options) {
+		this.ranks = options.ranks;
+	},
+	
 	getTopFive: function(user, issue) {
 		var self = this,
 			length = 5,
@@ -15,14 +19,14 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 		});
 		
 		users.sort(function(a, b) {
-			return b.rank - a.rank;
+			return a.rank - b.rank;
 		});
 		
 		if (users.length < 5) {
 			length = users.length;
 		}
 		
-		for (i = 0; i < length - 1; i++) {
+		for (i = 0; i < length; i++) {
 			top_users.push(users[i]);
 			if (users[i].user.get('id') === user.get('id')) {
 				has_current_user = true;

@@ -12,6 +12,8 @@ Fauxble.Views.PagesQuestion = Backbone.View.extend({
 		this.question = options.question;
 		this.user = this.attr.users.get(this.attr.current_user.get('id'));
 		this.subviews = [];
+		
+		this.attr.users.trigger('scope', {is_global: false, is_question: true});
 	},
 	
 	render: function() {

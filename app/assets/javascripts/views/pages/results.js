@@ -17,6 +17,8 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 		for (i = 0; i < this.question_ids.length; i++) {
 			this.questions.push(this.attr.questions.get(parseInt(this.question_ids[i])));
 		}
+		
+		this.attr.users.trigger('scope', {is_global: false, is_question: false});
 	},
 	
 	render: function() {
