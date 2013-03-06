@@ -3,7 +3,7 @@ position: relative;
 	&.dark {
 		.issue {
 			&.container {
-				background: rgba(#000,0.06);
+				background: rgba(#000,0.04);
 				@include border-radius(10px);
 			}
 		}
@@ -11,7 +11,7 @@ position: relative;
 	&.dark-alt {
 		.issue {
 			&.container {
-				background: rgba($bluegreen, 0.17);
+				background: rgba(#000,0.03);
 				@include border-radius(10px);
 			}
 		}
@@ -54,7 +54,7 @@ position: relative;
 			top: 22px;
 			left: 220px;
 			font-size: 11px;
-			@include border-radius(16px);	
+			@include border-radius(2px);	
 			height: 15px;
 			padding-top: 3px;
 			width: 35px;
@@ -66,20 +66,22 @@ position: relative;
 			}
 		}
 		
-		&.play {			
+		&.play {
+			color: #fff;		
 			cursor: pointer;	
 			top: 22px;
 			right: 20px;
-			font-size: 12px;
-			@include border-radius(16px);	
-			height: 22px;
-			padding-top: 9px;
+			font-size: 13px;
+			@include border-radius(3px);	
+			height: 20px;
+			padding-top: 3px;
 			width: 13%;
-			@include linear-gradient(lighten($orange,18%), lighten($orange,1%));
-			@include text-shadow(0px 1px 0 rgba(#000,0.2));
-			@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);
+			border: 1px solid darken($bluegreen, 2%);
+			border-bottom: 1px solid darken($bluegreen, 10%);
+			@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
+			/*@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);*/
 			&:hover {
-				@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
+				background: darken($bluegreen, 6%);
 			}
 		}
 		&.waiting {
@@ -263,25 +265,26 @@ position: relative;
 	float: left;
 	button {
 		cursor: pointer;
-		@include border-radius(16px);
-		@include linear-gradient(lighten($orange,18%), lighten($orange,1%));
+		@include border-radius(3px);
+		border: 1px solid darken($bluegreen, 2%);
+		border-bottom: 1px solid darken($bluegreen, 10%);
+		@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
 		@include fonts;
 		float: left;
-		height: 31px;
-		padding-top: 6px;
-		width: 20%;
-		margin: 10px 0 0 40%;
+		height: 30px;
+		padding-top: 5px;
+		width: 16%;
+		margin: 10px 0 0 42%;
 
-		color: #444444;
+		color: #fff;
 		font-size: 12px;
 		border: none;
 		text-align: center;
 
 		@include single-box-shadow(rgba(#000, 0.35), 0px, 1px, 1px, 0);
-		@include text-shadow(0px 1px 0 rgba(#000,0.15));	
 		font-weight: bold;
 		&:hover {
-			@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
+			background: darken($bluegreen, 6%);
 		}
 	}
 }

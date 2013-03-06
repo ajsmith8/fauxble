@@ -4,8 +4,9 @@
 		float: left;
 		font-weight: bold;
 		margin: 8px 8px 8px 8px;
-		font-size: 14px;
-		line-height: 18px;
+		font-size: 15px;
+		line-height: 20px;
+		color: rgb(55,55,55);
 		&.container {
 			
 		}
@@ -24,11 +25,10 @@
 		width: 96%;
 		margin-left: 2%;
 		height: 54px;
-		border-top: 1px solid rgba(#000, 0.12);
+		border-top: 1px solid rgb(232,232,232);
 		padding-top: 6px;
-		
 		.question_result_text {
-			font-size: 12px;
+			font-size: 13px;
 			line-height: 16px;
 			float: left;
 			width: 84%;
@@ -43,9 +43,10 @@
 			text-align: center;
 			font-weight: bold;
 			margin: 5px 0 0 0;
+			color: $black;
 			@include text-shadow(1px 1px 0 rgba(#000, 0.15));	
 			.question_result_answer {
-				color: darken($bluegreen, 10%);
+				color: $bluegreen;
 			}
 		}
 	}
