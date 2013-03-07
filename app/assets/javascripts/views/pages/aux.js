@@ -105,7 +105,11 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 	},
 	
 	userPictures: function() {
-		
+		var view = new Fauxble.Views.IssuesUsers({
+			attr: this.attr,
+			issue: this.issue
+		});
+		$(this.el).find('#bottom').html(view.render().el);
 	},
 	
 	likeButton: function() {

@@ -115,7 +115,7 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 		
 		this.each(function(u) {
 			completes = challenges.where({is_finished: true, user_id: u.get('id')}).length + challenges.where({is_finished: true, challenger_id: u.get('id')}).length;
-			if (completes > 0) {
+			if (completes > 0 && u.get('id') !== 1) {
 				users.push(u);
 			}
 		});

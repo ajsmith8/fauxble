@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :password, :email, :token
-  attr_accessible :name, :provider, :uid, :signed_in, :signed_in_fb,
+  attr_accessible :name, :provider, :uid, :signed_in, :signed_in_fb, :tutorials,
                   :password, :confirmation, :email, :token
                   
   before_save :check_encrypt

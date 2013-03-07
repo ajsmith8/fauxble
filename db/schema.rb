@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130205061710) do
+ActiveRecord::Schema.define(:version => 20130307192519) do
 
   create_table "achievables", :force => true do |t|
     t.string   "title"
@@ -148,6 +148,7 @@ ActiveRecord::Schema.define(:version => 20130205061710) do
     t.boolean  "signed_in_fb",       :default => false
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
+    t.string   "tutorials"
   end
 
 end

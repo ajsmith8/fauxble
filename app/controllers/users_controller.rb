@@ -25,7 +25,8 @@ class UsersController < ApplicationController
     if !session[:user_id]
       session[:user_id] = @user.id
     end
-    respond_with @user
+    user = User.update(params[:id], params[:user])
+    respond_with user
   end
   
   def destroy
