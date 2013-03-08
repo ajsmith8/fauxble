@@ -73,6 +73,9 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 	
 	setActiveStar: function(score, fill_score, element) {
 		$(element).append(JST['stars/active']);
+		if ($(element).closest('.user').hasClass('sidebar')) {
+			$(element).find('input').attr('data-bgColor', '#000000');  // here is where you can change the background color
+		}															   // of the header active star circle
 		$(element).find('.dial').knob();
 		$(element).find('.dial').removeClass('hide');
 		$(element).find('.dial').val(Math.round((score / fill_score) * 100)).trigger('change');

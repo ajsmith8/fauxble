@@ -11,6 +11,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	
 	initialize: function(options) {
 		this.page = null;
+		this.user = options.users.get(options.current_user.get('id'));
 		
 		this.attr = {
 			current_user: options.current_user,
@@ -48,6 +49,41 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			inter = setInterval(function() {
 				self.time = self.time + 0.1
 			}, 100);
+		}
+	},
+	
+	checkTutorial: function(user, str) {
+		var has_seen = false,
+			tutorial = [];
+		
+		if (user) {
+			if (user.get('tutorials')) {
+				tutorial = user.get('tutorials').split('/');
+
+				for (t = 0; t < tutorial.length; t++) {
+					if (tutorial[t] === str) {
+						has_seen = true;
+						break;
+					}
+				}
+			}
+			
+			if (!has_seen) {
+				if (tutorial.length === 0) {
+					user.set({
+						tutorials: str
+					});
+				} else {
+					user.set({
+						tutorials: user.get('tutorials') + '/' + str
+					});
+				}
+				user.save();
+				
+				return false;
+			} else {
+				return true;
+			}
 		}
 	},
 	
@@ -144,12 +180,15 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	challenges: function() {
-		var view = new Fauxble.Views.PagesChallenges({
+		var	view = new Fauxble.Views.PagesChallenges({
 			attr: this.attr
 		});
 		this.setCurrentView(view);
 		this.feed();
 		$('.right.column').html(view.render().el);
+		if (!this.checkTutorial(this.user, 'challenges')) {
+			this.renderTutorial('challenges');
+		}
 		this.triggerPage('challenges');
 	},
 	
@@ -175,6 +214,11 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.setCurrentView(view);
 		this.feed();
 		$('.right.column').html(view.render().el);
+		
+		if (!this.checkTutorial(this.user, 'users')) {
+			this.renderTutorial('users');
+		}
+		
 		this.triggerPage('users');
 	},
 	
@@ -186,6 +230,9 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.setCurrentView(view);
 		this.feed();
 		$('.right.column').html(view.render().el);
+		if (!this.checkTutorial(this.user, 'issues')) {
+			this.renderTutorial('issues');
+		}
 		this.triggerPage('issues');
 	},
 	
@@ -201,6 +248,10 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		
 		if ($(view.el).find('#versus').children().length === 0) {
 			this.versus(this.attr.challenges.get(parseInt(c_id)), view);
+		}
+		
+		if (!this.checkTutorial(this.user, 'question')) {
+			this.renderTutorial('question');
 		}
 		
 		this.triggerPage('question');
@@ -228,6 +279,10 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			this.versus(this.attr.challenges.get(parseInt(id)), view);
 		}
 		
+		if (!this.checkTutorial(this.user, 'results')) {
+			this.renderTutorial('results');
+		}
+		
 		this.triggerPage('results');
 	},
 	
@@ -239,7 +294,20 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.setCurrentView(view);
 		this.feed();
 		$('.right.column').html(view.render().el);
+		
+		if (!this.checkTutorial(this.user, 'profile')) {
+			this.renderTutorial('profile');
+		}
+		
 		this.triggerPage('profile');
+	},
+	
+	renderTutorial: function(str) {
+		var view = new Fauxble.Views.PagesTutorial({
+			attr: this.attr,
+			kind: str
+		});
+		$('#tutorial').html(view.render().el);
 	},
 	
 	pwnCameron: function() {

@@ -150,5 +150,20 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 		}
 		
 		return recents;
+	},
+	
+	getUsers: function(users, issue) {
+		var self = this,
+			array = [];
+		
+		users.each(function(user) {
+			if (self.where({user_id: user.get('id'), issue_id: issue.get('id')})[0]) {
+				if (user.get('uid')) {
+					array.push(user);
+				}
+			}
+		});
+		
+		return array;
 	}
 });

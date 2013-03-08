@@ -3,7 +3,7 @@ Fauxble.Views.UsersTop = Backbone.View.extend({
 	template: JST['users/top'],
 	
 	events: {
-		
+		'click' : 'userProfile'
 	},
 	
 	initialize: function(options) {
@@ -28,5 +28,9 @@ Fauxble.Views.UsersTop = Backbone.View.extend({
 		}));
 		
 		return this;
+	},
+	
+	userProfile: function() {
+		Backbone.history.navigate('user' + this.user.user.get('id'), true);
 	}
 });

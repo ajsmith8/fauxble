@@ -14,7 +14,10 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 			top_users = [],
 			has_current_user = false;
 		
-		this.each(function(u) {
+		_.each(this.where({signed_in: true}), function(u) {
+			users.push({user: u, rank: self.ranks.getRank(self, u, issue)});
+		});
+		_.each(this.where({signed_in_fb: true}), function(u) {
 			users.push({user: u, rank: self.ranks.getRank(self, u, issue)});
 		});
 		
@@ -115,7 +118,7 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 		
 		this.each(function(u) {
 			completes = challenges.where({is_finished: true, user_id: u.get('id')}).length + challenges.where({is_finished: true, challenger_id: u.get('id')}).length;
-			if (completes > 0) {
+			if (completes > 0 && u.get('id') !== 1) {
 				users.push(u);
 			}
 		});

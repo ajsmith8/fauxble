@@ -1,7 +1,8 @@
 Fauxble.Views.UsersShow = Backbone.View.extend({
 	
 	events: {
-		'click .button' : 'profileOrBack'
+		'click .button' : 'profileOrBack',
+		'click' : 'userProfile'
 	},
 	
 	initialize: function(options) {
@@ -28,7 +29,7 @@ Fauxble.Views.UsersShow = Backbone.View.extend({
 			} else {
 				$(this.el).addClass('light');
 			}
-		}
+		} 
 		$(this.el).html(this.template({
 			user: this.user
 		}));
@@ -78,6 +79,12 @@ Fauxble.Views.UsersShow = Backbone.View.extend({
 		} else {
 			$(this.el).find('#profile').addClass('hide');
 			$(this.el).find('#back').removeClass('hide');
+			Backbone.history.navigate('user' + this.user.get('id'), true);
+		}
+	},
+	
+	userProfile: function() {
+		if (this.is_sidebar) {
 			Backbone.history.navigate('user' + this.user.get('id'), true);
 		}
 	},
