@@ -14,7 +14,10 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 			top_users = [],
 			has_current_user = false;
 		
-		this.each(function(u) {
+		_.each(this.where({signed_in: true}), function(u) {
+			users.push({user: u, rank: self.ranks.getRank(self, u, issue)});
+		});
+		_.each(this.where({signed_in_fb: true}), function(u) {
 			users.push({user: u, rank: self.ranks.getRank(self, u, issue)});
 		});
 		
