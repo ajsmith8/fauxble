@@ -1,13 +1,13 @@
 .issue {
-	width: 96%;
+	width: 98%;
 	margin-left: 2%;
 	padding: 2px 0 3px 0;
 	overflow: auto;
 	position: relative;
 	min-height: 70px;
 	&.dark {
-		background: rgba($bluegreen, 0.17);
-		@include border-radius(10px);
+		background: rgba(#000, 0.03);
+		@include border-radius(3px);
 	}
 	
 	.thumbnail {
@@ -19,7 +19,7 @@
 			margin: 12px 0 0 5px;
 			width: 42px;
 			height: 42px;
-			@include border-radius(8px);
+			@include border-radius(3px);
 		}
 		
 		&.wrapper {
@@ -27,7 +27,7 @@
 			position: static;
 			height: 100%;
 			width: 100%;
-			@include border-radius(8px);
+			@include border-radius(3px);
 			img {
 				height: 100%;
 				width: 100%;
@@ -41,14 +41,13 @@
 			top: 22px;
 			left: 53px;
 			height: 15px;
-			width: 135px;					
+			width: 145px;					
 			font-weight: bold;
-			color: rgb(112,112,112);
-			font-size: 11px;	
+			color: $black;
+			font-size: 12px;	
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;	
-			@include text-shadow(0px 1px 0 rgba(#000, 0.15));
 		}
 	}
 	
@@ -57,13 +56,12 @@
 		&.container {
 			top: 36px;
 			left: 53px;
-			font-weight: bold;
 			font-size: 10px;
 			width: 135px;
-			color: rgb(152,152,152);
+			color: $black;
+			font-style: italic;
 			.bluegreen {
-				color: $bluegreen;
-				@include text-shadow(0px 1px 0 rgba(#000, 0.1));	
+				font-weight: bold;
 			}
 		}
 	}
@@ -72,7 +70,7 @@
 		
 		&.container {
 			height: 38px;
-			border-top: 1px solid rgba($bluegreen, 0.25);
+			border-top: 1px solid rgb(233,233,233);
 			font-size: 11px;
 			color: rgba(#000, 0.7);
 			line-height: 14px;
@@ -115,10 +113,10 @@
 			overflow: hidden;
 			@include single-box-shadow(rgba(#000, 0.35), 1px, 1px, 1px, 0);
 			float: left;
-			margin: 12px 0 0 5px;
-			width: 42px;
-			height: 42px;
-			@include border-radius(8px);
+			margin: 10px 0 0 5px;
+			width: 46px;
+			height: 46px;
+
 		}
 		
 		&.wrapper {
@@ -126,7 +124,7 @@
 			position: static;
 			height: 100%;
 			width: 100%;
-			@include border-radius(8px);
+
 			img {
 				height: 100%;
 				width: 100%;
@@ -138,16 +136,15 @@
 		position: absolute;
 		&.container {
 			top: 22px;
-			left: 53px;
+			left: 58px;
 			height: 15px;
 			width: 135px;					
 			font-weight: bold;
-			color: rgb(112,112,112);
-			font-size: 11px;	
+			color: $black;
+			font-size: 12px;	
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;	
-			@include text-shadow(0px 1px 0 rgba(#000, 0.15));
 		}
 	}
 	
@@ -155,14 +152,13 @@
 		position: absolute;
 		&.container {
 			top: 36px;
-			left: 53px;
-			font-weight: bold;
+			left: 58px;
 			font-size: 10px;
 			width: 135px;
-			color: rgb(152,152,152);
+			color: $black;
+			font-style: italic;
 			.bluegreen {
-				color: $bluegreen;
-				@include text-shadow(0px 1px 0 rgba(#000, 0.1));	
+				font-weight: bold;
 			}
 		}
 	}
@@ -171,7 +167,7 @@
 		
 		&.container {
 			height: 38px;
-			border-top: 1px solid rgba($bluegreen, 0.25);
+			border-top: 1px solid rgb(233,233,233);
 			font-size: 11px;
 			color: rgba(#000, 0.7);
 			line-height: 14px;
@@ -276,11 +272,11 @@
 		position: absolute;
 		top: 12px;
 		left: 35px;
-		@include horizontal-gradient(rgba($orange, 0.3), rgba($orange, 0.1));
+		background-image: url(misc/gray_jean.png); background-repeat: repeat;
 		@include border-radius(10px);
 		height: 50px;
-		border: 1px solid lighten($orange,25%);
-		@include single-box-shadow(rgba($orange, 0.45), 1px, 1px, 1px, 0);
+		border: 1px solid rgb(225,225,225);
+		@include single-box-shadow(rgba($bluegreen, 0.45), 1px, 1px, 1px, 0);
 		.picture {
 			&.container {
 				top: 5px;
@@ -310,11 +306,11 @@
 		position: absolute;
 		top: 12px;
 		right: 35px;
-		@include horizontal-gradient(rgba($orange, 0.01), rgba($orange, 0.22));
+		background-image: url(misc/gray_jean.png); background-repeat: repeat;
 		@include border-radius(10px);
 		height: 50px;
-		border: 1px solid lighten($orange,25%);
-		@include single-box-shadow(rgba($orange, 0.45), -1px, 1px, 1px, 0);
+		border: 1px solid rgb(225,225,225);
+		@include single-box-shadow(rgba($bluegreen, 0.45), -1px, 1px, 1px, 0);
 		.picture {
 			&.container {
 				top: 5px;
@@ -378,11 +374,11 @@
 }
 
 .issue_index_container {
+	width: 558px;
 	.button {
 		position: absolute;
 		cursor: pointer;		
 		@include fonts;
-		color: #444444;	
 		border: none;
 		text-align: center;
 		font-weight: bold;
@@ -391,34 +387,33 @@
 		&.learn {
 			cursor: pointer;	
 			top: 22px;
-			left: 220px;
+			left: 250px;
 			font-size: 11px;
-			@include border-radius(16px);	
 			height: 15px;
 			padding-top: 3px;
 			width: 35px;
-			@include linear-gradient(lighten(#000,95%), lighten(#000,77%));
-			@include text-shadow(0px 1px 0 rgba(#fff,0.4));
-			@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);
+			color: $bluegreen;
 			&:hover {
-				@include linear-gradient(lighten(#000,70%), lighten(#000,95%));
+				text-decoration: underline;
 			}
 		}
 		
 		&.play {			
+			color: #fff;		
 			cursor: pointer;	
-			top: 22px;
-			right: 10px;
-			font-size: 12px;
-			@include border-radius(16px);	
-			height: 22px;
-			padding-top: 9px;
-			width: 13%;
-			@include linear-gradient(lighten($orange,18%), lighten($orange,1%));
-			@include text-shadow(0px 1px 0 rgba(#000,0.2));
-			@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);
+			top: 25px;
+			right: 15px;
+			font-size: 13px;
+			@include border-radius(3px);	
+			height: 18px;
+			padding-top: 2px;
+			width: 10%;
+			border: 1px solid darken($bluegreen, 2%);
+			border-bottom: 1px solid darken($bluegreen, 10%);
+			@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
+			/*@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);*/
 			&:hover {
-				@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
+				background: darken($bluegreen, 6%);
 			}
 		}
 	}
@@ -429,11 +424,13 @@
 	cursor: pointer;
 	margin: 0 auto;
 	margin-top: 12px;
-	width: 25%;
-	height: 35px;
+	width: 22%;
+	height: 30px;
 	font-size: 13px;
-	@include border-radius(16px);
+	@include border-radius(3px);
 	background: $bluegreen;
+	border: 1px solid darken($bluegreen, 2%);
+	border-bottom: 1px solid darken($bluegreen, 10%);
 	@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
 	@include single-box-shadow(rgba(#000, 0.3), 0px, 1px, 1px, 0);
 	&:hover {
@@ -441,16 +438,15 @@
 	}
 	.text {
 		text-align: center;
-		color: rgba(#000, 0.75);
-		font-size: 14px;
-		padding: 10px 0 0 12px;
+		color: #fff;
+		font-size: 13px;
+		padding: 8px 0 0 12px;
 		font-weight: bold;
-		@include text-shadow(0px 1px 0 rgba(#fff, 0.25));
 	}
 	.sub {
 		position: absolute;
 		left: 7px;
-		top: 7px;
+		top: 5px;
 		height: 20px;
 		width: 18px;
 		padding: 0px 0 1px 3px;
@@ -462,6 +458,7 @@
 }
 
 .show-all {
+	display: none;
 	position: relative;
 	cursor: pointer;
 	margin: 0 auto;

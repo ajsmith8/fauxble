@@ -272,12 +272,11 @@ body {
 .container_header {
 	height: 15px;
 	width: 100%;
-	text-align: center;
+	text-align: left;
 	padding: 2px 0 0 0;
-	color: #ffffff;
-	font-size: 12px;
+	color: $black;
+	font-size: 13px;
 	font-weight: bold;		
-	@include text-shadow(0px 1px 0 rgba(#000, 0.3));
 	/*@include linear-gradient(lighten($bluegreen,8%), darken($bluegreen,12%));*/
 	/*background-image: url(misc/green_texture.png); background-repeat: repeat;*/
 	@include border-top-radius(11px);
@@ -287,3 +286,55 @@ body {
 	width: 94%;
 	margin: 20px 0 0 2.5%;
 }
+
+.centered_header_container {
+	position: relative;
+	height: 40px;
+	width: 932px;
+	margin: 0 auto;
+	margin-top: -46px;
+}
+
+#fb_login {
+	color: #fff;
+	height: 26px;
+	width: 32%;
+	margin-left: 34%;
+	border: 1px solid rgb(25,85,141);
+	border-bottom: 1px solid rgb(6,44,80);
+	font-weight: bold;
+	text-align: center;
+	padding-top: 9px;
+	font-size: 13px;
+	line-height: 18px;
+	@include linear-gradient(rgb(78,127,180), rgb(50,92,183));
+	@include border-radius(3px);
+	@include text-shadow(0px 1px 0 rgba(#000,0.3));
+	&:hover {
+		border: 1px solid rgb(6,44,80);
+		cursor: pointer;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.dur{}

@@ -5,6 +5,7 @@
 			overflow: hidden;
 			@include single-box-shadow(rgba(#000, 0.35), 1px, 1px, 1px, 0);
 			float: left;
+			@include border-radius(3px);
 		}
 		
 		&.wrapper {
@@ -12,6 +13,7 @@
 			position: static;
 			height: 100%;
 			width: 100%;
+			@include border-radius(3px);
 			img {
 				height: 100%;
 				width: 100%;
@@ -27,7 +29,6 @@
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
-			@include text-shadow(0px 1px 0 rgba(#000, 0.15));	
 		}
 	}
 	
@@ -50,11 +51,11 @@
 			width: 24px;
 			height: 24px;
 			margin-left: 2px;
-			/*@include border-radius(4px);*/
+			@include border-radius(3px);
 		}
 		
 		&.wrapper {
-			/*@include border-radius(4px);*/
+			@include border-radius(3px);
 		}
 	}
 	
@@ -98,9 +99,9 @@
 			
 			.number {
 				float: left;
-				margin-left: 4px;
-				font-size: 18px;
-				color: darken($orange, 5%);
+				margin: 2px 0 0 4px;
+				font-size: 16px;
+				color: $bluegreen;
 
 			}
 		}
@@ -134,8 +135,8 @@
 			top: 7px;
 			height: 15px;
 			font-size: 12px;
-			@include text-shadow(0px 1px 0 rgba(#000, 0.2));	
 			padding-top: 1px;
+			color: $bluegreen;
 		}
 	}
 	.score {  
@@ -143,7 +144,6 @@
 		font-weight: bold;
 		letter-spacing: 1px;
 		color: $bluegreen;
-		@include text-shadow(1px 1px 0 rgba(#000, 0.13));
 		width: 40px;
 	}
 	
@@ -360,7 +360,6 @@
 }
 
 .main_friends_container {
-	overflow-y:scroll;
 	overflow-x: hidden;
 	height: 600px;
 }
@@ -373,8 +372,8 @@
 		margin-left: 10%;
 		position: relative;
 		&.dark {
-			background: rgba($bluegreen, 0.17);
-			/*@include border-radius(10px);*/
+			background: rgba(#000, 0.03);
+			@include border-radius(3px);
 		}
 		.picture {
 
@@ -415,27 +414,23 @@
 
 		.friend_challenge_button {
 			position: absolute;
-			top: 4px;
-			right: 12px;
+			color: #fff;
+			top: 6px;
+			right: 6px;
 			cursor: pointer;
-			/*@include border-radius(13px);*/
-			@include linear-gradient(lighten($orange,27%), darken($orange,1%));
-			@include fonts;
-			float: left;
-			height: 18px;
-			padding-top: 7px;
-			width: 80px;
-
-			color: rgba(#000, 0.65);
-			font-size: 11px;
-			border: none;
-			text-align: center;
-
-			@include single-box-shadow(rgba(#000, 0.25), 1px, 1px, 1px, 0);
-			@include text-shadow(0px 1px 0 rgba(#000,0.2));	
 			font-weight: bold;
+			text-align: center;
+			@include border-radius(3px);
+			font-size: 12px;
+			height: 18px;
+			padding-top: 3px;
+			width: 18%;
+			border: 1px solid darken($bluegreen, 2%);
+			border-bottom: 1px solid darken($bluegreen, 10%);
+			@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
+			/*@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);*/
 			&:hover {
-				@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
+				background: darken($bluegreen, 6%);
 			}
 		}
 	}
@@ -448,8 +443,8 @@
 	margin-left: 10%;
 	position: relative;
 	&.dark {
-		background: rgba(#000,0.06);
-		/*@include border-radius(10px);*/
+		background: rgba(#000,0.03);
+		@include border-radius(3px);
 	}
 	.picture {
 		
@@ -490,66 +485,86 @@
 	
 	.friend_challenge_button {
 		position: absolute;
-		top: 4px;
-		right: 12px;
+		color: #fff;
+		top: 6px;
+		right: 6px;
 		cursor: pointer;
-		@include border-radius(13px);
-		@include linear-gradient(lighten($orange,27%), darken($orange,1%));
-		@include fonts;
-		float: left;
-		height: 18px;
-		padding-top: 7px;
-		width: 80px;
-
-		color: rgba(#000, 0.65);
-		font-size: 11px;
-		border: none;
-		text-align: center;
-
-		@include single-box-shadow(rgba(#000, 0.25), 1px, 1px, 1px, 0);
-		@include text-shadow(0px 1px 0 rgba(#000,0.2));	
 		font-weight: bold;
+		text-align: center;
+		@include border-radius(3px);
+		font-size: 12px;
+		height: 18px;
+		padding-top: 3px;
+		width: 18%;
+		border: 1px solid darken($bluegreen, 2%);
+		border-bottom: 1px solid darken($bluegreen, 10%);
+		@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
+		/*@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);*/
 		&:hover {
-			@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
+			background: darken($bluegreen, 6%);
 		}
+	}
+}
+
+.profile_header {
+	position: absolute; 
+	top: 3px; 
+	right: 0; 
+	width: 115px; 
+	height: 32px;
+	border: 1px solid rgb(5,5,5);
+	border-bottom: 2px solid rgb(10,10,10);
+	@include linear-gradient(rgba(#fff, 0.07), rgba(#fff, 0.01));
+	box-shadow: 0px 1px 0px rgb(98,98,98) inset;
+	@include border-radius(4px);
+	&:hover {
+		cursor: pointer;
+		@include linear-gradient(rgba(#fff, 0.13), rgba(#fff, 0.04));
+		/*.user.sidebar {
+			.name {
+				&.container {
+					color: rgb(40,40,40);
+				}
+			}	
+			.rank {
+				color: rgb(40,40,40);
+			}	
+		}*/
 	}
 }
 
 .user.sidebar {
 	position: relative;
-	.picture {
-		
+	.picture {		
 		&.container {
 			position: absolute;
-			top: 10px;
-			left: 21px;
-			width: 35px;
-			height: 35px;
-			/*@include border-radius(6px);*/
-			@include single-box-shadow(rgba(#000, 0.35), 1px, 1px, 1px, 0);
+			top: 3px;
+			right: 5px;
+			width: 26px;
+			height: 26px;
+			@include border-radius(3px);
 		}
 		
 		&.wrapper {
-			/*@include border-radius(6px);*/
+			@include border-radius(3px);
 		}
 	}
 	
-	.name {
-		
+	.name {		
 		&.container {
+			color: #fff;
 			position: absolute;
-			top: 11px;
-			left: 62px;
+			top: 2px;
+			right: 40px;
 			font-size: 12px;
-			@include text-shadow(0px 1px 0 rgba(#000, 0.15));	
 			padding-top: 1px;
 		}
 	}
 	
 	.rank {
 		position: absolute;
-		top: 27px;
-		left: 65px;
+		top: 18px;
+		right: 40px;
 		color: $bluegreen;
 		height: 11px;
 		width: 50px;
@@ -607,15 +622,15 @@
 	margin: 12px 6px 2px 0;
 	float: right;
 	input {
-		@include border-radius(8px);
-		color: rgba(#000, 0.5);
-		
+		@include border-radius(3px);
+		color: $black;
+		@include fonts;
 		font-size: 12px;
 		height: 24px;
 		width: 200px;
 		text-align: center;
-		border: 1px solid rgba($bluegreen, 0.6);
-		box-shadow: 1px 1px 1px rgba($bluegreen, 0.6) inset;
+		border: 1px solid rgb(212,212,212);
+		box-shadow: 0px 1px 1px rgb(240,240,240) inset;
 		&:focus {
 			border: 1px solid rgba($bluegreen, 0.9);
 			box-shadow: 1px 1px 1px rgba($bluegreen, 0.9) inset;

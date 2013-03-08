@@ -4,7 +4,7 @@ position: relative;
 		.issue {
 			&.container {
 				background: rgba(#000,0.04);
-				@include border-radius(10px);
+				@include border-radius(3px);
 			}
 		}
 	}
@@ -12,7 +12,7 @@ position: relative;
 		.issue {
 			&.container {
 				background: rgba(#000,0.03);
-				@include border-radius(10px);
+				@include border-radius(3px);
 			}
 		}
 	}
@@ -25,7 +25,7 @@ position: relative;
 		
 		&.challenger {
 			position: absolute;
-			right: 90px;
+			right: 80px;
 			top: 38px;
 			width: 180px;
 			height: 30px;
@@ -33,7 +33,7 @@ position: relative;
 		
 		&.user {
 			position: absolute;
-			right: 90px;
+			right: 80px;
 			top: 10px;		
 			width: 180px;
 			height: 30px;
@@ -44,7 +44,6 @@ position: relative;
 		position: absolute;
 			
 		@include fonts;
-		color: #444444;	
 		border: none;
 		text-align: center;
 		font-weight: bold;
@@ -52,30 +51,27 @@ position: relative;
 		&.learn {
 			cursor: pointer;	
 			top: 22px;
-			left: 220px;
+			left: 260px;
 			font-size: 11px;
-			@include border-radius(2px);	
 			height: 15px;
 			padding-top: 3px;
 			width: 35px;
-			@include linear-gradient(lighten(#000,95%), lighten(#000,77%));
-			@include text-shadow(0px 1px 0 rgba(#fff,0.4));
-			@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);
+			color: $bluegreen;
 			&:hover {
-				@include linear-gradient(lighten(#000,70%), lighten(#000,95%));
+				text-decoration: underline;
 			}
 		}
 		
 		&.play {
 			color: #fff;		
 			cursor: pointer;	
-			top: 22px;
-			right: 20px;
+			top: 25px;
+			right: 15px;
 			font-size: 13px;
 			@include border-radius(3px);	
-			height: 20px;
-			padding-top: 3px;
-			width: 13%;
+			height: 18px;
+			padding-top: 2px;
+			width: 10%;
 			border: 1px solid darken($bluegreen, 2%);
 			border-bottom: 1px solid darken($bluegreen, 10%);
 			@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
@@ -85,16 +81,14 @@ position: relative;
 			}
 		}
 		&.waiting {
+			color: $black;
 			top: 22px;
-			right: 20px;
+			right: 5px;
 			font-size: 12px;
-			@include border-radius(16px);	
 			height: 22px;
 			padding-top: 9px;
 			width: 13%;
-			@include linear-gradient(lighten(#000,95%), lighten(#000,77%));
 			@include text-shadow(0px 1px 0 rgba(#fff,0.4));
-			@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);
 		}
 	}
 	
@@ -271,14 +265,13 @@ position: relative;
 		@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
 		@include fonts;
 		float: left;
-		height: 30px;
+		height: 28px;
 		padding-top: 5px;
 		width: 16%;
 		margin: 10px 0 0 42%;
 
 		color: #fff;
 		font-size: 12px;
-		border: none;
 		text-align: center;
 
 		@include single-box-shadow(rgba(#000, 0.35), 0px, 1px, 1px, 0);
@@ -292,17 +285,25 @@ position: relative;
 .challenges_subheader {
 	text-align: left;
 	font-weight: bold;
-	color: rgba(#000, 0.5);
-	font-size: 13px;
-	margin: 12px 0 4px 12px;
-	@include text-shadow(0px 1px 0 rgba(#000,0.15));
+	color: $black;
+	font-size: 14px;
+	margin: 6px 0 6px 12px;
+	padding-bottom: 1px;
+	border-bottom: 1px solid rgb(240,240,240);
 	&.their_turn {
 		margin-top: 60px;
+	}
+	&.your_friends {
+		margin-top: 14px;
+	}
+	.active_fusers {
+		font-style: italic;
+		font-weight: normal;
 	}
 }
 
 .home_challenges_container {
-	overflow-y:scroll;
 	overflow-x: hidden;
-	height: 600px;
+	min-height: 600px;
+	width: 558px;
 }
