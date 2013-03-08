@@ -240,7 +240,7 @@
 
 .issue.versus {
 	height: 80px;
-	width: 90%;
+	width: 92%;
 	margin-left: 5%;
 	.thumbnail {
 		display: none;
@@ -271,12 +271,12 @@
 		width: 175px;
 		position: absolute;
 		top: 12px;
-		left: 35px;
-		background-image: url(misc/gray_jean.png); background-repeat: repeat;
-		@include border-radius(10px);
+		left: 40px;
+		background: rgba(#000, 0.03);
+		@include border-radius(5px);
 		height: 50px;
 		border: 1px solid rgb(225,225,225);
-		@include single-box-shadow(rgba($bluegreen, 0.45), 1px, 1px, 1px, 0);
+		@include single-box-shadow(rgba(#000, 0.1), 1px, 1px, 1px, 0);
 		.picture {
 			&.container {
 				top: 5px;
@@ -305,12 +305,12 @@
 		width: 175px;
 		position: absolute;
 		top: 12px;
-		right: 35px;
-		background-image: url(misc/gray_jean.png); background-repeat: repeat;
-		@include border-radius(10px);
+		right: 40px;
+		background: rgba(#000, 0.03);
+		@include border-radius(5px);
 		height: 50px;
 		border: 1px solid rgb(225,225,225);
-		@include single-box-shadow(rgba($bluegreen, 0.45), -1px, 1px, 1px, 0);
+		@include single-box-shadow(rgba(#000, 0.1), -1px, 1px, 1px, 0);
 		.picture {
 			&.container {
 				top: 5px;

@@ -2,8 +2,8 @@
 	&.bar {
 		position: relative; 
 		height: 12px; 
-		@include border-radius(6px);
-		@include linear-gradient(lighten($bluegreen,20%), lighten($bluegreen,12%));
+		@include border-radius(5px);
+		@include linear-gradient(rgba($black,0.03), rgba($black,0.15));
 		@include single-box-shadow(rgba(#000, 0.13), 0px, 1px, 1px, 0);
 		width: 100%; 
 		top: 0px; 
@@ -14,11 +14,10 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		background: lighten($orange, 18%);
-		@include linear-gradient(lighten($orange,24%), lighten($orange,12%));
+		@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
 		width: 50%;
 		height: 12px; 
-		@include border-radius(6px);
+		@include border-radius(5px);
 	}
 	
 	&.users {
@@ -32,11 +31,11 @@
 			height: 30px;
 			text-align: center;
 			@include border-radius(15px);
-			@include linear-gradient(lighten($orange,18%), darken($orange,6%));
-			box-shadow: -1px 0px 1px rgba(darken($orange,10%), 0.5),
-						1px 0px 1px rgba(darken($orange,10%), 0.5);
+			@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
+			box-shadow: -1px 0px 1px rgba(darken($bluegreen,5%), 0.5),
+						1px 0px 1px rgba(darken($bluegreen,5%), 0.5);
 			&:active {
-				@include linear-gradient(darken($orange,6%), lighten($orange,18%));
+				@include linear-gradient(darken($bluegreen,6%), lighten($bluegreen,6%));
 			}
 		}
 		
@@ -47,9 +46,9 @@
 			height: 30px;
 			text-align: center;
 			@include border-radius(15px);
-			@include linear-gradient(lighten($bluegreen,18%), darken($bluegreen,6%));
-			box-shadow: -1px 0px 1px rgba(darken($bluegreen,5%), 0.5),
-						1px 0px 1px rgba(darken($bluegreen,5%), 0.5);
+			@include linear-gradient(lighten($black,20%), lighten($black,10%));
+			box-shadow: -1px 0px 1px rgba(lighten($black,10%), 0.5),
+						1px 0px 1px rgba(lighten($black,10%), 0.5);
 		}
 		
 		.logo {
@@ -90,30 +89,30 @@
 		position: absolute;
 		top: 18px;
 		content: "";
-		border-width: 0px 13px 20px 13px;
+		border-width: 0px 20px 30px 20px;
 		border-style: solid;
-		border-color: rgba(darken($bluegreen,85%), 0) rgba(darken($bluegreen,85%), 0) rgba(darken($bluegreen,85%), 1) rgba(darken($bluegreen,85%), 0);
+		border-color: rgba($black, 0) rgba($black, 0) rgba($black, 1) rgba($black, 0);
 		width: 0;
 		height: 0;
 		@include single-box-shadow(rgba($orange, 0.12), 0px, 1px, 1px, 0);
 		font-size: 11px;
 		.check {
-			font-size: 14px;
-			color: rgb(98,230,0);
-			padding-top: 4px;
-			margin: 0 0 0 -6px;
+			font-size: 19px;
+			color: $bluegreen;
+			padding-top: 7px;
+			margin: 0 0 0 -8px;
 			width: 30px;
 		}
 		
 		.number {
 			position: absolute;
 			font-weight: bold;
-			top: 22px;
-			left: -39px;
-			font-size: 11px;
+			top: 30px;
+			left: -41px;
+			font-size: 12px;
 			width: 80px;
 			text-align: center;
-			color: darken($bluegreen, 85%);
+			color: $bluegreen;
 			overflow: auto;
 		}
 	}
@@ -125,7 +124,7 @@
 	width: 100px;
 	height: 22px;
 	&.min {
-		left: 1px;
+		left: -3px;
 		text-align: left;
 		.triangle {
 			left: 1px;
@@ -133,7 +132,7 @@
 	}
 
 	&.max {
-		right: 1px;
+		right: -3px;
 		text-align: right;
 		.triangle {
 			right: 1px;
@@ -145,7 +144,7 @@
 		width: 100px;
 		bottom: -1px;
 		font-size: 11px;
-		color: #aaaaaa;
+		color: $black;
 	}
 
 	.triangle {
@@ -155,7 +154,7 @@
 		display: block; 
 		border-width: 0px 5px 8px 5px;
 		border-style: solid;
-		border-color: rgba(darken($bluegreen,5%), 0) rgba(darken($bluegreen,5%), 0) rgba(darken($bluegreen,5%), 1) rgba(darken($bluegreen,5%), 0);
+		border-color: rgba(darken($bluegreen,0%), 0) rgba(darken($bluegreen,0%), 0) rgba(darken($bluegreen,0%), 1) rgba(darken($bluegreen,0%), 0);
 		width: 0;
 		height: 0;
 		@include single-box-shadow(rgba($orange, 0.12), 0px, 1px, 1px, 0);
@@ -166,7 +165,7 @@
 	float: left;
 	width: 100%;
 	position: relative;
-	margin-top: 50px;
+	margin-top: 70px;
 	height: 50px;
 	.button {
 		position: absolute;
@@ -176,31 +175,28 @@
 		cursor: pointer;
 		font-weight: bold;
 		bottom: 8px;
-		@include border-radius(15px);					
-		border: none;
-		@include text-shadow(0px 1px 0 rgba(#000,0.2));
-		@include single-box-shadow(rgba(#000, 0.3), 0px, 1px, 1px, 0);
-		padding-top: 13px;
-		font-size: 12px;
+		@include border-radius(5px);
+		padding-top: 11px;
+		font-size: 13px;
+		color: #fff;
 		&.source {
-			color: #ffffff;
-			left: 7px;
-			&.source {
-				@include linear-gradient(lighten($bluegreen,8%), darken($bluegreen,12%));	
-				&:hover {
-					@include linear-gradient(darken($bluegreen,8%), lighten($bluegreen,12%));	
-				}	
-			}
+			box-shadow: 0px 1px 1px rgb(110,110,110) inset;
+			border: 1px solid rgb(70,70,70);
+			left: 45px;
+			@include linear-gradient(lighten($black,20%), lighten($black,10%));
+			&:hover {
+				background: lighten($black, 10%);
+			}	
 		}
 		
 		&.next {
-			color: #333333;
-			right: 7px;
-			&.next {
-				@include linear-gradient(lighten($orange,18%), lighten($orange,1%));
-				&:hover {
-					@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
-				}
+			box-shadow: 0px 1px 1px rgba(#fff, 0.15) inset;
+			right: 45px;
+			border: 1px solid darken($bluegreen, 2%);
+			border-bottom: 1px solid darken($bluegreen, 10%);
+			@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
+			&:hover {
+				background: darken($bluegreen, 6%);
 			}
 		}
 	}
@@ -220,17 +216,18 @@
 		
 		input {
 			font-weight: bold;
-			@include border-radius(8px);
-			color: $orange;
+			@include border-radius(3px);
+			color: $bluegreen;
 			font-size: 12px;
 			height: 20px;
 			width: 100px;
 			text-align: center;
-			border: none;
-			box-shadow: 1px 1px 1px rgba(darken($orange,40%), 0.7) inset;
-			&:active {
-				box-shadow: -1px 0px 1px rgba(darken($orange,10%), 0.5) inset,
-							1px 0px 1px rgba(darken($orange,10%), 0.5) inset;
+			border: 1px solid rgb(212,212,212);
+			box-shadow: 0px 1px 1px rgb(240,240,240) inset;
+			&:focus {
+				outline-width: 0;
+				border: 1px solid rgb(192,192,192);
+				box-shadow: 0px 1px 1px rgb(220,220,220) inset;
 			}
 		}
 		
@@ -242,28 +239,27 @@
 }
 
 .submit {
-	form {
-		
+	form {		
 		input {
 			@include fonts;
 			float: left;
-			height: 40px;
-			width: 26%;
-			margin: 30px 0 0 37%;
+			height: 33px;
+			width: 24%;
+			margin: 35px 0 0 38%;
 			text-align: center;
 			cursor: pointer;
 			font-weight: bold;
-			@include border-radius(15px);					
-			border: none;
-			color: #333333;
+			@include border-radius(4px);					
+			color: #fff;
 
-			padding-top: 5px;
+			padding-top: 4px;
 			font-size: 14px;
-			@include linear-gradient(lighten($orange,18%), lighten($orange,1%));
-			@include text-shadow(0px 1px 0 rgba(#000,0.2));
-			@include single-box-shadow(rgba(#000, 0.3), 0px, 1px, 1px, 0);
+			border: 1px solid darken($bluegreen, 2%);
+			border-bottom: 1px solid darken($bluegreen, 10%);
+			@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
+			/*@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);*/
 			&:hover {
-				@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
+				background: darken($bluegreen, 6%);
 			}
 		}
 	}

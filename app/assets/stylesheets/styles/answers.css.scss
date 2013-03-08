@@ -9,7 +9,7 @@
 			position: relative;
 			.title {
 				text-align: center;
-				font-size: 12px;
+				font-size: 13px;
 				width: 95%;
 				left: 10px;
 				color: #fff;
@@ -22,8 +22,9 @@
 					
 					cursor: pointer;
 					font-weight: bold;
-					@include border-radius(3px);					
-					padding-top: 2px;					
+					@include border-radius(4px);					
+					padding-top: 2px;	
+					box-shadow: 0px 1px 1px rgba(#fff, 0.15) inset;				
 					border: 1px solid darken($bluegreen, 2%);
 					border-bottom: 1px solid darken($bluegreen, 10%);
 					@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
@@ -72,11 +73,11 @@
 					color: $orange;
 				}
 				&.left {
-					left: 15px;
+					left: 20px;
 					text-align: right;
 				}
 				&.right {
-					right: -22px;
+					right: -17px;
 					text-align: left;
 				}
 			}
@@ -85,7 +86,7 @@
 				color: rgb(98,230,0);
 				&.container {
 					position: absolute;
-					right: 27px;
+					right: 22px;
 					bottom: 8px;
 				}
 			}

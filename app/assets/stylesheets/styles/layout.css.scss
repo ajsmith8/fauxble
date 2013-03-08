@@ -118,6 +118,7 @@ body {
 	background: rgba(#000, 0.02);
 	@include single-box-shadow(rgba($bluegreen, 0.2), 1px, 1px, 1px, 0);
 	border: 1px solid rgb(232,232,232);
+	@include border-radius(4px);
 	.won_lost_wait_text {
 		color: $black;
 		@include text-shadow(1px 1px 0 rgba(#000, 0.15));	
@@ -139,33 +140,32 @@ body {
 
 .send_result_button {
 	width: 20%;
-	
-	height: 26px;
+	height: 23px;
 	text-align: center;
 	cursor: pointer;
 	font-weight: bold;
-	@include border-radius(15px);					
-	border: none;
-	@include text-shadow(0px 1px 0 rgba(#000,0.2));
+	@include border-radius(5px);
+	box-shadow: 0px 1px 1px rgba(#fff, 0.15) inset;
+	border: 1px solid darken($bluegreen, 2%);
+	border-bottom: 1px solid darken($bluegreen, 10%);					
 	@include single-box-shadow(rgba(#000, 0.3), 0px, 1px, 1px, 0);
-	padding-top: 13px;
+	padding-top: 9px;
 	font-size: 13px;
 	color: #fff;
 	right: 7px;
-	background: $bluegreen;
-	/*@include linear-gradient(lighten($orange,18%), lighten($orange,1%));*/
+	@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
 	&:hover {
-		@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
+		background: darken($bluegreen, 6%);
 	}
 	
 	&.right {
-		margin: 10px 0 0 10px;
+		margin: 15px 0 0 10px;
 		float: right;
 	}
 	
 	&.centered {
 		float: left;
-		margin: 10px 0 0 40%;
+		margin: 15px 0 0 40%;
 	}
 }
 
