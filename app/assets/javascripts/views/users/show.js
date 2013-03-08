@@ -28,7 +28,7 @@ Fauxble.Views.UsersShow = Backbone.View.extend({
 			} else {
 				$(this.el).addClass('light');
 			}
-		}
+		} 
 		$(this.el).html(this.template({
 			user: this.user
 		}));
