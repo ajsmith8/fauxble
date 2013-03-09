@@ -1,21 +1,25 @@
 .question {
 	
-	.title {
+	.title {		
 		float: left;
 		font-weight: bold;
-		margin: 8px 8px 8px 8px;
-		font-size: 14px;
-		line-height: 18px;
+		margin: 10px 8px 8px 8px;
+		font-size: 16px;
+		line-height: 20px;
+		color: $black;
 		&.container {
-			
+			width: 94%;
+			margin-left: 2.5%;
+			padding-top: 5px;
+
 		}
 	}
 	
 	.slider-answers {
 		position: relative;
 		float: left;
-		width: 90%;
-		margin-left: 5%;
+		width: 91.5%;
+		margin-left: 3%;
 	}
 	
 	&.result {
@@ -24,16 +28,15 @@
 		width: 96%;
 		margin-left: 2%;
 		height: 54px;
-		border-top: 1px solid rgba(#000, 0.12);
+		border-top: 1px solid rgb(232,232,232);
 		padding-top: 6px;
-		
 		.question_result_text {
-			font-size: 12px;
+			font-size: 13px;
 			line-height: 16px;
 			float: left;
 			width: 84%;
 			height: 32px;
-			color: rgba(#000,0.7);
+			color: $black;
 			overflow: hidden;
 		}
 		.question_result_answer_container {
@@ -43,9 +46,9 @@
 			text-align: center;
 			font-weight: bold;
 			margin: 5px 0 0 0;
-			@include text-shadow(1px 1px 0 rgba(#000, 0.15));	
+			color: $black;
 			.question_result_answer {
-				color: darken($bluegreen, 10%);
+				color: $bluegreen;
 			}
 		}
 	}

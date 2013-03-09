@@ -23,9 +23,9 @@ body {
 	@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);
 	.header_logo_container {
 		height: 40px;
-		width: 25px;
+		width: 30px;
 		margin: 0 auto;
-		padding-top: 7px;
+		padding-top: 6px;
 	}
 }
 
@@ -49,27 +49,30 @@ body {
 	position: absolute;
 	/*background: #ffffff;*/
 	/*background-image: url(misc/253.png); background-repeat: repeat;*/
-	margin-top: 12px;
-	
+	padding-top: 12px;
 	&.right {
-		height: 622px;
-		margin-left: 361px;
-		width: 554px;
+		height: 632px;
+		margin-left: 347px;
+		width: 570px;
 		padding-right: 1px;
+		padding-left: 14px;
+		background: #fff;
 	}
 	
 	&.left {
 		
 		&.top {
-			margin-left: 14px;
-			width: 331px;
-			height: 622px;
-			border-right: 1px solid rgb(229,229,229);
+			padding-left: 14px;
+			width: 311px;
+			height: 632px;
+			padding-right: 22px;
+			border-right: 1px solid rgb(235,235,235);
+			
 		}
 		
 		&.bottom {
 			display: none;
-			width: 331px;
+			width: 311px;
 			height: 208px;
 			margin-top: 426px;
 			margin-left: 14px;
@@ -111,15 +114,15 @@ body {
 
 .results_container {
 	float: left;
-	@include border-radius(12px);
 	width: 90%;
-	margin: 12px 0 0 5%;
+	margin: 12px 0 0 4%;
 	border: 1px solid;
-	background-image: url(misc/243.png); background-repeat: repeat;
+	background-image: url(misc/253.png); background-repeat: repeat;
 	@include single-box-shadow(rgba($bluegreen, 0.2), 1px, 1px, 1px, 0);
-	border: 1px solid rgba($bluegreen, 0.45);
+	border: 1px solid rgb(232,232,232);
+	@include border-radius(4px);
 	.won_lost_wait_text {
-		color: darken($bluegreen,5%);
+		color: $black;
 		@include text-shadow(1px 1px 0 rgba(#000, 0.15));	
 		font-weight: bold;
 		position: relative;
@@ -139,32 +142,32 @@ body {
 
 .send_result_button {
 	width: 20%;
-	
-	height: 26px;
+	height: 23px;
 	text-align: center;
 	cursor: pointer;
 	font-weight: bold;
-	@include border-radius(15px);					
-	border: none;
-	@include text-shadow(0px 1px 0 rgba(#000,0.2));
+	@include border-radius(5px);
+	box-shadow: 0px 1px 1px rgba(#fff, 0.15) inset;
+	border: 1px solid darken($bluegreen, 2%);
+	border-bottom: 1px solid darken($bluegreen, 10%);					
 	@include single-box-shadow(rgba(#000, 0.3), 0px, 1px, 1px, 0);
-	padding-top: 13px;
+	padding-top: 9px;
 	font-size: 13px;
-	color: #333333;
+	color: #fff;
 	right: 7px;
-	@include linear-gradient(lighten($orange,18%), lighten($orange,1%));
+	@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
 	&:hover {
-		@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
+		background: darken($bluegreen, 6%);
 	}
 	
 	&.right {
-		margin: 10px 0 0 10px;
+		margin: 15px 0 0 10px;
 		float: right;
 	}
 	
 	&.centered {
 		float: left;
-		margin: 10px 0 0 40%;
+		margin: 15px 0 0 40%;
 	}
 }
 
@@ -174,7 +177,7 @@ body {
 	width: 100%;
 	text-align: center;
 	font-weight: bold;
-	color: darken($bluegreen, 10%);
+	color: $bluegreen;
 	@include text-shadow(0px 1px 0 rgba(#000, 0.3));
 	font-size: 14px;
 }
@@ -229,7 +232,7 @@ body {
 	input {
 
 		@include border-radius(8px);
-		color: darken($bluegreen, 5%);
+		color: $bluegreen;
 
 		font-size: 10px;
 		height: 20px;
@@ -259,11 +262,11 @@ body {
 
 		padding-top: 3px;
 		font-size: 11px;
-		@include linear-gradient(lighten($bluegreen,10%), darken($bluegreen,10%));
+		@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
 		@include text-shadow(0px 1px 0 rgba(#000,0.2));
 		@include single-box-shadow(rgba(#000, 0.3), 0px, 1px, 1px, 0);
 		&:hover {
-			@include linear-gradient(darken($bluegreen,10%), lighten($bluegreen,10%));
+			background: darken($bluegreen, 6%);
 		}
 	}
 }
@@ -271,12 +274,11 @@ body {
 .container_header {
 	height: 15px;
 	width: 100%;
-	text-align: center;
+	text-align: left;
 	padding: 2px 0 0 0;
-	color: #ffffff;
-	font-size: 12px;
+	color: $black;
+	font-size: 13px;
 	font-weight: bold;		
-	@include text-shadow(0px 1px 0 rgba(#000, 0.3));
 	/*@include linear-gradient(lighten($bluegreen,8%), darken($bluegreen,12%));*/
 	/*background-image: url(misc/green_texture.png); background-repeat: repeat;*/
 	@include border-top-radius(11px);
@@ -286,3 +288,55 @@ body {
 	width: 94%;
 	margin: 20px 0 0 2.5%;
 }
+
+.centered_header_container {
+	position: relative;
+	height: 40px;
+	width: 932px;
+	margin: 0 auto;
+	margin-top: -46px;
+}
+
+#fb_login {
+	color: #fff;
+	height: 26px;
+	width: 32%;
+	margin-left: 34%;
+	border: 1px solid rgb(25,85,141);
+	border-bottom: 1px solid rgb(6,44,80);
+	font-weight: bold;
+	text-align: center;
+	padding-top: 9px;
+	font-size: 13px;
+	line-height: 18px;
+	@include linear-gradient(rgb(78,127,180), rgb(50,92,183));
+	@include border-radius(3px);
+	@include text-shadow(0px 1px 0 rgba(#000,0.3));
+	&:hover {
+		border: 1px solid rgb(6,44,80);
+		cursor: pointer;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.dur{}

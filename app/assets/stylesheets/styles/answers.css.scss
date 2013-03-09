@@ -9,11 +9,10 @@
 			position: relative;
 			.title {
 				text-align: center;
-				font-size: 12px;
+				font-size: 13px;
 				width: 95%;
 				left: 10px;
-				color: #333333;
-				@include text-shadow(0px 1px 0 rgba(#000,0.2));
+				color: #fff;
 				&.container {
 					position: absolute;
 					height: 37px;
@@ -23,14 +22,16 @@
 					
 					cursor: pointer;
 					font-weight: bold;
-					@include border-radius(12px);					
-					border: none;
-					padding-top: 2px;					
-					@include linear-gradient(lighten($orange,18%), lighten($orange,1%));					
-					@include single-box-shadow(rgba(#000, 0.3), 0px, 1px, 1px, 0);
+					@include border-radius(4px);					
+					padding-top: 2px;	
+					box-shadow: 0px 1px 1px rgba(#fff, 0.15) inset;				
+					border: 1px solid darken($bluegreen, 2%);
+					border-bottom: 1px solid darken($bluegreen, 10%);
+					@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
+					/*@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);*/
 					&:hover {
-						@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
-					}					
+						background: darken($bluegreen, 6%);
+					}			
 					
 					.picture {
 						&#user {
@@ -72,11 +73,11 @@
 					color: $orange;
 				}
 				&.left {
-					left: 15px;
+					left: 20px;
 					text-align: right;
 				}
 				&.right {
-					right: -22px;
+					right: -17px;
 					text-align: left;
 				}
 			}
@@ -85,7 +86,7 @@
 				color: rgb(98,230,0);
 				&.container {
 					position: absolute;
-					right: 27px;
+					right: 22px;
 					bottom: 8px;
 				}
 			}
@@ -116,17 +117,17 @@
 			font-size: 16px;
 			width: 30%;
 			margin-left: 35%;
-			color: #333333;
-			@include text-shadow(0px 1px 0 rgba(#000,0.2));
+			color: #fff;
 			cursor: pointer;
 			font-weight: bold;
-			@include border-radius(16px);					
-			border: none;
+			@include border-radius(3px);					
 			padding-top: 11px;					
-			@include linear-gradient(lighten($orange,18%), lighten($orange,1%));					
-			@include single-box-shadow(rgba(#000, 0.3), 0px, 1px, 1px, 0);
+			border: 1px solid darken($bluegreen, 2%);
+			border-bottom: 1px solid darken($bluegreen, 10%);
+			@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
+			/*@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);*/
 			&:hover {
-				@include linear-gradient(lighten($orange,1%), lighten($orange,18%));
+				background: darken($bluegreen, 6%);
 			}
 		}
 	}
@@ -139,7 +140,7 @@
 	width: 100%;
 	height: 10px;
 	@include border-radius(6px);
-	@include linear-gradient(lighten($bluegreen, 8%), darken($bluegreen, 8%));
+	@include linear-gradient(lighten($bluegreen, 6%), darken($bluegreen, 6%));
 	
 	&.container {
 		position: relative;

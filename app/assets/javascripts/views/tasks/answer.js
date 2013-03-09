@@ -21,7 +21,7 @@ Fauxble.Views.TasksAnswer = Backbone.View.extend({
 	},
 	
 	render: function() {
-		$(this.el).addClass('border');
+		$(this.el).addClass('recent_answer');
 		$(this.el).html(this.template({
 			user: this.user,
 			answer: this.answer

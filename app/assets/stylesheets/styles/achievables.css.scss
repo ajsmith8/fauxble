@@ -14,7 +14,7 @@
 			font-size: 14px;	
 		}
 		.earned_text {
-			color: darken($bluegreen, 10%);
+			color: $bluegreen;
 			@include text-shadow(0px 1px 0 rgba(#000, 0.3));
 		}
 		.locked_text {
@@ -170,7 +170,7 @@
 				span {
 					font-size: 14px;
 					font-weight: bold;
-					color: darken($bluegreen, 10%);
+					color: $bluegreen;
 					
 				}
 			}
@@ -186,7 +186,8 @@
 			color: rgba(#000, 0.7);
 			font-style: italic;
 			&:hover {
-				cursor: pointer
+				cursor: pointer;
+				text-decoration: underline;
 			}
 		}
 		

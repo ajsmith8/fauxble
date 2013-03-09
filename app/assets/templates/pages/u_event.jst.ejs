@@ -1,8 +1,14 @@
-<div>
-	<% if (person.get('uid')) { %>
-		<img src = 'https://graph.facebook.com/<%= person.get('uid') %>/picture' width = '20px' />
-	<% } else { %>
-		<img src = 'assets/misc/user.png' width = '20px' />
-	<% } %>
+<div class = "picture container">
+	<div class = "picture wrapper">
+		<% if (person.get('uid')) { %>
+			<img src = 'https://graph.facebook.com/<%= person.get('uid') %>/picture'/>
+		<% } else { %>
+			<img src = 'assets/misc/user.png'/>
+		<% } %>
+	</div>
 </div>
-<div><%= person.get('name') %></div>
+<div class = "name container">
+	<div class = "name">
+		<span><%= person.get('name') %></span> signed up!
+	</div>
+</div>

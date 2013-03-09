@@ -1,9 +1,23 @@
-<div><%= user.get('name') %></div>
-<div>
-	<% if (user.get('uid')) { %>
-		<img src = 'https://graph.facebook.com/<%= user.get('uid') %>/picture' width = '20px' />
-	<% } else { %>
-		<img src = 'assets/misc/user.png' width = '20px' />
-	<% } %>
+<div class = "picture container">
+	<div class = "picture wrapper">
+		<% if (user.get('uid')) { %>
+			<img src = 'https://graph.facebook.com/<%= user.get('uid') %>/picture'/>
+		<% } else { %>
+			<img src = 'assets/misc/user.png'/>
+		<% } %>
+	</div>
 </div>
-<div><%= answer %></div>
+<div class = "name container">
+	<div class = "name">
+		<span>
+			<% if (user.get('name').split(' ').length > 1) { %>
+			    <%= user.get('name').split(' ')[0] + " " + user.get('name').split(' ')[user.get('name').split(' ').length - 1].charAt(0) %>.
+			<% } else { %>
+			    <%= user.get('name').split(' ')[0] %>
+			<% } %>
+		</span>
+		answered:
+	</div>
+</div>
+
+<div class = "answer"><%= answer %></div>

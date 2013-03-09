@@ -8,10 +8,10 @@
 	</div>
 </div>
 <div class = 'name container'>
-	<div class = 'name'><%= user.get('name') %></div>
+	<div class = 'name'><%= user.get('name').split(' ')[0] %></div>
 </div>
 <div id = 'rank' class = 'rank'></div>
-<div class = 'button'>
+<div class = 'button' style="display:none">
 	<div id = 'profile' class = 'profile'>View Profile</div>
 	<div id = 'back' class = 'profile hide'>Back</div>
 </div>
