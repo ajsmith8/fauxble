@@ -7,9 +7,12 @@ window.Fauxble = {
 	initialize: function(data) {
 		this.current_user 		= new Fauxble.Models.User(data.current_user);
 		this.issues 			= new Fauxble.Collections.Issues(data.issues);
-		this.questions 			= new Fauxble.Collections.Questions(data.questions);
 		this.sliders 			= new Fauxble.Collections.Sliders(data.sliders);
 		this.answers 			= new Fauxble.Collections.Answers(data.answers);
+		this.questions 			= new Fauxble.Collections.Questions(data.questions, {
+			sliders: this.sliders,
+			answers: this.answers
+		});
 		this.sources 			= new Fauxble.Collections.Sources(data.sources);
 		this.tasks 				= new Fauxble.Collections.Tasks(data.tasks, {
 			questions: this.questions,

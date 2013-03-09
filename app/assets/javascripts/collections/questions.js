@@ -3,6 +3,11 @@ Fauxble.Collections.Questions = Backbone.Collection.extend({
 	model: Fauxble.Models.Question,
 	url: 'questions',
 	
+	initialize: function(models, options) {
+		this.sliders = options.sliders;
+		this.answers = options.answers;
+	},
+	
 	getNumQuestions: function(issue) {
 		return this.where({issue_id: issue.get('id')}).length;
 	},

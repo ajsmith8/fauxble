@@ -135,5 +135,17 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 		});
 		
 		return users;
+	},
+	
+	getFacebookFriends: function() {
+		var array = [];
+		
+		this.each(function(user) {
+			if (user.get('signed_in_fb')) {
+				FB.api('/me/friends?access_token=' + user.get('encrypted_token'), function(response) {
+					array.concat(response['data']);
+				});
+			}
+		});
 	}
 });
