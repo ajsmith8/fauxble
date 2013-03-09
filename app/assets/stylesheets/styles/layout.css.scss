@@ -26,6 +26,9 @@ body {
 		width: 30px;
 		margin: 0 auto;
 		padding-top: 6px;
+		&:hover {
+			cursor: pointer
+		}
 	}
 }
 
@@ -291,7 +294,7 @@ body {
 
 .centered_header_container {
 	position: relative;
-	height: 40px;
+	height: 1px;
 	width: 932px;
 	margin: 0 auto;
 	margin-top: -46px;
