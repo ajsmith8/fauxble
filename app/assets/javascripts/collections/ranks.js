@@ -42,7 +42,7 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 	
 	getRank: function(users, user, issue) {
 		var self = this;
-		users = users.toArray();
+		users = users.where({signed_in: true}).concat(users.where({signed_in_fb: true}));
 		
 		users.sort(function(a, b) {
 			return self.getScore(b, issue) - self.getScore(a, issue);

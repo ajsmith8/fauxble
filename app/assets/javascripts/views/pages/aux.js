@@ -114,7 +114,7 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 	
 	likeButton: function() {
 		$(this.el).find('#bottom').html(JST['pages/like']);
-		FB.XFBML.parse($(this.el).find('#bottom').find('.fb-like'));
+		FB.XFBML.parse();
 	}
 });
 
