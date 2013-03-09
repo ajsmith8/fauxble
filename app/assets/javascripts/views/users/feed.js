@@ -68,7 +68,13 @@ Fauxble.Views.UsersFeed = Backbone.View.extend({
 		});
 		
 		feed.sort(function(a, b) {
-			return b.obj.get('updated_at') - a.obj.get('updated_at');
+			if (a.obj.get('updated_at') < b.obj.get('updated_at')) {
+				return 1;
+			}
+			if (a.obj.get('updated_at') > b.obj.get('updated_at')) {
+				return -1;
+			}
+			return 0; 
 		});
 		
 		this.feed = feed;
@@ -102,7 +108,7 @@ Fauxble.Views.UsersFeed = Backbone.View.extend({
 	
 	updateFeed: function(obj) {
 		this.feed.unshift(obj);
-		
+
 		var view = new Fauxble.Views.PagesEvent({
 			attr: this.attr,
 			feed: obj

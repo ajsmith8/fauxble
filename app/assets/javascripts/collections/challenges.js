@@ -220,5 +220,9 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 		});
 		
 		return array;
+	},
+	
+	createRandoms: function(users, issue) {
+		
 	}
 });

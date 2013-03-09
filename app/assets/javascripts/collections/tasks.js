@@ -75,7 +75,7 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 			answers = this.answers.where({question_id: id});
 			answers = _.shuffle(answers);
 			slider = this.sliders.where({question_id: id})[0];
-			time = Math.round(Math.random() * 15000);
+			time = Math.round(Math.random() * 150) * 100;
 			
 			if (question.get('is_slider')) {
 				answer_id = null;
@@ -105,7 +105,7 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 				answer_id = answers[0].get('id');
 				
 				if (answers[0].get('is_correct')) {
-					score = 100 - Math.round(time / 150);
+					score = Math.round(time / 150);
 				} else {
 					score = 0;
 				}
@@ -165,5 +165,50 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 		});
 		
 		return array;
+	},
+	
+	createRandomTask: function(challenge, question, user) {
+		var slider, answers, answer, answer_id, score, time;
+		
+		if (question.get('is_slider')) {
+			slider = this.sliders.where({question_id: question.get('id')})[0];
+			answer_id = null;
+			time = 0;
+			answer = slider.getRandomAnswer();
+			score = slider.getScoreFromAnswer();
+		} else {
+			answers = _.shuffle(this.answers.where({question_id: question.get('id')}));
+			answer = null;
+			time = Math.round(Math.random() * 150) * 100;
+			answer_id = answers[0].get('id');
+			
+			if (answers[0].get('is_correct')) {
+				score = Math.round(time / 150);
+			} else {
+				score = 0;
+			}
+		}
+		
+		this.create({
+			issue_id: question.get('issue_id'),
+			question_id: question.get('id'),
+			challenge_id: challenge.get('id'),
+			user_id: user.get('id'),
+			answer_id: answer_id,
+          	answer: answer,
+           	score: score,
+           	time: time
+		});
+		
+		if (user.get('id') === challenge.get('challenger_id')) {
+			challenge.set({
+				challenger_score: challenge.get('challenger_score') + score
+			});
+		} else {
+			challenge.set({
+				user_score: challenge.get('user_score') + score
+			});
+		}
+		challenge.save();
 	}
 });

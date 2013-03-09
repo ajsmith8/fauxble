@@ -16,5 +16,17 @@ Fauxble.Collections.Issues = Backbone.Collection.extend({
 		}
 		
 		return top_issues;
+	},
+	
+	availableIssues: function(questions, num) {
+		var issues = [];
+		
+		this.each(function(issue) {
+			if (questions.getNumQuestions(issue) > num - 1) {
+				issues.push(issue);
+			}
+		});
+		
+		return issues;
 	}
 });
