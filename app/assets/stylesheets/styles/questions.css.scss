@@ -3,23 +3,23 @@
 	.title {		
 		float: left;
 		font-weight: bold;
-		margin: 3px 8px 8px 8px;
+		margin: 10px 8px 8px 8px;
 		font-size: 16px;
 		line-height: 20px;
 		color: $black;
 		&.container {
-			width: 97.6%;
+			width: 94%;
 			margin-left: 2.5%;
 			padding-top: 5px;
-			border-top: 1px solid rgb(238,238,238);
+
 		}
 	}
 	
 	.slider-answers {
 		position: relative;
 		float: left;
-		width: 92%;
-		margin-left: 5%;
+		width: 91.5%;
+		margin-left: 3%;
 	}
 	
 	&.result {

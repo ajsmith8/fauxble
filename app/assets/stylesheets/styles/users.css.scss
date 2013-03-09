@@ -552,10 +552,14 @@
 		&.container {
 			color: $bluegreen;
 			position: absolute;
-			top: 8px;
+			top: 0px;
+			padding-top: 9px;
 			right: 41px;
 			font-size: 12px;
-			padding-top: 1px;
+			height: 35px;
+			width:65px;
+			text-align: right;
+			overflow: hidden;
 		}
 	}
 	

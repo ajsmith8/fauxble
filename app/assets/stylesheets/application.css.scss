@@ -13,6 +13,7 @@
 @import "styles/tasks";
 @import "styles/users";
 @import "styles/tooltips";
+@import "styles/sidebar";
 
 .hide {
 	display: none;
@@ -20,10 +21,6 @@
 
 .invis {
 	visibility: hidden;
-}
-
-.border {
-	border: 1px solid #000;
 }
 
 .sidecar {

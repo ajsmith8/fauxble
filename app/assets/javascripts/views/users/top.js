@@ -20,7 +20,7 @@ Fauxble.Views.UsersTop = Backbone.View.extend({
 	},
 	
 	render: function() {
-		$(this.el).addClass('border');
+		$(this.el).addClass('top_ranked_fusers');
 		$(this.el).html(this.template({
 			name: this.obj.name,
 			uid: this.obj.uid,

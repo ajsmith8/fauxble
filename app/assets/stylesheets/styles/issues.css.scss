@@ -6,7 +6,9 @@
 	position: relative;
 	min-height: 70px;
 	&.dark {
-		background: rgba(#000, 0.03);
+		border-top: 1px solid rgb(245,245,245);
+		border-bottom: 1px solid rgb(245,245,245);
+		background-image: url(misc/253.png); background-repeat: repeat;
 		@include border-radius(3px);
 	}
 	
@@ -41,7 +43,7 @@
 			top: 22px;
 			left: 53px;
 			height: 15px;
-			width: 145px;					
+			width: 150px;					
 			font-weight: bold;
 			color: $black;
 			font-size: 12px;	
@@ -138,7 +140,7 @@
 			top: 22px;
 			left: 58px;
 			height: 15px;
-			width: 135px;					
+			width: 150px;					
 			font-weight: bold;
 			color: $black;
 			font-size: 12px;	
@@ -240,8 +242,8 @@
 
 .issue.versus {
 	height: 80px;
-	width: 92%;
-	margin-left: 5%;
+	width: 90.5%;
+	margin-left: 3.5%;
 	.thumbnail {
 		display: none;
 		&.container {
@@ -272,11 +274,11 @@
 		position: absolute;
 		top: 12px;
 		left: 40px;
-		background: rgba(#000, 0.03);
+		background-image: url(misc/253.png); background-repeat: repeat;
 		@include border-radius(5px);
 		height: 50px;
 		border: 1px solid rgb(225,225,225);
-		@include single-box-shadow(rgba(#000, 0.1), 1px, 1px, 1px, 0);
+		@include single-box-shadow(rgba(#000, 0.05), 1px, 1px, 1px, 0);
 		.picture {
 			&.container {
 				top: 5px;
@@ -306,11 +308,11 @@
 		position: absolute;
 		top: 12px;
 		right: 40px;
-		background: rgba(#000, 0.03);
+		background-image: url(misc/253.png); background-repeat: repeat;
 		@include border-radius(5px);
 		height: 50px;
 		border: 1px solid rgb(225,225,225);
-		@include single-box-shadow(rgba(#000, 0.1), -1px, 1px, 1px, 0);
+		@include single-box-shadow(rgba(#000, 0.05), -1px, 1px, 1px, 0);
 		.picture {
 			&.container {
 				top: 5px;

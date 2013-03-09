@@ -216,7 +216,7 @@
 		
 		input {
 			font-weight: bold;
-			@include border-radius(3px);
+			@include border-radius(4px);
 			color: $bluegreen;
 			font-size: 12px;
 			height: 20px;
@@ -232,7 +232,7 @@
 		}
 		
 		.units {
-			color: darken($orange,10%);
+			color: $bluegreen;
 			font-size: 12px;
 		}
 	}
