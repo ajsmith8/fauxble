@@ -1,4 +1,4 @@
-<div class = "picture container">
+<div class = "picture container left">
 	<div class = "picture wrapper">
 		<% if (person.get('uid')) { %>
 			<img src = 'https://graph.facebook.com/<%= person.get('uid') %>/picture'/>
@@ -9,6 +9,6 @@
 </div>
 <div class = "name container">
 	<div class = "name">
-		<span><%= person.get('name') %></span> signed up!
+		<span class = "actual_name"><%= person.get('name') %></span> signed up!
 	</div>
 </div>

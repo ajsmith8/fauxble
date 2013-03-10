@@ -65,6 +65,8 @@ body {
 	&.left {
 		
 		&.top {
+			margin-top: 12px;
+			padding-top: 0px;
 			padding-left: 14px;
 			width: 311px;
 			height: 632px;
@@ -106,7 +108,7 @@ body {
 /* different pages */
 
 .video {
-	margin: 20px 0 0 50px;
+	margin: 30px 0 50px 50px;
 	
 	embed {
 		border:10px solid;
@@ -289,7 +291,7 @@ body {
 
 .like-button {
 	width: 94%;
-	margin: 20px 0 0 2.5%;
+	margin: 20px 0 0 1.2%;
 }
 
 .centered_header_container {
