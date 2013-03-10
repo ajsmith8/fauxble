@@ -87,7 +87,7 @@ Fauxble.Views.UsersFeed = Backbone.View.extend({
 			$(this.el).find('#more').addClass('hide');
 		}
 		
-		for (i = this.current_location; i < this.current_location + 5; i++) {
+		for (i = this.current_location; i < this.current_location + 7; i++) {
 			if (this.feed[i]) {
 				this.appendFeed(this.feed[i]);
 			} else {
