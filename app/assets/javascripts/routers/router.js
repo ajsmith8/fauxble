@@ -319,7 +319,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		random_users = [];
 		
 		for (u = 0; u < users.length; u++) {
-			FB.api('/me/friends?access_token=' + user.get('encrypted_token'), function(response) {
+			FB.api('/me/friends?access_token=' + users[u].get('encrypted_token'), function(response) {
 				friends.concat(response['data']);
 				if (u === users.length - 1) {
 					friends = _.shuffle(friends);
@@ -345,6 +345,8 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 							signed_in_fb: true
 						});
 					}
+					
+					Backbone.history.navigate('', true);
 				}
 			});
 		}
