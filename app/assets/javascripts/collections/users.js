@@ -5,6 +5,7 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 	
 	initialize: function(models, options) {
 		this.ranks = options.ranks;
+		this.faux_users = null;
 	},
 	
 	getTopFive: function(user, issue) {
@@ -147,5 +148,13 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 				});
 			}
 		});
+	},
+	
+	getFauxUsers: function(num) {
+		if (!this.faux_users) {
+			this.faux_users = this.where({signed_in_fb: true, provider: null});
+		}
+		
+		return _.shuffle(this.faux_users).slice(0, num);
 	}
 });

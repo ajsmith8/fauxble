@@ -9,7 +9,7 @@
 </div>
 <div class = "name container">
 	<div class = "name">
-		<span class = "actual_name">
+		<span id = '<%= user.get('id') %>' class = "actual_name">
 			<% if (user.get('name').split(' ').length > 1) { %>
 			    <%= user.get('name').split(' ')[0] + " " + user.get('name').split(' ')[user.get('name').split(' ').length - 1].charAt(0) %>.
 			<% } else { %>

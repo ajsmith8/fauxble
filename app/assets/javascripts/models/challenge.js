@@ -20,5 +20,25 @@ Fauxble.Models.Challenge = Backbone.Model.extend({
 			});
 		}
 		this.save();
+	},
+	
+	randomUpdateWinner: function() {
+		var self = this,
+			winner_id;
+		
+		setTimeout(function() {
+			if (self.get('challenger_score') >= self.get('user_score')) {
+				winner_id = self.get('challenger_id');
+			} else {
+				winner_id = self.get('user_id');
+			}
+
+			self.set({
+				is_sent: true,
+				is_finished: true,
+				winner_id: winner_id
+			});
+			self.save();
+		}, Math.round(Math.random() * 60000));
 	}
 });

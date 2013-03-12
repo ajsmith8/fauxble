@@ -19,8 +19,8 @@ Fauxble.Collections.Questions = Backbone.Collection.extend({
 		questions = _.shuffle(questions);
 		
 		ids = String(questions[0].get('id'));
-		for (i = 1; i < num; i++) {
-			ids = ids + '/' + questions[i].get('id');
+		for (id = 1; id < num; id++) {
+			ids = ids + '/' + questions[id].get('id');
 		}
 		
 		return ids;

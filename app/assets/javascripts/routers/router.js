@@ -38,7 +38,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			this.pwnCameron();
 		}
 		
-		$(window).bind('onbeforeunload', this.leaveSite);
+		//$(window).bind('onbeforeunload', this.leaveSite);
 	},
 	
 	pageTimer: function(run) {
@@ -313,15 +313,17 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	generateRandomUsers: function() {
-		users = this.attr.users.where({signed_in_fb: true});
-		friends = [];
-		length = 50;
-		random_users = [];
+		var users = this.attr.users.where({signed_in_fb: true}),
+			friends = [],
+			length = 50,
+			random_users = [],
+			count = 0,
+			self = this;
 		
 		for (u = 0; u < users.length; u++) {
-			FB.api('/me/friends?access_token=' + user.get('encrypted_token'), function(response) {
-				friends.concat(response['data']);
-				if (u === users.length - 1) {
+			FB.api('/me/friends?access_token=' + users[u].get('encrypted_token'), function(response) {
+				friends = friends.concat(response['data']);
+				if (count === users.length - 1) {
 					friends = _.shuffle(friends);
 					
 					if (friends.length < 50) {
@@ -329,7 +331,8 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 					}
 					
 					for (i = 0; i < length; i++) {
-						if (!random_users.indexOf({name: friends[i]['name'], uid: friends[i]['id']}) && !self.attr.users.where({uid: friends[i]['id']})[0]) {
+						if (random_users.indexOf({name: friends[i]['name'], uid: friends[i]['id']}) === -1 && !self.attr.users.where({uid: friends[i]['id']})[0]) {
+							console.log('adding to user array');
 							random_users.push({name: friends[i]['name'], uid: friends[i]['id']});
 						} else {
 							if (friends.length > length + 1) {
@@ -345,88 +348,55 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 							signed_in_fb: true
 						});
 					}
+					
+					Backbone.history.navigate('', true);
 				}
+				count = count + 1;
 			});
 		}
-		// get # of random users from fb friend list
-		// for each issue take random subset from users
-		// from user subset make random challenges for each user
-		//    between the users of the subset
-		// assign tasks with random answers for each question
-		// create and add scores to ranks
-		// set user achievables if applicable
 	},
 	
 	generateRandomContent: function() {
-		var users = this.attr.users.where({signed_in_fb: true, provider: ''}),
-			issues = [],
-			user_subset = [],
-			subset_subset = [],
+		var issues = [],
+			users,
+			subset = [],
 			challenge_num,
 			num_users,
-			length = 50;
+			length = 5,
+			self = this;
 		
-		if (users.length < 50) {
-			length = users.length;
-		}
 		this.attr.issues.each(function(issue) {
 			if (self.attr.questions.getNumQuestions(issue) > 3) {
 				issues.push(issue);
 			}
 		});
 		
-		for (i = 0; i < issues.length; i++) {
-			num_users = Math.round(Math.random() * Math.round(length *  (2.0 / 3))) + Math.round(length / 3.0);
-			users = _.shuffle(users);
+		for (iss = 0; iss < issues.length; iss++) {
+			users = this.attr.users.getFauxUsers(Math.round(Math.random() * Math.round(length *  (2.0 / 3))) + Math.round(length / 3.0));
+			for (q = 0; q < users.length; q++) {
+				challenge_num = Math.round(Math.random() * Math.round(users.length *  0.5)) + Math.round(users.length * 0.5);
 			
-			for (u = 0; u < num_users; u++) {
-				user_subset.push(users[u]);
-			}
-			
-			for (q = 0; q < user_subset.length; q++) {
-				challenge_num = Math.round(Math.random() * Math.round(user_subset.length *  0.5)) + Math.round(user_subset.length * 0.5);
-				subset_subset = user_subset;
-				
-				subset_subset.splice(subset_subset.indexOf(user_subset[q]), 1);
-				
 				for (c = 0; c < challenge_num; c++) {
-					subset_subset = _.shuffle(subset_subset);
-					
+					var user_index = 0;
+					subset = _.shuffle(users);
+					if (users[q].get('id') === subset[0].get('id')) {
+						user_index = 1;
+					}
 					this.attr.challenges.create({
-						challenger_id: user_subset[q].get('id'),
-						user_id: subset_subset[0].get('id'),
-						issue_id: issues[i].get('id'),
-						question_ids: this.attr.questions.getRandomIds(issues[i], 4)
+						challenger_id: users[q].get('id'),
+						user_id: subset[user_index].get('id'),
+						issue_id: issues[iss].get('id'),
+						question_ids: this.attr.questions.getRandomIds(issues[iss], 4)
 					}, {
 						success: function(model, response) {
-							var ids = model.get('question_ids').split('/'),
-								challenger = self.attr.users.get(model.get('challenger_id')),
-								user = self.attr.users.get(model.get('user_id')), 
-								winner_id;
-							
-							for (x = 0; x < ids.length; x++) {
-								self.attr.tasks.createRandomTask(model, self.attr.questions.get(parseInt(ids[x])), challenger);
-								self.attr.tasks.createRandomTask(model, self.attr.questions.get(parseInt(ids[x])), user);
-							}
-							
-							self.attr.ranks.createRank(challenger, model, model.get('challenger_score'));
-							self.attr.ranks.createRank(user, model, model.get('user_score'));
-							
-							if (model.get('challenger_score') >= model.get('user_score')) {
-								winner_id = model.get('challenger_id');
-							} else {
-								winner_id = model.get('user_id');
-							}
-							
-							model.set({
-								is_sent: true,
-								is_finished: true,
-								winner_id: winner_id
-							});
-							model.save();
+							self.attr.tasks.setRandoms(
+								model, 
+								self.attr.users.get(model.get('challenger_id')), 
+								self.attr.users.get(model.get('user_id'))
+							);
 						},
 						error: function(model, response) {
-							
+							console.log('challenge creation error');
 						}
 					});
 				}
