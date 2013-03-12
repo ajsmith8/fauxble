@@ -263,6 +263,9 @@ Fauxble.Models.Slider = Backbone.Model.extend({
 			answer;
 			
 		if (this.get('is_exponential')) {
+			if (min < 1) {
+				min = 1;
+			}
 			answer = (Math.random() * ((Math.log(max) / Math.log(3)) - (Math.log(min) / Math.log(3)))) + (Math.log(min) / Math.log(3));
 			answer = Math.pow(3, answer);
 		} else {
@@ -284,8 +287,8 @@ Fauxble.Models.Slider = Backbone.Model.extend({
 		var correct = this.get('correct'),
 			min = this.get('min'),
 			max = this.get('max');
-			
-		if (slider.get('is_exponential')) {
+		
+		if (this.get('is_exponential')) {
 			return 100 - Math.round(
 				(Math.abs(
 					Math.pow(answer, (1 / 3)) - Math.pow(correct, (1 / 3))) / (Math.pow(max, (1 / 3)) - Math.pow(min, (1 / 3)))

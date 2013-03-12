@@ -1,7 +1,7 @@
 Fauxble.Views.PagesEvent = Backbone.View.extend({
 	
 	events: {
-		
+		'click .actual_name' : 'profile'
 	},
 	
 	initialize: function(options) {
@@ -35,5 +35,9 @@ Fauxble.Views.PagesEvent = Backbone.View.extend({
 			issue: this.issue
 		}));
 		return this;
+	},
+	
+	profile: function(event) {
+		Backbone.history.navigate('user' + $(event.target).attr('id'), true);
 	}
 });

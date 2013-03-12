@@ -17,7 +17,7 @@ Fauxble.Views.UsersFeed = Backbone.View.extend({
 		this.attr.users.on('change:signed_on_fb', this.newUser, this);
 		this.attr.users.on('reset', this.render, this);
 		this.attr.challenges.on('change:is_sent', this.newChallenge, this);
-		this.attr.challenges.on('change:is_finished', this.newChallenge, this);
+		//this.attr.challenges.on('change:is_finished', this.newChallenge, this);
 		this.attr.challenges.on('reset', this.render, this);
 		//profile view
 	},

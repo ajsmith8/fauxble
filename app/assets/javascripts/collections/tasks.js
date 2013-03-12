@@ -175,7 +175,7 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 			answer_id = null;
 			time = 0;
 			answer = slider.getRandomAnswer();
-			score = slider.getScoreFromAnswer();
+			score = slider.getScoreFromAnswer(answer);
 		} else {
 			answers = _.shuffle(this.answers.where({question_id: question.get('id')}));
 			answer = null;
@@ -210,5 +210,17 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 			});
 		}
 		challenge.save();
+	},
+	
+	setRandoms: function(challenge, challenger, user) {
+		var ids = model.get('question_ids').split('/'),
+			self = this;
+
+		_.each(ids, function(id) {
+			self.createRandomTask(challenge, self.questions.get(parseInt(id)), challenger);
+			self.createRandomTask(challenge, self.questions.get(parseInt(id)), user);
+		});
+		
+		challenge.randomUpdateWinner();
 	}
 });
