@@ -3,7 +3,8 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	template: JST['pages/header'],
 	
 	events: {
-		'click #home' : 'homePage'
+		'click #home' : 'homePage',
+		'click #about' : 'aboutPage'
 	},
 	
 	initialize: function(options) {
@@ -34,6 +35,10 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	
 	homePage: function() {
 		Backbone.history.navigate('', true);
+	},
+	
+	aboutPage: function() {
+		Backbone.history.navigate('about', true);
 	}
 });
 //header

@@ -2,6 +2,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	
 	routes: {
 		'' 					: 'checkCurrentUser',
+		'about'				: 'about',
 		'new:id' 			: 'pagesNew',
 		'issues:id'			: 'issues',
 		':c_id/question:id' : 'question',
@@ -172,6 +173,15 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.signin();
 		$('.right.column').html(view.render().el);
 		this.triggerPage('video');
+	},
+	
+	about: function() {
+		var view = new Fauxble.Views.PagesAbout({
+			attr: this.attr
+		});
+		this.setCurrentView(view);
+		$('.right.column').html(view.render().el);
+		this.triggerPage('about');
 	},
 	
 	signin: function() {
