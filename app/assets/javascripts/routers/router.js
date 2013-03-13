@@ -170,7 +170,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			attr: this.attr
 		});
 		this.setCurrentView(view);
-		this.signin();
+		//this.signin();
 		$('.right.column').html(view.render().el);
 		this.triggerPage('video');
 	},

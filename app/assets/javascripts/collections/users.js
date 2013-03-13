@@ -44,17 +44,23 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 		return top_users;
 	},
 	
-	authenticateUser: function(name, password, confirm, min_length) {
+	authenticateUser: function(name, email, password, confirm, min_length) {
+		var regex = /\S+@\S+\.\S+/;
+			
 		if (name.length > min_length - 1) {
 			if (this.isUnique(name)) {
-				if (password.length > min_length - 1) {
-					if (password === confirm) {
-						this.createUser(name, password);
+				if (regex.test(email)) {
+					if (password.length > min_length - 1) {
+						if (password === confirm) {
+							this.createUser(name, email, password);
+						} else {
+							alert('passwords don\'t match');
+						}
 					} else {
-						alert('passwords don\'t match');
+						alert('password must be at least ' + min_length + ' characters long');
 					}
 				} else {
-					alert('password must be at least ' + min_length + ' characters long');
+					alert('invalid email');
 				}
 			} else {
 				alert('that user name is unavailable');
@@ -78,11 +84,12 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 		return is_unique;
 	},
 	
-	createUser: function(name, password) {
+	createUser: function(name, email, password) {
 		var self = this;
 		
 		this.create({
 			name: name,
+			email: email,
 			password: password,
 			signed_in: true
 		}, {
