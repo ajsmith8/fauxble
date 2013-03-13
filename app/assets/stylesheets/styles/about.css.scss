@@ -1,0 +1,408 @@
+#about.aboot {
+	
+	width: 920px;
+	height: 100%;
+	margin: -110px 0 0 0px;
+	
+	.about-background {
+		position: relative;
+		width: 900px;
+		height: auto;
+		margin: 80px 0 0 10px;
+		padding-top: 15px;
+		padding-bottom: 100px;
+
+	}
+	
+	.mission-background {
+		position: relative;
+		width: 900px;
+		height: 350px;
+		margin: 100px 0 0 10px;
+		padding-top: 15px;
+
+	}
+	
+	.source {
+		font-size: 80%;
+
+	}
+	
+	.comparison {
+	
+		&.container {
+			width: 100%;
+			height: auto;
+			position: relative;
+			margin: 10px 0 10px 0;
+		}
+	
+		&.panels {
+			position: relative;
+			width: 100%;
+			height: 0px; /* 130px */
+			overflow: hidden;
+			display: none;
+		}
+	}
+	.alt-about-panel {
+		position: relative;
+		margin: 6px 0 0 25px;
+		width: 850px;
+		height: 0px; /* 200px */
+		overflow: hidden;
+		display: none;
+		font-size: 15px;
+
+		background: rgb(240,240,240);
+		@include border-radius(5px);
+		color: rgb(51,51,51);
+		@include single-box-shadow(rgba(#000, 0.075), 1px, 1px, 2px, 2px);
+	}
+	
+	.what-to-do {
+		
+	}
+	.disagree {
+	
+	}
+	.factory {
+		
+	}
+	.good-question {
+		.green-text {
+			color: rgb(87,204,0);
+			font-weight: bold;
+		}
+		.red-text {
+			color: rgb(255,0,0);
+			font-weight: bold;
+		}
+	}
+	.contact {
+		
+	}
+	.how-to-help {
+		
+	}
+	.opinion {
+		
+	}
+	.hate-facts {
+		a {
+			color: rgb(0,0,255);
+			text-decoration: underline;
+		}
+	}
+	.grey-out {
+		
+	}
+	.ranking-system {
+		
+	}
+	.facts-important {
+		
+	}
+	.who-are-you {
+		
+	}
+	
+	.alt-text-container {
+		margin: 15px 0 0 15px;
+		width: 820px;
+	}
+	
+	.question {
+	
+		&.container {
+			position: relative;
+			width: 100%;
+			height: 30px;
+			line-height: 30px;
+		}
+		
+		&.circle {
+			cursor: pointer;
+			float: left;
+			position: relative;
+			margin: 0 5px 0 10px;
+			width: 30px;
+			height: 30px;
+			background: rgba(#000, 0.5);
+			
+			@include border-radius(15px);
+			
+			.down {
+				position: absolute;
+				top: 8px;
+				left: 7px;
+				content:"";
+				border-width: 16px 8px 0px 8px;
+				border-style: solid;
+				border-color: rgba($backgroundcolor, 1) transparent transparent transparent;
+			    display:block; 
+			    width:0;
+				
+				@include opacity(0);
+			}
+			
+			.right {
+				position: absolute;
+				top: 7px;
+				left: 8px;
+				content:"";
+				border-width: 8px 0px 8px 16px;
+				border-style: solid;
+				border-color: transparent transparent transparent rgba($backgroundcolor, 0.5);
+			    display:block; 
+			    width:0;
+			
+				@include opacity(1);
+			}
+		}
+	
+		&.text {
+			cursor: pointer;
+			float: left;
+			width: 330px;
+		}
+	}
+	
+	.panel {
+		cursor: default;
+		position: absolute;
+		top: 5px;
+		width: 412px;
+		height: 120px;
+		@include border-radius(5px);
+		@include single-box-shadow(rgba(#000, 0.075), 1px, 1px, 2px, 2px);
+		&.active {
+			background: rgb(240,240,240);
+			@include opacity(0);
+		}
+	
+		&.inactive {
+			background: rgb(240,240,240);
+		}
+	
+		&.left {
+			left: 25px;
+		}
+	
+		&.right {
+			right: 25px;
+		}
+	}
+
+	.logo {
+		cursor: pointer;
+		position: absolute;
+		width: 70px;
+		height: 70px;
+		top: 25px;
+		
+		&.active {
+			right: 171px;
+		}
+	
+		&.inactive {
+			right: 171px;
+		}
+	}
+
+	.portrait {
+		cursor: pointer;
+		position: absolute;
+		top: 15px;
+		width: 70px;
+		height: 90px;
+		overflow: hidden;
+		@include border-radius(5px);
+		@include single-box-shadow(rgba(#000, 0.2), 0, 0, 2px, 2px);
+		
+		&.wrapper {
+			position: static;
+			width: 100%;
+			height: 100%;
+		}
+		
+		&.active {
+			right: 171px;
+		}
+	
+		&.inactive {
+			right: 171px;
+		}
+	}
+
+	.statement {
+	
+		&.container {
+			position: absolute;
+			top: 42px;
+			left: 10px;
+			width: 310px;
+			height: 36px;
+			font-size: 16px;
+			line-height: 20px;
+		}
+	
+		&.text {
+		
+		}
+	}
+
+	.quote {
+	
+		&.container {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			width: 310px;
+			height: 100px;
+			line-height: 20px;
+		}
+	
+		&.text {
+		
+		}
+	}
+
+	.name {
+		position: absolute;
+		bottom: 12px;
+		right: 90px;
+		font-style: italic;
+		font-weight: bold;
+		font-size: 14px;
+	}
+	
+	.jefferson {
+		margin: -10px 0 0 -18px;
+	}
+	
+	.jfk {
+		margin: -2px 0 0 -21px;
+	}
+	
+	.aristotle {
+		margin: -16px 0 0 -24px;
+	}
+	
+	.mlk {
+		margin: -10px 0 0 -18px;
+	}
+	
+	.churchill {
+		margin: 0px 0 0 -22px;
+	}
+	
+	.mouseover {
+		
+		&.container {
+			position: absolute;
+			bottom: 2px;
+			left: 0;
+			width: 100%;
+			height: 14px;
+			font-size: 10px;
+			line-height: 14px;
+			text-align: center;
+		}
+		
+		&.text {
+			color: rgb(170,170,170);
+			width: 100%;
+		}
+	}
+	.next {
+		font-size: 16px;
+		line-height: 40px;
+		text-align: center;
+		width: 100%;
+		height: 100%;
+		@include border-radius(20px);
+		@include single-box-shadow(rgba(#000, 0.3), 0, 0, 1px, 1px, inset);
+		color: #fff;
+		background: $textblue;
+		border: 1px solid darken($backgroundcolor, 25%);
+		cursor: pointer;
+		
+		&:hover {
+			background: lighten($backgroundcolor, 0%);
+		}
+
+		&:active{
+			background: darken($backgroundcolor, 20%);
+		}
+	}
+	
+	.button {
+		&.next {
+			font-weight: bold;
+			font-size: 15px;
+			color: rgb(110,110,110);
+			padding: 0px 0 0 20px;
+			text-align: left;
+			width: 100%;
+			height: 100%;
+			border: none;
+			@include border-radius(10px);
+			/*@include single-box-shadow(rgba(#000, 0.3), 0, 0, 1px, 1px, inset);*/
+			background: lighten($bluegreen, 18%);
+			cursor: pointer;
+			.about-triangle-container {
+				position: absolute;
+				top: 12px;
+				left: 85px;
+				.triangle {
+					cursor: pointer;
+					content: "";
+					display: block; 
+					border-width: 8px 0px 8px 15px;
+					border-style: solid;
+					border-color: transparent transparent transparent rgba(darken(desaturate($bluegreen, 1%),10%), 1);
+					width: 0;
+					height: 0;
+				}
+			}
+			
+			
+			&:hover {
+				color: rgb(70,70,70);
+				background: lighten($bluegreen, 10%);
+				/*@include gradient(lighten($bluegreen, 0%));*/
+				.triangle {
+					border-color: transparent transparent transparent rgba(lighten(desaturate($bluegreen, 1%),25%), 1);
+				}
+			}
+
+			&:active{
+				background: darken($bluegreen, 5%);
+				/*@include reverse-gradient(darken($bluegreen, 5%));*/
+			}
+			
+		}
+
+		.triarrow {
+			cursor: pointer;
+			position: absolute;
+			top: 12px;
+			right: 12px;
+			content:"";
+			border-width: 8px 0px 8px 16px;
+			border-style: solid;
+			border-color: transparent transparent transparent rgba(#fff, 1);
+		    display:block; 
+		    width: 0;
+		}
+
+		&.container {
+			position: absolute;
+			bottom: -30px;
+			right: 42px;
+			width: 93px;
+			height: 40px;
+		}
+	}
+}

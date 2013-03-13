@@ -180,7 +180,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			attr: this.attr
 		});
 		this.setCurrentView(view);
-		$('.right.column').html(view.render().el);
+		$('.page').html(view.render().el);
 		this.triggerPage('about');
 	},
 	
