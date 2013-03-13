@@ -85,9 +85,16 @@
 		}
 	}
 	
-	&.correct {
+	&.correct-wrapper {
 		position: absolute;
 		top: 18px;
+		width: 30px;
+	}
+	
+	&.correct {
+		position: absolute;
+		top: 0;
+		left: -5px;
 		content: "";
 		border-width: 0px 20px 30px 20px;
 		border-style: solid;
