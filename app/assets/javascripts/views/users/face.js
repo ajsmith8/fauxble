@@ -12,8 +12,8 @@ Fauxble.Views.UsersFace = Backbone.View.extend({
 		this.is_current_user = options.is_current_user;
 	},
 	
-	render: function() {
-		$(this.el).css('float', 'left');
+	render: function() {	
+		$(this.el).addClass('community_user');
 		$(this.el).html(this.template({
 			user: this.user,
 			is_you: this.is_current_user

@@ -17,6 +17,7 @@ Fauxble.Views.IssuesUsers = Backbone.View.extend({
 	render: function() {
 		var self = this;
 		
+		$(this.el).addClass('community_container');
 		$(this.el).html(this.template());
 		
 		setTimeout(function() {

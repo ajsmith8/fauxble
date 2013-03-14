@@ -113,7 +113,7 @@ position: relative;
 	margin: 4px 0 0 7%;
 	padding-top: 1px;
 	@include border-radius(12px);
-	background: rgba(#000, 0.03);
+	background-image: url(misc/253.png); background-repeat: repeat;
 	
 	.challenge.history {
 		position: relative;
@@ -136,7 +136,7 @@ position: relative;
 					width: 35px;
 					height: 35px;
 					margin-left: 2px;
-					@include border-radius(7px);
+					@include border-radius(3px);
 				
 				}
 			
@@ -145,7 +145,7 @@ position: relative;
 					position: static;
 					height: 100%;
 					width: 100%;
-					@include border-radius(7px);
+					@include border-radius(3px);
 					img {
 						height: 100%;
 						width: 100%;
@@ -162,8 +162,7 @@ position: relative;
 					top: 7px;
 					height: 11px;
 					font-size: 12px;
-					color: rgb(92,92,92);
-					@include text-shadow(0px 1px 0 rgba(#000, 0.15));
+					color: $black;
 				}
 			}
 		
@@ -189,7 +188,7 @@ position: relative;
 					width: 35px;
 					height: 35px;
 					margin-left: 2px;
-					@include border-radius(7px);
+					@include border-radius(3px);
 				
 				}
 			
@@ -198,7 +197,7 @@ position: relative;
 					position: static;
 					height: 100%;
 					width: 100%;
-					@include border-radius(7px);
+					@include border-radius(3px);
 					img {
 						height: 100%;
 						width: 100%;
@@ -215,8 +214,7 @@ position: relative;
 					top: 7px;
 					height: 11px;
 					font-size: 12px;
-					color: rgb(92,92,92);
-					@include text-shadow(0px 1px 0 rgba(#000, 0.15));
+					color: $black;
 				}
 			}
 		
@@ -232,11 +230,10 @@ position: relative;
 			text-align: center;
 			.number {
 				position: absolute;
-				@include text-shadow(0px 1px 0 rgba(#000, 0.2));
 				width: 25px;
 				font-size: 16px;
 				font-weight: bold;
-				color: darken($orange,2%);
+				color: $bluegreen;
 				top: 1px;
 				&.winner {
 					left: 7px;
@@ -251,7 +248,7 @@ position: relative;
 			.colon {
 				font-weight: bold;
 				font-size: 12px;
-				color: rgba(#000,0.5);
+				color: $black;
 			}
 		}
 	}
@@ -314,6 +311,11 @@ position: relative;
 		width: 90%;
 		margin-left: 18px;
 		font-size: 16px;
+	}
+	&.profile {
+		width: 200px;
+		margin-bottom: 0px;
+		display: none;
 	}
 }
 

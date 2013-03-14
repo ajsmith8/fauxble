@@ -7,11 +7,11 @@
 	}
 	&.recent_activity {
 		font-size: 12px;
-		margin: 47px 0 6px 0;
+		margin: 24px 0 6px 0;
 	}
 	&.community {
 		font-size: 12px;
-		margin: 47px 0 10px 0;
+		margin: 33px 0 10px 0;
 		float: left;
 	}
 }
@@ -138,7 +138,7 @@
 			height: 30px;
 			width: 30px;
 			float: right;
-			margin: 2px 7px 0 0;
+			margin: 2px 4px 0 0;
 		}
 		
 		&.wrapper {
@@ -215,7 +215,26 @@
 	}
 }
 
+.community_container {
+	float: left;
+	width: 311px;
+	height: 62px;
+	overflow: hidden;
+	.community_user {
+		width: 30px;
+		height: 30px;
+		margin: 0 2px 2px 0;
+		float: left;
+		cursor: pointer;
+	}
+}
 #top {
-	padding-bottom: 3px;
+	padding-bottom: 17px;
+	border-bottom: 1px solid rgb(240,240,240);
+}
 
+#middle {
+	float: left;
+	height: 287px;
+	width: 311px;
 }

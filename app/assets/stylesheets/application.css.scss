@@ -14,6 +14,7 @@
 @import "styles/users";
 @import "styles/tooltips";
 @import "styles/sidebar";
+@import "styles/tutorials";
 @import "styles/about";
 @import "styles/header";
 
@@ -79,9 +80,10 @@
 .tutorial {
 	color: #fff;
 	z-index: 1000;
-	width: 100%;
+	width: 101%;
 	position: fixed;
 	top: 0;
-	height: 500px;
-	background: rgba(#000, 0.5);
+	left: -4px;
+	height: 100%;
+	background: rgba(#000, 0.4);
 }
