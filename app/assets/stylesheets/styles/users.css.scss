@@ -518,33 +518,6 @@
 	}
 }
 
-.profile_header {
-	position: absolute; 
-	top: 3px; 
-	right: 0; 
-	width: 115px; 
-	height: 32px;
-	border: 1px solid rgb(5,5,5);
-	border-bottom: 2px solid rgb(10,10,10);
-	@include linear-gradient(rgba(#fff, 0.07), rgba(#fff, 0.01));
-	box-shadow: 0px 1px 0px rgb(98,98,98) inset;
-	@include border-radius(4px);
-	&:hover {
-		cursor: pointer;
-		@include linear-gradient(rgba(#fff, 0.13), rgba(#fff, 0.04));
-		/*.user.sidebar {
-			.name {
-				&.container {
-					color: rgb(40,40,40);
-				}
-			}	
-			.rank {
-				color: rgb(40,40,40);
-			}	
-		}*/
-	}
-}
-
 .user.sidebar {
 	position: relative;
 	.picture {		

@@ -6,6 +6,7 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 		this.attr = options.attr;
 		this.current_user = this.attr.users.get(this.attr.current_user.get('id'));
 		this.is_global = true;
+		this.is_question = false;
 		this.issue = null;
 		var hash = window.location.hash;
 		
@@ -21,7 +22,10 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 	render: function() {
 		var self = this;
 		
-		$(this.el).html(this.template());
+		$(this.el).html(this.template({
+			issue: this.issue,
+			question: this.question
+		}));
 		
 		setTimeout(function() {
 			if (self.is_global) {

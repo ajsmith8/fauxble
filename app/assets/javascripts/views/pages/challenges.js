@@ -17,6 +17,8 @@ Fauxble.Views.PagesChallenges = Backbone.View.extend({
 	render: function() {
 		var self = this,
 			count = 0;
+			
+		$(this.el).addClass('home_challenges_container');
 		$(this.el).html(this.template());
 		
 		setTimeout(function() {

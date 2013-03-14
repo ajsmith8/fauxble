@@ -28,7 +28,7 @@ Fauxble.Models.Slider = Backbone.Model.extend({
 	bindInputEvent: function(type) {
 		var self = this;
 		$(document).on(type, function(event) {
-			var input = $(this.input_element).val();
+			var input = $(self.input_element).val();
 
 			if (self.min % 1 !== 0 || self.correct % 1 !== 0) {
 				input = parseFloat(input);
@@ -37,7 +37,7 @@ Fauxble.Models.Slider = Backbone.Model.extend({
 			}
 
 			if (!isNaN(input) && !self.outOfBounds(input)) {
-				moveSliderFromInput(input, this.slider_element);
+				self.moveSliderFromInput(input, self.slider_element);
 			}
 		});
 	},
