@@ -12,6 +12,9 @@ Fauxble.Views.PagesAbout = Backbone.View.extend({
 	
 	initialize: function(options) {
 		this.time = 500;
+		this.attr = options.attr;
+		
+		this.attr.users.trigger('scope');
 	},
 	
 	render: function() {
@@ -160,7 +163,7 @@ Fauxble.Views.PagesAbout = Backbone.View.extend({
 		$(active).animate({
 			opacity: "1"
 		}, this.time);
-		$(inactive).find('.portrait').animate({
+		/*$(inactive).find('.portrait').animate({
 			right: "10px"
 		}, this.time);
 		$(inactive).find('.logo').animate({
@@ -171,7 +174,7 @@ Fauxble.Views.PagesAbout = Backbone.View.extend({
 		}, this.time);
 		$(active).find('.logo').animate({
 			right: "10px"
-		}, this.time);
+		}, this.time); */
 		$(inactive).animate({
 			opacity: "0"
 		}, this.time);
@@ -195,7 +198,7 @@ Fauxble.Views.PagesAbout = Backbone.View.extend({
 		$(active).animate({
 			opacity: "0"
 		}, this.time);
-		$(inactive).find('.portrait').animate({
+		/*$(inactive).find('.portrait').animate({
 			right: "171px"
 		}, this.time);
 		$(inactive).find('.logo').animate({
@@ -206,7 +209,7 @@ Fauxble.Views.PagesAbout = Backbone.View.extend({
 		}, this.time);
 		$(active).find('.logo').animate({
 			right: "171px"
-		}, this.time);
+		}, this.time); */
 		$(inactive).animate({
 			opacity: "1"
 		}, this.time);

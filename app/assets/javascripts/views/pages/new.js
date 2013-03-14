@@ -13,7 +13,7 @@ Fauxble.Views.PagesNew = Backbone.View.extend({
 		this.user = this.attr.users.get(this.attr.current_user.get('id'));
 		this.subviews = [];
 		
-		this.attr.users.trigger('scope', {is_global: true, is_question: false});
+		this.attr.users.trigger('scope');
 	},
 	
 	render: function() {

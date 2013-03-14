@@ -13,7 +13,7 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 		this.challenge = options.challenge;
 		this.subviews = [];
 		
-		this.attr.users.trigger('scope', {is_global: true, is_question: false});
+		this.attr.users.trigger('scope');
 	},
 	
 	render: function() {

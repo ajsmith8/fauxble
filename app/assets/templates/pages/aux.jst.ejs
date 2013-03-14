@@ -1,14 +1,6 @@
-<% if (issue) { %>
-	<div class = "challenges_subheader top_portion">Top Ranked Fusers for <%= issue.get('title') %></div>
-<% } else { %>
-	<div class = "challenges_subheader top_portion">Top Ranked Fusers</div>
-<% } %>
+<div id = 'top_header' class = "challenges_subheader top_portion"></div>
 <div id = 'top'></div>
-<% if (question) { %>
-	<div class = "challenges_subheader recent_activity">Recent Answers</div>
-<% } else { %>
-	<div class = "challenges_subheader recent_activity">Recent Activity</div>
-<% } %>
+<div id = 'middle_header' class = "challenges_subheader recent_activity"></div>
 <div id = 'middle'></div>
-<div class = "challenges_subheader community">Community</div>
+<div id = 'bottom_header' class = "challenges_subheader community">Community</div>
 <div id = 'bottom'></div>

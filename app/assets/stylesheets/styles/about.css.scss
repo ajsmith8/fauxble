@@ -203,6 +203,7 @@
 		
 		&.active {
 			right: 171px;
+			@include opacity(0);
 		}
 	
 		&.inactive {
@@ -228,6 +229,7 @@
 		
 		&.active {
 			right: 171px;
+			@include opacity(0);
 		}
 	
 		&.inactive {
