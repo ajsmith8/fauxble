@@ -438,6 +438,10 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		}
 	},
 	
+	createRanksFromContent: function() {
+		
+	},
+	
 	pwnCameron: function() {
 		//window.open('http://www.meatspin.com');
 	}
