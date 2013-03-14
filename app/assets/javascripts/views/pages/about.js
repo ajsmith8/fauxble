@@ -64,7 +64,7 @@ Fauxble.Views.PagesAbout = Backbone.View.extend({
 			opacity: "1"
 		}, this.time);
 		$(new_ele).find('.panels').animate({
-			height: "130px"
+			height: "105px"
 		}, this.time);
 		$(new_ele).find('.what-to-do').animate({
 			height: "80px"
