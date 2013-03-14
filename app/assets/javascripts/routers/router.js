@@ -252,9 +252,9 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			this.versus(this.attr.challenges.get(parseInt(c_id)), view);
 		}
 		
-		if (!this.checkTutorial(this.user, 'question')) {
+		//if (!this.checkTutorial(this.user, 'question')) {
 			this.renderTutorial('question');
-		}
+		//}
 		
 		this.triggerPage('question');
 	},

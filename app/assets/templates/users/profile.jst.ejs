@@ -1,9 +1,32 @@
 <div class = 'name container'>
 	<div class = 'name'><%= user.get('name') %></div>
 </div>
-<div class = 'rank'>
-	Global Rank:<span class = "right"> <%= rank %></span>
+<div class = 'rank global_rank'>
+	<div class = "profile_icon_container">
+		<img src = 'assets/logos/black.png'/>	
+	</div>
+	<span class = "number"><%= rank %></span><span class="label">GLOBAL RANK</span>
 </div>
+
+<div class = 'rank facts_learned'>
+	<div class = "profile_icon_container">
+		<div class = "character hand">&#9996;</div>
+	</div>
+	<span class = "number"><%= games.facts %></span><span class = 'label'>FACTS LEARNED</span> 
+</div>
+<div class = 'rank games_won'>
+	<div class = "profile_icon_container">
+		<div class = "character checkmark">&#x2713;</div>
+	</div>
+	<span class = "number"><%= games.won %></span><span class = 'label'>GAMES WON</span> 
+</div>
+<div class = 'rank games_lost'>
+	<div class = "profile_icon_container">
+		<div class = "character x-mark">&#x2717;</div>
+	</div>
+	<span class = "number"><%= games.lost %></span><span class = 'label'>GAMES LOST</span> 
+</div>
+
 <div class = 'picture container'>
 	<div class = 'picture wrapper'>
 		<% if (user.get('uid')) { %>
@@ -11,16 +34,5 @@
 		<% } else { %>
 			<img src = 'assets/misc/user.png' />
 		<% } %>
-	</div>
-</div>
-<div class = 'stats'>
-	<div class = 'played container'>
-		<div class = 'played'>Facts Learned: <div class = "right"><%= games.facts %></div></div>
-	</div>
-	<div class = 'won container'>
-		<div class = 'won'>Games Won: <div class = "right"><%= games.won %></div></div>
-	</div>
-	<div class = 'lost container'>
-		<div class = 'lost'>Games Lost: <div class = "right"><%= games.lost %></div></div>
 	</div>
 </div>
