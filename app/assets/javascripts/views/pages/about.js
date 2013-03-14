@@ -136,9 +136,9 @@ Fauxble.Views.PagesAbout = Backbone.View.extend({
 		var element = $('#monkeys').children().get()[0];
 
 		$(element).addClass('open');
-		$(element).find('.alt-about-panel').css('display', 'block');
-		$(element).find('.what-to-do').animate({
-			height: "80px"
+		$(element).find('.panels').css('display', 'block');
+		$(element).find('.panels').animate({
+			height: "130px"
 		}, this.time);
 		$(element).find('#arrows').find('.down').animate({
 			opacity: "1"

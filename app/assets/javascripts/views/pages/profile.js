@@ -24,6 +24,7 @@ Fauxble.Views.PagesProfile = Backbone.View.extend({
 			self.renderUserProfile();
 			self.renderAchievables();
 			self.renderMatchHistory();
+			self.renderFeed();
 		}, 0);
 		
 		return this;
@@ -45,6 +46,14 @@ Fauxble.Views.PagesProfile = Backbone.View.extend({
 		});
 		this.subviews.push(view);
 		$(this.el).find('#achievables').html(view.render().el);
+	},
+	
+	renderFeed: function() {
+		var view = new Fauxble.Views.UsersFeed({
+			attr: this.attr,
+			user: this.user
+		});
+		$(this.el).find('#feed').html(view.render().el);
 	},
 	
 	renderMatchHistory: function() {

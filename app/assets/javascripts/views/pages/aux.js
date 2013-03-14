@@ -7,11 +7,10 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 		this.current_user = this.attr.users.get(this.attr.current_user.get('id'));
 		this.issue = null;
 		this.question = null;
-		this.user = null;
+
 		var hash = window.location.hash;
 		
-		if (hash.split('/question').length > 1 || hash.split('challenge').length > 1 || hash.split('user').length > 1) {
-			this.user = this.getUser(hash);
+		if (hash.split('/question').length > 1 || hash.split('challenge').length > 1) {
 			this.issue = this.getIssue(hash);
 			this.question = this.getQuestion(hash);	
 		}
@@ -45,7 +44,6 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 	
 	switchScope: function() {
 		var hash = window.location.hash,
-			user = this.getUser(hash),
 			issue = this.getIssue(hash),
 			question = this.getQuestion(hash);
 		
@@ -67,16 +65,6 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 			if (this.question) {
 				this.recentAnswers();
 			} else {
-				if (!user) {
-					this.activityFeed();
-				}
-			}
-		}
-		
-		if (user !== this.user) {
-			this.user = user;
-			
-			if (this.user) {
 				this.activityFeed();
 			}
 		}
@@ -106,16 +94,6 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 		return question;
 	},
 	
-	getUser: function(hash) {
-		var user = null;
-		
-		if (hash.split('user').length > 1) {
-			user = this.attr.users.get(parseInt(hash.split('user')[1]));
-		}
-		
-		return user;
-	},
-	
 	topUsers: function() {
 		var view = new Fauxble.Views.UsersIndex({
 			attr: this.attr,
@@ -134,18 +112,10 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 	activityFeed: function() {
 		var view = new Fauxble.Views.UsersFeed({
 			attr: this.attr,
-			user: this.user
+			user: null
 		});
 		
-		if (this.user) {
-			if (this.current_user && this.current_user.get('id') === this.user.get('id')) {
-				$(this.el).find('#middle_header').html('Your Recent Activity');
-			} else {
-				$(this.el).find('#middle_header').html(this.user.get('name').split(' ')[0] + '\'s Recent Activity');
-			}
-		} else {
-			$(this.el).find('#middle_header').html('Recent Activity');
-		}
+		$(this.el).find('#middle_header').html('Recent Activity');
 		
 		$(this.el).find('#middle').html(view.render().el);
 	},

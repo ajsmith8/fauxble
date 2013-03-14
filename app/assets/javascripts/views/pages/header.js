@@ -6,7 +6,7 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 		'click #home' : 'homePage',
 		'click #about' : 'aboutPage',
 		'click #signin' : 'toggleSignin',
-		'click #fb_login' : 'fbLogin',
+		'click #fb_login_header' : 'fbLogin',
 		'focus input' : 'focusInput',
 		'blur input' : 'blurInput',
 		'submit #signin_form' : 'signin'
@@ -53,12 +53,15 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	},
 	
 	toggleSignin: function() {
-		var element = $(this.el).find('.signin.panel');
+		var element = $(this.el).find('.signin.panel'),
+			button = $(this.el).find('#profile');
 
 		if ($(element).hasClass('hide')) {
 			$(element).removeClass('hide');
+			$(button).addClass('active');
 		} else {
 			$(element).addClass('hide');
+			$(button).removeClass('active');
 		}
 	},
 	
@@ -71,8 +74,8 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	focusInput: function(event) {
 		var element = $(event.target).closest('input');
 		
-		if ($(element).attr('id') === 'name') {
-			if ($(element).val() === 'Name') {
+		if ($(element).attr('id') === 'Email') {
+			if ($(element).val() === 'Email') {
 				$(element).val('');
 			}
 		} else {
@@ -86,9 +89,9 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	blurInput: function(event) {
 		var element = $(event.target).closest('input');
 		
-		if ($(element).attr('id') === 'name') {
+		if ($(element).attr('id') === 'Email') {
 			if ($(element).val() === '') {
-				$(element).val('Name');
+				$(element).val('Email');
 			}
 		} else {
 			if ($(element).val() === '') {
@@ -101,14 +104,14 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	signin: function(event) {
 		event.preventDefault();
 		
-		var name = $(this.el).find('#name').val(),
-			password = $(this.el).find('#password').val(),
+		var email = $(this.el).find('#Email').val(),
+			password = $(this.el).find('#Password').val(),
 			user;
 		
 		//start loading 'waiting for authentication'
 		// find user by name and use save to hit update in controller
 		
-		user = this.attr.users.where({name: name})[0];
+		user = this.attr.users.where({encrypted_email: email})[0];
 		
 		if (user) {
 			if (user.authenticate(password)) {

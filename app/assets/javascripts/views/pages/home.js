@@ -38,13 +38,10 @@ Fauxble.Views.PagesHome = Backbone.View.extend({
 	focusInput: function(event) {
 		var element = $(event.target).closest('input');
 		
-		if ($(element).attr('id') === 'name' || $(element).attr('id') === 'email') {
-			if ($(element).val() === 'Name' || $(element).val() === 'Email') {
-				$(element).val('');
-			}
-		} else {
-			if ($(element).attr('type') !== 'password') {
-				$(element).val('');
+		if ($(element).val() === $(element).attr('id').replace('_', ' ')) {
+			$(element).val('');
+			
+			if ($(element).attr('id').split('Password').length > 1) {
 				$(element).attr('type', 'password');
 			}
 		}
@@ -53,29 +50,21 @@ Fauxble.Views.PagesHome = Backbone.View.extend({
 	blurInput: function(event) {
 		var element = $(event.target).closest('input');
 		
-		if ($(element).attr('id') === 'name' || $(element).attr('id') === 'email') {
-			if ($(element).val() === '') {
-				if ($(element).attr('id') === 'name') {
-					$(element).val('Name');
-				} else {
-					$(element).val('Email');
-				}
-			}
-		} else {
-			if ($(element).val() === '') {
-				$(element).val($(element).attr('id'));
+		if ($(element).val() === '') {
+			$(element).val($(element).attr('id').replace('_', ' '));
+			if ($(element).attr('type', 'password')) {
 				$(element).attr('type', 'text');
-			}	
+			}
 		}
 	},
 	
 	createUser: function(event) {
 		event.preventDefault();
 		
-		var name = $('#name').val(),
-			email = $('#email').val(),
-			password = $('#password').val(),
-			confirm = $('#confirm').val();
+		var name = $(this.el).find('#User_Name').val(),
+			email = $(this.el).find('#Email').val(),
+			password = $(this.el).find('#Password').val(),
+			confirm = $(this.el).find('#Confirm_Password').val();
 		
 		//start loading 'waiting for authentication'	
 		this.attr.users.authenticateUser(name, email, password, confirm, 6);

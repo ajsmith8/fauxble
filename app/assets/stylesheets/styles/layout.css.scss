@@ -9,7 +9,7 @@ body {
 	/*box-shadow: -2px -1px 2px rgba(darken($bluegreen,10%), 0.3),
 				2px 1px 2px rgba(darken($bluegreen,10%), 0.3);
 	@include border-radius(6px);*/
-	height: 100%;
+
 	/*background: rgb(238,238,238);*/
 	background-image: url(misc/gray_jean.png); background-repeat: repeat;
 }
@@ -18,21 +18,53 @@ body {
 }
 
 .page {
+	z-index: 0;
 	position: relative;
 	width: 932px;
 	margin: 0 auto;
-	min-height: 100%;
 	/*background: rgb(249,249,249);*/
+}
+
+.test-container {
+	z-index: -1;
+	position: relative;
+	width: 932px;
+	margin: 0 auto;
+	height: 0;
+}
+
+.test {
+	position: fixed;
+	top: 0;
+	width: 932px;
+	height: 100%;
+	
 	background-image: url(misc/253.png); background-repeat: repeat;
 	border: 1px solid rgb(230,230,230);
 	border-top: none;
-	@include border-bottom-radius(12px);
+}
+
+.test-column {
+	position: absolute;
+	top: 40px;
+	height: 100%;
+	
+	&.left {
+		left: 0;
+		width: 346px;
+		border-right: 1px solid rgb(235,235,235);
+	}
+	
+	&.right {
+		right: 0;
+		width: 585px;
+		background: #fff;
+	}
 }
 
 .column {
 	position: absolute;
 	top: 52px;
-	min-height: 100%;
 	
 	&.right {
 		right: 15px;
@@ -48,15 +80,14 @@ body {
 		top: 0;
 		left: 0;
 		width: 346px;
-		border-right: 1px solid rgb(235,235,235);
+		/* border-right: 1px solid rgb(235,235,235); */
 	}
 	
 	&.starboard {
 		top: 0;
 		right: 0;
 		width: 585px;
-		background: #fff;
-		@include border-bottom-right-radius(12px);
+		/* background: #fff; */
 	}
 }
 
