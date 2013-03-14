@@ -117,8 +117,8 @@
 		&.panel {
 			position: absolute;
 			top: 40px;
-			right: 65px;
-			height: 200px;
+			right: 0px;
+			height: 185px;
 			width: 250px;
 			background: #fff;
 			border: 1px solid rgb(219,219,219);
@@ -129,7 +129,7 @@
 		.or_container {
 			position: relative;
 			float: left;
-			margin: 18px 0 18px 29%;
+			margin: 20px 0 20px 29%;
 			padding-top: -12px;
 			height: 0px;
 			border: 1px solid rgb(218,218,218);
@@ -147,7 +147,7 @@
 		}
 		#signin_form {
 			width: 62%;
-			margin: 12px 0px 2px 19%;
+			margin: 12px 0px 2px 18.5%;
 			input {
 				@include border-radius(3px);
 				color: $black;
@@ -166,25 +166,23 @@
 				}
 			}
 			.signin_button {
-				@include fonts;
+				position: relative;
 				float: left;
-				height: 32px;
-				width: 34%;
-				margin: 10px 0 0 33%;
+				width: 50%;
+				margin: 0 0 0 25.5%;
+				border: 1px solid rgb(208,208,208);
+				border-bottom: 1px solid rgb(184,184,184);
+				height: 25px;
+				font-size: 13px;
+				color: $black;
 				text-align: center;
-				cursor: pointer;
-				font-weight: bold;
-				@include border-radius(20px);					
-				border: none;
-				color: #ffffff;
-
-				padding-top: 3px;
-				font-size: 11px;
-				@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
-				@include text-shadow(0px 1px 0 rgba(#000,0.2));
-				@include single-box-shadow(rgba(#000, 0.3), 0px, 1px, 1px, 0);
+				@include text-shadow(0 1px 0 rgba(#fff,0.9));
+				@include linear-gradient(rgb(255,255,255), rgb(230,230,230));
+				@include border-radius(5px);
 				&:hover {
-					background: darken($bluegreen, 6%);
+					cursor: pointer;
+					background: rgb(230,230,230);
+					border: 1px solid rgb(184,184,184);
 				}
 			}
 		}
