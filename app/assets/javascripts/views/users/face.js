@@ -3,7 +3,7 @@ Fauxble.Views.UsersFace = Backbone.View.extend({
 	template: JST['users/face'],
 	
 	events: {
-		
+		'click' : 'userProfile'
 	},
 	
 	initialize: function(options) {
@@ -19,5 +19,9 @@ Fauxble.Views.UsersFace = Backbone.View.extend({
 			is_you: this.is_current_user
 		}));
 		return this;
+	},
+	
+	userProfile: function() {
+		Backbone.history.navigate('user' + this.user.get('id'), true);
 	}
 });

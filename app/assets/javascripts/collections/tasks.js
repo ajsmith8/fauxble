@@ -213,7 +213,7 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 	},
 	
 	setRandoms: function(challenge, challenger, user) {
-		var ids = model.get('question_ids').split('/'),
+		var ids = challenge.get('question_ids').split('/'),
 			self = this;
 
 		_.each(ids, function(id) {

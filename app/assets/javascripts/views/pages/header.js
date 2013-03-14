@@ -20,11 +20,16 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	render: function() {
 		var self = this;
 		
+		$(this.el).addClass('wrapper');
 		$(this.el).html(this.template());
 		
 		setTimeout(function() {
 			if (self.user) {
+				$(self.el).find('#profile').addClass('black');
 				self.renderProfile();
+			} else {
+				$(self.el).find('#profile').addClass('blue');
+				self.renderSignIn();
 			}
 		}, 0);
 		
@@ -40,9 +45,16 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 		$(this.el).find('#profile').html(view.render().el);
 	},
 	
+	renderSignIn: function() {
+		var view = new Fauxble.Views.PagesSignin({
+			attr: this.attr
+		});
+		$(this.el).find('#profile').html(view.render().el);
+	},
+	
 	toggleSignin: function() {
-		var element = $(this.el).find('#signin_box');
-		
+		var element = $(this.el).find('.signin.panel');
+
 		if ($(element).hasClass('hide')) {
 			$(element).removeClass('hide');
 		} else {

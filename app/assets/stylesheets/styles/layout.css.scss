@@ -3,46 +3,27 @@ html {
 }
 
 body {
-	@include fonts;
-	margin: 0 3px 3px 3px;
-	padding: 0 2px 2px 2px;
+	padding: 0;
+	margin: 0;
 	@include fonts;
 	/*box-shadow: -2px -1px 2px rgba(darken($bluegreen,10%), 0.3),
 				2px 1px 2px rgba(darken($bluegreen,10%), 0.3);
 	@include border-radius(6px);*/
-	height: 92%;
+	height: 100%;
 	/*background: rgb(238,238,238);*/
 	background-image: url(misc/gray_jean.png); background-repeat: repeat;
-}
-
-.header {
-	height: 40px;
-	margin: 0 -5px 0px -5px;
-	/*@include linear-gradient(lighten($black,15%), darken($black,15%));*/
-	background-image: url(misc/black_header_texture.png); background-repeat: repeat;
-	@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);
-	.header_logo_container {
-		height: 40px;
-		width: 30px;
-		margin: 0 auto;
-		padding-top: 6px;
-		&:hover {
-			cursor: pointer
-		}
-	}
 }
 
 .popup {
 }
 
 .page {
-	z-index: 1;
+	position: relative;
 	width: 932px;
 	margin: 0 auto;
-	height: 650px;
+	min-height: 100%;
 	/*background: rgb(249,249,249);*/
 	background-image: url(misc/253.png); background-repeat: repeat;
-	margin-top: 2px;
 	border: 1px solid rgb(230,230,230);
 	border-top: none;
 	@include border-bottom-radius(12px);
@@ -50,61 +31,55 @@ body {
 
 .column {
 	position: absolute;
-	/*background: #ffffff;*/
-	/*background-image: url(misc/253.png); background-repeat: repeat;*/
-	padding-top: 12px;
+	top: 52px;
+	min-height: 100%;
+	
 	&.right {
-		height: 632px;
-		margin-left: 347px;
-		width: 570px;
-		padding-right: 1px;
-		padding-left: 14px;
-		background: #fff;
+		right: 15px;
+		width: 555px;
 	}
 	
 	&.left {
-		
-		&.top {
-			margin-top: 12px;
-			padding-top: 0px;
-			padding-left: 14px;
-			width: 311px;
-			height: 632px;
-			padding-right: 22px;
-			border-right: 1px solid rgb(235,235,235);
-			
-		}
-		
-		&.bottom {
-			display: none;
-			width: 311px;
-			height: 208px;
-			margin-top: 426px;
-			margin-left: 14px;
-			
-			.chat {
-				&.chat_text {
-					margin-top: 12px;
-					text-align: center;
-					color: #bbbbbb;
-				}
-
-				&.logo {
-					margin: 0 auto;
-					margin-top: 57px;
-					width: 40px;
-					height: 40px;
-					overflow: hidden;	
-					@include border-radius(5px);
-						.image_wrapper {
-							@include border-radius(5px);
-						}
-				}
-			}
-		}
+		left: 15px;
+		width: 317px;
+	}
+	
+	&.port {
+		top: 0;
+		left: 0;
+		width: 346px;
+		border-right: 1px solid rgb(235,235,235);
+	}
+	
+	&.starboard {
+		top: 0;
+		right: 0;
+		width: 585px;
+		background: #fff;
+		@include border-bottom-right-radius(12px);
 	}
 }
 
+.chat {
+	&.chat_text {
+		margin-top: 12px;
+		text-align: center;
+		color: #bbbbbb;
+	}
+
+	&.logo {
+		margin: 0 auto;
+		margin-top: 57px;
+		width: 40px;
+		height: 40px;
+		overflow: hidden;	
+		@include border-radius(5px);
+		
+		.image_wrapper {
+			@include border-radius(5px);
+		}
+	}
+}
 /* different pages */
 
 .video {
@@ -117,6 +92,19 @@ body {
 		border-radius: 20px !important;	
 		@include single-box-shadow(rgba(#000, 0.3), 2px, 2px, 2px, 0);
 	}
+}
+
+.container_header {
+	height: 15px;
+	width: 100%;
+	text-align: left;
+	padding: 2px 0 0 0;
+	color: $black;
+	font-size: 13px;
+	font-weight: bold;		
+	/*@include linear-gradient(lighten($bluegreen,8%), darken($bluegreen,12%));*/
+	/*background-image: url(misc/green_texture.png); background-repeat: repeat;*/
+	@include border-top-radius(11px);
 }
 
 .results_container {
@@ -278,33 +266,11 @@ body {
 	}
 }
 
-.container_header {
-	height: 15px;
-	width: 100%;
-	text-align: left;
-	padding: 2px 0 0 0;
-	color: $black;
-	font-size: 13px;
-	font-weight: bold;		
-	/*@include linear-gradient(lighten($bluegreen,8%), darken($bluegreen,12%));*/
-	/*background-image: url(misc/green_texture.png); background-repeat: repeat;*/
-	@include border-top-radius(11px);
-}
-
 .like-button {
-	position: absolute;
+	float: left;
+	height: 80px;
 	width: 320px;
-	right: 21px;
-	top: 500px;
-	z-index: 16;
-}
-
-.centered_header_container {
-	position: relative;
-	height: 1px;
-	width: 932px;
-	margin: 0 auto;
-	margin-top: -46px;
+	margin: 28px 0 0 0;
 }
 
 #fb_login {
@@ -353,11 +319,10 @@ body {
 
 .home_images_container {
 	position: relative;
-	width: 932px;
-	height: 520px;
-	margin: -14px 0 0 -361px;
+	width: 100%;
+	height: 100%;
+	margin: 40px 0 0 0;
 	background-image: url(misc/253.png); background-repeat: repeat;
-	z-index: 10;
 	border-top: 1px solid rgba(#000, 0.15);
 	.grey_cover {
 		position: absolute;
@@ -431,7 +396,7 @@ body {
 		position: absolute;
 		right: 25px;
 		top: 273px;
-		height: 220px;
+		min-height: 220px;
 		width: 335px;
 		border-bottom: 1px solid rgba(#000, 0.06);
 		.get_started_text {
@@ -469,7 +434,7 @@ body {
 			position: relative;
 			float: left;
 			width: 179px;
-			left: 77px;
+			margin: 0 0 10px 77px;
 			border: 1px solid rgb(208,208,208);
 			border-bottom: 1px solid rgb(184,184,184);
 			height: 43px;
@@ -501,25 +466,12 @@ body {
 				@include text-shadow(0 1px 0 rgba(#fff,0.9));
 			}
 		}
+		
+		.signup_form {
+			position: relative;
+			z-index: 13;
+			width: 100%;
+			float: left;
+		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.dur{}
