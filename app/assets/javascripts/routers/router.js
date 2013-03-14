@@ -15,6 +15,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	initialize: function(options) {
 		this.page = null;
 		this.user = options.users.get(options.current_user.get('id'));
+		this.columns = false;
 		
 		this.attr = {
 			current_user: options.current_user,
@@ -52,6 +53,13 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			inter = setInterval(function() {
 				self.time = self.time + 0.1
 			}, 100);
+		}
+	},
+	
+	renderColumns: function() {
+		if (!this.columns) {
+			this.columns = true;
+			$('.page').html(JST['pages/columns']);
 		}
 	},
 	
@@ -166,6 +174,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	pagesHome: function() {
+		this.columns = false;
 		var view = new Fauxble.Views.PagesHome({
 			attr: this.attr
 		});
@@ -176,11 +185,12 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	about: function() {
-		$('.page').html(JST['pages/columns']);
+		this.renderColumns();
 		var view = new Fauxble.Views.PagesAbout({
 			attr: this.attr
 		});
 		this.setCurrentView(view);
+		this.feed();
 		$('.right.column').html(view.render().el);
 		this.triggerPage('about');
 	},
@@ -193,7 +203,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	challenges: function() {
-		$('.page').html(JST['pages/columns']);
+		this.renderColumns();
 		var	view = new Fauxble.Views.PagesChallenges({
 			attr: this.attr
 		});
@@ -221,7 +231,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	pagesNew: function(id) {
-		$('.page').html(JST['pages/columns']);
+		this.renderColumns();
 		var view = new Fauxble.Views.PagesNew({
 			attr: this.attr,
 			challenge: this.attr.challenges.get(parseInt(id))
@@ -238,7 +248,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	issues: function(id) {
-		$('.page').html(JST['pages/columns']);
+		this.renderColumns();
 		var view = new Fauxble.Views.PagesIssues({
 			attr: this.attr,
 			challenge: this.attr.challenges.get(parseInt(id))
@@ -253,11 +263,12 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	question: function(c_id, id) {
-		$('.page').html(JST['pages/columns']);
+		this.renderColumns();
+		var question = this.attr.questions.get(parseInt(id));
 		var view = new Fauxble.Views.PagesQuestion({
 			attr: this.attr,
 			challenge: this.attr.challenges.get(parseInt(c_id)),
-			question: this.attr.questions.get(parseInt(id))
+			question: question
 		});
 		this.setCurrentView(view);
 		this.feed();
@@ -267,9 +278,15 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			this.versus(this.attr.challenges.get(parseInt(c_id)), view);
 		}
 		
-		//if (!this.checkTutorial(this.user, 'question')) {
-			this.renderTutorial('question');
-		//}
+		if (question.get('is_slider')) {
+			if (!this.checkTutorial(this.user, 'slider')) {
+				this.renderTutorial('slider');
+			}
+		} else {
+			if (!this.checkTutorial(this.user, 'answers')) {
+				this.renderTutorial('answers');
+			}
+		}
 		
 		this.triggerPage('question');
 	},
@@ -284,7 +301,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	results: function(id) {
-		$('.page').html(JST['pages/columns']);
+		this.renderColumns();
 		var view = new Fauxble.Views.PagesResults({
 			attr: this.attr,
 			challenge: this.attr.challenges.get(parseInt(id))
@@ -305,7 +322,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	profile: function(id) {
-		$('.page').html(JST['pages/columns']);
+		this.renderColumns();
 		var view = new Fauxble.Views.PagesProfile({
 			attr: this.attr,
 			user: this.attr.users.get(parseInt(id))

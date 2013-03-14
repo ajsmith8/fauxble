@@ -8,6 +8,7 @@ Fauxble.Views.UsersFeed = Backbone.View.extend({
 	
 	initialize: function(options) {
 		this.attr = options.attr;
+		this.user = options.user;
 		this.current_location = 0;
 		//should check for conditions before render
 		//use prepend
@@ -34,18 +35,36 @@ Fauxble.Views.UsersFeed = Backbone.View.extend({
 	},
 	
 	newAchievable: function(model) {
-		this.updateFeed({obj: model, type: 'user_achievable'});
+		if (this.user) {
+			if (model.get('user_id') === this.user.get('id')) {
+				this.updateFeed({obj: model, type: 'user_achievable'});
+			}
+		} else {
+			this.updateFeed({obj: model, type: 'user_achievable'});
+		}
 	},
 	
 	newChallenge: function(model) {
 		if (model.get('is_sent') || model.get('is_finished')) {
-			this.updateFeed({obj: model, type: 'challenge'});
+			if (this.user) {
+				if (model.get('challenger_id') === this.user.get('id')) {
+					this.updateFeed({obj: model, type: 'challenge'});
+				}
+			} else {
+				this.updateFeed({obj: model, type: 'challenge'});
+			}
 		}
 	},
 	
 	newUser: function(model) {
 		if (model.get('signed_in') || model.get('signed_in_fb')) {
-			this.updateFeed({obj: model, type: 'user'});
+			if (this.user) {
+				if (model.get('id') === this.user.get('id')) {
+					this.updateFeed({obj: model, type: 'user'});
+				}
+			} else {
+				this.updateFeed({obj: model, type: 'user'});
+			}
 		}
 	},
 	
@@ -54,16 +73,34 @@ Fauxble.Views.UsersFeed = Backbone.View.extend({
 			feed = [];
 		
 		this.attr.user_achievables.each(function(ua) {
-			feed.push({obj: ua, type: 'user_achievable'});
+			if (self.user) {
+				if (ua.get('user_id') === self.user.get('id')) {
+					feed.push({obj: ua, type: 'user_achievable'});
+				}
+			} else {
+				feed.push({obj: ua, type: 'user_achievable'});
+			}
 		});
 		this.attr.challenges.each(function(c) {
 			if (c.get('is_sent') || c.get('is_finished')) {
-				feed.push({obj: c, type: 'challenge'});
+				if (self.user) {
+					if (c.get('challenger_id') === self.user.get('id')) {
+						feed.push({obj: c, type: 'challenge'});
+					}
+				} else {
+					feed.push({obj: c, type: 'challenge'});
+				}
 			}
 		});
 		this.attr.users.each(function(u) {
 			if (u.get('signed_in') || u.get('signed_in_fb')) {
-				feed.push({obj: u, type: 'user'});
+				if (self.user) {
+					if (u.get('id') === self.user.get('id')) {
+						feed.push({obj: u, type: 'user'});
+					}
+				} else {
+					feed.push({obj: u, type: 'user'});
+				}
 			}
 		});
 		

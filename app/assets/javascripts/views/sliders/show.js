@@ -77,10 +77,7 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 			exponent = 3;
 		}
 
-		margin = parseInt($('.page').css('margin-left')) + 
-				 parseInt($('.column.right').css('margin-left')) + 
-				 parseInt($('.column.right').css('padding-left')) +
-				 parseInt($('.slider-answers').css('margin-left'));
+		margin = parseInt($('.page').css('margin-left')) + parseInt($('.slider-answers').css('margin-left')) + parseInt($('.column.port').css('width'));
 		
 		this.slider.setDefaults({
 			exponent: exponent,

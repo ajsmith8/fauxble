@@ -10,6 +10,8 @@ Fauxble.Views.PagesProfile = Backbone.View.extend({
 		this.attr = options.attr;
 		this.user = options.user;
 		this.subviews = [];
+		
+		this.attr.users.trigger('scope');
 	},
 	
 	render: function() {
