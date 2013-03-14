@@ -89,7 +89,7 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 		
 		this.create({
 			name: name,
-			email: email,
+			encrypted_email: email,
 			password: password,
 			signed_in: true
 		}, {

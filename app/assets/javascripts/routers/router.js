@@ -60,6 +60,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		if (!this.columns) {
 			this.columns = true;
 			$('.page').html(JST['pages/columns']);
+			$('.test').html(JST['pages/background']);
 		}
 	},
 	
