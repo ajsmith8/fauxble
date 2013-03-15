@@ -8,8 +8,10 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		':c_id/question:id' : 'question',
 		'challenge:id' 		: 'results',
 		'user:id' 			: 'profile',
-		'andrew/loves/men'	: 'generateRandomUsers',
-		'andrew/loves/boys'	: 'generateRandomContent'
+		
+		'random/content/users'		: 'generateRandomUsers',
+		'random/content/challenges'	: 'generateRandomContent',
+		'random/content/ranks'		: 'generateRandomRanks', 
 	},
 	
 	initialize: function(options) {
@@ -241,10 +243,6 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.feed();
 		$('.right.column').html(view.render().el);
 		
-		if (!this.checkTutorial(this.user, 'users')) {
-			this.renderTutorial('users');
-		}
-		
 		this.triggerPage('users');
 	},
 	
@@ -257,9 +255,11 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.setCurrentView(view);
 		this.feed();
 		$('.right.column').html(view.render().el);
+		
 		if (!this.checkTutorial(this.user, 'issues')) {
 			this.renderTutorial('issues');
 		}
+		
 		this.triggerPage('issues');
 	},
 	
@@ -439,8 +439,45 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		}
 	},
 	
-	createRanksFromContent: function() {
+	generateRandomRanks: function() {
+		var users = this.attr.users.where({signed_in_fb: true, provider: null}),
+			self = this,
+			rank,
+			tasks,
+			score;
 		
+		for (u = 0; u < users.length; u++) {
+			this.attr.issues.each(function(issue) {
+				tasks = self.attr.tasks.where({user_id: users[u].get('id'), issue_id: issue.get('id')});
+				score = 0;
+				
+				for (t = 0; t < tasks.length; t++) {
+					score = score + tasks[t].get('score');
+				}
+				
+				if (!self.attr.ranks.where({user_id: users[u].get('id'), issue_id: issue.get('id')})[0]) {
+					self.attr.ranks.create({
+						user_id: users[u].get('id'),
+						issue_id: issue.get('id'),
+						score: score
+					});
+				} else {
+					rank = self.attr.ranks.where({user_id: users[u].get('id'), issue_id: issue.get('id')})[0];
+					
+					if (!rank.get('score')) {
+						rank.set({
+							score: score
+						});
+					} else {
+						rank.set({
+							score: rank.get('score') + score
+						});
+					}
+					
+					rank.save();
+				}
+			});
+		}	
 	},
 	
 	pwnCameron: function() {
