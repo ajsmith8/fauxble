@@ -206,6 +206,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	challenges: function() {
+		console.log('router/challenges init ' + window.timer);
 		this.renderColumns();
 		var	view = new Fauxble.Views.PagesChallenges({
 			attr: this.attr
@@ -234,6 +235,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	pagesNew: function(id) {
+		console.log('router/pagesNew init ' + window.timer);
 		this.renderColumns();
 		var view = new Fauxble.Views.PagesNew({
 			attr: this.attr,
@@ -247,6 +249,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	issues: function(id) {
+		console.log('router/issues init ' + window.timer);
 		this.renderColumns();
 		var view = new Fauxble.Views.PagesIssues({
 			attr: this.attr,
@@ -264,6 +267,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	question: function(c_id, id) {
+		console.log('router/question init ' + window.timer);
 		this.renderColumns();
 		var question = this.attr.questions.get(parseInt(id));
 		var view = new Fauxble.Views.PagesQuestion({
@@ -302,6 +306,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	results: function(id) {
+		console.log('router/results init ' + window.timer);
 		this.renderColumns();
 		var view = new Fauxble.Views.PagesResults({
 			attr: this.attr,
@@ -350,7 +355,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	generateRandomUsers: function() {
 		var users = this.attr.users.where({signed_in_fb: true}),
 			friends = [],
-			length = 50,
+			length = 20,
 			random_users = [],
 			count = 0,
 			self = this;
@@ -361,7 +366,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 				if (count === users.length - 1) {
 					friends = _.shuffle(friends);
 					
-					if (friends.length < 50) {
+					if (friends.length < 20) {
 						length = friends.length;
 					}
 					
@@ -407,9 +412,9 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		});
 		
 		for (iss = 0; iss < issues.length; iss++) {
-			users = this.attr.users.getFauxUsers(Math.round(Math.random() * Math.round(length *  (2.0 / 3))) + Math.round(length / 3.0));
+			users = this.attr.users.getFauxUsers(Math.round(Math.random() * 2) + 4);
 			for (q = 0; q < users.length; q++) {
-				challenge_num = Math.round(Math.random() * Math.round(users.length *  0.5)) + Math.round(users.length * 0.5);
+				challenge_num = Math.round(Math.ceil(self.attr.questions.getNumQuestions(issues[iss]) / 4) / 2);
 			
 				for (c = 0; c < challenge_num; c++) {
 					var user_index = 0;

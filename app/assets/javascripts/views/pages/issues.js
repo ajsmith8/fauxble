@@ -9,6 +9,7 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 	},
 	
 	initialize: function(options) {
+		console.log('views/pages/issues init ' + window.timer);
 		this.attr = options.attr;
 		this.challenge = options.challenge;
 		this.subviews = [];
@@ -28,6 +29,7 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 	},
 	
 	renderIssues: function() {
+		console.log('views/pages/issues/renderIssues init ' + window.timer);
 		var self = this,
 			num_questions,
 			issues = [];
@@ -48,6 +50,7 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 	},
 	
 	appendIssue: function(issue, num_questions, count) {
+		console.log('views/pages/issues/appendIssue ' + issue.get('id') + ' init ' + window.timer);
 		var view = new Fauxble.Views.IssuesShow({
 			attr: this.attr,
 			issue: issue,
@@ -60,7 +63,6 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 	},
 	
 	showAllIssues: function() {
-		
 		var self = this,
 			num_questions,
 			issues = [];
@@ -82,19 +84,12 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 	setChallengeIssue: function(event) {
 		var issue = this.attr.issues.get(parseInt($(event.target).closest('.issue').attr('id')));
 		
-		if (issue.get('id') === 20) {
-			this.challenge.set({
-				issue_id: issue.get('id'),
-				question_ids: this.attr.questions.getRandomIds(issue, 8)
-			});
-		} else {
-			this.challenge.set({
-				issue_id: issue.get('id'),
-				question_ids: this.attr.questions.getRandomIds(issue, 4)
-			});
-		}
+		this.challenge.set({
+			issue_id: issue.get('id'),
+			question_ids: this.attr.questions.getRandomIds(issue, 4)
+		});
 		this.challenge.save();
-		
+		console.log('views/pages/issues/setChallengeIssue route ' + window.timer);
 		Backbone.history.navigate(this.challenge.get('id') + '/question' + this.challenge.get('question_ids').split('/')[0], true);
 	},
 	

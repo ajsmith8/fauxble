@@ -21,11 +21,6 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 		this.timer = this.time;
 		this.subviews = [];
 		
-		console.log('challenge id: ' + this.challenge.get('id'));
-		console.log('question id: ' + this.question.get('id'));
-		console.log('user id: ' + this.user.get('id'));
-		console.log('# of answers: ' + this.answers.length);
-		
 		this.setRoundSpecifics();
 	},
 	
@@ -135,9 +130,6 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 				score = task.get('score');
 			}
 			this.user.trigger('submit', score);
-			
-			console.log('answer id: ' + answer_id);
-			console.log('score: ' + score);
 			
 			if (this.task) {
 				this.attr.users.get(this.task.get('user_id')).trigger('submit', this.task.get('score'));

@@ -7,6 +7,7 @@ Fauxble.Views.PagesQuestion = Backbone.View.extend({
 	},
 	
 	initialize: function(options) {
+		console.log('views/pages/question init ' + window.timer);
 		this.attr = options.attr;
 		this.challenge = options.challenge;
 		this.question = options.question;
