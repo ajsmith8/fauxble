@@ -627,3 +627,15 @@
 		}
 	}
 }
+
+.profile_feed {
+	float: left;
+	border: 1px solid;
+	height: 400px;
+	width: 500px;
+	.actual_name {
+		&.user {
+			display: none;
+		}
+	}
+}

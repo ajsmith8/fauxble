@@ -100,7 +100,7 @@ Fauxble.Views.PagesAbout = Backbone.View.extend({
 			height: "150px"
 		}, this.time);
 		$(new_ele).find('.who-are-you').animate({
-			height: "220px"
+			height: "110px"
 		}, this.time);
 		$(new_ele).find('#arrows').find('.down').animate({
 			opacity: "1"
@@ -138,7 +138,7 @@ Fauxble.Views.PagesAbout = Backbone.View.extend({
 		$(element).addClass('open');
 		$(element).find('.panels').css('display', 'block');
 		$(element).find('.panels').animate({
-			height: "130px"
+			height: "105px"
 		}, this.time);
 		$(element).find('#arrows').find('.down').animate({
 			opacity: "1"

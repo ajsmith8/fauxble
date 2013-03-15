@@ -307,11 +307,21 @@ body {
 }
 
 #fb_login {
+
+}
+
+.fb_login_main {
+	&.signin {
+		width: 66%;
+		margin-left: 17%;
+	}
+	&.friend_select {
+		width: 38%;
+		margin-left: 31%;
+	}
 	position: relative;
 	color: #fff;
 	height: 43px;
-	width: 66%;
-	margin-left: 17%;
 	border: 1px solid rgb(24,48,84);
 	border-bottom: 1px solid rgb(6,44,80);	
 	font-size: 14px;
