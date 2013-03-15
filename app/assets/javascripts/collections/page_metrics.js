@@ -6,7 +6,7 @@ Fauxble.Collections.PageMetrics = Backbone.Collection.extend({
 	initialize: function(models, options) {
 		this.users = options.users;
 		
-		//this.users.on('page', this.createPageMetric, this);
+		this.users.on('page', this.createPageMetric, this);
 	},
 	
 	createPageMetric: function(options) {

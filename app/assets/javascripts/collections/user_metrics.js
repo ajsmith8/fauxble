@@ -7,10 +7,10 @@ Fauxble.Collections.UserMetrics = Backbone.Collection.extend({
 		this.challenges = options.challenges;
 		this.users = options.users;
 
-		//this.challenges.on('add', this.challengeCreated, this);
-		//this.challenges.on('change:is_finished', this.challengeFinished, this);
-		//this.challenges.on('change:is_sent', this.challengeSent, this);
-		//this.users.on('page', this.addTime, this);
+		this.challenges.on('add', this.challengeCreated, this);
+		this.challenges.on('change:is_finished', this.challengeFinished, this);
+		this.challenges.on('change:is_sent', this.challengeSent, this);
+		this.users.on('page', this.addTime, this);
 	},
 	
 	getUserMetric: function(user) {

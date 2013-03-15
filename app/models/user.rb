@@ -39,6 +39,53 @@ class User < ActiveRecord::Base
     end
   end
   
+  def faux_user_switch(user)
+    sent = Challenge.where(challenger_id: user.id)
+    recieved = Challenge.where(user_id: user.id)
+    tasks = Task.where(user_id: user.id)
+    achievables = UserAchievable.where(user_id: user.id)
+    ranks = Rank.where(user_id: user.id)
+    users = User.where(signed_in_fb: true, provider: nil)
+    faux = users.shuffle[0]
+    
+    sent.each do |s|
+      s.challenger_id = faux.id
+      s.save
+    end
+    
+    recieved.each do |r|
+      r.user_id = faux.id
+      r.save
+    end
+    
+    tasks.each do |t|
+      t.user_id = faux.id
+      t.save
+    end
+    
+    ranks.each do |r|
+      if Rank.where(user_id: faux.id, issue_id: r.issue_id)[0]
+        rank = Rank.where(user_id: faux.id, issue_id: r.issue_id)[0]
+        rank.score = rank.score + r.score
+        rank.save
+        r.destroy
+      else
+        r.user_id = faux.id
+        r.save
+      end
+    end
+    
+    achievables.each do |a|
+      if !UserAchievable.where(user_id: faux.id, achievable_id: a.achievable_id)[0]
+        a.user_id = faux.id
+        a.save
+      else
+        a.destroy
+      end
+    end
+    
+  end
+  
   private
     
     def encrypt_password
