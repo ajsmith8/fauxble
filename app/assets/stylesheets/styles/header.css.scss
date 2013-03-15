@@ -42,9 +42,10 @@
 		width: 115px; 
 		height: 32px;
 		@include border-radius(4px);
-		@include linear-gradient(rgba(#fff, 0.07), rgba(#fff, 0.01));
+		
 		
 		&.black {
+			@include linear-gradient(rgba(#fff, 0.07), rgba(#fff, 0.01));
 			border: 1px solid rgb(5,5,5);
 			border-bottom: 2px solid rgb(10,10,10);
 			box-shadow: 0px 1px 0px rgb(98,98,98) inset;
@@ -55,6 +56,7 @@
 		}
 			
 		&.blue {
+			@include linear-gradient(rgba(#fff, 0.07), rgba(#fff, 0.01));
 			border: 1px solid rgb(5,5,5);
 			border-bottom: 2px solid rgb(10,10,10);
 			box-shadow: 0px 1px 0px rgb(98,98,98) inset;
@@ -70,6 +72,9 @@
 			&:hover {
 				@include linear-gradient(lighten($bluegreen, 5%), darken($bluegreen, 5%));
 			}*/
+		}
+		&.active {
+			@include linear-gradient(rgba($bluegreen, 0.7), rgba(#fff, 0.01));
 		}
 	}
 

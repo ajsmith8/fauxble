@@ -263,10 +263,11 @@
 }
 
 .user.profile {
-	height: 65px;
+	height: 183px;
 	position: relative;
 	margin-right: -1px;
-	width: 97%;
+	width: 100%;
+	border-bottom: 1px solid rgb(240,240,240);
 	.picture {
 		
 		&.container {
@@ -627,15 +628,50 @@
 		}
 	}
 }
-
-.profile_feed {
-	float: left;
-	border: 1px solid;
-	height: 400px;
-	width: 500px;
-	.actual_name {
-		&.user {
-			display: none;
+.profile_right_container {
+	position: absolute;
+	top: 197px;
+	right: 10px;
+	width: 367px;
+	height: 515px;
+	border-left: 1px solid rgb(233,233,233);
+	background-image: url(misc/253.png); background-repeat: repeat;
+	.profile_feed {
+		position: absolute;
+		height: 280px;
+		width: 360px;
+		top: 35px;
+		right: 0px;
+		padding-bottom: 5px;
+		overflow: hidden;
+		.actual_name {
+			&.user {
+				display: none;
+			}
 		}
+		.picture {
+			&.signin {
+				display: none;
+			}
+			&.achievement {
+				display: none;
+			}
+		}
+	}
+}
+
+.history_text_header {
+	position: absolute;
+	right: 0px;
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+	color: $black;
+	font-size: 13px;
+	&.activity {
+		top: 10px;
+	}
+	&.history_header {
+		top: 355px;
 	}
 }

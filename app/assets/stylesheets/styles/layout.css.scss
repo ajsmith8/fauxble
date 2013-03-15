@@ -197,16 +197,6 @@ body {
 	}
 }
 
-.history_text_header {
-	float: left;
-	margin-top: 15px;
-	width: 100%;
-	text-align: center;
-	font-weight: bold;
-	color: $black;
-	font-size: 14px;
-}
-
 .fb_button_container {
 		@include border-radius(20px);
 		@include linear-gradient(lighten($facebookblue,5%), darken($facebookblue,5%));

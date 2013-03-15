@@ -1,5 +1,6 @@
 <div class = 'tooltip'>
-	<div class = 'person'><%= achievable.get('person') %></div>
+	<div class = 'person'><%= achievable.get('person') %>:</div>
+	<div class = 'title'>&ldquo;<%= achievable.get('title') %>&rdquo;</div>
 	<div class = 'description container'>
 		<div class = 'description'><%= achievable.get('description') %></div>
 	</div>
@@ -9,6 +10,4 @@
 		<img src = 'assets/achievables/<%= achievable.get('image') %>.png' />
 	</div>
 </div>
-<div class = 'title container'>
-	<div class = 'title'><%= achievable.get('title') %></div>
-</div>
+
