@@ -228,6 +228,66 @@
 		}
 	}
 	
+	&.profile_main {
+		top: 60px;
+		right: 20px;
+		height: 100px;
+		width: 190px;
+		.text {
+			font-size: 14px;
+			line-height: 18px;
+			top: 10px;
+			width: 95%;
+			left: 3px;
+			span {
+				font-size: 16px;
+				font-style: normal;
+			}
+		}
+		.arrow {
+			left: -5px;
+			bottom: -25px;
+		}
+	}
+	&.profile_recent_activity {
+		top: 160px;
+		right: 250px;
+		height: 115px;
+		width: 210px;
+		.text {
+			font-size: 14px;
+			line-height: 18px;
+			top: 10px;
+			width: 95%;
+			left: 3px;
+		}
+		.arrow {
+			right: -5px;
+			bottom: -20px;
+		}
+	}
+	&.profile_achievements {
+		top: 300px;
+		right: 280px;
+		height: 100px;
+		width: 190px;
+		.text {
+			font-size: 14px;
+			line-height: 18px;
+			top: 10px;
+			width: 95%;
+			left: 3px;
+			span {
+				font-size: 16px;
+				font-style: normal;
+			}
+		}
+		.arrow {
+			left: -5px;
+			bottom: -25px;
+		}
+	}
+	
 	&.exit {
 		right: 320px;
 		height: 30px;

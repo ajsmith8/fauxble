@@ -108,22 +108,23 @@ position: relative;
 }
 
 #history {
-	float: left;
-	width: 86%;
-	margin: 4px 0 0 7%;
+	position: absolute;
+	width: 360px;
+	top: 375px;
+	right: 0px;
 	padding-top: 1px;
 	@include border-radius(12px);
 	background-image: url(misc/253.png); background-repeat: repeat;
 	
 	.challenge.history {
 		position: relative;
-		width: 90%;
+		width: 100%;
 		height: 40px;
-		margin: 5px 0 0 5%;
+		margin: 5px 0 0 0;
 		.winning {
 			position: absolute;
-			left: 3px;
-			width: 160px;
+			left: 0px;
+			width: 165px;
 			height: 40px;
 			.picture {
 			
@@ -133,8 +134,8 @@ position: relative;
 					position: absolute;
 					left: 2px;
 					top: 2px;
-					width: 35px;
-					height: 35px;
+					width: 30px;
+					height: 30px;
 					margin-left: 2px;
 					@include border-radius(3px);
 				
@@ -173,9 +174,9 @@ position: relative;
 	
 		.losing {
 			position: absolute;
-			right: 3px;
+			right: 0px;
 			top: 0px;
-			width: 160px;
+			width: 165px;
 			height: 40px;
 			.picture {
 			
@@ -185,8 +186,8 @@ position: relative;
 					position: absolute;
 					right: 3px;
 					top: 2px;
-					width: 35px;
-					height: 35px;
+					width: 30px;
+					height: 30px;
 					margin-left: 2px;
 					@include border-radius(3px);
 				
@@ -225,8 +226,9 @@ position: relative;
 	
 		.win-loss {
 			width: 20%;
-			margin-left: 40%;
-			position: relative;
+			left: 145px;
+			top: 5px;
+			position: absolute;
 			text-align: center;
 			.number {
 				position: absolute;
@@ -236,11 +238,11 @@ position: relative;
 				color: $bluegreen;
 				top: 1px;
 				&.winner {
-					left: 7px;
+					left: 4px;
 					text-align: right;
 				}
 				&.loser {
-					right: 7px;
+					right: 4px;
 					text-align: left;
 				}
 			}
@@ -311,11 +313,6 @@ position: relative;
 		width: 90%;
 		margin-left: 18px;
 		font-size: 16px;
-	}
-	&.profile {
-		width: 200px;
-		margin-bottom: 0px;
-		display: none;
 	}
 	&.about {
 		text-align: center;

@@ -8,15 +8,21 @@
 	color: #fff;
 	.person {
 		font-size: 13px;
-		font-weight: bold;
+		width: 90%;
+		margin: 5px 0 0 5%;
+		text-align: center;
+	}
+	.title {
+		font-size: 14px;
+		font-style: italic;
 		width: 90%;
 		margin: 5px 0 0 5%;
 		text-align: center;
 	}
 	.description {
 		&.container {
-			width: 90%;
-			margin: 10px 0 0 5%;
+			width: 85%;
+			margin: 15px 0 0 5%;
 			font-size: 12px;
 		}
 	}
@@ -25,12 +31,12 @@
 .achievable:hover .tooltip {
 	display: block;
 	position: absolute;
-	top: 0;
-	left: 0;
-	width: 120px;
-	height: 100px;
+	top: -35px;
+	left: 80px;
+	width: 150px;
+	height: 130px;
 	z-index: 1000;
-	background: rgba(#000, 0.6);
+	background: rgba(#000, 0.8);
 	@include border-radius(15px);
 }
 
