@@ -14,20 +14,23 @@ Fauxble.Collections.PageMetrics = Backbone.Collection.extend({
 			page = options.page,
 			time = options.time,
 			metric;
-		if (this.where({page_name: page, user_id: user.get('id')})[0]) {
-			metric = this.where({page_name: page, user_id: user.get('id')})[0];
-		} else {
-			metric = this.create({
-				page_name: page,
-				user_id: user.get('id'),
-				user_name: user.get('name'),
-				time: 0
-			});
-		}
+			
+		if (user) {
+			if (this.where({page_name: page, user_id: user.get('id')})[0]) {
+				metric = this.where({page_name: page, user_id: user.get('id')})[0];
+			} else {
+				metric = this.create({
+					page_name: page,
+					user_id: user.get('id'),
+					user_name: user.get('name'),
+					time: 0
+				});
+			}
 		
-		metric.set({
-			time: metric.get('time') + time
-		});
-		metric.save();
+			metric.set({
+				time: metric.get('time') + time
+			});
+			metric.save();
+		}
 	}
 });

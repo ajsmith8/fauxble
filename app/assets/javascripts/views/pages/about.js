@@ -133,7 +133,7 @@ Fauxble.Views.PagesAbout = Backbone.View.extend({
 	},
 	
 	openFirst: function() {
-		var element = $('#monkeys').children().get()[0];
+		var element = $('#monkeys').children().get()[1];
 
 		$(element).addClass('open');
 		$(element).find('.panels').css('display', 'block');

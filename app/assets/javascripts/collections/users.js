@@ -32,12 +32,12 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 		
 		for (i = 0; i < length; i++) {
 			top_users.push(users[i]);
-			if (users[i].user.get('id') === user.get('id')) {
+			if (user && users[i].user.get('id') === user.get('id')) {
 				has_current_user = true;
 			}
 		}
 		
-		if (!has_current_user) {
+		if (user && !has_current_user) {
 			top_users[4] = {user: user, rank: this.ranks.getRank(this, user, issue)};
 		}
 		
