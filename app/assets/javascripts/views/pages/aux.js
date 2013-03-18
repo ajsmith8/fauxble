@@ -95,10 +95,10 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 	},
 	
 	topUsers: function() {
-		var view = new Fauxble.Views.UsersIndex({
+		/*var view = new Fauxble.Views.UsersIndex({
 			attr: this.attr,
 			users: this.attr.users.getTopFive(this.current_user, this.issue)
-		});
+		});*/
 		
 		if (this.issue) {
 			$(this.el).find('#top_header').html('Top Ranked Fusers for ' + this.issue.get('title'));
@@ -106,7 +106,7 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 			$(this.el).find('#top_header').html('Top Ranked Fusers');
 		}
 		
-		$(this.el).find('#top').html(view.render().el);
+		//$(this.el).find('#top').html(view.render().el);
 	},
 	
 	activityFeed: function() {

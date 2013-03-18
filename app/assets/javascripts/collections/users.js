@@ -9,40 +9,38 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 	},
 	
 	getTopFive: function(user, issue) {
-		console.log('getTopFive init ' + window.timer);
 		var self = this,
 			length = 5,
 			users = [],
 			top_users = [],
 			has_current_user = false;
-		console.log('getTopFive non fb users ' + window.timer);
+
 		_.each(this.where({signed_in: true}), function(u) {
 			users.push({user: u, rank: self.ranks.getRank(self, u, issue)});
 		});
-		console.log('getTopFive fb users ' + window.timer);
 		_.each(this.where({signed_in_fb: true}), function(u) {
 			users.push({user: u, rank: self.ranks.getRank(self, u, issue)});
 		});
-		console.log('getTopFive sort ' + window.timer);
+
 		users.sort(function(a, b) {
 			return a.rank - b.rank;
 		});
-		console.log('getTopFive assign length ' + window.timer);
+
 		if (users.length < 5) {
 			length = users.length;
 		}
-		console.log('getTopFive get top length ' + window.timer);
+
 		for (i = 0; i < length; i++) {
 			top_users.push(users[i]);
 			if (user && users[i].user.get('id') === user.get('id')) {
 				has_current_user = true;
 			}
 		}
-		console.log('getTopFive current user addition ' + window.timer);
+
 		if (user && !has_current_user) {
 			top_users[4] = {user: user, rank: this.ranks.getRank(this, user, issue)};
 		}
-		console.log('getTopFive return ' + window.timer);
+
 		return top_users;
 	},
 	
