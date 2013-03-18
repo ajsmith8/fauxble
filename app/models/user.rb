@@ -39,14 +39,19 @@ class User < ActiveRecord::Base
     end
   end
   
-  def faux_user_switch(user)
+  def self.faux_user_switch(user)
     sent = Challenge.where(challenger_id: user.id)
     recieved = Challenge.where(user_id: user.id)
     tasks = Task.where(user_id: user.id)
     achievables = UserAchievable.where(user_id: user.id)
     ranks = Rank.where(user_id: user.id)
     users = User.where(signed_in_fb: true, provider: nil)
-    faux = users.shuffle[0]
+    users = users.shuffle
+    faux = users[0]
+    
+    if faux.id == user.id
+      faux = users[1]
+    end
     
     sent.each do |s|
       s.challenger_id = faux.id
