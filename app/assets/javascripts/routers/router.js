@@ -35,6 +35,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		};
 		
 		this.header();
+		this.footer();
 		this.chat();
 		this.popup();
 		
@@ -167,6 +168,13 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			attr: this.attr
 		});
 		$('.header').html(view.render().el);
+	},
+	
+	footer: function() {
+		var view = new Fauxble.Views.PagesFooter({
+			attr: this.attr
+		});
+		$('#footer').html(view.render().el);
 	},
 	
 	popup: function() {

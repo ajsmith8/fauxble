@@ -3,6 +3,35 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 	model: Fauxble.Models.Rank,
 	url: 'ranks',	
 	
+	initialize: function(models) {
+		this.on('change:score', this.sort(), this);
+	},
+	
+	comparator: function(rank) {
+		return rank.get('score');
+	},
+	
+	topFiveIssue: function(issue, length) {
+		var ranks = this.where({issue_id: issue.get('id')});
+		
+		if (ranks.length < length) {
+			length = ranks.length;
+		}
+		
+		return ranks.splice(0, length);
+	},
+	
+	currentUserIssue: function(user, issue, length) {
+		var ranks = this.where({issue_id: issue.get('id')}),
+			user_rank = this.where({issue_id: issue.get('id'), user_id: user.get('id')})[0];
+			
+		if (ranks.indexOf(user_rank) !== -1) {
+			return ranks.indexOf(user_rank);
+		} else {
+			return ranks.length + 1;
+		}
+	},
+	
 	createRank: function(user, challenge, score) {
 		var rank = this.where({user_id: user.get('id'), issue_id: challenge.get('issue_id')})[0];
 

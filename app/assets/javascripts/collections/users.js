@@ -8,22 +8,24 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 		this.faux_users = null;
 	},
 	
+	comparator: function(user) {
+		return this.ranks.getRank(this, user, null)
+	},
+	
 	getTopFive: function(user, issue) {
 		var self = this,
 			length = 5,
 			users = [],
 			top_users = [],
-			has_current_user = false;
+			has_current_user = false,
+			current_user;
 
-		_.each(this.where({signed_in: true}), function(u) {
-			users.push({user: u, rank: self.ranks.getRank(self, u, issue)});
-		});
-		_.each(this.where({signed_in_fb: true}), function(u) {
-			users.push({user: u, rank: self.ranks.getRank(self, u, issue)});
+		this.each(function(u) {
+			users.push({user: u, score: self.ranks.getScore(u, issue)});
 		});
 
 		users.sort(function(a, b) {
-			return a.rank - b.rank;
+			return b.score - a.score;
 		});
 
 		if (users.length < 5) {
@@ -31,14 +33,19 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 		}
 
 		for (i = 0; i < length; i++) {
-			top_users.push(users[i]);
+			top_users.push({user: users[i].user, rank: i + 1});
 			if (user && users[i].user.get('id') === user.get('id')) {
 				has_current_user = true;
 			}
 		}
 
 		if (user && !has_current_user) {
-			top_users[4] = {user: user, rank: this.ranks.getRank(this, user, issue)};
+			current_user = {user: user, score: this.ranks.getScore(user, issue)};
+			if (users.indexOf(current_user) !== -1) {
+				top_users[4] = {user: user, rank: users.indexOf(current_user) + 1};
+			} else {
+				top_users[4] = {user: user, rank: users.length};
+			}
 		}
 
 		return top_users;
