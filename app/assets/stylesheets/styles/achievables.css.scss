@@ -130,14 +130,14 @@
 	}
 	.achievable {		
 		position: absolute;
-		@include horizontal-gradient(lighten($orange, 20%), lighten($orange,5%));
+		@include horizontal-gradient(lighten($bluegreen, 6%), darken($bluegreen,6%));
 		height: 100px;
 		@include border-radius(15px);
 		width: 36%;
 		left: 32%;
 		top: -150px;
 		overflow: hidden;
-		@include single-box-shadow(rgba($orange, 0.6), 0px, 0px, 6px, 4px);
+		@include single-box-shadow(rgba($bluegreen, 0.6), 0px, 0px, 6px, 4px);
 		
 		.filler_text {
 			font-size: 15px;

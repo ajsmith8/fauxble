@@ -18,12 +18,41 @@
 	
 	.header_logo_container {
 		position: absolute;
-		top: 6px;
-		left: 451px;
+		top: 4px;
+		left: 401px;
 		height: 34px;
-		width: 30px;
-		margin: 0 auto;
-		cursor: pointer
+		width: 130px;
+		cursor: pointer;
+		font-size: 26px;
+		color: #fff;
+		letter-spacing: 1px;
+		font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+		font-weight: bold;
+		span {
+			padding-left: 21px;
+		}
+		.image_container {
+			position: absolute;
+			top: 2px;
+			left: 58px;
+			width: 26px;
+			height: 29px;
+			.blue_logo {
+				display: block;
+			}
+			.white_logo {
+				display: none;
+			}
+		}
+		&:hover {
+			color: $bluegreen;
+			.blue_logo {
+				display: none;
+			}
+			.white_logo {
+				display: block;
+			}
+		}
 	}
 
 	.centered_header_container {
@@ -74,7 +103,7 @@
 			}*/
 		}
 		&.active {
-			@include linear-gradient(rgba($bluegreen, 0.7), rgba(#fff, 0.01));
+			/*@include linear-gradient(rgba($bluegreen, 0.7), rgba(#fff, 0.01));*/
 		}
 	}
 
@@ -207,7 +236,7 @@
 			@include border-radius(5px);
 			z-index: 13;
 			.facebook_f {
-				font-family: Helvetica Neue;
+				font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
 				font-size: 20px;
 				margin-top: 1px;
 				padding-top: 3px;

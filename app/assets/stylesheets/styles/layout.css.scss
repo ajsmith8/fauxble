@@ -290,7 +290,7 @@ body {
 	float: left;
 	height: 80px;
 	width: 320px;
-	margin: 28px 0 0 0;
+	margin: 22px 0 0 0;
 	&.sidebar {
 		margin: 0 0 0 0;
 	}
@@ -322,7 +322,7 @@ body {
 	@include border-radius(5px);
 	z-index: 13;
 	.facebook_f {
-		font-family: Helvetica Neue;
+		font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
 		font-size: 28px;
 		margin-top: 1px;
 		padding-top: 12px;
@@ -366,27 +366,29 @@ body {
 	}
 	.home_logo_container {
 		position: absolute;
-		top: 72px;
-		left: 72px;
-		width: 55px;
-		height: 55px;
+		top: 64px;
+		left: 192px;
+		width: 38px;
+		height: 38px;
 		z-index: 11;
 	}
 	.fusegap_enlightenment_text {
 		position: absolute;
 		width: 335px;
 		left: 25px;
-		top: 70px;
+		top: 57px;
 		color: $black;
 		z-index: 13;
 		text-align: center;
 		.fusegap {
-			width: 280px;
+			width: 100%;
 			font-size: 42px;
 			font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
-			padding-left: 59px;
 			letter-spacing: 1px;	
 			font-weight: bold;	
+			span {
+				padding-left: 30px;
+			}
 		}
 		.enlightenment {
 			width: 335px;
@@ -410,7 +412,7 @@ body {
 		}
 		&.second {
 			height: 361px;
-			top: 208px;
+			top: 172px;
 			left: 25px;
 		}
 		.wrapper {
@@ -428,7 +430,7 @@ body {
 	.signin_container {
 		position: absolute;
 		right: 25px;
-		top: 273px;
+		top: 265px;
 		min-height: 220px;
 		width: 335px;
 		border-bottom: 1px solid rgba(#000, 0.06);
@@ -447,7 +449,7 @@ body {
 		.or_container {
 			position: relative;
 			float: left;
-			margin: 22px 0 22px 29%;
+			margin: 19px 0 19px 29%;
 			padding-top: -12px;
 			height: 0px;
 			border: 1px solid rgb(218,218,218);
@@ -550,3 +552,202 @@ body {
 		}
 	}
 }
+
+.infographic {
+	position: absolute;
+	top: 192px;
+	left: 25px;
+	height: 361px;
+	width: 520px;
+	z-index: 100;
+	background-image: url(misc/gray_jean.png); background-repeat: repeat;
+	color: $black;
+	font-family: "HelveticaNeue-UltraLight", Helvetica, Arial, sans-serif;
+	@include text-shadow(1px 1px 0 #fff);	
+	@include border-radius(5px);
+	
+	.title_text {
+		position: absolute;
+		font-size: 28px;
+		text-align: center;
+		width: 100%;
+		&.title {
+			top: 10px;
+			font-family: Helvetica;
+			span {
+				color: $bluegreen;
+				font-style: normal;
+			}
+		}
+		&.factual_future {
+			font-style: italic;
+			bottom: 10px;
+			font-size: 20px;
+			span {
+				color: $bluegreen;
+				font-style: normal;
+				font-weight: bold;
+			}
+		}
+	}
+	
+	.stat_text {
+		position: absolute;
+		font-size: 16px;
+		width: 100%;
+		text-align: center;
+		font-family: Helvetica;
+		@include text-shadow(1px 1px 0 #fff);	
+		span {
+			color: $bluegreen;
+			font-style: italic;
+			text-decoration: underline;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+		&.top {
+			top: 80px;
+		}
+		&.bottom {
+			top: 190px;
+		}
+	}
+	
+	.infographic_guy_container {
+		position: absolute;
+		height: 60px;
+		width: 300px;
+		left: 105px;
+		&.top {
+			top: 100px;
+		}
+		&.bottom {
+			top: 210px;
+			.guy_container {
+				&.first {
+					left: 30px;
+				}
+				&.second {
+					left: 90px;
+				}
+				&.third {
+					left: 150px;
+				}
+			}
+		}
+		.number {
+			position: absolute;
+			right: 0px;
+			bottom: 0px;
+			color: $bluegreen;
+			font-size: 42px;
+			letter-spacing: 1px;
+		}
+	}
+	
+	.guy_container {
+		position: absolute;
+		height: 33px;
+		width: 33px;
+		&.first {
+			left: 10px;
+		}
+		&.second {
+			left: 50px;
+		}
+		&.third {
+			left: 90px;
+		}
+		&.fourth {
+			left: 130px;
+		}
+		&.fifth {
+			left: 170px;
+		}
+	}
+}
+
+.get_started_button {
+	position: absolute;
+	top: 10px;
+	cursor: pointer;
+	color: #fff;
+	height: 43px;
+	border: 1px solid darken($bluegreen, 20%);
+	font-size: 16px;
+	width: 200px;
+	@include linear-gradient(lighten($bluegreen, 6%), darken($bluegreen, 6%));
+	box-shadow: 0px 1px 1px lighten($bluegreen, 22%) inset;	
+	@include text-shadow(0px 1px 0 rgba(#000,0.4));
+	@include border-radius(5px);
+	z-index: 13;
+	.sub {
+		position: absolute;
+		right: 7px;
+		top: 7px;
+		height: 20px;
+		width: 20px;
+		padding: 4px;
+		color: $bluegreen;
+		font-size: 15px;
+		background: rgba(#000, 0.6);
+		@include border-radius(24px);	
+	}
+	.get_started_text {
+		float: left;
+		margin-top: 1px;
+		padding-top: 11px;
+		padding-left: 13px;
+		width: 152px;
+		text-align: left;
+		height: 31px;
+		font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+		border-left: 1px solid rgba(#000, 0.08);
+	}
+	&:hover {
+		border: 1px solid darken($bluegreen, 30%);
+		background: darken($bluegreen, 6%);
+	}
+}
+
+.shuffle_issues_button {
+	border: 1px solid darken($bluegreen, 2%);
+	border-bottom: 1px solid darken($bluegreen, 10%);
+	@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
+	@include single-box-shadow(rgba(#000, 0.3), 0px, 1px, 1px, 0);
+	&:hover {
+		background: darken($bluegreen, 6%);
+	}
+	.text {
+		text-align: center;
+		color: #fff;
+		font-size: 13px;
+		padding: 8px 0 0 12px;
+		font-weight: bold;
+	}
+	.sub {
+		position: absolute;
+		left: 7px;
+		top: 5px;
+		height: 20px;
+		width: 18px;
+		padding: 0px 0 1px 3px;
+		color: $bluegreen;
+		font-size: 15px;
+		background: rgba(#000, 0.6);
+		@include border-radius(12px);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+.dur{}
