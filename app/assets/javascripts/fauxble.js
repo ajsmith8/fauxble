@@ -63,5 +63,11 @@ window.Fauxble = {
 		});
 		
 		Backbone.history.start();
+		
+		window.timer = 0;
+		
+		setInterval(function() {
+			window.timer = window.timer + 0.001;
+		}, 1);
 	}
 };

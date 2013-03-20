@@ -24,11 +24,6 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 		this.user = this.attr.users.get(this.attr.current_user.get('id'));
 		this.is_disabled = false;
 		
-		console.log('challenge id: ' + this.challenge.get('id'));
-		console.log('question id: ' + this.question.get('id'));
-		console.log('user id: ' + this.user.get('id'));
-		console.log('slider id: ' + this.slider.get('id'));
-		
 		this.setRoundSpecifics();
 	},
 	
@@ -190,9 +185,6 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 				score = task.get('score');
 			}
 			this.user.trigger('submit', score);
-			
-			console.log('answer: ' + answer);
-			console.log('score: ' + score);
 			
 			if (this.task) {
 				this.attr.users.get(this.task.get('user_id')).trigger('submit', this.task.get('score'));

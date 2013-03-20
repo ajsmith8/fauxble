@@ -46,14 +46,15 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 	},
 	
 	createChallenge: function(user1, user2) {
+		console.log('collections/challenges/createChallenge init ' + window.timer);
 		if (user2) {
 			this.create({
 				challenger_id: user1.get('id'),
 				user_id: user2.get('id')
 			}, {
-				wait: true,
 				success: function(model, response) {
 					//stop loading
+					console.log('collections/challenges/createChallenge from results redirect ' + model.get('id') + ' ' + window.timer);
 					Backbone.history.navigate('issues' + model.get('id'), true);
 				},
 				error: function(model, response) {
@@ -65,9 +66,9 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 			this.create({
 				challenger_id: user1.get('id')
 			}, {
-				wait: true,
 				success: function(model, response) {
 					//stop loading
+					console.log('collections/challenges/createChallenge from challenges redirect ' + model.get('id') + ' ' + window.timer);
 					Backbone.history.navigate('new' + model.get('id'), true);
 				},
 				error: function(model, response) {

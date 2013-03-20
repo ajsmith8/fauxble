@@ -8,6 +8,7 @@ Fauxble.Views.PagesNew = Backbone.View.extend({
 	},
 	
 	initialize: function(options) {
+		console.log('views/pages/new init ' + window.timer);
 		this.attr = options.attr;
 		this.challenge = options.challenge;
 		this.user = this.attr.users.get(this.attr.current_user.get('id'));
@@ -80,7 +81,7 @@ Fauxble.Views.PagesNew = Backbone.View.extend({
 				user_id: user.get('id')
 			});
 			this.challenge.save();
-			
+			console.log('views/pages/new/setChallengeUser route ' + window.timer);
 			Backbone.history.navigate('issues' + this.challenge.get('id'), true);
 		}
 	},
