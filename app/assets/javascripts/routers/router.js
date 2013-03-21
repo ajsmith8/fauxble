@@ -234,6 +234,17 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		$(element).html(view.render().el);
 	},
 	
+	mfcLike: function() {
+		var element = $('#tutorial'),
+			background = $('#background');
+		var view = new Fauxble.Views.MfcLike({
+			attr: this.attr,
+			element: element,
+			background: background
+		});
+		$(element).html(view.render().el);
+	},
+	
 	signin: function() {
 		var view = new Fauxble.Views.PagesSignin({
 			attr: this.attr
