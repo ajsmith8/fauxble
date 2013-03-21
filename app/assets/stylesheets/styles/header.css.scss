@@ -106,7 +106,16 @@
 			/*@include linear-gradient(rgba($bluegreen, 0.7), rgba(#fff, 0.01));*/
 		}
 	}
-
+	
+	.mfc {
+		position: absolute;
+		top: 0;
+		right: 215px;
+		height: 100%;
+		width: 100px;
+		cursor: pointer;
+	}
+	
 	.about {
 		&.button {
 			position: absolute;

@@ -3,6 +3,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	routes: {
 		'' 					: 'checkCurrentUser',
 		'about'				: 'about',
+		'mfc'				: 'mfc',
 		'new:id' 			: 'pagesNew',
 		'issues:id'			: 'issues',
 		':c_id/question:id' : 'question',
@@ -204,6 +205,33 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.feed();
 		$('.right.column').html(view.render().el);
 		this.triggerPage('about');
+	},
+	
+	mfc: function() {
+		this.renderColumns();
+		var right = new Fauxble.Views.MfcRight({
+			attr: this.attr,
+			router: this
+		});
+		var left = new Fauxble.Views.MfcLeft({
+			attr: this.attr
+		});
+		this.setCurrentView(right);
+		this.setSubview(left, 'mfc');
+		$('.right.column').html(right.render().el);
+		$('.left.column').html(left.render().el);
+		this.triggerPage('mfc');
+	},
+	
+	mfcQuestion: function() {
+		var element = $('#tutorial'),
+			background = $('#background');
+		var view = new Fauxble.Views.MfcPopup({
+			attr: this.attr,
+			element: element,
+			background: background
+		});
+		$(element).html(view.render().el);
 	},
 	
 	signin: function() {
