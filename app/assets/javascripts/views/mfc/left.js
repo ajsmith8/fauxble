@@ -43,5 +43,13 @@ Fauxble.Views.MfcLeft = Backbone.View.extend({
 		console.log(this.facts);
 		console.log(width);
 		$(this.el).find('#progress').css('width', width + '%');
+		$(this.el).find('.counter').html(this.addCommas(this.facts));
+	},
+	
+	addCommas: function(val) {
+		while (/(\d+)(\d{3})/.test(val.toString())){
+			val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+		}
+		return val;
 	}
 });

@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
     if session[:user_id] && User.where(id: session[:user_id])[0]
       @current_user = User.find(session[:user_id])
     else
-      @current_user = nil
+      @current_user = User.create(
+        signed_in: false,
+        signed_in_fb: false
+      )
+      session[:user_id] = @current_user.id
     end
   end
 

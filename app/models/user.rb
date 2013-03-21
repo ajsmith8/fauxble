@@ -8,17 +8,16 @@ class User < ActiveRecord::Base
   require 'openssl'
   require 'base64'
   
-  def self.create_with_omniauth(auth)
-    joanie = create! do |user|
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-      user.name = auth["info"]["name"]
-      user.signed_in_fb = true
-    end
+  def self.create_with_omniauth(auth, user)
+    user.provider = auth["provider"]
+    user.uid = auth["uid"]
+    user.name = auth["info"]["name"]
+    user.signed_in_fb = true
+    user.save
     
-    Challenge.set_default_challenges(joanie)
+    Challenge.set_default_challenges(user)
     
-    return joanie # hoooray!
+    return user # hoooray!
   end
   
   def has_password?(submitted_password)
