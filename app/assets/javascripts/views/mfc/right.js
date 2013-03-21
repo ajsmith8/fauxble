@@ -23,7 +23,6 @@ Fauxble.Views.MfcRight = Backbone.View.extend({
 		
 		setTimeout(function() {
 			self.checkSignedIn();
-			FB.XFBML.parse();
 		}, 0);
 		
 		return this;
@@ -67,8 +66,7 @@ Fauxble.Views.MfcRight = Backbone.View.extend({
 	},
 	
 	fbLikePopup: function() {
-		// fb like popup
-		// then sign them in
+		this.router.mfcLike();
 	},
 	
 	toggleForm: function() {

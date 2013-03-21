@@ -18,6 +18,7 @@ Fauxble.Views.MfcLeft = Backbone.View.extend({
 		
 		setTimeout(function() {
 			self.fillBar();
+			FB.XFBML.parse();
 		}, 0);
 		
 		return this;
