@@ -4,8 +4,10 @@
 	right: 0px;
 	width: 555px;
 	font-size: 28px;
+	font-weight: bold;
 	text-align: center;	
 	font-family: Helvetica;
+	color: $black;
 	span {
 		color: $bluegreen;
 		font-style: normal;
@@ -56,37 +58,84 @@
 	}
 }
 
+.fb_login_main {
+	&.signin {
+		width: 100%
+	}
+	position: relative;
+	color: #fff;
+	height: 43px;
+	border: 1px solid rgb(24,48,84);
+	border-bottom: 1px solid rgb(6,44,80);	
+	font-size: 14px;
+	line-height: 18px;
+	@include linear-gradient(rgb(76,119,175), rgb(27,70,135));
+	box-shadow: 0px 1px 1px rgb(128,163,216) inset;	
+	@include text-shadow(0px 1px 0 rgba(#000,0.4));
+	@include border-radius(5px);
+	z-index: 13;
+	.facebook_f {
+		font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+		font-size: 28px;
+		margin-top: 1px;
+		padding-top: 12px;
+		float: left;
+		width: 37px;
+		text-align: center;
+		height: 30px;
+		border-right: 1px solid rgba(#fff, 0.06);
+	}
+	.connect_with_facebook {
+		float: left;
+		margin-top: 1px;
+		padding-top: 11px;
+		padding-left: 13px;
+		width: 152px;
+		text-align: left;
+		height: 31px;
+		font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+		border-left: 1px solid rgba(#000, 0.08);
+	}
+	&:hover {
+		border: 1px solid rgb(6,44,80);
+		cursor: pointer;
+		background: rgb(50,90,150);
+	}
+}
+
 .MFC_signin_container {
 	position: absolute;
-	right: 90px;
-	top: 605px;
-	min-height: 220px;
+	right: 0px;
+	top: 510px;
+	height: 200px;
 	width: 555px;
-	border-bottom: 1px solid rgba(#000, 0.06);
+	border-top: 1px solid rgba(#000, 0.06);
 	.get_started_text {
 		text-align: center;
 		float: left;
 		width: 100%;
 		font-weight: bold;
 		color: $black;
-		margin: 25px 0 12px 0;
+		margin: 20px 0 12px 0;
 	}
 	.facebook_login_button_container {
-		float: left;
-		width: 100%;
+		position: absolute;
+		width: 213px;
+		top: 55px;
+		left: 30px;
 	}
 	.or_container {
-		position: relative;
-		float: left;
-		margin: 19px 0 19px 29%;
-		padding-top: -12px;
-		height: 0px;
-		border: 1px solid rgb(218,218,218);
-		border-top: 1px solid rgb(237,237,237);
-		width: 42%;
+		position: absolute;
+		left: 280px;
+		top: 49px;
+		width: 0px;
+		height: 60px;
+		border-right: 1px solid rgb(218,218,218);
+		border: 1px solid rgb(237,237,237);
 		.text {
 			position: absolute;
-			top: -8px;
+			top: 20px;
+			left: -7px;
 			width: 100%;
 			text-align: center;
 			font-style: italic;
@@ -95,10 +144,10 @@
 		}
 	}
 	.signup_email_button {
-		position: relative;
-		float: left;
+		position: absolute;
+		top: 55px;
+		right: 58px;
 		width: 179px;
-		margin: 0 0 10px 77px;
 		border: 1px solid rgb(208,208,208);
 		border-bottom: 1px solid rgb(184,184,184);
 		height: 43px;
@@ -183,17 +232,29 @@
 
 .MFC_infographic_container {
 	position: absolute;
-	height: 250px;
+	top: 140px;
+	height: 220px;
 	width: 317px;
-	border: 1px solid;
+	@include single-box-shadow(rgba(#000, 0.15), 0px, 0px, 4px, 2px);
+	@include border-radius(4px);
+	.wrapper {
+		overflow: hidden;
+		position: static;
+		height: 100%;
+		width: 100%;
+		@include border-radius(4px);
+		img {
+			height: 100%;
+			width: 100%;
+		}
+	}
 }
 
 .MFC_progress_bar {
 	position: absolute;
-	top: 300px;
+	top: 10px;
 	height: 100px;
 	width: 317px;
-	border: 1px solid;
 	.counter {
 		position: relative;	
 		float: left;
@@ -236,14 +297,22 @@
 		font-weight: bold;
 		font-size: 12px;
 	}
+	.hundredk {
+		position: absolute;
+		top: 57px;
+		right: 145px;
+		color: $black;
+		font-weight: bold;
+		font-size: 12px;
+	}
 }
 
 .MFC_like_container {
 	position: absolute;
-	top: 450px;
+	top: 430px;
 	height: 100px;
 	width: 317px;
-	border: 1px solid;
+	border-top: 1px solid rgb(240,240,240);
 }
 
 .mfc-popup-background {
@@ -252,8 +321,7 @@
 	top: 0;
 	width: 100%;
 	height: 100%;
-
-	background: rgba($bluegreen, 0.5);
+	background: rgba($bluegreen, 0.7);
 }
 
 .mfc-popup {
@@ -296,28 +364,97 @@
 	
 	.do_you_like_facts {
 		position: absolute;
-		top: 100px;
-		left: 150px;
+		top: 75px;
+		left: 266px;
+		@include border-radius(4px);
+		background: #fff;
+		@include single-box-shadow(rgba(#000,0.25), 0px, 0px, 10px, 5px);
 		width: 400px;
 		height: 200px;
-		border: 1px solid;
-		background: #fff;
-		
-		.screen_question {
+		overflow: hidden;
 
+		.screen_question {
+			position: absolute;
+			background-image: url(misc/253.png); background-repeat: repeat;
+			font-size: 28px;
+			height: 44px;
+			width: 100%;
+			text-align: center;
+			color: $black;
+			font-weight: bold;
+			border-bottom: 1px solid rgb(240,240,240);
+			padding-top: 11px;
+			overflow: hidden;
 		}
 		.answer {
+			bottom: 20px;
+			position: absolute;
+			width: 120px;
+			height: 33px;
+			@include border-radius(4px);
+			font-size: 17px;
+			font-weight: bold;
+			text-align: center;
+			padding-top: 12px;
 			&.yes {
-
+				left: 60px;
+				color: #fff;
+				@include linear-gradient(lighten($bluegreen, 6%), darken($bluegreen, 9%));
+				border: 1px solid darken($bluegreen, 17%);
+				box-shadow: 0px 1px 1px lighten($bluegreen, 22%) inset;	
+				@include single-box-shadow(rgb(249,249,249), 0px, 1px, 0px, 1px);
+				@include text-shadow(0px 1px 2px rgba(#000, 0.35));	
+				&:hover {
+					@include linear-gradient(lighten($bluegreen, 12%), darken($bluegreen, 11%));
+					cursor: pointer;
+				}
 			}
 			&.no {
-
+				right: 60px;
+				color: $black;
+				@include linear-gradient(#fff, rgb(245,240,231));
+				border: 1px solid rgb(202,202,202);
+				@include single-box-shadow(rgb(249,249,249), 0px, 1px, 0px, 1px);
+				@include text-shadow(0px 1px 0px #fff);	
+				&:hover {
+					@include linear-gradient(#fff, rgb(220,220,220));
+					cursor: pointer;
+				}
+			}
+			.text {
+				position: absolute;
+				top: 11px;
+				width: 100%;
+				text-align: center;
 			}
 		}
 		.result_container {
-
+			position: absolute;
+			bottom: 2px;
+			height: 80px;
+			width: 100%;
+			text-align: center;
+			background: #fff;
+			font-size: 18px;
+			font-weight: bold;
+			color: $black;
+			span {
+				font-size: 14px;
+				font-weight: normal;
+				cursor: pointer;
+				font-style: italic;
+				color: rgb(110,110,110);
+				&:hover {
+					text-decoration: underline;
+				}
+			}
 		}
 	}
+}
+.post_signin_popup {
+	/*Thanks for signing up! Like us on Facebook?
+	
+	Continue*/
 }
 
 

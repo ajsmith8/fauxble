@@ -46,7 +46,7 @@
 	float: left;
 	height: 80px;
 	width: 320px;
-	margin: 22px 0 0 0;
+	margin: 40px 0 0 4px;
 	&.sidebar {
 		margin: 0 0 0 0;
 	}
@@ -57,52 +57,9 @@
 }
 
 .fb_login_main {
-	&.signin {
-		width: 66%;
-		margin-left: 17%;
-	}
 	&.friend_select {
 		width: 38%;
 		margin-left: 31%;
-	}
-	position: relative;
-	color: #fff;
-	height: 43px;
-	border: 1px solid rgb(24,48,84);
-	border-bottom: 1px solid rgb(6,44,80);	
-	font-size: 14px;
-	line-height: 18px;
-	@include linear-gradient(rgb(76,119,175), rgb(27,70,135));
-	box-shadow: 0px 1px 1px rgb(128,163,216) inset;	
-	@include text-shadow(0px 1px 0 rgba(#000,0.4));
-	@include border-radius(5px);
-	z-index: 13;
-	.facebook_f {
-		font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
-		font-size: 28px;
-		margin-top: 1px;
-		padding-top: 12px;
-		float: left;
-		width: 37px;
-		text-align: center;
-		height: 30px;
-		border-right: 1px solid rgba(#fff, 0.06);
-	}
-	.connect_with_facebook {
-		float: left;
-		margin-top: 1px;
-		padding-top: 11px;
-		padding-left: 13px;
-		width: 152px;
-		text-align: left;
-		height: 31px;
-		font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
-		border-left: 1px solid rgba(#000, 0.08);
-	}
-	&:hover {
-		border: 1px solid rgb(6,44,80);
-		cursor: pointer;
-		background: rgb(50,90,150);
 	}
 }
 
@@ -122,8 +79,8 @@
 	}
 	.home_logo_container {
 		position: absolute;
-		top: 64px;
-		left: 192px;
+		top: 74px;
+		right: 155px;
 		width: 38px;
 		height: 38px;
 		z-index: 11;
@@ -131,8 +88,8 @@
 	.fusegap_enlightenment_text {
 		position: absolute;
 		width: 335px;
-		left: 25px;
-		top: 57px;
+		right: 25px;
+		top: 67px;
 		color: $black;
 		z-index: 13;
 		text-align: center;
@@ -148,7 +105,7 @@
 		}
 		.enlightenment {
 			width: 335px;
-			margin-top: 8px;
+			margin-top: 6px;
 			padding-top: 1px;
 			font-style: italic;
 			font-size: 14px;
@@ -163,12 +120,56 @@
 		@include border-radius(4px);
 		&.first {
 			top: 25px;
-			right: 25px;
+			left: 25px;
 			height: 232px;
 		}
 		&.second {
 			height: 361px;
-			top: 172px;
+			top: 213px;
+			right: 25px;
+			.dumb_source {
+				position: absolute;
+				a {
+					display: block;
+					height: 100%;
+					width: 100%;
+				}
+				&:hover {
+					cursor: pointer;
+				}
+				&.home {
+					&.one {
+						height: 20px;
+						width: 200px;
+						top: 77px;
+						right: 30px;
+					}
+					&.two {
+						height: 20px;
+						width: 160px;
+						top: 200px;
+						right: 80px;
+					}
+				}
+				&.mfc {
+					&.one {
+						height: 20px;
+						width: 200px;
+						top: 77px;
+						right: 30px;
+					}
+					&.two {
+						height: 20px;
+						width: 160px;
+						top: 200px;
+						right: 80px;
+					}
+				}
+			}
+		}
+		&.third {
+			height: 232px;
+			top: 500px;
 			left: 25px;
 		}
 		.wrapper {
@@ -185,38 +186,40 @@
 	}
 	.signin_container {
 		position: absolute;
-		right: 25px;
-		top: 265px;
-		min-height: 220px;
+		left: 25px;
+		top: 295px;
+		height: 520px;
 		width: 335px;
-		border-bottom: 1px solid rgba(#000, 0.06);
+		/*border-bottom: 1px solid rgba(#000, 0.06);*/
 		
 	}
 }
 
 .get_started_button {
 	position: relative;
-	margin-top: 10px;
+	margin: 10px 0 0 65px;
 	cursor: pointer;
 	color: #fff;
-	height: 43px;
-	border: 1px solid darken($bluegreen, 20%);
-	font-size: 16px;
+	height: 47px;
+	border: 1px solid darken($bluegreen, 17%);
+	font-size: 17px;
+	font-weight: bold;
 	width: 200px;
-	@include linear-gradient(lighten($bluegreen, 6%), darken($bluegreen, 9%));
 	box-shadow: 0px 1px 1px lighten($bluegreen, 22%) inset;	
-
-	@include border-radius(5px);
+	@include linear-gradient(lighten($bluegreen, 6%), darken($bluegreen, 9%));
+	@include single-box-shadow(rgb(249,249,249), 0px, 1px, 0px, 1px);
+	@include text-shadow(0px 1px 2px rgba(#000, 0.4));
+	@include border-radius(4px);
 	z-index: 13;
 	.left {
 		position: absolute;
 		left: 0px;
-		height: 43px;
+		height: 47px;
 		width: 36px;
 		border-right: 1px solid rgba(#fff, 0.06);
 		.logo {
 			position: absolute;
-			top: 12px;
+			top: 14px;
 			left: 9px;
 			height: 20px;
 			width: 20px;
@@ -225,7 +228,7 @@
 	.right {
 		position: absolute;
 		right: 0;
-		padding-top: 11px;
+		padding-top: 12px;
 		width: 162px;
 		text-align: center;
 		height: 31px;
@@ -233,46 +236,69 @@
 		border-left: 1px solid rgba(#000, 0.08);
 	}
 	&:hover {
-		border: 1px solid darken($bluegreen, 30%);
-		background: darken($bluegreen, 6%);
+		@include linear-gradient(lighten($bluegreen, 12%), darken($bluegreen, 11%));
+		cursor: pointer;
+		@include text-shadow(0px 1px 2px rgba(#000, 0.1));
 	}
 }
 
 
 .infographic {
 	position: absolute;
-	top: 192px;
+	top: 182px;
 	left: 25px;
 	height: 361px;
 	width: 520px;
 	z-index: 100;
-	background-image: url(misc/gray_jean.png); background-repeat: repeat;
+	background-image: url(misc/253.png); background-repeat: repeat;
 	color: $black;
 	font-family: "HelveticaNeue-UltraLight", Helvetica, Arial, sans-serif;
 	@include text-shadow(1px 1px 0 #fff);	
-	@include border-radius(5px);
+	overflow: hidden;
+	border: 1px solid rgb(222,222,222);
 	
 	.title_text {
 		position: absolute;
 		font-size: 28px;
 		text-align: center;
 		width: 100%;
+		background-image: url(misc/gray_jean.png); background-repeat: repeat;
 		&.title {
-			top: 10px;
+			height: 50px;
 			font-family: Helvetica;
-			span {
-				color: $bluegreen;
-				font-style: normal;
+			border-bottom: 1px solid rgb(222,222,222);
+			.text {
+				margin-top: 10px;
+				span {
+					color: $bluegreen;
+					font-style: normal;
+				}
+			}
+			.filler_border {
+				position: absolute;
+				bottom: 0px;
+				width: 100%;
+				border-bottom: 1px solid rgba(#fff, 0.7);
 			}
 		}
 		&.factual_future {
 			font-style: italic;
-			bottom: 10px;
+			bottom: 0px;
 			font-size: 20px;
-			span {
-				color: $bluegreen;
-				font-style: normal;
-				font-weight: bold;
+			height: 35px;
+			border-top: 1px solid rgb(222,222,222);
+			.text {
+				margin-top: 5px;
+				span {
+					color: $bluegreen;
+					font-weight: bold;
+				}
+			}
+			.filler_border {
+				position: absolute;
+				top: 0px;
+				width: 100%;
+				border-top: 1px solid rgba(#fff, 0.7);
 			}
 		}
 	}
@@ -296,7 +322,7 @@
 			top: 80px;
 		}
 		&.bottom {
-			top: 190px;
+			top: 200px;
 		}
 	}
 	
@@ -306,10 +332,10 @@
 		width: 300px;
 		left: 105px;
 		&.top {
-			top: 100px;
+			top: 105px;
 		}
 		&.bottom {
-			top: 210px;
+			top: 225px;
 			.guy_container {
 				&.first {
 					left: 30px;
@@ -350,21 +376,6 @@
 		}
 		&.fifth {
 			left: 170px;
-		}
-	}
-	
-	.dumb_source {
-		position: absolute;
-		height: 50px;
-		width: 50px;
-		border: 1px solid;
-		a {
-			display: block;
-			height: 100%;
-			width: 100%;
-		}
-		&.one {
-
 		}
 	}
 }
