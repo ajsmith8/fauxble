@@ -5,6 +5,7 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	events: {
 		'click #home' : 'homePage',
 		'click #about' : 'aboutPage',
+		'click #mfc' : 'mfcPage',
 		'click #signin' : 'toggleSignin',
 		'click #fb_login_header' : 'fbLogin',
 		'focus input' : 'focusInput',
@@ -138,6 +139,10 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	
 	aboutPage: function() {
 		Backbone.history.navigate('about', true);
+	},
+	
+	mfcPage: function() {
+		Backbone.history.navigate('mfc', true);
 	}
 });
 //header
