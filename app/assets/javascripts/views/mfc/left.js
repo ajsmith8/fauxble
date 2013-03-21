@@ -35,11 +35,11 @@ Fauxble.Views.MfcLeft = Backbone.View.extend({
 			});
 		});
 		
-		return facts + 40000;
+		return facts + 4000;
 	},
 	
 	fillBar: function() {
-		var width = Math.round((this.facts / 1000000) * 100);
+		var width = Math.round(Math.pow(this.facts, 1 / 3));
 		console.log(this.facts);
 		console.log(width);
 		$(this.el).find('#progress').css('width', width + '%');
