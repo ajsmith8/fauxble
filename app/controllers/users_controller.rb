@@ -12,8 +12,9 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.create(params[:user])
-    if @user.signed_in_fb || @user.signed_in
+    @user = current_user
+    @user = User.update(@user.id, params[:user])
+    if @user.signed_in
       Challenge.set_default_challenges(@user)
       if !session[:user_id]
         session[:user_id] = @user.id

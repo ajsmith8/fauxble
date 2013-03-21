@@ -5,7 +5,11 @@ class SessionsController < ApplicationController
     if User.where(uid: auth['uid'], provider: nil, signed_in_fb: true)[0]
       User.faux_user_switch(User.where(uid: auth['uid'], provider: nil)[0])
     end
-    user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
+    
+    user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) 
+    if !user
+      user = User.create_with_omniauth(auth, current_user)
+    end
     session[:user_id] = user.id
     user.encrypted_token = auth["credentials"]["token"]
     user.signed_in_fb = true
