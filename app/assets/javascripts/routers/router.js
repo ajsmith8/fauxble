@@ -355,7 +355,8 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	renderTutorial: function(str) {
 		var view = new Fauxble.Views.PagesTutorial({
 			attr: this.attr,
-			kind: str
+			kind: str,
+			element: $('#background')
 		});
 		$('#tutorial').html(view.render().el);
 	},

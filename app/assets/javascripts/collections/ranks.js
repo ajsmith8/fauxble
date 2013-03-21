@@ -4,11 +4,15 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 	url: 'ranks',	
 	
 	initialize: function(models) {
-		this.on('change:score', this.sort(), this);
+		this.on('change:score', this.sort, this);
 	},
 	
 	comparator: function(rank) {
 		return rank.get('score');
+	},
+	
+	doSomethin: function(model) {
+		this.sort();
 	},
 	
 	topFiveIssue: function(issue, length) {

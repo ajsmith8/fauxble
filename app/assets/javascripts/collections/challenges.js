@@ -50,7 +50,9 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 		if (user2) {
 			this.create({
 				challenger_id: user1.get('id'),
-				user_id: user2.get('id')
+				user_id: user2.get('id'),
+				is_sent: false,
+				is_finished: false
 			}, {
 				success: function(model, response) {
 					//stop loading
@@ -64,7 +66,9 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 			});
 		} else {
 			this.create({
-				challenger_id: user1.get('id')
+				challenger_id: user1.get('id'),
+				is_sent: false,
+				is_finished: false
 			}, {
 				success: function(model, response) {
 					//stop loading

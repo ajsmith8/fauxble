@@ -7,21 +7,127 @@ Fauxble.Collections.UserMetrics = Backbone.Collection.extend({
 		this.challenges = options.challenges;
 		this.users = options.users;
 
-		this.challenges.on('add', this.challengeCreated, this);
-		this.challenges.on('change:is_finished', this.challengeFinished, this);
-		this.challenges.on('change:is_sent', this.challengeSent, this);
+		this.challenges.on('add', this.getUserMetric, this);
+		this.challenges.on('change:is_finished', this.getUserMetric, this);
+		this.challenges.on('change:is_sent', this.getUserMetric, this);
 		this.users.on('page', this.addTime, this);
 	},
 	
-	getUserMetric: function(user) {
-		if (this.where({user_id: user.get('id')})[0]) {
-			return this.where({user_id: user.get('id')})[0];
+	getUserMetric: function(challenge) {
+		var challenger = this.users.get(challenge.get('challenger_id')),
+			user = this.users.get(challenge.get('user_id')),
+			challenger_metric = this.where({user_id: challenger.get('id')})[0],
+			user_metric,
+			self = this;
+		
+		if (challenger_metric) {
+			this.updateMetric(challenger_metric, challenger, challenge);
 		} else {
-			return this.create({user_id: user.get('id'), user_name: user.get('name')});
+			this.create({
+				user_id: challenger.get('id'), 
+				user_name: challenger.get('name')
+			}, {
+				success: function(model, response) {
+					self.updateMetric(model, challenger, challenge);
+				},
+				error: function(model, response) {
+					
+				}
+			});
+		}
+		
+		if (user) {
+			user_metric = this.where({user_id: user.get('id')})[0];
+			if (user_metric) {
+				this.updateMetric(user_metric, user, challenge);
+			} else {
+				this.create({
+					user_id: user.get('id'), 
+					user_name: user.get('name')
+				}, {
+					success: function(model, response) {
+						self.updateMetric(model, user, challenge);
+					},
+					error: function(model, response) {
+					
+					}
+				});
+			}
 		}
 	},
 	
-	getUsersChallenged: function(user) {
+	updateMetric: function(metric, user, challenge) {
+		metric.set({
+			challenges_started: metric.get('challenges_started') + this.challengesStarted(user, challenge),
+			challenges_finished: metric.get('challenges_finished') + this.challengesFinished(user, challenge),
+			challenges_created: metric.get('challenges_created') + this.challengesCreated(user, challenge),
+			challenges_recieved: metric.get('challenges_recieved') + this.challengesRecieved(user, challenge),
+			complete_replies: metric.get('completeReplies') + this.completeReplies(user, challenge),
+			num_users_challenged: this.numUsersChallenged(user),
+			num_challenged_users: this.challengesFinished(user)
+		});
+		metric.save();
+	},
+	
+	challengesStarted: function(user, challenge) {
+		var num = 0;
+
+		if (!challenge.get('is_sent') && !challenge.get('is_finished')) {
+			if (user.get('id') === challenge.get('challenger_id')) {
+				num = 1;
+			}
+		}
+		
+		return num;
+	},
+	
+	challengesFinished: function(user, challenge) {
+		var num = 0;
+
+		if (challenge.get('is_sent') && challenge.get('is_finished')) {
+				num = 1;
+		}
+		
+		return num;
+	},
+	
+	challengesCreated: function(user, challenge) {
+		var num = 0;
+		
+		if (challenge.get('is_sent') && !challenge.get('is_finished')) {
+			if (user.get('id') === challenge.get('challenger_id')) {
+				num = 1;
+			}
+		}
+		
+		return num;
+	},
+	
+	challengesRecieved: function(user, challenge) {
+		var num = 0;
+		
+		if (challenge.get('is_sent') && !challenge.get('is_finished')) {
+			if (user.get('id') === challenge.get('user_id')) {
+				num = 1;
+			}
+		}
+		
+		return num;
+	},
+	
+	completeReplies: function(user, challenge) {
+		var num = 0;
+		
+		if (challenge.get('is_sent') && challenge.get('is_finished')) {
+			if (user.get('id') === challenge.get('user_id')) {
+				num = 1;
+			}
+		}
+		
+		return num;
+	},
+	
+	numUsersChallenged: function(user) {
 		var num = 0,
 			self = this;
 		
@@ -34,7 +140,7 @@ Fauxble.Collections.UserMetrics = Backbone.Collection.extend({
 		return num;
 	},
 	
-	getChallengedUsers: function(user) {
+	numChallengedUsers: function(user) {
 		var num = 0,
 			self = this;
 		
@@ -47,60 +153,28 @@ Fauxble.Collections.UserMetrics = Backbone.Collection.extend({
 		return num;
 	},
 	
-	challengeCreated: function(challenge) {
-		var user = this.users.get(challenge.get('challenger_id')),
-			metric = this.getUserMetric(user);
-		
-		metric.set({
-			challenges_created: metric.get('challenges_created') + 1,
-			num_users_challenged: this.getUsersChallenged(user)
-		});
-		metric.save();
-	},
-	
-	challengeFinished: function(challenge) {
-		if (challenge.get('is_finished')) {
-			var challenger_metric = this.getUserMetric(this.users.get(challenge.get('challenger_id'))),
-				user_metric = this.getUserMetric(this.users.get(challenge.get('user_id')));
-			
-			challenger_metric.set({
-				challenges_finished: challenger_metric.get('challenges_finished') + 1
-			});
-			user_metric.set({
-				challenges_finished: user_metric.get('challenges_finished') + 1,
-				complete_replies: user_metric.get('complete_replies') + 1
-			});
-			challenger_metric.save();
-			user_metric.save();
-		}
-	},
-	
-	ChallengeSent: function(challenge) {
-		if (challenge.get('is_sent')) {
-			var user = this.users.get(challenge.get('user_id')),
-				challenger_metric = this.getUserMetric(this.users.get(challenge.get('challenger_id'))),
-				user_metric = this.getUserMetric(user);
-			
-			challenger_metric.set({
-				challenges_sent: challenger_metric.get('sent') + 1
-			});
-			user_metric.set({
-				challenges_recieved: user_metric.get('challenges_recieved') + 1,
-				num_challenged_users: this.getChallengedUsers(user)
-			});
-			challenger_metric.save();
-			user_metric.save();
-		}
-	},
-	
 	addTime: function(options) {
 		var user = options.user,
 			time = options.time,
-			metric = this.getUserMetric(user);
-		
-		metric.set({
-			time_on_site: metric.get('time_on_site') + time
-		});
-		metric.save();
+			metric = this.where({user_id: user.get('id')})[0];
+
+		if (metric) {
+			metric.set({
+				time_on_site: metric.get('time_on_site') + time
+			});
+			metric.save();
+		} else {
+			this.create({user_id: user.get('id'), user_name: user.get('name')}, {
+				success: function(model, response) {
+					model.set({
+						time_on_site: model.get('time_on_site') + time
+					});
+					model.save();
+				},
+				error: function(model, response) {
+
+				}
+			});
+		}
 	}
 });

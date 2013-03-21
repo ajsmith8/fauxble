@@ -80,10 +80,19 @@
 .tutorial {
 	color: #fff;
 	z-index: 1000;
-	width: 101%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+}
+
+.tutorial-background {
+	z-index: 999;
 	position: fixed;
 	top: 0;
-	left: -4px;
+	width: 100%;
 	height: 100%;
+
 	background: rgba(#000, 0.4);
 }
