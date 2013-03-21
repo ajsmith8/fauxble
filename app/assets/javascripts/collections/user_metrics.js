@@ -6,11 +6,13 @@ Fauxble.Collections.UserMetrics = Backbone.Collection.extend({
 	initialize: function(models, options) {
 		this.challenges = options.challenges;
 		this.users = options.users;
-
-		this.challenges.on('add', this.getUserMetric, this);
-		this.challenges.on('change:is_finished', this.getUserMetric, this);
-		this.challenges.on('change:is_sent', this.getUserMetric, this);
+		
+		this.challenges.on('add change:is_finished change:is_sent', this.getUserMetric, this);
+		this.users.on('ans', this.mfcAnswer, this);
 		this.users.on('page', this.addTime, this);
+		this.users.on('change:signed_in change:signed_in_fb', this.checkSignedIn, this);
+		this.users.on('continue', this.checkContinue, this);
+		this.users.on('page', this.setSignedIn, this);
 	},
 	
 	getUserMetric: function(challenge) {
@@ -175,6 +177,122 @@ Fauxble.Collections.UserMetrics = Backbone.Collection.extend({
 
 				}
 			});
+		}
+	},
+	
+	mfcAnswer: function(options) {
+		var user = options.user,
+			str = options.str,
+			metric = this.where({user_id: user.get('id')})[0];
+
+		if (metric) {
+			if (str === 'yes') {
+				metric.set({
+					answered_yes: metric.get('answered_yes') + 1
+				});
+			} else {
+				metric.set({
+					answered_no: metric.get('answered_no') + 1
+				});
+			}
+			metric.save();
+		} else {
+			this.create({user_id: user.get('id'), user_name: user.get('name')}, {
+				success: function(model, response) {
+					if (str === 'yes') {
+						model.set({
+							answered_yes: model.get('answered_yes') + 1
+						});
+					} else {
+						model.set({
+							answered_no: model.get('answered_no') + 1
+						});
+					}
+					model.save();
+				},
+				error: function(model, response) {
+
+				}
+			});
+		}
+	},
+	
+	checkSignedIn: function(user) {
+		var metric = this.where({user_id: user.get('id')})[0];
+		
+		if (user.get('signed_in') || user.get('signed_in_fb')) {
+			if (metric) {
+				if (!metric.get('signed_in')) {
+					metric.set({
+						signed_in: true
+					});
+					metric.save();
+				}
+			} else {
+				this.create({user_id: user.get('id'), user_name: user.get('name')}, {
+					success: function(model, response) {
+						model.set({
+							signed_in: true
+						});
+						model.save();
+					},
+					error: function(model, response) {
+
+					}
+				});
+			}
+		}
+	},
+	
+	checkContinue: function(options) {
+		var user = options.user,
+			view = options.view,
+			metric = this.where({user_id: user.get('id')})[0];
+		if (metric) {
+			if (!metric.get('hit_continue')) {
+				metric.save({hit_continue: true}, {
+					success: function(model, response) {
+						console.log('success');
+						view.fbLogin();
+					},
+					error: function(model, response) {
+						console.log('error');
+						view.fbLogin();
+					}
+				});
+			}
+		} else {
+			this.create({user_id: user.get('id'), user_name: user.get('name')}, {
+				success: function(model, response) {
+					model.save({hit_continue: true}, {
+						success: function(mod, resp) {
+							view.fbLogin();
+						},
+						error: function(mod, resp) {
+							view.fbLogin();
+						}
+					});
+				},
+				error: function(model, response) {
+
+				}
+			});
+		}
+	},
+	
+	setSignedIn: function(options) {
+		var user = options.user,
+			metric = this.where({user_id: user.get('id')})[0];
+			
+		if (metric) {
+			if (!metric.get('signed_in')) {
+				if (user.get('signed_in') || user.get('signed_in_fb')) {
+					metric.set({
+						signed_in: true
+					});
+					metric.save();
+				}
+			}
 		}
 	}
 });

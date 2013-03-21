@@ -25,7 +25,7 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 		$(this.el).html(this.template());
 		
 		setTimeout(function() {
-			if (self.user) {
+			if (self.user.get('signed_in') || self.user.get('signed_in_fb')) {
 				$(self.el).find('#profile').addClass('black');
 				self.renderProfile();
 			} else {

@@ -3,11 +3,13 @@ Fauxble.Views.MfcPopup = Backbone.View.extend({
 	template: JST['mfc/popup'],
 	
 	events: {
-		'click .answer' : 'resultPopup'
+		'click .answer' : 'resultPopup',
+		'click #retry' : 'resetQuestion'
 	},
 	
 	initialize: function(options) {
 		this.attr = options.attr;
+		this.user = this.attr.users.get(this.attr.current_user.get('id'));
 		this.parent_element = options.element;
 		this.background_element = options.background;
 	},
@@ -30,16 +32,23 @@ Fauxble.Views.MfcPopup = Backbone.View.extend({
 		if (!this.answered) {	
 			this.answered = true;
 			if ($(element).hasClass('yes')) {
+				this.attr.users.trigger('ans', {user: this.user, str: 'yes'});
 				result = $(this.el).find('#result_yes');
 				setTimeout(function() {
 					$(background).removeClass('mfc-popup-background');
 					$(parent).empty();
 				}, 3000);
 			} else {
+				this.attr.users.trigger('ans', {user: this.user, str: 'no'});
 				result = $(this.el).find('#result_no');
 			}
 	
 			$(result).removeClass('hide');
 		}
+	},
+	
+	resetQuestion: function() {
+		$(this.el).find('#result_no').addClass('hide');
+		this.answered = false;
 	}
 });

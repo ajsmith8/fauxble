@@ -39,7 +39,7 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 			}
 		}
 
-		if (user && !has_current_user) {
+		if (user && !has_current_user && (user.get('signed_in') || user.get('signed_in_fb'))) {
 			current_user = {user: user, score: this.ranks.getScore(user, issue)};
 			if (users.indexOf(current_user) !== -1) {
 				top_users[4] = {user: user, rank: users.indexOf(current_user) + 1};
@@ -82,9 +82,11 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 			users = this.toArray();
 		
 		for (u = 0; u < users.length; u++) {
-			if (users[u].get('name').toLowerCase() === str.toLowerCase()) {
-				is_unique = false;
-				break;
+			if (users[u].get('name')) {
+				if (users[u].get('name').toLowerCase() === str.toLowerCase()) {
+					is_unique = false;
+					break;
+				}
 			}
 		}
 		
@@ -101,6 +103,7 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 			signed_in: true
 		}, {
 			success: function(model, response) {
+				Backbone.history.navigate('', true);
 				window.location.reload();
 			},
 			error: function(model, response) {
