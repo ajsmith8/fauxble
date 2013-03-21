@@ -12,7 +12,12 @@ class UserMetricsController < ApplicationController
   end
   
   def create
-    @user_metric = UserMetric.create(params[:user_metric])
+    @user_metric = UserMetric.where(user_id: params[:user_id])[0]
+    
+    if !@user_metric
+      @user_metric = UserMetric.create(params[:user_metric])
+    end
+    
     respond_with @user_metric
   end
   

@@ -12,7 +12,12 @@ class RanksController < ApplicationController
   end
   
   def create
-    @rank = Rank.create(params[:rank])
+    @rank = Rank.where(user_id: params[:user_id], issue_id: params[:issue_id])[0]
+    
+    if !@rank
+      @rank = Rank.create(params[:rank])
+    end
+    
     respond_with @rank
   end
   

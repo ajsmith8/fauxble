@@ -18,19 +18,29 @@ Fauxble.Collections.PageMetrics = Backbone.Collection.extend({
 		if (user) {
 			if (this.where({page_name: page, user_id: user.get('id')})[0]) {
 				metric = this.where({page_name: page, user_id: user.get('id')})[0];
+				metric.set({
+					time: metric.get('time') + time
+				});
+				metric.save();
 			} else {
 				metric = this.create({
 					page_name: page,
 					user_id: user.get('id'),
 					user_name: user.get('name'),
 					time: 0
+				}, {
+					success: function(model, response) {
+						model.set({
+							time: model.get('time') + time
+						});
+						model.save();
+					},
+					
+					error: function() {
+						
+					}
 				});
 			}
-		
-			metric.set({
-				time: metric.get('time') + time
-			});
-			metric.save();
 		}
 	}
 });
