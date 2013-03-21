@@ -207,15 +207,31 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.triggerPage('about');
 	},
 	
-	about: function() {
+	mfc: function() {
 		this.renderColumns();
-		var view = new Fauxble.Views.PagesAbout({
+		var right = new Fauxble.Views.MfcRight({
+			attr: this.attr,
+			router: this
+		});
+		var left = new Fauxble.Views.MfcLeft({
 			attr: this.attr
 		});
-		this.setCurrentView(view);
-		this.feed();
-		$('.right.column').html(view.render().el);
+		this.setCurrentView(right);
+		this.setSubview(left, 'mfc');
+		$('.right.column').html(right.render().el);
+		$('.left.column').html(left.render().el);
 		this.triggerPage('mfc');
+	},
+	
+	mfcQuestion: function() {
+		var element = $('#tutorial'),
+			background = $('#background');
+		var view = new Fauxble.Views.MfcPopup({
+			attr: this.attr,
+			element: element,
+			background: background
+		});
+		$(element).html(view.render().el);
 	},
 	
 	signin: function() {
