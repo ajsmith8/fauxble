@@ -43,10 +43,10 @@ Fauxble.Views.PagesFooter = Backbone.View.extend({
 	
 	getQuotes: function() {
 		var quotes = [
-			{quote: 'This is a quote', source: 'Thomas Jefferson'},
-			{quote: 'This is another quote', source: 'Andrew Smith'},
-			{quote: 'This is NOT a quote!', source: 'Joanie Gentile'},
-			{quote: 'Is this a quote?', source: 'Aaron Henning'}
+			{quote: 'Democracy cannot succeed unless those who express their choice are prepared to choose wisely. The real safeguard of democracy, therefore, is education', source: 'Thomas Jefferson'},
+			{quote: 'Information is the currency of democracy', source: 'Andrew Smith'},
+			{quote: 'The important thing is to not stop questioning. Curiosity has its own reason for existing', source: 'Joanie Gentile'},
+			{quote: 'It is unwise to be too sure of ones own wisdom. It is healthy to be reminded that the strongest might weaken and the wisest might err', source: 'Aaron Henning'}
 		];
 		
 		return quotes;
