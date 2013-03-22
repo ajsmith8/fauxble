@@ -6,8 +6,7 @@ window.Fauxble = {
 	
 	initialize: function(data) {
 		this.current_user 		= new Fauxble.Models.User(data.current_user);
-		this.issues 			= new Fauxble.Collections.Issues();
-		this.issues.fetch();
+		this.issues 			= new Fauxble.Collections.Issues(data.issues);
 		this.sliders 			= new Fauxble.Collections.Sliders();
 		this.sliders.fetch();
 		this.answers 			= new Fauxble.Collections.Answers();
