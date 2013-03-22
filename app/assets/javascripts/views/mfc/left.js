@@ -8,7 +8,7 @@ Fauxble.Views.MfcLeft = Backbone.View.extend({
 	
 	initialize: function(options) {
 		this.attr = options.attr;
-		this.facts = this.getFacts(this.attr.users.toArray(), this.attr.questions.toArray(), this.attr.tasks);
+		this.facts = this.getFacts(this.attr.users.getSignedInUsers(), this.attr.questions.toArray(), this.attr.tasks);
 	},
 	
 	render: function() {
@@ -27,7 +27,7 @@ Fauxble.Views.MfcLeft = Backbone.View.extend({
 		var facts = 0;
 	
 		for (u = 0; u < users.length; u++) {
-			if (users[u].get('signed_in') || users[u].get('signed_in_fb')) {
+			if (tasks.where({user_id: users[u].get('id')})) {
 				for (q = 0; q < questions.length; q++) {
 					if (tasks.where({user_id: users[u].get('id'), question_id: questions[q].get('id')})[0]) {
 						facts = facts + 1;
