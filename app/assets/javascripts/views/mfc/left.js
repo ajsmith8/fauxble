@@ -8,7 +8,7 @@ Fauxble.Views.MfcLeft = Backbone.View.extend({
 	
 	initialize: function(options) {
 		this.attr = options.attr;
-		this.facts = this.getFacts(this.attr.users, this.attr.questions, this.attr.tasks);
+		this.facts = this.getFacts(this.attr.users.toArray(), this.attr.questions.toArray(), this.attr.tasks);
 	},
 	
 	render: function() {
@@ -18,7 +18,6 @@ Fauxble.Views.MfcLeft = Backbone.View.extend({
 		
 		setTimeout(function() {
 			self.fillBar();
-			FB.XFBML.parse();
 		}, 0);
 		
 		return this;
@@ -26,14 +25,16 @@ Fauxble.Views.MfcLeft = Backbone.View.extend({
 	
 	getFacts: function(users, questions, tasks) {
 		var facts = 0;
-		
-		users.each(function(user) {
-			questions.each(function(question) {
-				if (tasks.where({user_id: user.get('id'), question_id: question.get('id')})[0]) {
-					facts = facts + 1;
+	
+		for (u = 0; u < users.length; u++) {
+			if (users[u].get('signed_in') || users[u].get('signed_in_fb')) {
+				for (q = 0; q < questions.length; q++) {
+					if (tasks.where({user_id: users[u].get('id'), question_id: questions[q].get('id')})[0]) {
+						facts = facts + 1;
+					}
 				}
-			});
-		});
+			}
+		}
 		
 		return facts + 4000;
 	},

@@ -97,7 +97,7 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 	topUsers: function() {
 		var view = new Fauxble.Views.UsersIndex({
 			attr: this.attr,
-			users: this.attr.users.getTopFive(this.current_user, this.issue)
+			users: this.attr.users.getTopUsers(this.current_user, this.issue, 5)
 		});
 		
 		if (this.issue) {
@@ -146,7 +146,6 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 			}
 		} else {
 			$(this.el).find('#bottom').html(JST['pages/like']);
-			FB.XFBML.parse();
 		}
 	}
 });

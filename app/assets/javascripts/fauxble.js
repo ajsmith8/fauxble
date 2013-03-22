@@ -44,6 +44,9 @@ window.Fauxble = {
 			challenges: this.challenges,
 			users: this.users
 		});
+	
+		this.tasks.fetch({reset: true});
+		this.challenges.fetch({reset: true});
 		
 		new Fauxble.Routers.Router({
 			current_user: 		this.current_user,

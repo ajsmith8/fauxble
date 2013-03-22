@@ -54,7 +54,7 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 	
 	getScore: function(user, issue) {
 		var score = 0,
-			ranks;
+			ranks = [];
 		
 		if (user) {
 			if (issue) {
@@ -64,10 +64,8 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 			}
 		}
 		
-		if (ranks) {
-			_.each(ranks, function(rank) {
-				score = score + rank.get('score');
-			});
+		for (r = 0; r < ranks.length; r++) {
+			score = score + ranks[r].get('score');
 		}
 		
 		return score;
@@ -75,7 +73,6 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 	
 	getRank: function(users, user, issue) {
 		var self = this;
-		users = users.where({signed_in: true}).concat(users.where({signed_in_fb: true}));
 		
 		users.sort(function(a, b) {
 			return self.getScore(b, issue) - self.getScore(a, issue);

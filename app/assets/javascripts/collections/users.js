@@ -9,48 +9,40 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 	},
 	
 	comparator: function(user) {
-		return this.ranks.getRank(this, user, null)
+		return this.ranks.getRank(this.getSignedInUsers(), user, null)
 	},
 	
-	getTopFive: function(user, issue) {
+	getTopUsers: function(user, issue, length) {
 		var self = this,
-			length = 5,
-			users = [],
-			top_users = [],
+			users = this.getSignedInUsers(),
+			tops = [],
 			has_current_user = false,
 			current_user;
-
-		this.each(function(u) {
-			if (u.get('signed_in') || u.get('signed_in_fb')) {
-				users.push({user: u, score: self.ranks.getScore(u, issue)});
-			}
-		});
-
-		users.sort(function(a, b) {
-			return b.score - a.score;
-		});
 
 		if (users.length < 5) {
 			length = users.length;
 		}
+			
+		users.sort(function(a, b) {
+			return self.ranks.getScore(b, issue) - self.ranks.getScore(a, issue);
+		});
 
-		for (i = 0; i < length; i++) {
-			top_users.push({user: users[i].user, rank: i + 1});
-			if (user && users[i].user.get('id') === user.get('id')) {
+		for (u = 0; u < length; u++) {
+			tops.push({user: users[u], rank: u + 1});
+			if (user && users[u].get('id') === user.get('id')) {
 				has_current_user = true;
 			}
 		}
-
-		if (user && !has_current_user && (user.get('signed_in') || user.get('signed_in_fb'))) {
-			current_user = {user: user, score: this.ranks.getScore(user, issue)};
-			if (users.indexOf(current_user) !== -1) {
-				top_users[4] = {user: user, rank: users.indexOf(current_user) + 1};
-			} else {
-				top_users[4] = {user: user, rank: users.length};
-			}
+		
+		if (!has_current_user && users.indexOf(user) !== -1) {
+			tops[4] = {user: user, rank: users.indexOf(user) + 1};
 		}
 
-		return top_users;
+		return tops;
+	},
+	
+	getSignedInUsers: function() {
+		return this.where({signed_in: true}).concat(this.where({signed_in_fb: true}));
 	},
 	
 	authenticateUser: function(name, email, password, confirm, min_length) {
@@ -130,35 +122,34 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 		});
 	},
 	
-	getTopFusers: function(challenges, user) {
-		var users = [],
-			a_completes,
-			b_completes,
-			completes;
+	getActiveFusers: function(challenges, user, length) {
+		var users = this.getSignedInUsers(),
+			completes = [], 
+			actives = [];
 		
-		this.each(function(u) {
-				completes = challenges.where({is_finished: true, user_id: u.get('id')}).length + challenges.where({is_finished: true, challenger_id: u.get('id')}).length;
-				if (completes > 0 && u.get('id') !== 1) {
-					users.push(u);
+		for (u = 0; u < users.length; u++) {
+			completes = challenges.getChallenges(users[u], true, null);
+			
+			if (completes.length > 0) {
+				if (users[u].get('id') !== user.get('id')) {
+					actives.push({user: users[u], num: completes.length});
 				}
-		});
-		
-		if (!isNaN(users.indexOf(user))) {
-			users.splice(users.indexOf(user), 1);
+			}
 		}
 		
-		users.sort(function(a, b) {
-			a_completes = challenges.where({is_finished: true, user_id: a.get('id')}).length + challenges.where({is_finished: true, challenger_id: a.get('id')}).length;
-			b_completes = challenges.where({is_finished: true, user_id: b.get('id')}).length + challenges.where({is_finished: true, challenger_id: b.get('id')}).length;
-			
-			return b_completes - a_completes;
+		actives.sort(function(a, b) {
+			return b.num - a.num;
 		});
 		
-		return users;
+		if (actives.length < length) {
+			length = actives.length;
+		}
+		
+		return actives.splice(0, length);
 	},
 	
 	getFacebookFriends: function() {
-		var array = [];
+		/*var array = [];
 		
 		this.each(function(user) {
 			if (user.get('signed_in_fb')) {
@@ -166,7 +157,7 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 					array.concat(response['data']);
 				});
 			}
-		});
+		});*/
 	},
 	
 	getFauxUsers: function(num) {

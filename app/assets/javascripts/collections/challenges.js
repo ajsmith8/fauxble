@@ -10,15 +10,9 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 	},
 	
 	setUserDefaults: function(user) {
-		var issues = [],
+		var issues = this.issues.availableIssues(this.questions, 3),
 			ids = '',
 			self = this;
-		
-		this.issues.each(function(issue) {
-			if (self.questions.getNumQuestions(issue) > 3) {
-				issues.push(issue);
-			}
-		});
 		
 		issues = _.shuffle(issues);
 		
@@ -83,6 +77,18 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 		}
 	},
 	
+	getChallenges: function(user, is_finished, is_sent) {
+		if (is_finished) {
+			return this.where({challenger_id: user.get('id'), is_finished: true}).concat(this.where({user_id: user.get('id'), is_finished: true}));
+		} else {
+			if (is_sent) {
+				return this.where({challenger_id: user.get('id'), is_finished: false, is_sent: true});
+			} else {
+				return this.where({user_id: user.get('id'), is_finished: false, is_sent: true});
+			}
+		}
+	},
+	
 	getWins: function(user1, user2, issue) {
 		var wins = 0;
 		
@@ -117,33 +123,25 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 	},
 	
 	getTotalPlayed: function(user) {
-		var played = 0;
-		
-		played = played + this.where({user_id: user.get('id'), is_finished: true}).length;
-		played = played + this.where({challenger_id: user.get('id'), is_finished: true}).length;
-		
-		return played;
+		return this.getChallenges(user, true, null).length;
 	},
 	
 	getTotalWon: function(user) {
-		var won = 0;
+		var challenges = this.getChallenges(user, true, null),
+			won = 0;
 		
-		won = won + this.where({user_id: user.get('id'), winner_id: user.get('id')}).length;
-		won = won + this.where({challenger_id: user.get('id'), winner_id: user.get('id')}).length;
+		for (c = 0; c < challenges.length; c++) {
+			if (challenges[c].get('winner_id') === user.get('id')) {
+				won = won + 1;
+			}
+		}
 		
 		return won;
 	},
 	
 	getStreakWon: function(user) {
-		var challenges = [],
+		var challenges = this.getChallenges(user, true, null),
 			won = 0;
-		
-		_.each(this.where({user_id: user.get('id'), is_finished: true}), function(c) {
-			challenges.push(c);
-		});
-		_.each(this.where({challenger_id: user.get('id'), is_finished: true}), function(c) {
-			challenges.push(c);
-		});
 		
 		challenges.sort(function(a, b) {
 			return b.get('updated_at') - a.get('updated_at');
@@ -161,32 +159,21 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 	},
 	
 	getTotalLost: function(user) {
-		var lost = 0;
+		var challenges = this.getChallenges(user, true, null),
+			lost = 0;
 		
-		_.each(this.where({user_id: user.get('id'), is_finished: true}), function(challenge) {
-			if (challenge.get('winner_id') !== user.get('id')) {
+		for (c = 0; c < challenges.length; c++) {
+			if (challenges[c].get('winner_id') !== user.get('id')) {
 				lost = lost + 1;
 			}
-		});
-		_.each(this.where({challenger_id: user.get('id'), is_finished: true}), function(challenge) {
-			if (challenge.get('winner_id') !== user.get('id')) {
-				lost = lost + 1;
-			}
-		});
+		}
 		
 		return lost;
 	},
 	
 	getStreakLost: function(user) {
-		var challenges = [],
+		var challenges = this.getChallenges(user, true, null),
 			lost = 0;
-		
-		_.each(this.where({user_id: user.get('id'), is_finished: true}), function(c) {
-			challenges.push(c);
-		});
-		_.each(this.where({challenger_id: user.get('id'), is_finished: true}), function(c) {
-			challenges.push(c);
-		});
 		
 		challenges.sort(function(a, b) {
 			return b.get('updated_at') - a.get('updated_at');
@@ -225,9 +212,5 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 		});
 		
 		return array;
-	},
-	
-	createRandoms: function(users, issue) {
-		
 	}
 });

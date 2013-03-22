@@ -19,14 +19,15 @@ Fauxble.Collections.Issues = Backbone.Collection.extend({
 	},
 	
 	availableIssues: function(questions, num) {
-		var issues = [];
+		var issues = this.toArray(),
+			available = [];
 		
-		this.each(function(issue) {
-			if (questions.getNumQuestions(issue) > num - 1) {
-				issues.push(issue);
+		for (i = 0; i < issues.length; i++) {
+			if (questions.getNumQuestions(issues[i]) > num - 1) {
+				available.push(issues[i]);
 			}
-		});
-		
-		return issues;
+		}
+
+		return available;
 	}
 });

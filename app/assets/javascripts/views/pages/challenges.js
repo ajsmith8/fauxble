@@ -10,28 +10,26 @@ Fauxble.Views.PagesChallenges = Backbone.View.extend({
 		console.log('views/pages/challenges init ' + window.timer);
 		this.attr = options.attr;
 		this.user = this.attr.users.get(this.attr.current_user.get('id'));
+		this.sent = this.attr.challenges.getChallenges(this.user, false, true);
+		this.recieved = this.attr.challenges.getChallenges(this.user, false, false);
 		this.subviews = [];
 		
 		this.attr.users.trigger('scope');
 	},
 	
 	render: function() {
-		var self = this,
-			count = 0;
-			
+		var self = this;
+
 		$(this.el).addClass('home_challenges_container');
 		$(this.el).html(this.template());
 		
 		setTimeout(function() {
-			_.each(self.getRecieved(self.attr.challenges, self.user), function(challenge) {
-				self.appendChallenge(challenge, false, count);
-				count = count + 1;
-			});
-			count = 0;
-			_.each(self.getSent(self.attr.challenges, self.user), function(challenge) {
-				self.appendChallenge(challenge, true, count);
-				count = count + 1;
-			});
+			for (r = 0; r < self.recieved.length; r++) {
+				self.appendChallenge(self.recieved[r], false, r)
+			}
+			for (s = 0; s < self.sent.length; s++) {
+				self.appendChallenge(self.sent[s], true, s)
+			}
 		}, 0);
 		return this;
 	},
@@ -49,14 +47,6 @@ Fauxble.Views.PagesChallenges = Backbone.View.extend({
 		} else {
 			$(this.el).find('#recieved').append(view.render().el);
 		}
-	},
-	
-	getRecieved: function(challenges, user) {
-		return challenges.where({user_id: user.get('id'), is_finished: false, is_sent: true});
-	},
-	
-	getSent: function(challenges, user) {
-		return challenges.where({challenger_id: user.get('id'), is_finished: false, is_sent: true});
 	},
 	
 	newChallenge: function() {

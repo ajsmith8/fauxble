@@ -14,20 +14,20 @@
 
 <script type = 'text/json' id = 'json'>
 	{
-		"current_user" : <%= current_user.to_json %>,
-		"issues" : <%= Issue.all.to_json %>,
-		"questions" : <%= Question.all.to_json %>,
-		"sliders" : <%= Slider.all.to_json %>,
-		"answers" : <%= Answer.all.to_json %>,
-		"sources" : <%= Source.all.to_json %>,
-		"challenges" : <%= Challenge.all.to_json %>,
-		"tasks" : <%= Task.all.to_json %>,
-		"users" : <%= User.all.to_json %>,
-		"ranks" : <%= Rank.all.to_json %>,
-		"achievables" : <%= Achievable.all.to_json %>,
-		"user_achievables" : <%= UserAchievable.all.to_json %>,
-		"page_metrics" : <%= PageMetric.all.to_json %>,
-		"user_metrics" : <%= UserMetric.all.to_json %>
+		"current_user" : <%= @current_user.to_json %>,
+		"issues" : <%= @issues %>,
+		"questions" : <%= @questions %>,
+		"sliders" : <%= @sliders %>,
+		"answers" : <%= @answers %>,
+		"sources" : <%= @sources %>,
+		"challenges" : <%= @challenges %>,
+		"tasks" : <%= @tasks %>,
+		"users" : <%= @users %>,
+		"ranks" : <%= @ranks %>,
+		"achievables" : <%= @achievables %>,
+		"user_achievables" : <%= @user_achievables %>,
+		"page_metrics" : <%= @page_metrics %>,
+		"user_metrics" : <%= @user_metrics %>
 	}
 </script>
 
