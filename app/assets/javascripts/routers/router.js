@@ -19,6 +19,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.page = null;
 		this.user = options.users.get(options.current_user.get('id'));
 		this.columns = false;
+		this.facts_learned = 4000;
 		
 		this.attr = {
 			current_user: options.current_user,
@@ -49,6 +50,8 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		$(window).bind('beforeunload', function() {
 			self.leaveSite()
 		});
+		
+		this.attr.tasks.on('reset', this.setFactsLearned, this);
 	},
 	
 	pageTimer: function(run) {
@@ -218,7 +221,8 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			router: this
 		});
 		var left = new Fauxble.Views.MfcLeft({
-			attr: this.attr
+			attr: this.attr,
+			facts: this.facts_learned
 		});
 		this.setCurrentView(right);
 		this.setSubview(left, 'mfc');
@@ -402,6 +406,24 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			element: $('#background')
 		});
 		$('#tutorial').html(view.render().el);
+	},
+	
+	setFactsLearned: function(tasks) {
+		var users = this.attr.users.getSignedInUsers(),
+			questions = this.attr.questions.toArray(),
+			facts = 0;
+	
+		for (u = 0; u < users.length; u++) {
+			if (tasks.where({user_id: users[u].get('id')})[0]) {
+				for (q = 0; q < questions.length; q++) {
+					if (tasks.where({user_id: users[u].get('id'), question_id: questions[q].get('id')})[0]) {
+						facts = facts + 1;
+					}
+				}
+			}
+		}
+		
+		this.facts_learned = facts + 4000;
 	},
 	
 	generateRandomUsers: function() {
