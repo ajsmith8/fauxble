@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
       User.faux_user_switch(User.where(uid: auth['uid'], provider: nil)[0])
     end
     
-    user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) 
+    user = User.where(provider: auth["provider"], uid: auth["uid"])[0] 
     if !user
       user = User.create_with_omniauth(auth, current_user)
     end
