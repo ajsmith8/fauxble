@@ -8,15 +8,12 @@ window.Fauxble = {
 		this.current_user 		= new Fauxble.Models.User(data.current_user);
 		this.issues 			= new Fauxble.Collections.Issues(data.issues);
 		this.sliders 			= new Fauxble.Collections.Sliders();
-		this.sliders.fetch();
 		this.answers 			= new Fauxble.Collections.Answers();
-		this.answers.fetch();
 		this.questions 			= new Fauxble.Collections.Questions(data.questions, {
 			sliders: this.sliders,
 			answers: this.answers
 		});
 		this.sources 			= new Fauxble.Collections.Sources();
-		this.sources.fetch();
 		this.tasks 				= new Fauxble.Collections.Tasks(data.tasks, {
 			questions: this.questions,
 			sliders: this.sliders,
@@ -47,9 +44,15 @@ window.Fauxble = {
 			challenges: this.challenges,
 			users: this.users
 		});
-	
-		this.tasks.fetch({reset: true});
-		this.challenges.fetch({reset: true});
+		
+		var self = this;
+		setTimeout(function() {
+			this.tasks.fetch({reset: true});
+			this.challenges.fetch({reset: true});
+			this.sliders.fetch();
+			this.answers.fetch();
+			this.sources.fetch();
+		}, 0);
 		
 		new Fauxble.Routers.Router({
 			current_user: 		this.current_user,
