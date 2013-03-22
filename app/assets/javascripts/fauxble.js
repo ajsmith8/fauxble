@@ -47,11 +47,11 @@ window.Fauxble = {
 		
 		var self = this;
 		setTimeout(function() {
-			this.tasks.fetch({reset: true});
-			this.challenges.fetch({reset: true});
-			this.sliders.fetch();
-			this.answers.fetch();
-			this.sources.fetch();
+			self.tasks.fetch({reset: true});
+			self.challenges.fetch({reset: true});
+			self.sliders.fetch();
+			self.answers.fetch();
+			self.sources.fetch();
 		}, 0);
 		
 		new Fauxble.Routers.Router({
