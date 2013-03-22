@@ -21,7 +21,9 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 			current_user;
 
 		this.each(function(u) {
-			users.push({user: u, score: self.ranks.getScore(u, issue)});
+			if (u.get('signed_in') || u.get('signed_in_fb')) {
+				users.push({user: u, score: self.ranks.getScore(u, issue)});
+			}
 		});
 
 		users.sort(function(a, b) {
@@ -135,9 +137,11 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 			completes;
 		
 		this.each(function(u) {
-			completes = challenges.where({is_finished: true, user_id: u.get('id')}).length + challenges.where({is_finished: true, challenger_id: u.get('id')}).length;
-			if (completes > 0 && u.get('id') !== 1) {
-				users.push(u);
+			if (u.get('signed_in') || u.get('signed_in_fb')) {
+				completes = challenges.where({is_finished: true, user_id: u.get('id')}).length + challenges.where({is_finished: true, challenger_id: u.get('id')}).length;
+				if (completes > 0 && u.get('id') !== 1) {
+					users.push(u);
+				}
 			}
 		});
 		

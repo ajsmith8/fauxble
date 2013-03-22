@@ -44,7 +44,11 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			this.pwnCameron();
 		}
 		
-		//$(window).bind('onbeforeunload', this.leaveSite);
+		var self = this;
+
+		$(window).bind('beforeunload', function() {
+			self.leaveSite()
+		});
 	},
 	
 	pageTimer: function(run) {

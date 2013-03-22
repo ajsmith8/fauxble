@@ -46,6 +46,7 @@ Fauxble.Views.MfcRight = Backbone.View.extend({
 	fbLogin: function() {
 		var self = this;
 		
+		$(window).scrollTop(0);
 		FB.api('/me/likes/471887209511817',function(response) {
 			if(response.data) {
 				if(response.data[0]) {
@@ -60,8 +61,8 @@ Fauxble.Views.MfcRight = Backbone.View.extend({
 	},
 	
 	fbSignIn: function() {
-		window.location = "http://localhost:3000/auth/facebook";
-		//window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";
+		//window.location = "http://localhost:3000/auth/facebook";
+		window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";
 		//window.location = "http://fusegap.org/auth/facebook";
 	},
 	
@@ -73,6 +74,7 @@ Fauxble.Views.MfcRight = Backbone.View.extend({
 		var element = $(this.el).find('#signup_form');
 		if ($(element).hasClass('hide')) {
 			$(element).removeClass('hide');
+			$(window).scrollTop($(window).scrollTop() + 250);
 		} else {
 			$(element).addClass('hide');
 		}
