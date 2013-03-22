@@ -11,11 +11,10 @@ window.Fauxble = {
 		this.sliders.fetch();
 		this.answers 			= new Fauxble.Collections.Answers();
 		this.answers.fetch();
-		this.questions 			= new Fauxble.Collections.Questions({}, {
+		this.questions 			= new Fauxble.Collections.Questions(data.questions, {
 			sliders: this.sliders,
 			answers: this.answers
 		});
-		this.questions.fetch();
 		this.sources 			= new Fauxble.Collections.Sources();
 		this.sources.fetch();
 		this.tasks 				= new Fauxble.Collections.Tasks(data.tasks, {

@@ -28,9 +28,9 @@ class SessionsController < ApplicationController
     @current_user = current_user
     @issues = Issue.all.to_json
     @questions = Question.all.to_json
-    @sliders = Slider.all.to_json
-    @answers = Answer.all.to_json
-    @sources = Source.all.to_json
+    #@sliders = Slider.all.to_json
+    #@answers = Answer.all.to_json
+    #@sources = Source.all.to_json
     @challenges = (Challenge.where(user_id: @current_user.id).concat(Challenge.where(challenger_id: @current_user.id))).to_json
     @tasks = (Task.where(user_id: @current_user.id)).to_json
     @user_achievables = UserAchievable.all.to_json
