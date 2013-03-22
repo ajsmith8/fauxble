@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130307192519) do
+ActiveRecord::Schema.define(:version => 20130321220137) do
 
   create_table "achievables", :force => true do |t|
     t.string   "title"
@@ -132,8 +132,12 @@ ActiveRecord::Schema.define(:version => 20130307192519) do
     t.integer  "num_users_challenged", :default => 0
     t.integer  "num_challenged_users", :default => 0
     t.integer  "time_on_site",         :default => 0
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
+    t.integer  "answered_yes",         :default => 0
+    t.integer  "answered_no",          :default => 0
+    t.boolean  "signed_in",            :default => false
+    t.boolean  "hit_continue",         :default => false
   end
 
   create_table "users", :force => true do |t|

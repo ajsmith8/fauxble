@@ -12,12 +12,7 @@ class PageMetricsController < ApplicationController
   end
   
   def create
-    @page_metric = PageMetric.where(user_id: params[:user_id], page_name: params[:page_name])[0]
-    
-    if !@page_metric
-      @page_metric = PageMetric.create(params[:page_metric])
-    end
-    
+    @page_metric = PageMetric.create(params[:page_metric])
     respond_with @page_metric
   end
   
