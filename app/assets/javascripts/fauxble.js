@@ -45,14 +45,15 @@ window.Fauxble = {
 			users: this.users
 		});
 		
-		/* var self = this;
+		var self = this;
 		setTimeout(function() {
 			self.tasks.fetch({reset: true});
-			self.challenges.fetch({reset: true});
+			self.user_metrics.fetch();
+			//self.challenges.fetch({reset: true});
 			self.sliders.fetch();
 			self.answers.fetch();
 			self.sources.fetch();
-		}, 0); */
+		}, 0);
 		
 		new Fauxble.Routers.Router({
 			current_user: 		this.current_user,

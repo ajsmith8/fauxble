@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
     @answers = Answer.all.to_json
     @sources = Source.all.to_json
     #@challenges = (Challenge.where(user_id: @current_user.id).concat(Challenge.where(challenger_id: @current_user.id))).to_json
-    #@tasks = (Task.where(user_id: @current_user.id)).to_json
+    @tasks = (Task.where(user_id: @current_user.id)).to_json
     @user_achievables = UserAchievable.all.to_json
     @achievables = Achievable.all.to_json
     #if !@current_user.signed_in && !@current_user.signed_in_fb
@@ -40,13 +40,13 @@ class SessionsController < ApplicationController
     #else
       #@users = (User.where(signed_in: true).concat(User.where(signed_in_fb: true))).to_json
     #end
-    #@page_metrics = (PageMetric.where(user_id: @current_user.id)).to_json
-    #@user_metrics = (UserMetric.where(user_id: @current_user.id)).to_json
+    @page_metrics = (PageMetric.where(user_id: @current_user.id)).to_json
+    @user_metrics = (UserMetric.where(user_id: @current_user.id)).to_json
     @ranks = Rank.all.to_json
     @challenges = Challenge.all.to_json
     @tasks = Task.all.to_json
     @users = User.all.to_json
-    @page_metrics = PageMetric.all.to_json
-    @user_metrics = UserMetric.all.to_json
+    #@page_metrics = PageMetric.all.to_json
+    #@user_metrics = UserMetric.all.to_json
   end
 end
