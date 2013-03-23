@@ -12,24 +12,13 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = current_user
-    @user = User.update(@user.id, params[:user])
-    if @user.signed_in
-      Challenge.set_default_challenges(@user)
-      if !session[:user_id]
-        session[:user_id] = @user.id
-      end
-    end
+    @user = User.create(params[:user])
     respond_with @user
   end
   
   def update
-    @user = User.find(params[:id])
-    if !session[:user_id]
-      session[:user_id] = @user.id
-    end
-    user = User.update(params[:id], params[:user])
-    respond_with user
+    @user = User.update(params[:id], params[:user])
+    respond_with @user
   end
   
   def destroy
