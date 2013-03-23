@@ -12,6 +12,7 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 		console.log('views/pages/issues init ' + window.timer);
 		this.attr = options.attr;
 		this.challenge = options.challenge;
+		this.issues = null;
 		this.subviews = [];
 		
 		this.attr.users.trigger('scope');
@@ -29,23 +30,18 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 	},
 	
 	renderIssues: function() {
-		console.log('views/pages/issues/renderIssues init ' + window.timer);
-		var self = this,
-			num_questions,
-			issues = [];
+		console.log('views/pages/issues/renderIssues init ' + window.timer); 
+		var issues;
 		
-		this.attr.issues.each(function(issue) {
-			num_questions = self.attr.questions.getNumQuestions(issue);
-			if (num_questions > 3) {
-				issues.push({issue: issue, facts: num_questions});
-			}
-		});
+		if (!this.issues) {
+			this.issues = this.attr.issues.availableIssues(this.attr.questions, 3);
+		}
 		
-		issues = _.shuffle(issues);
+		issues = _.shuffle(this.issues);
 		$(this.el).find('#issues').empty();
 		
 		for (i = 0; i < 4; i++) {
-			this.appendIssue(issues[i].issue, issues[i].facts, i);
+			this.appendIssue(issues[i], this.attr.questions.getNumQuestions(issues[i]), i);
 		}
 	},
 	
@@ -65,18 +61,11 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 	showAllIssues: function() {
 		var self = this,
 			num_questions,
-			issues = [];
-		
-		this.attr.issues.each(function(issue) {
-			num_questions = self.attr.questions.getNumQuestions(issue);
-			if (num_questions > 3) {
-				issues.push({issue: issue, facts: num_questions});
-			}
-		});
+			issues = this.attr.issues.availableIssues(this.attr.questions, 3);
 		
 		$(this.el).find('#issues').empty();
 		
-		for (i = issues.length - 1; i >= 0 ; i--) {
+		for (i = 0; i < issues.length ; i++) {
 			this.appendIssue(issues[i].issue, issues[i].facts, i);
 		}
 	},

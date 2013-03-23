@@ -66,7 +66,7 @@ Fauxble.Collections.UserMetrics = Backbone.Collection.extend({
 			challenges_recieved: metric.get('challenges_recieved') + this.challengesRecieved(user, challenge),
 			complete_replies: metric.get('completeReplies') + this.completeReplies(user, challenge),
 			num_users_challenged: this.numUsersChallenged(user),
-			num_challenged_users: this.challengesFinished(user)
+			num_challenged_users: this.numChallengedUsers(user)
 		});
 		metric.save();
 	},

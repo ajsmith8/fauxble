@@ -5,14 +5,16 @@ class ApplicationController < ActionController::Base
 
   def current_user
     if session[:user_id] && User.where(id: session[:user_id])[0]
-      @current_user = User.find(session[:user_id])
+      user = User.find(session[:user_id])
     else
-      @current_user = User.create(
+      user = User.create(
         signed_in: false,
         signed_in_fb: false
       )
-      session[:user_id] = @current_user.id
+      session[:user_id] = user.id
     end
+    
+    return user
   end
 
   def signed_in?

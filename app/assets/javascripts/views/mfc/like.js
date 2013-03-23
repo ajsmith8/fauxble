@@ -18,10 +18,6 @@ Fauxble.Views.MfcLike = Backbone.View.extend({
 
 		$(this.el).html(this.template());
 		
-		setTimeout(function() {
-			FB.XFBML.parse();
-		}, 0);
-		
 		return this;
 	},
 	

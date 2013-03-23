@@ -13,7 +13,7 @@ window.Fauxble = {
 			sliders: this.sliders,
 			answers: this.answers
 		});
-		this.sources 			= new Fauxble.Collections.Sources(data.sources);
+		this.sources 			= new Fauxble.Collections.Sources(data.sliders);
 		this.tasks 				= new Fauxble.Collections.Tasks(data.tasks, {
 			questions: this.questions,
 			sliders: this.sliders,
@@ -44,6 +44,15 @@ window.Fauxble = {
 			challenges: this.challenges,
 			users: this.users
 		});
+		
+		/* var self = this;
+		setTimeout(function() {
+			self.tasks.fetch({reset: true});
+			self.challenges.fetch({reset: true});
+			self.sliders.fetch();
+			self.answers.fetch();
+			self.sources.fetch();
+		}, 0); */
 		
 		new Fauxble.Routers.Router({
 			current_user: 		this.current_user,
