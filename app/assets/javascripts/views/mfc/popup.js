@@ -37,7 +37,7 @@ Fauxble.Views.MfcPopup = Backbone.View.extend({
 				setTimeout(function() {
 					$(background).removeClass('mfc-popup-background');
 					$(parent).empty();
-				}, 3000);
+				}, 2300);
 			} else {
 				this.attr.users.trigger('ans', {user: this.user, str: 'no'});
 				result = $(this.el).find('#result_no');
