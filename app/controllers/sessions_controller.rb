@@ -44,7 +44,7 @@ class SessionsController < ApplicationController
     @user_metrics = (UserMetric.where(user_id: @current_user.id)).to_json
     @ranks = Rank.all.to_json
     @challenges = Challenge.all.to_json
-    @tasks = Task.all.to_json
+    #@tasks = Task.all.to_json
     @users = User.all.to_json
     #@page_metrics = PageMetric.all.to_json
     #@user_metrics = UserMetric.all.to_json

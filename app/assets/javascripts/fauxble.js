@@ -50,9 +50,9 @@ window.Fauxble = {
 			self.tasks.fetch({reset: true});
 			self.user_metrics.fetch();
 			//self.challenges.fetch({reset: true});
-			self.sliders.fetch();
-			self.answers.fetch();
-			self.sources.fetch();
+			//self.sliders.fetch();
+			//self.answers.fetch();
+			//self.sources.fetch();
 		}, 0);
 		
 		new Fauxble.Routers.Router({
