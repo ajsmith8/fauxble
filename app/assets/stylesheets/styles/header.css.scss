@@ -18,7 +18,7 @@
 	
 	.header_logo_container {
 		position: absolute;
-		top: 4px;
+		top: 6px;
 		left: 401px;
 		height: 34px;
 		width: 130px;
@@ -33,7 +33,7 @@
 		}
 		.image_container {
 			position: absolute;
-			top: 2px;
+			top: 0px;
 			left: 58px;
 			width: 26px;
 			height: 29px;
@@ -109,7 +109,7 @@
 	
 	.mfc {
 		position: absolute;
-		top: 0;
+		top: 2px;
 		right: 215px;
 		height: 100%;
 		width: 100px;
@@ -119,7 +119,7 @@
 	.about {
 		&.button {
 			position: absolute;
-			top: 0;
+			top: 2px;
 			right: 115px;
 			height: 100%;
 			width: 100px;
@@ -150,7 +150,7 @@
 		&.text {
 			width: 100%;
 			height: 16px;
-			margin: 9px 0 0 0;
+			margin: 11px 0 0 0;
 			color: #fff;
 			text-align: center;
 			font-size: 12px;
