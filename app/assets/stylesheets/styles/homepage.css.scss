@@ -79,7 +79,7 @@
 	}
 	.home_logo_container {
 		position: absolute;
-		top: 74px;
+		top: 70px;
 		right: 155px;
 		width: 38px;
 		height: 38px;
@@ -98,7 +98,7 @@
 			font-size: 42px;
 			font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
 			letter-spacing: 1px;	
-			font-weight: bold;	
+			font-weight: bold;
 			span {
 				padding-left: 30px;
 			}
@@ -151,6 +151,7 @@
 		top: 295px;
 		height: 520px;
 		width: 335px;
+		overflow: hidden;
 		/*border-bottom: 1px solid rgba(#000, 0.06);*/
 		
 	}
@@ -229,7 +230,7 @@
 	.right {
 		position: absolute;
 		right: 0;
-		padding-top: 12px;
+		padding-top: 14px;
 		width: 162px;
 		text-align: center;
 		height: 31px;
