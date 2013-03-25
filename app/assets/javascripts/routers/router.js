@@ -48,6 +48,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		var self = this;
 		
 		this.attr.tasks.on('reset', this.setFactsLearned, this);
+		
 		this.bind('all', this._trackPageview);
 	},
 	
@@ -115,7 +116,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	triggerPage: function(page) {
-		if (this.page) {
+		/* if (this.page) {
 			this.attr.users.trigger('page', {
 				user: this.attr.users.get(this.attr.current_user.get('id')),
 				time: this.time,
@@ -123,7 +124,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			});
 		}
 		this.pageTimer(true);
-		this.page = page;
+		this.page = page; */
 	},
 	
 	leaveSite: function() {

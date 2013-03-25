@@ -50,6 +50,7 @@ GEM
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
     daemons (1.1.9)
+    dalli (2.5.0)
     eco (1.0.0)
       coffee-script
       eco-source
@@ -154,6 +155,7 @@ DEPENDENCIES
   backbone-on-rails
   coffee-rails (~> 3.2.1)
   compass-rails
+  dalli
   jquery-rails
   omniauth-facebook
   pg
