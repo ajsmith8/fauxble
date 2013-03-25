@@ -46,12 +46,16 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		}
 		
 		var self = this;
-
-		$(window).bind('beforeunload', function() {
-			self.leaveSite()
-		});
 		
 		this.attr.tasks.on('reset', this.setFactsLearned, this);
+		this.bind('all', this._trackPageview);
+	},
+	
+	_trackPageview: function() {
+		var url;
+
+	    url = Backbone.history.getFragment();
+	    return _gaq.push(['_trackPageview', "/" + url]);
 	},
 	
 	pageTimer: function(run) {
