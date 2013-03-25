@@ -53,10 +53,29 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	_trackPageview: function() {
-		var url;
-
-	    url = Backbone.history.getFragment();
-	    return _gaq.push(['_trackPageview', "/" + url]);
+		var url = Backbone.history.getFragment();
+		
+		if (url.split('new').length > 1) {
+			url = 'new'
+		}
+		
+		if (url.split('issues').length > 1) {
+			url = 'issues'
+		}
+		
+		if (url.split('challenge').length > 1) {
+			url = 'challenge'
+		}
+		
+		if (url.split('question').length > 1) {
+			url = 'question'
+		}
+		
+		if (url.split('user').length > 1) {
+			url = 'user'
+		}
+		
+	    _gaq.push(['_trackPageview', "/" + url]);
 	},
 	
 	pageTimer: function(run) {
