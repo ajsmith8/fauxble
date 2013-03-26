@@ -124,7 +124,7 @@ Fauxble.Views.UsersFeed = Backbone.View.extend({
 			$(this.el).find('#more').addClass('hide');
 		}
 		
-		for (i = this.current_location; i < this.current_location + 7; i++) {
+		for (var i = this.current_location; i < this.current_location + 7; i++) {
 			if (this.feed[i]) {
 				this.appendFeed(this.feed[i]);
 			} else {
@@ -151,14 +151,18 @@ Fauxble.Views.UsersFeed = Backbone.View.extend({
 			feed: obj
 		});
 		$(this.el).prepend(view.render().el);
-		
-		this.removeLastFeed();
 	},
 	
-	removeLastFeed: function() {
-		var elements = $(this.el).get('.feed_item');
+	removeFeed: function(loc) {
+		var element = $(this.el).find('.feed_item#' + loc);
 		
-		$(elements[elements.length - 1]).remove();
+		if (element) {
+			$(element).remove();
+		}
+		
+		if (!loc) {
+			$(elements).get('.feed_item')[7].remove();
+		}
 	},
 	
 	onClose: function() {

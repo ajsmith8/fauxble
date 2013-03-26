@@ -60,8 +60,10 @@ Fauxble.Views.PagesNew = Backbone.View.extend({
 	},
 	
 	fbLogin: function() {
-		window.location = "http://localhost:3000/auth/facebook";
-		//window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";
+		gaEvent('Login', 'Facebook', 'User Select', null);
+		
+		//window.location = "http://localhost:3000/auth/facebook";
+		window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";
 		//window.location = "http://fusegap.org/auth/facebook";
 	},
 	
