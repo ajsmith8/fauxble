@@ -61,6 +61,9 @@ Fauxble.Views.MfcRight = Backbone.View.extend({
 	},
 	
 	fbSignIn: function() {
+		console.log('ga event');
+		ga('send', 'event', 'login', 'facebook', 'mfc right', 1);
+		
 		//window.location = "http://localhost:3000/auth/facebook";
 		window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";
 		//window.location = "http://fusegap.org/auth/facebook";
@@ -105,6 +108,8 @@ Fauxble.Views.MfcRight = Backbone.View.extend({
 	
 	createUser: function(event) {
 		event.preventDefault();
+		console.log('ga event');
+		ga('send', 'event', 'login', 'email', 'mfc right', 1);
 		
 		var name = $(this.el).find('#User_Name').val(),
 			email = $(this.el).find('#Email').val(),

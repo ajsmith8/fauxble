@@ -67,6 +67,9 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	},
 	
 	fbLogin: function() {
+		console.log('ga event');
+		ga('send', 'event', 'login', 'facebook', 'header', 1);
+		
 		//window.location = "http://localhost:3000/auth/facebook";
 		window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";
 		//window.location = "http://fusegap.org/auth/facebook";	
@@ -104,6 +107,8 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	
 	signin: function(event) {
 		event.preventDefault();
+		console.log('ga event');
+		ga('send', 'event', 'login', 'email', 'header', 1);
 		
 		var email = $(this.el).find('#Email').val(),
 			password = $(this.el).find('#Password').val(),

@@ -2,6 +2,10 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 	
 	template: JST['pages/aux'],
 	
+	events: {
+		'click .like-button.sidebar' : 'gaEvent'
+	},
+	
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.current_user = this.attr.users.get(this.attr.current_user.get('id'));
@@ -147,5 +151,10 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 		} else {
 			$(this.el).find('#bottom').html(JST['pages/like']);
 		}
+	},
+	
+	gaEvent: function() {
+		console.log('ga event');
+		ga('send', 'event', 'liked', 'potential', 'community', 1);
 	}
 });
