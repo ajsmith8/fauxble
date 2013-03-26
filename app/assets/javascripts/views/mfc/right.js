@@ -63,8 +63,8 @@ Fauxble.Views.MfcRight = Backbone.View.extend({
 	fbSignIn: function() {
 		gaEvent('Login', 'Facebook', 'MFC Right', null);
 		
-		window.location = "http://localhost:3000/auth/facebook";
-		//window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";
+		//window.location = "http://localhost:3000/auth/facebook";
+		window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";
 		//window.location = "http://fusegap.org/auth/facebook";
 	},
 	
