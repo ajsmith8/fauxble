@@ -33,7 +33,7 @@ Fauxble.Views.MfcLike = Backbone.View.extend({
 	
 	fbLogin: function() {
 		console.log('ga event');
-		ga('send', 'event', 'login', 'facebook', 'mfc like', 1);
+		_gaq.push(['_trackEvent', 'login', 'facebook', 'mfc like', 1]);
 		
 		//window.location = "http://localhost:3000/auth/facebook";
 		window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";
@@ -42,6 +42,6 @@ Fauxble.Views.MfcLike = Backbone.View.extend({
 	
 	gaEvent: function() {
 		console.log('ga event');
-		ga('send', 'event', 'liked', 'potential', 'mfc like', 1);
+		_gaq.push(['_trackEvent', 'liked', 'potential', 'mfc like', 1]);
 	}
 });

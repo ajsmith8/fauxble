@@ -56,6 +56,6 @@ Fauxble.Views.MfcPopup = Backbone.View.extend({
 	
 	gaEvent: function(answer) {
 		console.log('ga event');
-		ga('send', 'event', 'like facts', answer, 'mfc popup', 1);
+		_gaq.push(['_trackEvent', 'like facts', answer, 'mfc popup', 1]);
 	}
 });

@@ -39,6 +39,6 @@ Fauxble.Views.MfcLeft = Backbone.View.extend({
 	
 	gaEvent: function() {
 		console.log('ga event');
-		ga('send', 'event', 'liked', 'potential', 'mfc left', 1);
+		_gaq.push(['_trackEvent', 'liked', 'potential', 'mfc left', 1]);
 	}
 });

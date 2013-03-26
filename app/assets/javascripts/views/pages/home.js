@@ -19,13 +19,13 @@ Fauxble.Views.PagesHome = Backbone.View.extend({
 	
 	pagesMfc: function() {
 		console.log('ga event');
-		ga('send', 'event', 'get started', 'mfc', 'landing page', 1);
+		_gaq.push(['_trackEvent', 'get started', 'mfc', 'landing page', 1]);
 		
 		Backbone.history.navigate('mfc', true);
 	},
 	
 	gaEvent: function() {
 		console.log('ga event');
-		ga('send', 'event', 'liked', 'potential', 'landing page', 1);
+		_gaq.push(['_trackEvent', 'liked', 'potential', 'landing page', 1]);
 	}
 });
