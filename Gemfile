@@ -8,7 +8,7 @@ gem 'rails', '3.2.6'
 gem 'backbone-on-rails'
 gem 'thin'
 gem 'sass-rails'
-
+gem 'dalli'
 gem 'omniauth-facebook'
 
 group :development do
@@ -17,6 +17,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'rack-google-analytics', :require => 'rack/google-analytics'
 end
 
 # Gems used only for assets and not required

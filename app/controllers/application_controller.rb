@@ -4,17 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :signed_in?
 
   def current_user
-    if session[:user_id] && User.where(id: session[:user_id])[0]
-      user = User.find(session[:user_id])
-    else
-      user = User.create(
-        signed_in: false,
-        signed_in_fb: false
-      )
-      session[:user_id] = user.id
-    end
-    
-    return user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
   def signed_in?

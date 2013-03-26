@@ -151,11 +151,22 @@ Fauxble.Views.UsersFeed = Backbone.View.extend({
 			feed: obj
 		});
 		$(this.el).prepend(view.render().el);
+		
+		this.removeLastFeed();
+	},
+	
+	removeLastFeed: function() {
+		var elements = $(this.el).get('.feed_item');
+		
+		$(elements[elements.length - 1]).remove();
 	},
 	
 	onClose: function() {
-		this.attr.user_achievables.unbind('all', this.render);
-		this.attr.users.unbind('all', this.render);
+		this.attr.user_achievables.unbind('reset', this.render);
+		this.attr.user_achievables.unbind('add', this.newAchievable);
+		this.attr.users.unbind('reset', this.render);
+		this.attr.users.unbind('all', this.newUser);
 		this.attr.challenges.unbind('all', this.render);
+		this.attr.challenges.unbind('change:is_sent', this.newChallenge);
 	}
 });

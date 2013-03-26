@@ -57,7 +57,7 @@ Fauxble.Views.PagesProfile = Backbone.View.extend({
 	},
 	
 	renderMatchHistory: function() {
-		var histories = this.attr.challenges.getMatchHistoryObj(this.user, this.attr.users.getSignedInUsers()),
+		var histories = this.attr.challenges.getMatchHistoryObj(this.user, this.attr.users),
 			winner,
 			loser;
 		

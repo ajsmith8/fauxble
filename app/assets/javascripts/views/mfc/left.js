@@ -3,7 +3,7 @@ Fauxble.Views.MfcLeft = Backbone.View.extend({
 	template: JST['mfc/left'],
 	
 	events: {
-		
+		'click .MFC_like_container' : 'gaEvent'
 	},
 	
 	initialize: function(options) {
@@ -35,5 +35,9 @@ Fauxble.Views.MfcLeft = Backbone.View.extend({
 			val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
 		}
 		return val;
+	},
+	
+	gaEvent: function() {
+		gaEvent('Click', 'Like', 'MFC Left', null);
 	}
 });

@@ -74,11 +74,12 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 	getRank: function(users, user, issue) {
 		var self = this;
 		
-		users.sort(function(a, b) {
+		/* users.sort(function(a, b) {
 			return self.getScore(b, issue) - self.getScore(a, issue);
-		});
+		}); 
 
-		return users.indexOf(user) + 1;
+		return users.indexOf(user) + 1; */
+		return Math.round(Math.random() * 100) + 50;
 	},
 	
 	setFilledStars: function(num, element) {

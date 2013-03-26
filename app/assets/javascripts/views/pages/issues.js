@@ -9,7 +9,6 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 	},
 	
 	initialize: function(options) {
-		console.log('views/pages/issues init ' + window.timer);
 		this.attr = options.attr;
 		this.challenge = options.challenge;
 		this.issues = null;
@@ -30,7 +29,6 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 	},
 	
 	renderIssues: function() {
-		console.log('views/pages/issues/renderIssues init ' + window.timer); 
 		var issues;
 		
 		if (!this.issues) {
@@ -46,7 +44,6 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 	},
 	
 	appendIssue: function(issue, num_questions, count) {
-		console.log('views/pages/issues/appendIssue ' + issue.get('id') + ' init ' + window.timer);
 		var view = new Fauxble.Views.IssuesShow({
 			attr: this.attr,
 			issue: issue,
@@ -78,7 +75,6 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 			question_ids: this.attr.questions.getRandomIds(issue, 4)
 		});
 		this.challenge.save();
-		console.log('views/pages/issues/setChallengeIssue route ' + window.timer);
 		Backbone.history.navigate(this.challenge.get('id') + '/question' + this.challenge.get('question_ids').split('/')[0], true);
 	},
 	

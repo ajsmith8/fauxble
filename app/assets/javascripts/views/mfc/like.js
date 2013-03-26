@@ -3,7 +3,8 @@ Fauxble.Views.MfcLike = Backbone.View.extend({
 	template: JST['mfc/like'],
 	
 	events: {
-		'click #continue' : 'closePopup'
+		'click #continue' : 'closePopup',
+		'click .like-button' : 'gaEvent'
 	},
 	
 	initialize: function(options) {
@@ -31,8 +32,14 @@ Fauxble.Views.MfcLike = Backbone.View.extend({
 	},
 	
 	fbLogin: function() {
+		gaEvent('Login', 'Facebook', 'MFC Like', null);
+		
 		window.location = "http://localhost:3000/auth/facebook";
 		//window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";
 		//window.location = "http://fusegap.org/auth/facebook";
+	},
+	
+	gaEvent: function() {
+		gaEvent('Click', 'Like', 'MFC Like', null);
 	}
 });

@@ -64,4 +64,10 @@ Fauxble::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  
+  config.cache_store = :dalli_store
+  Rails.application.config.session_store ActionDispatch::Session::CacheStore, :expire_after => 3600
+  
+  config.gem 'rack-google-analytics', :lib => 'rack/google-analytics'
+  config.middleware.use Rack::GoogleAnalytics, :tracker => 'UA-36669533-1'
 end

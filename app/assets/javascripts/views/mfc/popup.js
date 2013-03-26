@@ -32,6 +32,8 @@ Fauxble.Views.MfcPopup = Backbone.View.extend({
 		if (!this.answered) {	
 			this.answered = true;
 			if ($(element).hasClass('yes')) {
+				gaEvent('Click', 'Facts', 'MFC Popup', 1);
+				
 				this.attr.users.trigger('ans', {user: this.user, str: 'yes'});
 				result = $(this.el).find('#result_yes');
 				setTimeout(function() {
@@ -39,6 +41,8 @@ Fauxble.Views.MfcPopup = Backbone.View.extend({
 					$(parent).empty();
 				}, 2300);
 			} else {
+				gaEvent('Click', 'Facts', 'MFC Popup', 0);
+				
 				this.attr.users.trigger('ans', {user: this.user, str: 'no'});
 				result = $(this.el).find('#result_no');
 			}

@@ -3,7 +3,8 @@ Fauxble.Views.PagesHome = Backbone.View.extend({
 	template: JST['pages/home'],
 	
 	events: {
-		'click #get_started' : 'pagesMfc'
+		'click #get_started' : 'pagesMfc',
+		'click .like-button' : 'gaEvent'
 	},
 	
 	initialize: function(options) {
@@ -17,6 +18,12 @@ Fauxble.Views.PagesHome = Backbone.View.extend({
 	},
 	
 	pagesMfc: function() {
+		gaEvent('Click', 'Get Started', 'Landing Page', null);
+		
 		Backbone.history.navigate('mfc', true);
+	},
+	
+	gaEvent: function() {
+		gaEvent('Click', 'Like', 'Landing Page', null);
 	}
 });
