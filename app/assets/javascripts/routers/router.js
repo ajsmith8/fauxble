@@ -56,23 +56,23 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		var url = Backbone.history.getFragment();
 		
 		if (url.split('new').length > 1) {
-			url = 'new'
+			url = 'new';
 		}
 		
 		if (url.split('issues').length > 1) {
-			url = 'issues'
+			url = 'issues';
 		}
 		
 		if (url.split('challenge').length > 1) {
-			url = 'challenge'
+			url = 'challenge';
 		}
 		
 		if (url.split('question').length > 1) {
-			url = 'question'
+			url = 'question';
 		}
 		
 		if (url.split('user').length > 1) {
-			url = 'user'
+			url = 'user';
 		}
 		
 	    _gaq.push(['_trackPageview', "/" + url]);

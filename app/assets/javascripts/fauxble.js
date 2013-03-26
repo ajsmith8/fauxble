@@ -13,7 +13,7 @@ window.Fauxble = {
 			sliders: this.sliders,
 			answers: this.answers
 		});
-		this.sources 			= new Fauxble.Collections.Sources(data.sliders);
+		this.sources 			= new Fauxble.Collections.Sources(data.sources);
 		this.tasks 				= new Fauxble.Collections.Tasks(data.tasks, {
 			questions: this.questions,
 			sliders: this.sliders,
