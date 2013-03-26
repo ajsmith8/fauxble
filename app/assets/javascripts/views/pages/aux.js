@@ -11,7 +11,8 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 		this.current_user = this.attr.users.get(this.attr.current_user.get('id'));
 		this.issue = null;
 		this.question = null;
-
+		this.subviews = [];
+		this.feed = null;
 		var hash = window.location.hash;
 		
 		if (hash.split('/question').length > 1 || hash.split('challenge').length > 1) {
@@ -67,6 +68,10 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 			this.question = question;
 			
 			if (this.question) {
+				if (this.feed) {
+					this.feed.onClose()
+					this.feed = null;
+				}
 				this.recentAnswers();
 			} else {
 				this.activityFeed();
@@ -104,6 +109,8 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 			users: this.attr.users.getTopUsers(this.current_user, this.issue, 5)
 		});
 		
+		this.subviews.push(view);
+		
 		if (this.issue) {
 			$(this.el).find('#top_header').html('Top Ranked Fusers for ' + this.issue.get('title'));
 		} else {
@@ -119,8 +126,10 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 			user: null
 		});
 		
-		$(this.el).find('#middle_header').html('Recent Activity');
+		this.subviews.push(view);
+		this.feed = view;
 		
+		$(this.el).find('#middle_header').html('Recent Activity');
 		$(this.el).find('#middle').html(view.render().el);
 	},
 	
@@ -129,6 +138,9 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 			attr: this.attr,
 			question: this.question
 		});
+		
+		this.subviews.push(view);
+		
 		$(this.el).find('#middle_header').html('Recent Answers');
 		$(this.el).find('#middle').html(view.render().el);
 	},
@@ -138,6 +150,9 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 			attr: this.attr,
 			issue: this.issue
 		});
+		
+		this.subviews.push(view);
+		
 		$(this.el).find('#bottom').html(view.render().el);
 	},
 	
@@ -155,5 +170,16 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 	
 	gaEvent: function() {
 		gaEvent('Click', 'Like', 'Community', null);
+	},
+	
+	onClose: function() {
+		_.each(this.subviews, function(view) {
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
+		});
 	}
 });

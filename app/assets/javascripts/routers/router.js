@@ -6,6 +6,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		'mfc'				: 'mfc',
 		'new:id' 			: 'pagesNew',
 		'issues:id'			: 'issues',
+		'issue:id'			: 'issue',
 		':c_id/question:id' : 'question',
 		'challenge:id' 		: 'results',
 		'user:id' 			: 'profile',
@@ -56,8 +57,12 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			url = 'new';
 		}
 		
-		if (url.split('issues').length > 1) {
-			url = 'issues';
+		if (url.split('issue').length > 1) {
+			if (url.split('issues').length > 1) {
+				url = 'issues';
+			} else {
+				url = 'issue';
+			}
 		}
 		
 		if (url.split('challenge').length > 1) {
@@ -300,6 +305,19 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		if (!this.checkTutorial(this.user, 'issues')) {
 			this.renderTutorial('issues');
 		}
+		this.triggerPage();
+	},
+	
+	issue: function(id) {
+		this.renderColumns();
+		var view = new Fauxble.Views.PagesIssue({
+			attr: this.attr,
+			issue: this.attr.issues.get(parseInt(id))
+		});
+		this.setCurrentView(view);
+		this.feed();
+		$('.right.column').html(view.render().el);
+		
 		this.triggerPage();
 	},
 	

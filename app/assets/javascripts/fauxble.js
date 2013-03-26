@@ -66,9 +66,9 @@ window.Fauxble = {
 };
 
 function gaEvent(category, action, label, value) {
-	_gaq.push(['_trackEvent', category, action, label, value]);
+	//_gaq.push(['_trackEvent', category, action, label, value]);
 }
 
 function gaPageview(url) {
-	_gaq.push(['_trackPageview', "/" + url]);
+	//_gaq.push(['_trackPageview', "/" + url]);
 }

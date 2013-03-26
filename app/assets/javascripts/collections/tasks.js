@@ -64,6 +64,21 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 		return facts;
 	},
 	
+	getIssueFactsAndUsers: function(issue) {
+		var tasks = this.where({issue_id: issue.get('id')}),
+			ids = [];
+		
+		for (var t = tasks.length; t > 0; t--) {
+			var task = tasks[t - 1];
+			
+			if (ids.indexOf(task.get('user_id') + '/' + task.get('question_id')) === -1) {
+				ids.push(task.get('user_id') + '/' + task.get('question_id'));
+			}
+		}
+		
+		return ids;
+	},
+	
 	createFauxTasks: function(challenge) {
 		var ids = challenge.get('question_ids').split('/'),
 			answers, slider, time, score, answer_id,
