@@ -7,7 +7,6 @@ Fauxble.Views.PagesChallenges = Backbone.View.extend({
 	},
 	
 	initialize: function(options) {
-		console.log('views/pages/challenges init ' + window.timer);
 		this.attr = options.attr;
 		this.user = this.attr.users.get(this.attr.current_user.get('id'));
 		this.sent = this.attr.challenges.getChallenges(this.user, false, true);
@@ -51,7 +50,6 @@ Fauxble.Views.PagesChallenges = Backbone.View.extend({
 	
 	newChallenge: function() {
 		//start loading
-		console.log('views/pages/challenges/newChallenge init ' + window.timer);
 		this.attr.challenges.createChallenge(this.user, null);
 	},
 	

@@ -13,6 +13,10 @@ class UsersController < ApplicationController
   
   def create
     @user = User.create(params[:user])
+    if !signed_in?
+      session[:user_id] = @user.id
+      Challenge.set_default_challenges(@user)
+    end
     respond_with @user
   end
   

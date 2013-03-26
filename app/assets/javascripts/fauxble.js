@@ -37,22 +37,13 @@ window.Fauxble = {
 			issues: this.issues,
 			user_achievables: this.user_achievables
 		});
-		this.page_metrics 		= new Fauxble.Collections.PageMetrics(data.page_metrics, {
-			users: this.users
-		});
-		this.user_metrics 		= new Fauxble.Collections.UserMetrics(data.user_metrics, {
-			challenges: this.challenges,
-			users: this.users
-		});
 		
 		var self = this;
 		setTimeout(function() {
 			self.tasks.fetch({reset: true});
-			self.user_metrics.fetch();
-			//self.challenges.fetch({reset: true});
-			//self.sliders.fetch();
-			//self.answers.fetch();
-			//self.sources.fetch();
+			self.challenges.fetch({reset: true});
+			self.user_achievables.fetch();
+			self.ranks.fetch();
 		}, 0);
 		
 		new Fauxble.Routers.Router({
@@ -67,17 +58,17 @@ window.Fauxble = {
 			tasks: 				this.tasks,
 			ranks: 				this.ranks,
 			achievables: 		this.achievables,
-			user_achievables: 	this.user_achievables,
-			page_metrics: 		this.page_metrics,
-			user_metrics: 		this.user_metrics
+			user_achievables: 	this.user_achievables
 		});
 		
 		Backbone.history.start();
-		
-		window.timer = 0;
-		
-		setInterval(function() {
-			window.timer = window.timer + 0.001;
-		}, 1);
 	}
 };
+
+function gaEvent(category, action, label, value) {
+	_gaq.push(['_trackEvent', category, action, label, value]);
+}
+
+function gaPageview(url) {
+	_gaq.push(['_trackPageview', "/" + url]);
+}

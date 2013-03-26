@@ -89,11 +89,12 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 		}
 	},
 	
-	getWins: function(user, challenges) {
-		var wins = 0;
+	getWins: function(user1, user2) {
+		var challenges = this.getChallengePairs(user1.get('id'), user2.get('id')),
+			wins = 0;
 			
 		for (c = 0; c < challenges.length; c++) {
-			if (user.get('id') === challenges[c].get('winner_id')) {
+			if (user1.get('id') === challenges[c].get('winner_id')) {
 				wins = wins + 1;
 			}
 		}	
@@ -101,11 +102,12 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 		return wins;
 	},
 	
-	getLosses: function(user, challenges) {
-		var losses = 0;
+	getLosses: function(user1, user2) {
+		var challenges = this.getChallengePairs(user1.get('id'), user2.get('id')),
+			losses = 0;
 		
 		for (c = 0; c < challenges.length; c++) {
-			if (user.get('id') !== challenges[c].get('winner_id')) {
+			if (user1.get('id') !== challenges[c].get('winner_id')) {
 				losses = losses + 1;
 			}
 		}
@@ -187,20 +189,32 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 	
 	getMatchHistoryObj: function(user, users) {
 		var self = this,
-			challenges = [],
-			array = [];
+			challenges = this.getChallenges(user, true, null),
+			ids = [],
+			array = [],
+			rival,
+			id;
 		
-		for (u = 0; u < users.length; u++) {
-			if (user.get('id') !== users[u].get('id')) {
-				challenges = this.getChallengePairs(user.get('id'), users[u].get('id'));
-				if (challenges.length > 0) {
-					array.push({
-						user: users[u],
-						won: this.getWins(user, challenges),
-						lost: this.getLosses(user, challenges)
-					});
-				}
+		for (c = 0; c < challenges.length; c++) {
+			if (challenges[c].get('challenger_id') === user.get('id')) {
+				id = challenges[c].get('user_id');
+			} else {
+				id = challenges[c].get('challenger_id');
 			}
+			
+			if (ids.indexOf(id) === -1) {
+				ids.push(id);
+			}
+		}
+		
+		for (i = 0; i < ids.length; i++) {
+			rival = users.get(ids[i]);
+			
+			array.push({
+				user: rival,
+				won: this.getWins(user, rival),
+				lost: this.getLosses(user, rival)
+			});
 		}
 		
 		array.sort(function(a, b) {

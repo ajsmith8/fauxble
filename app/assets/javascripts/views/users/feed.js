@@ -151,6 +151,14 @@ Fauxble.Views.UsersFeed = Backbone.View.extend({
 			feed: obj
 		});
 		$(this.el).prepend(view.render().el);
+		
+		this.removeLastFeed();
+	},
+	
+	removeLastFeed: function() {
+		var elements = $(this.el).get('.feed_item');
+		
+		$(elements[elements.length - 1]).remove();
 	},
 	
 	onClose: function() {

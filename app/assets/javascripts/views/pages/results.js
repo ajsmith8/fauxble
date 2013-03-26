@@ -8,7 +8,6 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 	},
 	
 	initialize: function(options) {
-		console.log('views/pages/results init ' + window.timer);
 		this.attr = options.attr;
 		this.challenge = options.challenge;
 		this.question_ids = this.challenge.get('question_ids').split('/');
@@ -91,14 +90,12 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 			if (this.challenge.get('challenger_id') === 1) {
 				Backbone.history.navigate('', true);
 			} else {
-				console.log('views/pages/results/sendOrFinish new challenge init ' + window.timer);
 				this.attr.challenges.createChallenge(
 					this.attr.users.get(this.challenge.get('user_id')), 
 					this.attr.users.get(this.challenge.get('challenger_id'))
 				);
 			}
 		} else {
-			console.log('views/pages/results/sendOrFinish fb popup init ' + window.timer);
 			/*this.fbPopup(
 				this.attr.users.get(this.challenge.get('user_id')), 
 				this.attr.users.get(this.challenge.get('challenger_id')), 
@@ -120,7 +117,6 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 			};
 			function callback(response) 
 			{
-				console.log('views/pages/results/fbPopup callback ' + window.timer);
 				Backbone.history.navigate('', true);
 	        }
 			FB.ui(obj, callback);

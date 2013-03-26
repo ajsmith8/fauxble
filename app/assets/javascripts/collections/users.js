@@ -90,6 +90,8 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 	createUser: function(name, email, password) {
 		var self = this;
 		
+		gaEvent('Login', 'Email', 'MFC Right', null);
+		
 		this.create({
 			name: name,
 			encrypted_email: email,

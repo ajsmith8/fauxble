@@ -32,7 +32,8 @@ Fauxble.Views.MfcPopup = Backbone.View.extend({
 		if (!this.answered) {	
 			this.answered = true;
 			if ($(element).hasClass('yes')) {
-				this.gaEvent('yes');
+				gaEvent('Click', 'Facts', 'MFC Popup', 1);
+				
 				this.attr.users.trigger('ans', {user: this.user, str: 'yes'});
 				result = $(this.el).find('#result_yes');
 				setTimeout(function() {
@@ -40,7 +41,8 @@ Fauxble.Views.MfcPopup = Backbone.View.extend({
 					$(parent).empty();
 				}, 2300);
 			} else {
-				this.gaEvent('no');
+				gaEvent('Click', 'Facts', 'MFC Popup', 0);
+				
 				this.attr.users.trigger('ans', {user: this.user, str: 'no'});
 				result = $(this.el).find('#result_no');
 			}
@@ -52,10 +54,5 @@ Fauxble.Views.MfcPopup = Backbone.View.extend({
 	resetQuestion: function() {
 		$(this.el).find('#result_no').addClass('hide');
 		this.answered = false;
-	},
-	
-	gaEvent: function(answer) {
-		console.log('ga event');
-		_gaq.push(['_trackEvent', 'like facts', answer, 'mfc popup', 1]);
 	}
 });

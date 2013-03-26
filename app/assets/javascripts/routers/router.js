@@ -16,8 +16,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	initialize: function(options) {
-		this.page = null;
-		this.user = options.users.get(options.current_user.get('id'));
+		this.user = options.current_user;
 		this.columns = false;
 		this.facts_learned = 4000;
 		
@@ -44,8 +43,6 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		if (this.attr.current_user.get('uid') === '530468649') {
 			this.pwnCameron();
 		}
-		
-		var self = this;
 		
 		this.attr.tasks.on('reset', this.setFactsLearned, this);
 		
@@ -75,20 +72,11 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			url = 'user';
 		}
 		
-	    _gaq.push(['_trackPageview', "/" + url]);
+	    gaPageview(url);
 	},
 	
-	pageTimer: function(run) {
-		var self = this,
-			inter;
-		this.time = 0;
-		clearInterval(inter);
-		
-		if (run) {
-			inter = setInterval(function() {
-				self.time = self.time + 0.1
-			}, 100);
-		}
+	triggerPage: function() {
+		this.attr.users.trigger('page');
 	},
 	
 	renderColumns: function() {
@@ -134,30 +122,6 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		}
 	},
 	
-	triggerPage: function(page) {
-		/* if (this.page) {
-			this.attr.users.trigger('page', {
-				user: this.attr.users.get(this.attr.current_user.get('id')),
-				time: this.time,
-				page: this.page
-			});
-		}
-		this.pageTimer(true);
-		this.page = page; */
-	},
-	
-	leaveSite: function() {
-		if (this.page) {
-			this.attr.users.trigger('page', {
-				user: this.attr.users.get(this.attr.current_user.get('id')),
-				time: this.time,
-				page: this.page
-			});
-		}
-		this.pageTimer(false);
-		this.page = null;
-	},
-	
 	setCurrentView: function(view) {
 		if (this.current_view) {
 			this.current_view.remove();
@@ -188,7 +152,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	checkCurrentUser: function() {
-		if (this.attr.current_user.get('signed_in') || this.attr.current_user.get('signed_in_fb')) {
+		if (this.user) {
 			this.challenges();
 		} else {
 			this.pagesHome();
@@ -222,9 +186,8 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			attr: this.attr
 		});
 		this.setCurrentView(view);
-		//this.signin();
 		$('.page').html(view.render().el);
-		this.triggerPage('video');
+		this.triggerPage();
 	},
 	
 	about: function() {
@@ -235,7 +198,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.setCurrentView(view);
 		this.feed();
 		$('.right.column').html(view.render().el);
-		this.triggerPage('about');
+		this.triggerPage();
 	},
 	
 	mfc: function() {
@@ -252,7 +215,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.setSubview(left, 'mfc');
 		$('.right.column').html(right.render().el);
 		$('.left.column').html(left.render().el);
-		this.triggerPage('mfc');
+		this.triggerPage();
 	},
 	
 	mfcQuestion: function() {
@@ -296,7 +259,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		if (!this.checkTutorial(this.user, 'challenges')) {
 			this.renderTutorial('challenges');
 		}
-		this.triggerPage('challenges');
+		this.triggerPage();
 	},
 	
 	feed: function() {
@@ -314,7 +277,6 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	pagesNew: function(id) {
-		console.log('router/pagesNew init ' + window.timer);
 		this.renderColumns();
 		var view = new Fauxble.Views.PagesNew({
 			attr: this.attr,
@@ -323,12 +285,10 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.setCurrentView(view);
 		this.feed();
 		$('.right.column').html(view.render().el);
-		
-		this.triggerPage('users');
+		this.triggerPage();
 	},
 	
 	issues: function(id) {
-		console.log('router/issues init ' + window.timer);
 		this.renderColumns();
 		var view = new Fauxble.Views.PagesIssues({
 			attr: this.attr,
@@ -341,12 +301,10 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		if (!this.checkTutorial(this.user, 'issues')) {
 			this.renderTutorial('issues');
 		}
-		
-		this.triggerPage('issues');
+		this.triggerPage();
 	},
 	
 	question: function(c_id, id) {
-		console.log('router/question init ' + window.timer);
 		this.renderColumns();
 		var question = this.attr.questions.get(parseInt(id));
 		var view = new Fauxble.Views.PagesQuestion({
@@ -371,8 +329,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 				this.renderTutorial('answers');
 			}
 		}
-		
-		this.triggerPage('question');
+		this.triggerPage();
 	},
 	
 	versus: function(challenge, view) {
@@ -385,7 +342,6 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	results: function(id) {
-		console.log('router/results init ' + window.timer);
 		this.renderColumns();
 		var view = new Fauxble.Views.PagesResults({
 			attr: this.attr,
@@ -402,8 +358,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		if (!this.checkTutorial(this.user, 'results')) {
 			this.renderTutorial('results');
 		}
-		
-		this.triggerPage('results');
+		this.triggerPage();
 	},
 	
 	profile: function(id) {
@@ -419,8 +374,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		if (!this.checkTutorial(this.user, 'profile')) {
 			this.renderTutorial('profile');
 		}
-		
-		this.triggerPage('profile');
+		this.triggerPage();
 	},
 	
 	renderTutorial: function(str) {

@@ -154,7 +154,6 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 	},
 	
 	gaEvent: function() {
-		console.log('ga event');
-		_gaq.push(['_trackEvent', 'liked', 'potential', 'community', 1]);
+		gaEvent('Click', 'Like', 'Community', null);
 	}
 });

@@ -25,7 +25,7 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 		$(this.el).html(this.template());
 		
 		setTimeout(function() {
-			if (self.user.get('signed_in') || self.user.get('signed_in_fb')) {
+			if (self.user) {
 				$(self.el).find('#profile').addClass('black');
 				self.renderProfile();
 			} else {
@@ -67,8 +67,7 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	},
 	
 	fbLogin: function() {
-		console.log('ga event');
-		_gaq.push(['_trackEvent', 'login', 'facebook', 'header', 1]);
+		gaEvent('Login', 'Facebook', 'Header', null);
 		
 		//window.location = "http://localhost:3000/auth/facebook";
 		window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";
@@ -107,8 +106,6 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	
 	signin: function(event) {
 		event.preventDefault();
-		console.log('ga event');
-		_gaq.push(['_trackEvent', 'login', 'email', 'header', 1]);
 		
 		var email = $(this.el).find('#Email').val(),
 			password = $(this.el).find('#Password').val(),
@@ -121,6 +118,7 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 		
 		if (user) {
 			if (user.authenticate(password)) {
+				gaEvent('Login', 'Email', 'Header', null);
 				user.save({}, {
 					success: function(model, response) {
 						window.location.reload();
