@@ -8,7 +8,7 @@
 	position: absolute;
 	@include border-radius(10px);
 	@include single-box-shadow(rgba(darken($bluegreen, 20%),0.75), 0px, 0px, 10px, 5px);
-	background: rgba(#000, 0.6);
+	background: rgba(#000, 0.55);
 	overflow: hidden;
 	.text {
 		width: 100%;
@@ -22,45 +22,91 @@
 		height: 120px;
 	}
 	&.challenge_profile {
-		top: 50px;
-		right: 100px;
-		height: 95px;
+		top: 48px;
+		right: 95px;
+		height: 85px;
 		width: 190px;
+		font-size: 14px;
 		.text {
-			top: 65px;
+			bottom: 10px;
 		}
 		.arrow {
 			left: 80px;
-			top: -25px;
+			top: -28px;
 		}
 	}
 	&.challenge_get_started {
-		top: 160px;
-		right: 100px;
-		height: 95px;
+		top: 210px;
+		right: 35px;
+		height: 145px;
 		width: 190px;
 		.text {
-			top: 10px;
+			bottom: 10px;
+			font-size: 14px;
+			line-height: 18px;
+			span {
+				font-size: 16px;
+				font-style: normal;
+				text-decoration: underline;
+			}
 		}
 		.arrow {
 			right: -10px;
-			top: 0px;
+			top: -25px;
 		}		
 	}
-	&.slider_general {
-		top: 60px;
-		right: 20px;
-		height: 110px;
+	&.challenge_new_game {
+		top: 225px;
+		right: 325px;
+		height: 105px;
+		width: 190px;
+		font-size: 14px;
+		.text {
+			top: 10px;
+			width: 90%;
+			margin-left: 5%;
+			line-height: 18px;
+		}
+		.arrow {
+			left: 80px;
+			bottom: -28px;
+		}
+	}
+	&.slider_general {		
 		width: 200px;
 		.text {
 			font-size: 14px;
 			line-height: 18px;
-			bottom: 10px;
 			width: 95%;
 			left: 3px;
 			span {
 				font-size: 16px;
 				font-style: normal;
+				text-decoration: underline;
+			}
+		}
+		&.upper {
+			height: 130px;
+			top: 150px;
+			right: 20px;
+			.text {
+				top: 10px;
+			}
+			.arrow {
+				left: -10px;
+				bottom: -25px;
+			}
+		}
+		&.lower {
+			height: 110px;
+			top: 318px;
+			right: 20px;
+			.text {
+				bottom: 10px;
+			}
+			.arrow {
+				left: -10px;
+				top: -25px;
 			}
 		}
 	}
@@ -79,6 +125,7 @@
 			span {
 				font-size: 16px;
 				font-style: normal;
+				text-decoration: underline;
 			}
 		}
 	}
@@ -114,6 +161,7 @@
 			span {
 				font-size: 16px;
 				font-style: normal;
+				text-decoration: underline;
 			}
 		}
 		.arrow {
