@@ -16,7 +16,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	initialize: function(options) {
-		this.user = options.current_user;
+		this.user = options.users.get(options.current_user.get('id'));
 		this.columns = false;
 		this.facts_learned = 4000;
 		
@@ -248,7 +248,6 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	challenges: function() {
-		console.log('router/challenges init ' + window.timer);
 		this.renderColumns();
 		var	view = new Fauxble.Views.PagesChallenges({
 			attr: this.attr
@@ -424,7 +423,6 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 					
 					for (i = 0; i < length; i++) {
 						if (random_users.indexOf({name: friends[i]['name'], uid: friends[i]['id']}) === -1 && !self.attr.users.where({uid: friends[i]['id']})[0]) {
-							console.log('adding to user array');
 							random_users.push({name: friends[i]['name'], uid: friends[i]['id']});
 						} else {
 							if (friends.length > length + 1) {
@@ -488,7 +486,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 							);
 						},
 						error: function(model, response) {
-							console.log('challenge creation error');
+							
 						}
 					});
 				}
