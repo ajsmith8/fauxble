@@ -71,11 +71,11 @@ Fauxble.Views.PagesFooter = Backbone.View.extend({
 			},{
 				quote: 'True wisdom comes to each of us when we realize how little we know about life, ourselves, and the world around us.', 
 				source: 'Confucius', 
-				image: 'confucius'
+				image: 'Confucius'
 			},{
 				quote: 'To study and not think is a waste. To think and not study is dangerous.', 
 				source: 'Confucius', 
-				image: 'confucius'
+				image: 'Confucius'
 			},{
 				quote: 'I know that I am intelligent because I know that I know nothing.', 
 				source: 'Socrates', 
