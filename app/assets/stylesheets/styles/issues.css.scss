@@ -437,7 +437,7 @@
 				left: 12px;
 				width: 130px;
 				height: 130px;
-				@include border-radius(5px);
+				@include border-radius(4px);
 				@include single-box-shadow(rgba(#000, 0.3), 1px, 1px, 1px, 0);
 			}		
 			&.wrapper {
@@ -445,7 +445,7 @@
 				position: static;
 				height: 100%;
 				width: 100%;
-				@include border-radius(5px);
+				@include border-radius(4px);
 				img {
 					height: 100%;
 					width: 100%;
@@ -563,27 +563,34 @@
 	.goto_challenges_button_container {
 		position: absolute;
 		top: 300px;
-		left: 4%;
-		width: 92%;
-		height: 40px;
+		left: 10px;
+		width: 536px;
+		height: 68px;
 		color: $black;
+		padding-top: 10px;
+		border-top: 1px solid rgb(240,240,240);
+		background-image: url(misc/253.png); background-repeat: repeat;
 		.text {
 			position: absolute;
-			top: 11px;
-			font-size: 16px;
+			top: 29px;
+			font-size: 14px;
+			font-weight: bold;
+			width: 150px;
 			&.left {
-				left: 0px;
+				left: 16px;
+				text-align: right;
 			}
 			&.right {
-				right: 0px;
+				left: 373px;
+				text-align: left;
 			}
 		}
 		.goto_challenges_button {
 			position: absolute;
-			left: 177px;
+			left: 188px;
 			cursor: pointer;
 			color: #fff;
-			height: 40px;
+			height: 37px;
 			border: 1px solid darken($bluegreen, 17%);
 			font-size: 17px;
 			font-weight: bold;

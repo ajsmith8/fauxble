@@ -1,9 +1,55 @@
-<div>Title: <%= issue.get('title') %></div>
-<div>Description: <%= issue.get('description') %></div>
-<div>
-	<img src = 'assets/issues/<%= issue.get('image') %>.png' />
-</div>
-<div>Facts for this Issue: <%= facts %></div>
-<div>Facts learned by Fusers <%= learned %></div>
+<div class = "issue_profile_container">
+	<div class = "top_container">
+		<div class = 'thumbnail container'>
+			<div class = 'thumbnail wrapper'>
+				<img src = 'assets/issues/<%= issue.get('image') %>.png' />
+			</div>
+		</div>
+		<div class = "title container">
+			<%= issue.get('title') %>
+		</div>
+		<div class = 'stats total_facts'>
+			<div class = "profile_icon_container">
+				<div class = "character pencil">&#9999;</div>	
+			</div>
+			<span class = "number"><%= facts %></span><span class="label">TOTAL FACTS</span>
+		</div>
 
-<div id = 'community'></div>
+		<div class = 'stats active_fusers'>
+			<div class = "profile_icon_container">
+				<img src = 'assets/logos/black_40.png'/>
+			</div>
+			<span class = "number">Err</span><span class = 'label'>ACTIVE FUSERS</span> 
+		</div>
+		<div class = 'stats facts_learned'>
+			<div class = "profile_icon_container">
+				<div class = "character hand">&#9996;</div>
+			</div>
+			<span class = "number"><%= learned %></span><span class = 'label'>FACTS LEARNED</span> 
+		</div>
+		<div class = 'stats facts_shared'>
+			<div class = "profile_icon_container">
+				<div class = "character shuffle">&#9850;</div>
+			</div>
+			<span class = "number">Err</span><span class = 'label'>FACTS SHARED</span> 
+		</div>
+	</div>
+	<div class = "full_description_container">
+		<span>Description:</span> <%= issue.get('description') %>
+	</div>
+	<div class = "goto_challenges_button_container">
+		<div class = "text left">
+			Spread knowledge.
+		</div>
+		<div class = "text right">
+			Facts with friends.
+		</div>
+		<div class = "goto_challenges_button">
+			<div id = 'goto_challenges'>Challenges</div>
+		</div>
+	</div>
+</div>
+
+<div style="display:none">
+	<div id = 'community'></div>
+</div>
