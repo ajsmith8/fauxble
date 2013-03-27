@@ -72,3 +72,9 @@ function gaEvent(category, action, label, value) {
 function gaPageview(url) {
 	//_gaq.push(['_trackPageview', "/" + url]);
 }
+
+function fbLogin() {
+	window.location = "http://localhost:3000/auth/facebook";
+	//window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";
+	//window.location = "http://fusegap.org/auth/facebook";
+}

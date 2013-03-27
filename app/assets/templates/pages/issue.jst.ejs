@@ -19,7 +19,7 @@
 			<div class = "profile_icon_container">
 				<img src = 'assets/logos/black_40.png'/>
 			</div>
-			<span class = "number">Err</span><span class = 'label'>ACTIVE FUSERS</span> 
+			<span class = "number"><%= users %></span><span class = 'label'>ACTIVE FUSERS</span> 
 		</div>
 		<div class = 'stats facts_learned'>
 			<div class = "profile_icon_container">
@@ -50,6 +50,7 @@
 	</div>
 </div>
 
-<div style="display:none">
-	<div id = 'community'></div>
-</div>
+<div>Facts for this Issue: <%= facts %></div>
+<div>Facts learned by Fusers <%= learned %></div>
+<div>Active Fuser Count: <%= users %></div>
+<div id = 'community'></div>
