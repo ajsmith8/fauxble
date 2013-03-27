@@ -31,7 +31,8 @@ Fauxble.Views.PagesIssue = Backbone.View.extend({
 		$(this.el).html(this.template({
 			issue: this.issue,
 			facts: this.attr.questions.getNumQuestions(this.issue),
-			learned: this.ids.length
+			learned: this.ids.length,
+			users: this.users.length
 		}));
 		
 		setTimeout(function() {
