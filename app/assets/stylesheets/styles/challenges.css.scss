@@ -268,10 +268,10 @@ position: relative;
 		@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,6%));
 		@include fonts;
 		float: left;
-		height: 28px;
+		height: 32px;
 		padding-top: 5px;
-		width: 16%;
-		margin: 10px 0 0 42%;
+		width: 20%;
+		margin: 10px 0 0 40%;
 
 		color: #fff;
 		font-size: 12px;

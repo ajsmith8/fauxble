@@ -19,7 +19,7 @@
 	.header_logo_container {
 		position: absolute;
 		top: 4px;
-		left: 401px;
+		left: 15px;
 		height: 34px;
 		width: 130px;
 		cursor: pointer;
@@ -107,23 +107,39 @@
 		}
 	}
 	
+	.home {
+		position: absolute;
+		top: 1px;
+		right: 435px;
+		height: 100%;
+		width: 70px;
+		cursor: pointer;
+	}
+	
 	.mfc {
 		position: absolute;
-		top: 2px;
-		right: 215px;
+		top: 1px;
+		right: 235px;
 		height: 100%;
-		width: 100px;
+		width: 70px;
+		cursor: pointer;
+	}
+	.header_issues {
+		position: absolute;
+		top: 1px;
+		right: 335px;
+		height: 100%;
+		width: 70px;
 		cursor: pointer;
 	}
 	
 	.about {
 		&.button {
 			position: absolute;
-			top: 2px;
-			right: 115px;
+			top: 1px;
+			right: 125px;
 			height: 100%;
 			width: 100px;
-			cursor: pointer;
 		}
 	
 		&.text {
@@ -136,6 +152,8 @@
 			font-weight: bold;
 			&:hover {
 				text-decoration: underline;
+				cursor: pointer;
+				color: $bluegreen;
 			}
 		}
 	}

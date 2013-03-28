@@ -1,10 +1,95 @@
-<div>Title: <%= issue.get('title') %></div>
-<div>Description: <%= issue.get('description') %></div>
-<div>
-	<img src = 'assets/issues/<%= issue.get('image') %>.png' />
+<div class = "issue_profile_container">
+	<div class = "top_container">
+		<div class = 'thumbnail container'>
+			<div class = 'thumbnail wrapper'>
+				<img src = 'assets/issues/<%= issue.get('image') %>.png' />
+			</div>
+		</div>
+		<div class = "title container">
+			<%= issue.get('title') %>
+		</div>
+		<div class = 'stats total_facts'>
+			<div class = "profile_icon_container">
+				<div class = "character pencil">&#9999;</div>	
+			</div>
+			<span class = "number"><%= facts %></span><span class="label">TOTAL FACTS</span>
+		</div>
+
+		<div class = 'stats active_fusers'>
+			<div class = "profile_icon_container">
+				<img src = 'assets/logos/black_40.png'/>
+			</div>
+			<span class = "number"><%= users %></span><span class = 'label'>ACTIVE FUSERS</span> 
+		</div>
+		<div class = 'stats facts_learned'>
+			<div class = "profile_icon_container">
+				<div class = "character hand">&#9996;</div>
+			</div>
+			<span class = "number"><%= learned %></span><span class = 'label'>FACTS LEARNED</span> 
+		</div>
+		<div class = 'stats facts_shared'>
+			<div class = "profile_icon_container">
+				<div class = "character shuffle">&#9850;</div>
+			</div>
+			<span class = "number">Err</span><span class = 'label'>FACTS SHARED</span> 
+		</div>
+	</div>
+	<div class = "full_description_container">
+		<span>Description:</span> <%= issue.get('description') %>
+	</div>
+	<div class = "goto_challenges_button_container">
+		<div class = "text left">
+			Spread knowledge.
+		</div>
+		<div class = "text right">
+			Facts with friends.
+		</div>
+		<div class = "goto_challenges_button">
+			<div id = 'goto_challenges'>Challenges</div>
+		</div>
+	</div>
+	<div class = "comment_container">
+		<div class = "comment_container_header">Comments</div>
+		<div class = "comment">
+			<div class = 'thumbnail container'>
+				<div class = 'thumbnail wrapper'>
+					<img src = 'assets/misc/user.png'/>
+				</div>
+			</div>
+			<div class = "name_stats_container">
+				<div class = "user_name">
+					Andrew Smith
+				</div>
+				<div class = "rank global_rank">
+					Global Rank: 7
+				</div>
+				<div class = "rank facts_learned">
+					Facts Learned: 37
+				</div>
+			</div>
+			<div class = "text">
+				Comment 1 hafweoijfa ladskjads lfaejoief asfaldskjfl asfjewaoi fjesaoif a;lkjfdasl; fjaeiow;f aeo;ifja dsl;kfja eiowfja w;eofijaw ;lfkjaew alweifjalweifj awelifjawe;f j ;adskfjadsflka sd fakdsfjasd;faiweeifjiaeifjaewi fkalsd faks flasdfja;sdlkfado;if eaw ff ae fewoif jiaewifaew;iofaeiofaji ewfia ew eaf aeijfaewijaei; feafe
+			</div>
+		</div>
+		<div class = "comment">
+			<div class = 'thumbnail container'>
+				<div class = 'thumbnail wrapper'>
+					<img src = 'assets/misc/user.png'/>
+				</div>
+			</div>
+			<div class = "user_name">
+				Andrew Smith
+			</div>
+			<div class = "text">
+				Comment 1 hafweoijfa ladskjads lfaejoief asfaldskjfl asfjewaoi fjesaoif a;lkjfdasl; fjaeiow;f aeo;ifja dsl;kfja eiowfja w;eofijaw ;lfkjaew alweifjalweifj awelifjawe;f j ;adskfjadsflka sd fakdsfjasd;faiweeifjiaeifjaewi fkalsd faks flasdfja;sdlkfado;if eaw ff ae fewoif jiaewifaew;iofaeiofaji ewfia ew eaf aeijfaewijaei; feafe
+			</div>
+		</div>
+	</div>
 </div>
+
 <div>Facts for this Issue: <%= facts %></div>
 <div>Facts learned by Fusers <%= learned %></div>
 <div>Active Fuser Count: <%= users %></div>
 <div id = 'community'></div>
 <div id = 'comments'></div>
+
