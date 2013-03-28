@@ -3,7 +3,7 @@ Fauxble.Views.IssuesChallenge = Backbone.View.extend({
 	template: JST['issues/challenge'],
 	
 	events: {
-		
+		'click #issue' : 'issueShow'
 	},
 	
 	initialize: function(options) {
@@ -19,5 +19,9 @@ Fauxble.Views.IssuesChallenge = Backbone.View.extend({
 			num_questions: this.num_questions
 		}));
 		return this;
+	},
+	
+	issueShow: function() {
+		Backbone.history.navigate('issue' + this.issue.get('id'), true);
 	}
 });

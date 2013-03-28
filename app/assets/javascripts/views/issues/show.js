@@ -4,7 +4,8 @@ Fauxble.Views.IssuesShow = Backbone.View.extend({
 	
 	events: {
 		'click #learn' : 'toggleDescription',
-		'click .user' : 'userProfile'
+		'click .user' : 'userProfile',
+		'click #issue' : 'issueShow'
 	},
 	
 	initialize: function(options) {
@@ -61,6 +62,10 @@ Fauxble.Views.IssuesShow = Backbone.View.extend({
 		var element = $(event.target).closest('.user');
 		
 		Backbone.history.navigate('user' + $(element).attr('id'), true);
+	},
+	
+	issueShow: function() {
+		Backbone.history.navigate('issue' + this.issue.get('id'), true);
 	},
 	
 	onClose: function() {
