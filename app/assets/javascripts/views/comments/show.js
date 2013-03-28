@@ -63,7 +63,7 @@ Fauxble.Views.CommentsShow = Backbone.View.extend({
 	
 	commentReply: function(event) {
 		event.preventDefault();
-		var title = $(this.el).find('input#title').val();
+		var title = $(this.el).find('textarea#title').val();
 		
 		if (this.user.signedIn()) {
 			//start loading
@@ -86,6 +86,6 @@ Fauxble.Views.CommentsShow = Backbone.View.extend({
 	},
 	
 	emptyInput: function() {
-		$(this.el).find('input#title').val('');
+		$(this.el).find('textarea#title').val('');
 	}
 });

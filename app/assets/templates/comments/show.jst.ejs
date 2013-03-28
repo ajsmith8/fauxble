@@ -1,17 +1,21 @@
 <div class = 'thumbnail container'>
 	<div class = 'thumbnail wrapper'>
-		<img src = 'assets/misc/user.png' width="50px"/>
+		<% if (user.get('uid')) { %>
+			<img src = 'https://graph.facebook.com/<%= user.get('uid') %>/picture'/>
+		<% } else { %>
+			<img src = 'assets/misc/user.png'/>
+		<% } %>
 	</div>
 </div>
 <div class = "name_stats_container">
 	<div class = "user_name">
-		Andrew Smith
+		<%= user.get('name') %>
 	</div>
 	<div class = "rank global_rank">
-		Global Rank: 7
+		Global Rank: <%= rank %>
 	</div>
 	<div class = "rank facts_learned">
-		Facts Learned: 37
+		Facts Learned: <%= facts %>
 	</div>
 </div>
 <div class = "text">

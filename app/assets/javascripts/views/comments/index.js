@@ -16,7 +16,9 @@ Fauxble.Views.CommentsIndex = Backbone.View.extend({
 	render: function() {
 		var self = this;
 		
-		$(this.el).html(this.template());
+		$(this.el).html(this.template({
+					user: this.user
+				}));
 		
 		setTimeout(function() {
 			for (var c = 0; c < self.comments.length; c++) {
@@ -37,7 +39,7 @@ Fauxble.Views.CommentsIndex = Backbone.View.extend({
 	
 	newComment: function(event) {
 		event.preventDefault();
-		var title = $('#new_comment').find('input#title').val();
+		var title = $('#new_comment').find('textarea#title').val();
 		
 		if (this.user.signedIn()) {
 			//start loading
@@ -48,6 +50,6 @@ Fauxble.Views.CommentsIndex = Backbone.View.extend({
 	},
 	
 	emptyInput: function() {
-		$('#new_comment').find('input#title').val('');
+		$('#new_comment').find('textarea#title').val('');
 	}
 });	

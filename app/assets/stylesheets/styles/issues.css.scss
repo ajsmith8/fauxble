@@ -616,6 +616,28 @@
 		width: 536px;
 		height: 300px;
 		color: $black;
+		.thumbnail {	
+			&.container {
+				overflow: hidden;
+				@include single-box-shadow(rgba(#000, 0.35), 1px, 1px, 1px, 0);
+				float: left;
+				margin: 0 0 0 0px;
+				width: 42px;
+				height: 42px;
+				@include border-radius(3px);
+			}
+
+			&.wrapper {
+				overflow: hidden;
+				position: static;
+				height: 100%;
+				width: 100%;
+				@include border-radius(3px);
+				img {
+					width: 100%;
+				}
+			}
+		}
 		.comment_container_header {
 			position: relative;
 			width: 100%;
@@ -623,34 +645,42 @@
 			font-size: 14px;
 			font-weight: bold;
 		}
-		.new_comment {
-			position: relative;
-			
-		}
 		.comment {
 			position: relative;
-			margin-top: 10px;
+			margin: 10px 0 0 0;
 			border: 1px solid;
-			.thumbnail {	
-				&.container {
-					overflow: hidden;
-					@include single-box-shadow(rgba(#000, 0.35), 1px, 1px, 1px, 0);
-					float: left;
-					margin: 0 0 0 0px;
-					width: 42px;
-					height: 42px;
-					@include border-radius(3px);
-				}
-
-				&.wrapper {
-					overflow: hidden;
-					position: static;
-					height: 100%;
-					width: 100%;
-					@include border-radius(3px);
-					img {
-						width: 100%;
-					}
+			width: 536px;
+			form {
+				width: 475px;
+				margin: 20px 0 0 54px;
+				position: relative;
+			}
+			textarea {
+				position: relative;
+				width: 100%;
+				font-size: 11px;
+				border: 1px solid $bluegreen;
+				@include border-radius(2px);
+			}
+			.post_comment_button {
+				position: absolute;
+				width: 100px;
+				top: 57px;
+				right: 16px;
+				border: 1px solid rgb(208,208,208);
+				border-bottom: 1px solid rgb(184,184,184);
+				height: 28px;
+				font-size: 14px;
+				color: $black;
+				text-align: center;
+				font-weight: bold;
+				@include text-shadow(0 1px 0 rgba(#fff,0.9));
+				@include linear-gradient(rgb(255,255,255), rgb(230,230,230));
+				@include border-radius(5px);
+				&:hover {
+					cursor: pointer;
+					background: rgb(230,230,230);
+					border: 1px solid rgb(184,184,184);
 				}
 			}
 			.name_stats_container {
