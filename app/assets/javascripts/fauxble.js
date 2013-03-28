@@ -14,6 +14,7 @@ window.Fauxble = {
 			answers: this.answers
 		});
 		this.sources 			= new Fauxble.Collections.Sources(data.sources);
+		this.comments			= new Fauxble.Collections.Comments(data.comments);
 		this.tasks 				= new Fauxble.Collections.Tasks(data.tasks, {
 			questions: this.questions,
 			sliders: this.sliders,
@@ -54,6 +55,7 @@ window.Fauxble = {
 			sliders: 			this.sliders,
 			answers: 			this.answers,
 			sources: 			this.sources,
+			comments: 			this.comments,
 			challenges: 		this.challenges,
 			tasks: 				this.tasks,
 			ranks: 				this.ranks,

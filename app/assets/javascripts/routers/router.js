@@ -5,8 +5,9 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		'about'				: 'about',
 		'mfc'				: 'mfc',
 		'new:id' 			: 'pagesNew',
-		'issues:id'			: 'issues',
+		'issues:id'			: 'issueSelect',
 		'issue:id'			: 'issue',
+		'issue/list'		: 'issues',
 		':c_id/question:id' : 'question',
 		'challenge:id' 		: 'results',
 		'user:id' 			: 'profile',
@@ -29,6 +30,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			sliders: options.sliders,
 			answers: options.answers,
 			sources: options.sources,
+			comments: options.comments,
 			challenges: options.challenges,
 			tasks: options.tasks,
 			ranks: options.ranks,
@@ -292,7 +294,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.triggerPage();
 	},
 	
-	issues: function(id) {
+	issueSelect: function(id) {
 		this.renderColumns();
 		var view = new Fauxble.Views.PagesIssues({
 			attr: this.attr,
@@ -305,6 +307,15 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		if (!this.checkTutorial(this.user, 'issues')) {
 			this.renderTutorial('issues');
 		}
+		this.triggerPage();
+	},
+	
+	issues: function() {
+		var view = new Fauxble.Views.PagesPreview({
+			attr: this.attr
+		});
+		this.setCurrentView(view);
+		$('.page').html(view.render().el);
 		this.triggerPage();
 	},
 	
