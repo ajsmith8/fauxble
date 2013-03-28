@@ -189,10 +189,11 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		$('.feedback').html(view.render().el);
 	},
 	
-	feedbackPopup: function() {
+	feedbackPopup: function(url) {
 		var view = new Fauxble.Views.FeedbacksPopup({
 			attr: this.attr,
-			element: $('#background')
+			element: $('#background'),
+			url: url
 		});
 		$('#tutorial').html(view.render().el);
 	},

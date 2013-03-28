@@ -11,6 +11,7 @@ Fauxble.Views.FeedbacksPopup = Backbone.View.extend({
 		this.attr =  options.attr;
 		this.user = this.attr.users.get(this.attr.current_user.get('id'));
 		this.element = options.element;
+		this.url = options.url;
 	},
 	
 	render: function() {
@@ -34,6 +35,8 @@ Fauxble.Views.FeedbacksPopup = Backbone.View.extend({
 		if (this.user) {
 			id = this.user.get('id');
 		}
+		
+		gaEvent('Feedback', 'Submit', url, null);
 		
 		this.attr.feedbacks.create({
 			content: content,
