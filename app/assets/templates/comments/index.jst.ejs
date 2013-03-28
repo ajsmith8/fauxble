@@ -1,31 +1,34 @@
 <div class = "comment_container_header">Comments</div>
-<div class = "comment">
-	<div id = 'user_form' class = 'hide'>
-		<% if (user) { %>
-			<div class = 'thumbnail container'>
-				<div class = 'thumbnail wrapper'>
-					<% if (user.get('uid')) { %>
-						<img src = 'https://graph.facebook.com/<%= user.get('uid') %>/picture'/>
-					<% } else { %>
-						<img src = 'assets/misc/user.png'/>
-					<% } %>
-				</div>
+<div class = "add_comment_subheader" style="display: none">
+	<div class = "text left">4 comments</div>
+	<div class = "triangle"></div>
+	<div class = "text right">Add a comment</div>
+</div>
+<div class = "comment" style="display: block">
+	<% if (user) { %>
+		<div class = 'thumbnail container'>
+			<div class = 'thumbnail wrapper'>
+				<% if (user.get('uid')) { %>
+					<img src = 'https://graph.facebook.com/<%= user.get('uid') %>/picture'/>
+				<% } else { %>
+					<img src = 'assets/misc/user.png'/>
+				<% } %>
 			</div>
-			<div class = "name_stats_container">
-				<div class = "user_name">
-					<%= user.get('name') %>
-				</div>
-				<div class = "rank global_rank">
-					Global Rank: <%= rank %>
-				</div>
-				<div class = "rank facts_learned">
-					Facts Learned: <%= facts %>
-				</div>
+		</div>
+		<div class = "name_stats_container">
+			<div class = "user_name">
+				<%= user.get('name') %>
 			</div>
-		<% } %>
-		<form id = 'new_comment'>
-			<textarea type = 'text' id = 'title' />
-			<input type = 'submit' value = 'Post' class = "post_comment_button"/>
-		</form>
-	</div>
+			<div class = "rank global_rank">
+				GLOBAL RANK: <span><%= rank %></span>
+			</div>
+			<div class = "rank facts_learned">
+				FACTS LEARNED: <span><%= facts %></span>
+			</div>
+		</div>
+	<% } %>
+	<form id = 'new_comment'>
+		<textarea type = 'text' id = 'title' />
+		<input type = 'submit' value = 'Comment' class = "post_comment_button"/>
+	</form>
 </div>

@@ -34,9 +34,7 @@
 			<span class = "number">Err</span><span class = 'label'>FACTS SHARED</span> 
 		</div>
 	</div>
-	<div class = "full_description_container">
-		<span>Description:</span> <%= issue.get('description') %>
-	</div>
+	
 	<div class = "goto_challenges_button_container">
 		<div class = "text left">
 			Spread knowledge.
@@ -48,8 +46,12 @@
 			<div id = 'goto_challenges'>Challenges</div>
 		</div>
 	</div>
+	
+	<div class = "full_description_container">
+		<span>Description:</span> <%= issue.get('description') %>
+	</div>
+	
 	<div class = "comment_container" id = "comments">
-
 	</div>
 </div>
 
