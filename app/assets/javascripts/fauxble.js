@@ -14,6 +14,7 @@ window.Fauxble = {
 			answers: this.answers
 		});
 		this.sources 			= new Fauxble.Collections.Sources(data.sources);
+		this.comments			= new Fauxble.Collections.Comments(data.comments);
 		this.tasks 				= new Fauxble.Collections.Tasks(data.tasks, {
 			questions: this.questions,
 			sliders: this.sliders,
@@ -54,6 +55,7 @@ window.Fauxble = {
 			sliders: 			this.sliders,
 			answers: 			this.answers,
 			sources: 			this.sources,
+			comments: 			this.comments,
 			challenges: 		this.challenges,
 			tasks: 				this.tasks,
 			ranks: 				this.ranks,
@@ -66,15 +68,15 @@ window.Fauxble = {
 };
 
 function gaEvent(category, action, label, value) {
-	_gaq.push(['_trackEvent', category, action, label, value]);
+	//_gaq.push(['_trackEvent', category, action, label, value]);
 }
 
 function gaPageview(url) {
-	_gaq.push(['_trackPageview', "/" + url]);
+	//_gaq.push(['_trackPageview', "/" + url]);
 }
 
 function fbLogin() {
-	//window.location = "http://localhost:3000/auth/facebook";
-	window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";
+	window.location = "http://localhost:3000/auth/facebook";
+	//window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";
 	//window.location = "http://fusegap.org/auth/facebook";
 }

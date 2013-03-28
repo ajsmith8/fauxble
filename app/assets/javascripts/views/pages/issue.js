@@ -11,6 +11,7 @@ Fauxble.Views.PagesIssue = Backbone.View.extend({
 		this.issue = options.issue;
 		this.ids = this.attr.tasks.getIssueFactsAndUsers(this.issue);
 		this.users = [];
+		this.comments = this.attr.comments.where({issue_id: this.issue.get('id'), ancestry: null});
 		
 		for (var i = this.ids.length; i > 0; i--) {
 			var user = this.attr.users.get(parseInt(this.ids[i - 1].split('/')[0]));
@@ -36,7 +37,8 @@ Fauxble.Views.PagesIssue = Backbone.View.extend({
 		}));
 		
 		setTimeout(function() {
-			self.renderCommunity();
+			//self.renderCommunity();
+			self.renderComments();
 		}, 0);
 		
 		return this;
@@ -56,5 +58,14 @@ Fauxble.Views.PagesIssue = Backbone.View.extend({
 			user: user
 		});
 		$('#community').append(view.render().el);
+	},
+	
+	renderComments: function() {
+		var view = new Fauxble.Views.CommentsIndex({
+			attr: this.attr,
+			comments: this.comments,
+			issue: this.issue
+		});
+		$(this.el).find('#comments').html(view.render().el);
 	}
 });

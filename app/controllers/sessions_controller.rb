@@ -31,6 +31,7 @@ class SessionsController < ApplicationController
     @sources = Source.all.to_json
     @achievables = Achievable.all.to_json
     @users = User.all.to_json
+    @comments = Comment.all.to_json
     if @current_user
       @tasks = (Task.where(user_id: @current_user.id)).to_json
       @user_achievables = UserAchievable.all.to_json

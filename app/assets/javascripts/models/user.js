@@ -18,5 +18,9 @@ Fauxble.Models.User = Backbone.Model.extend({
 	
 	authenticate: function(string) {
 		return sha256_digest(this.get('password_salt') + '--' + string) === this.get('encrypted_password');
+	},
+	
+	signedIn: function() {
+		return this.get('signed_in') || this.get('signed_in_fb');
 	}
 });
