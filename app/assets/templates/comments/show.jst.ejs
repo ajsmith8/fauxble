@@ -1,8 +1,31 @@
-<div><%= comment.get('title') %></div>
+<div class = 'thumbnail container'>
+	<div class = 'thumbnail wrapper'>
+		<% if (user.get('uid')) { %>
+			<img src = 'https://graph.facebook.com/<%= user.get('uid') %>/picture'/>
+		<% } else { %>
+			<img src = 'assets/misc/user.png'/>
+		<% } %>
+	</div>
+</div>
+<div class = "name_stats_container">
+	<div class = "user_name">
+		<%= user.get('name') %>
+	</div>
+	<div class = "rank global_rank">
+		Global Rank: <%= rank %>
+	</div>
+	<div class = "rank facts_learned">
+		Facts Learned: <%= facts %>
+	</div>
+</div>
+<div class = "text">
+	<%= comment.get('title') %>
+</div>
+
 <div id = 'reply_button'>Reply</div>
 <div id = 'reply' class ='hide'>
 	<form id = 'comment_reply'>
-		<input type = 'text' id = 'title' />
+		<textarea type = 'text' id = 'title' />
 		<input type = 'submit' value = 'Post' />
 	</form>
 </div>

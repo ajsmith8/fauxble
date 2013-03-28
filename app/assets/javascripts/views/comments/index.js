@@ -39,7 +39,7 @@ Fauxble.Views.CommentsIndex = Backbone.View.extend({
 	
 	newComment: function(event) {
 		event.preventDefault();
-		var title = $('#new_comment').find('input#title').val();
+		var title = $('#new_comment').find('textarea#title').val();
 		
 		if (this.user.signedIn()) {
 			//start loading
@@ -50,6 +50,6 @@ Fauxble.Views.CommentsIndex = Backbone.View.extend({
 	},
 	
 	emptyInput: function() {
-		$('#new_comment').find('input#title').val('');
+		$('#new_comment').find('textarea#title').val('');
 	}
 });	
