@@ -11,8 +11,10 @@ Fauxble.Views.CommentsIndex = Backbone.View.extend({
 		this.comments = options.comments;
 		this.issue = options.issue;
 		this.user = this.attr.users.get(this.attr.current_user.get('id'));
-		this.rank = this.attr.users.getGlobalRank(this.user);
-		this.facts = this.attr.tasks.getFactsLearned(this.user);
+		if (this.user) {
+			this.rank = this.attr.users.getGlobalRank(this.user);
+			this.facts = this.attr.tasks.getFactsLearned(this.user);
+		}
 	},
 	
 	render: function() {

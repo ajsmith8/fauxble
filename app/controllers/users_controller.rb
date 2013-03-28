@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   
   def update
     @user = User.update(params[:id], params[:user])
+    session[:user_id] = @user.id
     respond_with @user
   end
   
