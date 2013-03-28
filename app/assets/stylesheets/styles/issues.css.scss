@@ -425,9 +425,9 @@
 	width: 100%;
 	top: 14px;
 	.top_container {
-		position: absolute;
+		position: relative;
 		width: 100%;
-		height: 180px;
+		height: 150px;
 		.thumbnail {		
 			&.container {
 				overflow: hidden;
@@ -546,61 +546,58 @@
 		}
 	}
 	.full_description_container {
-		position: absolute;
-		top: 170px;
-		left: 2%;
+		position: relative;
+		margin: 13px 0 0 2%;
 		padding: 8px;
-		width: 93.6%;
 		font-size: 13px;
 		line-height: 17px;
 		color: $black;
-		background-image: url(misc/253.png); background-repeat: repeat;
 		span {
 			font-weight: bold;
 		}
 	}
 	.goto_challenges_button_container {
-		position: absolute;
-		top: 260px;
-		left: 10px;
+		position: relative;
+		margin: 12px 0 0 10px;
 		width: 536px;
 		height: 68px;
 		color: $black;
-		padding-top: 10px;
-		border-top: 1px solid rgb(240,240,240);
+		border-top: 1px solid rgb(235,235,235);
+		border-bottom: 1px solid rgb(235,235,235);
 		background-image: url(misc/253.png); background-repeat: repeat;
 		.text {
 			position: absolute;
-			top: 29px;
+			top: 26px;
 			font-size: 14px;
 			font-weight: bold;
 			width: 150px;
 			&.left {
-				left: 16px;
+				left: 31px;
 				text-align: right;
 			}
 			&.right {
-				left: 373px;
+				left: 358px;
 				text-align: left;
 			}
 		}
 		.goto_challenges_button {
 			position: absolute;
-			left: 188px;
+			top: 13px;
+			left: 208px;
 			cursor: pointer;
 			color: #fff;
-			height: 37px;
+			height: 30px;
 			border: 1px solid darken($bluegreen, 17%);
-			font-size: 17px;
+			font-size: 15px;
 			font-weight: bold;
-			width: 160px;
+			width: 120px;
 			box-shadow: 0px 1px 1px lighten($bluegreen, 22%) inset;	
 			@include linear-gradient(lighten($bluegreen, 6%), darken($bluegreen, 9%));
 			@include single-box-shadow(rgb(249,249,249), 0px, 1px, 0px, 1px);
 			@include text-shadow(0px 1px 2px rgba(#000, 0.4));
 			@include border-radius(4px);
 			z-index: 13;
-			padding-top: 14px;
+			padding-top: 10px;
 			text-align: center;
 			font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
 			&:hover {
@@ -610,9 +607,8 @@
 		}
 	}
 	.comment_container {
-		position: absolute;
-		top: 300px;
-		left: 10px;
+		position: relative;
+		margin: 20px 0 0 10px;
 		width: 536px;
 		height: 300px;
 		color: $black;
@@ -642,35 +638,78 @@
 			position: relative;
 			width: 100%;
 			text-align: center;
-			font-size: 14px;
+			font-size: 13px;
 			font-weight: bold;
+		}
+		.add_comment_subheader {
+			position: relative;
+			margin-top: 3px;
+			width: 536px;
+			border-top: 1px solid rgb(235,235,235);
+			border-bottom: 1px solid rgb(225,225,225);
+			height: 28px;
+			.text {
+				position: absolute;
+				font-size: 12px;
+				font-weight: bold;
+				&.left {
+					top: 7px;
+					left: 5px;
+				}
+				&.right {
+					top: 8px;
+					right: 5px;
+					color: $bluegreen;
+					text-decoration: underline;
+					cursor: pointer;
+					font-size: 11px;
+				}
+			}
+			.triangle {
+				position: absolute;
+				left: 82px;
+				top: 11px;
+			  width: 0;
+			  height: 0;
+			  border-left: 5px solid transparent;
+			  border-right: 5px solid transparent;
+			  border-top: 8px solid $bluegreen;
+			}
 		}
 		.comment {
 			position: relative;
-			margin: 10px 0 0 0;
-			border: 1px solid;
+			margin: 12px 0 0 0;
 			width: 536px;
+			border-bottom: 1px solid rgb(225,225,225);
+			padding-bottom: 2px;
+			background-image: url(misc/253.png); background-repeat: repeat;
 			form {
-				width: 475px;
-				margin: 20px 0 0 54px;
+				width: 470px;
+				margin: 3px 0 0 54px;
 				position: relative;
 			}
 			textarea {
 				position: relative;
 				width: 100%;
 				font-size: 11px;
-				border: 1px solid $bluegreen;
-				@include border-radius(2px);
+				height: 45px;
+				border: 1px solid rgb(212,212,212);
+				@include border-radius(3px);
+				box-shadow: 0px 1px 1px rgb(240,240,240) inset;
+				&:focus {
+					box-shadow: 0px 1px 1px rgb(226,226,226) inset;
+					border: 1px solid rgb(180,180,180);
+					outline-width: 0;
+				}
 			}
 			.post_comment_button {
-				position: absolute;
-				width: 100px;
-				top: 57px;
-				right: 16px;
+				position: relative;
+				width: 80px;
+				margin: 4px 0 10px 396px;
 				border: 1px solid rgb(208,208,208);
 				border-bottom: 1px solid rgb(184,184,184);
-				height: 28px;
-				font-size: 14px;
+				height: 22px;
+				font-size: 12px;
 				color: $black;
 				text-align: center;
 				font-weight: bold;
@@ -684,11 +723,11 @@
 				}
 			}
 			.name_stats_container {
-				position: absolute;
-				top: 0px;
-				left: 54px;
+				position: relative;
+				margin: 0 0 0 54px;
 				height: 15px;
 				width: 475px;
+				padding-bottom: 2px;
 				font-size: 12px;
 				.user_name {
 					position: absolute;
@@ -698,28 +737,49 @@
 					width: 160px;
 					white-space: nowrap;
 					overflow: hidden;
-					text-overflow: ellipsis;	
-					border: 1px solid;						
+					text-overflow: ellipsis;
+					&:hover {
+						cursor: pointer;
+						text-decoration: underline;
+					}					
 				}
 				.rank {
-					position: absolute;
-					width: 120px;
-					border: 1px solid;
+					position: absolute;					
+					font-size: 10px;
+					text-align: right;
+					color: rgb(128,128,128);
+					span {
+						color: $bluegreen;
+						font-size: 12px;
+						font-weight: bold;
+					}
 					&.global_rank {
-						left: 200px;
+						width: 122px;
+						right: 117px;
+						border-right: 1px solid rgb(215,215,215);
+						padding-right: 14px;
 					}
 					&.facts_learned {
-						left: 330px;
+						width: 115px;
+						right: 0px;
+						border-left: 1px solid rgb(215,215,215);
 					}
 				}
 			}
 			.text {
 				position: relative;
-				border: 1px solid;
-				margin: 20px 0 0 54px;
+				margin: 6px 0 0 54px;
 				width: 475px;
 				font-size: 12px;
 				line-height: 16px;
+			}
+			#reply_button {
+				position: relative;
+				text-align: right;
+				font-size: 12px;
+				color: $bluegreen;
+				padding-right: 6px;
+				cursor: pointer;
 			}
 		}
 	}
@@ -799,7 +859,7 @@
 	width: 250px;
 	height: 250px;
 	position: relative;
-	margin: 20px 0 33px 42px;
+	margin: 20px 0 25px 45px;
 	cursor: pointer;
 	z-index: 0;
 	cursor: default;
@@ -831,7 +891,7 @@
 			width: 100%;
 			height: 40px;
 			@include border-top-radius(7px);
-			border-bottom: 1px solid darken($black, 10%);
+			border-bottom: 1px solid $black;
 		}
 	}
 
@@ -841,123 +901,15 @@
 		position: absolute;
 		top: 41px;
 		left: 0px;
-		overflow: hidden;
-		
+		overflow: hidden;		
 		@include border-bottom-radius(9px);
 		
 		.wrapper {
 			position: static;
 			width: 100%;
-			height: 100%;
-			
+			height: 100%;			
 			img {
 				@include border-bottom-radius(9px);	
-			}
-		}
-	}
-	
-	.rank {
-		position: absolute;
-		
-		&.picture {
-			top: 10%;
-			left: 5%;
-			height: 80%;
-			width: 16%;
-			@include border-radius(5px);
-			overflow: hidden;
-		}
-			
-		&.container {
-			border: none;
-			background: #eee;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			height: 52px;
-			@include border-bottom-radius(4px);
-			border-top: 1px solid #ddd;
-		}
-		
-		&.text {
-			font-size: 14px;
-			bottom: 10%;
-			left: 25%;
-		}
-	}
-	
-	.browse {
-		font-size: 11px;
-		position: absolute;
-		bottom: 120px;
-		right: 5%;
-		height: 10%;
-		width: 30%;
-		
-		button {
-			font-size: 1em;
-			width: 100%;
-			height: 100%;
-			@include border-radius($radius);
-			@include single-box-shadow(rgba(#000, 0.3), 0, 0, 2px, 2px, inset);
-			&.active {
-				color: #fff;
-				background: $textblue;
-				border: 1px solid darken($backgroundcolor, 25%);
-				cursor: pointer;
-				
-				&:hover {
-					background: lighten($backgroundcolor, 0%);
-				}
-
-				&:active{
-					background: darken($backgroundcolor, 20%);
-				}
-			}
-			
-			&.inactive {
-				color: lighten($black, 20%);
-				background: #ccc;
-				border: 1px solid darken(#ccc, 10%);
-				cursor: default;
-			}
-		}
-	}
-	
-	.quiz {
-		font-size: 11px;
-		position: absolute;
-		bottom: 84px;
-		right: 5%;
-		height: 10%;
-		width: 30%;
-		
-		button {
-			font-size: 1em;
-			width: 100%;
-			height: 100%;
-			@include border-radius($radius);
-			@include single-box-shadow(rgba(#000, 0.5), 0, 0, 2px, 2px, inset);
-			&.active {
-				color: #fff;
-				background: $textblue;
-				border: 1px solid darken($black, 10%);
-				cursor: pointer;
-
-				&:hover {
-					background: lighten($black, 10%);
-				}
-
-				&:active{
-					background: darken($black, 10%);
-				}
-			}
-			
-			&.inactive {
-				color: lighten($black, 20%);
-				background: #ccc;
-				border: 1px solid darken(#ccc, 10%);
-				cursor: default;
 			}
 		}
 	}
@@ -972,6 +924,8 @@
 		height: 210px;
 		background: rgba(#fff, 0.85);
 		z-index: 1;
+		font-size: 14px;
+		line-height: 18px;
 		@include opacity(0);
 		@include border-bottom-radius(7px);
 		
@@ -995,7 +949,7 @@
 			text-align: center;
 			left: 0px;
 			width: 100%;
-			color: darken($bluegreen, 20%);
+			color: $bluegreen;
 			font-size: 12px;
 			font-weight: bold;
 		}

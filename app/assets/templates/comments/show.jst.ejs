@@ -12,10 +12,10 @@
 		<%= user.get('name') %>
 	</div>
 	<div class = "rank global_rank">
-		Global Rank: <%= rank %>
+		GLOBAL RANK: <span><%= rank %></span>
 	</div>
 	<div class = "rank facts_learned">
-		Facts Learned: <%= facts %>
+		FACTS LEARNED: <span><%= facts %></span>
 	</div>
 </div>
 <div class = "text">
@@ -26,7 +26,7 @@
 <div id = 'reply' class ='hide'>
 	<form id = 'comment_reply'>
 		<textarea type = 'text' id = 'title' />
-		<input type = 'submit' value = 'Post' />
+		<input type = 'submit' value = 'Reply' class = "post_comment_button"/>
 	</form>
 </div>
 <div id = 'children'></div>

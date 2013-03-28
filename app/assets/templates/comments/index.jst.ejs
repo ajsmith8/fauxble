@@ -1,5 +1,10 @@
 <div class = "comment_container_header">Comments</div>
-<div class = "comment">
+<div class = "add_comment_subheader" style="display: block">
+	<div class = "text left">4 comments</div>
+	<div class = "triangle"></div>
+	<div class = "text right">Add a comment</div>
+</div>
+<div class = "comment" style="display: none">
 	<div class = 'thumbnail container'>
 		<div class = 'thumbnail wrapper'>
 			<% if (user.get('uid')) { %>
@@ -14,14 +19,14 @@
 			<%= user.get('name') %>
 		</div>
 		<div class = "rank global_rank">
-			Global Rank: <%= rank %>
+			GLOBAL RANK: <span><%= rank %></span>
 		</div>
 		<div class = "rank facts_learned">
-			Facts Learned: <%= facts %>
+			FACTS LEARNED: <span><%= facts %></span>
 		</div>
 	</div>
 	<form id = 'new_comment'>
 		<textarea type = 'text' id = 'title' />
-		<input type = 'submit' value = 'Post' class = "post_comment_button"/>
+		<input type = 'submit' value = 'Comment' class = "post_comment_button"/>
 	</form>
 </div>
