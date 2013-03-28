@@ -12,6 +12,7 @@ Fauxble.Views.IssuesPreview = Backbone.View.extend({
 	},
 	
 	render: function() {
+		$(this.el).addClass('issue-panel');
 		$(this.el).html(this.template({
 			issue: this.issue
 		}));
