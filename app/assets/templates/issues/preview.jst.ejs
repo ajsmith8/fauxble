@@ -1,5 +1,16 @@
-<div><%= issue.get('title') %></div>
-<div>
-	<img src = 'assets/issues/<%= issue.get('image') %>.png' />
+<div class = "title container">	
+	<div class = "title"><%= issue.get('title') %></div>
 </div>
-<div><%= issue.get('description') %></div>
+<div class = "thumbnail">
+	<div class = "wrapper">
+		<img src = "assets/issues/<%= issue.get('image') %>.png" height = "100%" width = "100%"/>
+	</div>
+</div>
+<div class = "hover-container">
+	<div class = "description">
+		<p style = "display:inline; color: rgb(60,60,60);">
+			<%= issue.get('description') %>
+		</p>	
+	</div>
+	<div class="showmore">Click for more...</div>
+</div>

@@ -12,6 +12,8 @@ Fauxble.Views.PagesPreview = Backbone.View.extend({
 	render: function() {
 		var self = this;
 		
+		$(this.el).addClass('issue-list');
+		
 		setTimeout(function() {
 			for (var i = 0; i < self.issues.length; i++) {
 				self.appendIssue(self.issues[i]);
