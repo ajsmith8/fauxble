@@ -193,6 +193,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			attr: this.attr
 		});
 		this.setCurrentView(view);
+		$('.test').empty();
 		$('.page').html(view.render().el);
 		this.triggerPage();
 	},
@@ -311,10 +312,14 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	issues: function() {
+		this.columns = false;
+		this.subview = null;
+		this.str = '';
 		var view = new Fauxble.Views.PagesPreview({
 			attr: this.attr
 		});
 		this.setCurrentView(view);
+		$('.test').empty();
 		$('.page').html(view.render().el);
 		this.triggerPage();
 	},

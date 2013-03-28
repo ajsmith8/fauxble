@@ -10,7 +10,8 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 		'click #fb_login_header' : 'fbLogin',
 		'focus input' : 'focusInput',
 		'blur input' : 'blurInput',
-		'submit #signin_form' : 'signin'
+		'submit #signin_form' : 'signin',
+		'click #issues' : 'issuePreview'
 	},
 	
 	initialize: function(options) {
@@ -143,6 +144,10 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	
 	mfcPage: function() {
 		Backbone.history.navigate('mfc', true);
+	},
+	
+	issuePreview: function() {
+		Backbone.history.navigate('issue/list', true);
 	}
 });
 //header

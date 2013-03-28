@@ -11,8 +11,11 @@ Fauxble.Views.CommentsShow = Backbone.View.extend({
 		this.attr = options.attr;
 		this.user = this.attr.users.get(this.attr.current_user.get('id'));
 		this.comment = options.comment;
+		this.commentor = this.attr.users.get(this.comment.get('user_id'));
 		this.issue = this.attr.issues.get(this.comment.get('issue_id'));
 		this.comments = this.getChildren(this.comment);
+		this.rank = this.attr.users.getGlobalRank(this.commentor);
+		this.facts = this.attr.tasks.getFactsLearned(this.commentor);
 	},
 	
 	render: function() {
@@ -21,7 +24,10 @@ Fauxble.Views.CommentsShow = Backbone.View.extend({
 		$(this.el).addClass('comment');
 		$(this.el).attr('id', this.comment.get('id'));
 		$(this.el).html(this.template({
-			comment: this.comment
+			comment: this.comment,
+			user: this.commentor,
+			rank: this.rank,
+			facts: this.facts
 		}));
 		
 		setTimeout(function() {
