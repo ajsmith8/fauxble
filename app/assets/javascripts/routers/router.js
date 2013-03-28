@@ -419,6 +419,14 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		$('#tutorial').html(view.render().el);
 	},
 	
+	signInPopup: function() {
+		var view = new Fauxble.Views.PopupsSignin({
+			attr: this.attr,
+			element: $('#background')
+		});
+		$('#tutorial').html(view.render().el);
+	},
+	
 	setFactsLearned: function(tasks) {
 		var users = this.attr.users.getSignedInUsers(),
 			questions = this.attr.questions.toArray(),

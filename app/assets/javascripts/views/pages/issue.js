@@ -3,12 +3,13 @@ Fauxble.Views.PagesIssue = Backbone.View.extend({
 	template: JST['pages/issue'],
 	
 	events: {
-		
+		'click #user_check' : 'checkUser'
 	},
 	
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.issue = options.issue;
+		this.user = this.attr.users.get(this.attr.current_user.get('id'));
 		this.ids = this.attr.tasks.getIssueFactsAndUsers(this.issue);
 		this.users = [];
 		this.comments = this.attr.comments.where({issue_id: this.issue.get('id'), ancestry: null});
@@ -67,5 +68,13 @@ Fauxble.Views.PagesIssue = Backbone.View.extend({
 			issue: this.issue
 		});
 		$(this.el).find('#comments').html(view.render().el);
+	},
+	
+	checkUser: function() {
+		if (this.user && (this.user.get('signed_in') || this.user.get('signed_in_fb'))) {
+			Backbone.history.navigate('', true);
+		} else {
+			window.Fauxble.router.signInPopup();
+		}
 	}
 });

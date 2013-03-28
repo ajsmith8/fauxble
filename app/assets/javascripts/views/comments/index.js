@@ -16,7 +16,9 @@ Fauxble.Views.CommentsIndex = Backbone.View.extend({
 	render: function() {
 		var self = this;
 		
-		$(this.el).html(this.template());
+		$(this.el).html(this.template({
+			user: this.user
+		}));
 		
 		setTimeout(function() {
 			for (var c = 0; c < self.comments.length; c++) {

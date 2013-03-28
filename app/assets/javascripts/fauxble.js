@@ -47,7 +47,7 @@ window.Fauxble = {
 			self.ranks.fetch();
 		}, 0);
 		
-		new Fauxble.Routers.Router({
+		this.router = new Fauxble.Routers.Router({
 			current_user: 		this.current_user,
 			users: 				this.users,
 			issues: 			this.issues,
