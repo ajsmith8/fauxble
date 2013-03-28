@@ -35,12 +35,15 @@ Fauxble.Views.PopupsSignin = Backbone.View.extend({
 	},
 	
 	toggleForm: function() {
-		var element = $(this.el).find('#signup_form');
+		var element = $(this.el).find('#signup_form'),
+			container = $(this.el).find('#popup');
+			
 		if ($(element).hasClass('hide')) {
 			$(element).removeClass('hide');
-			$(window).scrollTop($(window).scrollTop() + 250);
+			$(container).addClass('active');
 		} else {
 			$(element).addClass('hide');
+			$(container).removeClass('active');
 		}
 	},
 	
