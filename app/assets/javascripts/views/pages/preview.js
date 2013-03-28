@@ -7,6 +7,16 @@ Fauxble.Views.PagesPreview = Backbone.View.extend({
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.issues = this.attr.issues.toArray();
+		
+		this.issues.sort(function(a, b) {
+			 if (a.get('title') > b.get('title')) {
+				return 1;
+			}
+			 if (a.get('title') < b.get('title')) {
+				return -1
+			}
+			return 0;
+		})
 	},
 	
 	render: function() {

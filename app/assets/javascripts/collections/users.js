@@ -9,7 +9,7 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 	},
 	
 	comparator: function(user) {
-		return this.ranks.getRank(this.getSignedInUsers(), user, null)
+		return this.ranks.getScore(user, null);
 	},
 	
 	getTopUsers: function(user, issue, length) {
@@ -19,13 +19,13 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 			has_current_user = false,
 			current_user;
 
-		if (users.length < 5) {
-			length = users.length;
-		}
-			
 		users.sort(function(a, b) {
 			return self.ranks.getScore(b, issue) - self.ranks.getScore(a, issue);
 		});
+			
+		if (users.length < 5) {
+			length = users.length;
+		}
 
 		for (u = 0; u < length; u++) {
 			tops.push({user: users[u], rank: u + 1});
@@ -168,5 +168,21 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 		}
 		
 		return _.shuffle(this.faux_users).slice(0, num);
+	},
+	
+	getGlobalRank: function(user) {
+		var users = this.getSignedInUsers(),
+			rank = users.length + 1,
+			self = this;
+		
+		users.sort(function(a, b) {
+			return self.ranks.getScore(b, null) - self.ranks.getScore(a, null);
+		});
+			
+		if (users.indexOf(user) !== -1) {
+			rank = users.indexOf(user) + 1;
+		}
+		
+		return rank;
 	}
 });
