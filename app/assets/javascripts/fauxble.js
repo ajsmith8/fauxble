@@ -38,6 +38,7 @@ window.Fauxble = {
 			issues: this.issues,
 			user_achievables: this.user_achievables
 		});
+		this.feedbacks			= new Fauxble.Collections.Feedbacks();
 		
 		var self = this;
 		setTimeout(function() {
@@ -60,7 +61,8 @@ window.Fauxble = {
 			tasks: 				this.tasks,
 			ranks: 				this.ranks,
 			achievables: 		this.achievables,
-			user_achievables: 	this.user_achievables
+			user_achievables: 	this.user_achievables,
+			feedbacks: 			this.feedbacks
 		});
 		
 		Backbone.history.start();

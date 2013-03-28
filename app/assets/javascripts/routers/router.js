@@ -35,11 +35,13 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			tasks: options.tasks,
 			ranks: options.ranks,
 			achievables: options.achievables,
-			user_achievables: options.user_achievables
+			user_achievables: options.user_achievables,
+			feedbacks: options.feedbacks
 		};
 		
 		this.header();
 		this.footer();
+		this.feedbackTab();
 		this.chat();
 		this.popup();
 		
@@ -178,6 +180,21 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			attr: this.attr
 		});
 		$('#footer').html(view.render().el);
+	},
+	
+	feedbackTab: function() {
+		var view = new Fauxble.Views.FeedbacksTab({
+			attr: this.attr
+		});
+		$('.feedback').html(view.render().el);
+	},
+	
+	feedbackPopup: function() {
+		var view = new Fauxble.Views.FeedbacksPopup({
+			attr: this.attr,
+			element: $('#background')
+		});
+		$('#tutorial').html(view.render().el);
 	},
 	
 	popup: function() {

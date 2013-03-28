@@ -1,5 +1,7 @@
 Fauxble::Application.routes.draw do
   
+  resources :feedbacks
+
   resources :comments
 
   resources :user_achievables
