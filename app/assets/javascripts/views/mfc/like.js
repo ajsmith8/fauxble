@@ -26,12 +26,9 @@ Fauxble.Views.MfcLike = Backbone.View.extend({
 		var parent = this.parent_element,
 			background = this.background_element;
 		
-		this.attr.users.trigger('continue', {user: this.attr.users.get(this.attr.current_user.get('id')), view: this});
 		$(background).removeClass('mfc-popup-background');
 		$(parent).empty();
-	},
-	
-	fbLogin: function() {
+		
 		gaEvent('Login', 'Facebook', 'MFC Like', null);
 		fbLogin();
 	},

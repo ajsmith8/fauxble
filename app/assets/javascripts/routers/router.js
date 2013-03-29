@@ -87,7 +87,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			url = 'user';
 		}
 		
-	    gaPageview(url);
+	    gaPageview(url, this.user);
 	},
 	
 	triggerPage: function() {
