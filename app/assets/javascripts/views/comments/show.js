@@ -51,8 +51,8 @@ Fauxble.Views.CommentsShow = Backbone.View.extend({
 		$(this.el).find('#children').append(view.render().el);
 	},
 	
-	toggleReply: function() {
-		var element = $(this.el).find('#reply');
+	toggleReply: function(event) {
+		var element = $(event.target).next('#reply');
 		
 		if ($(element).hasClass('hide')) {
 			$(element).removeClass('hide');
