@@ -47,10 +47,12 @@ Fauxble.Views.FeedbacksPopup = Backbone.View.extend({
 		var self = this;
 		
 		$(this.el).find('#form').addClass('hide');
+		$(this.el).find('.close').addClass('hide');
+		$(this.el).find('.title_text').addClass('hide');
 		$(this.el).find('#thanks').removeClass('hide');
 		
 		setTimeout(function() {
 			self.close();
-		}, 2000);	
+		}, 2200);	
 	}
 });
