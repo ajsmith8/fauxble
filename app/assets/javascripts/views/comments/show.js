@@ -65,11 +65,11 @@ Fauxble.Views.CommentsShow = Backbone.View.extend({
 		event.preventDefault();
 		var title = $(this.el).find('textarea#title').val();
 		
-		if (this.user.signedIn()) {
+		if (this.user && this.user.signedIn()) {
 			//start loading
 			this.attr.comments.createComment(title, this.user, this.issue, this.comment, this);
 		} else {
-			alert('You must be signed in to comment');
+			Fauxble.router.signInPopup();
 		}
 	},
 	

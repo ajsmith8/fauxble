@@ -64,10 +64,10 @@ Fauxble.Views.CommentsIndex = Backbone.View.extend({
 	},
 	
 	checkUser: function() {
-		if (this.user.signedIn()) {
+		if (this.user && this.user.signedIn()) {
 			this.showAdd();
 		} else {
-			alert('You must be signed in to comment');
+			Fauxble.router.signInPopup();
 		}
 	},
 	
