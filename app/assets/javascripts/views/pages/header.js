@@ -78,14 +78,16 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	focusInput: function(event) {
 		var element = $(event.target).closest('input');
 		
-		if ($(element).attr('id') === 'Email') {
-			if ($(element).val() === 'Email') {
-				$(element).val('');
-			}
-		} else {
-			if ($(element).attr('type') !== 'password') {
-				$(element).val('');
-				$(element).attr('type', 'password');
+		if ($(element).attr('type') !== 'submit') {
+			if ($(element).attr('id') === 'Email') {
+				if ($(element).val() === 'Email') {
+					$(element).val('');
+				}
+			} else {
+				if ($(element).attr('type') !== 'password') {
+					$(element).val('');
+					$(element).attr('type', 'password');
+				}
 			}
 		}
 	},
@@ -93,15 +95,17 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	blurInput: function(event) {
 		var element = $(event.target).closest('input');
 		
-		if ($(element).attr('id') === 'Email') {
-			if ($(element).val() === '') {
-				$(element).val('Email');
+		if ($(element).attr('type') !== 'submit') {
+			if ($(element).attr('id') === 'Email') {
+				if ($(element).val() === '') {
+					$(element).val('Email');
+				}
+			} else {
+				if ($(element).val() === '') {
+					$(element).val($(element).attr('id'));
+					$(element).attr('type', 'text');
+				}	
 			}
-		} else {
-			if ($(element).val() === '') {
-				$(element).val($(element).attr('id'));
-				$(element).attr('type', 'text');
-			}	
 		}
 	},
 	
