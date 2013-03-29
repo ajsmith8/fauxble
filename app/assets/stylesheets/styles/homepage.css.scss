@@ -93,7 +93,10 @@
 		color: $black;
 		z-index: 13;
 		text-align: center;
+		border: 1px solid;
 		.fusegap {
+			margin-top: 0px;
+			padding-top: 0px;
 			width: 100%;
 			font-size: 42px;
 			font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
