@@ -13,22 +13,24 @@ Fauxble.Views.IssuesTop = Backbone.View.extend({
 	},
 	
 	render: function() {
-		var self = this;
+		var issues = this.issues,
+			self = this;
+		
 		$(this.el).addClass('popular');
 		$(this.el).html(this.template());
 		
 		setTimeout(function() {
-			_.each(self.issues, function(issue) {
-				self.appendIssue(issue);
-			});
+			for (var i = 0, len = issues.length; i < len; i++) {
+				self.appendIssue(issues[i]);
+			}
 		}, 0);
 		
 		return this;
 	},
 	
 	appendIssue: function(issue) {
-		var view = new Fauxble.Views.IssuesShowTop({ //better fix that at some point eh?
-			attr: this.attr,						// need a new issue view with a rank ie: 14 of 175
+		var view = new Fauxble.Views.IssuesShowTop({
+			attr: this.attr,						
 			issue: issue
 		});
 		this.subviews = [];
@@ -36,13 +38,17 @@ Fauxble.Views.IssuesTop = Backbone.View.extend({
 	},
 	
 	onClose: function() {
-		_.each(this.subviews, function(view) {
+		var views = this.subviews;
+		
+		for (var v = views.length; v > 0; v--) {
+			var view = views[v - 1];
+			
 			view.remove();
 			view.unbind();
 
 			if (view.onClose) {
 				view.onClose();
 			}
-		});
+		}
 	}
 });

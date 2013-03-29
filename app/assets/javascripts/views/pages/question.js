@@ -44,7 +44,7 @@ Fauxble.Views.PagesQuestion = Backbone.View.extend({
 		var ids = challenge.get('question_ids').split('/'),
 			question = null;
 		
-		for (i = 0; i < ids.length; i++) {
+		for (var i = 0, len = ids.length; i < len; i++) {
 			if (parseInt(ids[i]) !== this.question.get('id') && i > ids.indexOf(String(this.question.get('id')))) {
 				question = this.attr.questions.get(parseInt(ids[i]));
 				break;
@@ -62,7 +62,7 @@ Fauxble.Views.PagesQuestion = Backbone.View.extend({
 			question_num = 8;
 		}
 		
-		for (n = 0; n < ids.length; n ++) {
+		for (var n = 0, len = ids.length; n < len; n++) {
 			if (parseInt(ids[n]) === this.question.get('id')) {
 				question_num = n + 1;
 				break;
@@ -73,14 +73,17 @@ Fauxble.Views.PagesQuestion = Backbone.View.extend({
 	},
 	
 	onClose: function() {
-		_.each(this.subviews, function(view) {
+		var views = this.subviews;
+		
+		for (var v = views.length; v > 0; v--) {
+			var view = views[v - 1];
+			
 			view.remove();
 			view.unbind();
 
 			if (view.onClose) {
 				view.onClose();
 			}
-		});
+		}
 	}
 });
-//empty versus div onClose

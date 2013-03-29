@@ -17,6 +17,7 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.user = this.attr.users.get(this.attr.current_user.get('id'));
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -44,6 +45,7 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 			user: this.user,
 			is_sidebar: true
 		});
+		this.subviews.push(view);
 		$(this.el).find('#profile').html(view.render().el);
 	},
 	
@@ -51,6 +53,7 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 		var view = new Fauxble.Views.PagesSignin({
 			attr: this.attr
 		});
+		this.subviews.push(view);
 		$(this.el).find('#profile').html(view.render().el);
 	},
 	
@@ -148,6 +151,20 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	
 	issuePreview: function() {
 		Backbone.history.navigate('issue/list', true);
+	},
+	
+	onClose: function() {
+		var views = this.subviews;
+		
+		for (var v = views.length; v > 0; v--) {
+			var view = views[v - 1];
+			
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
+		}
 	}
 });
-//header

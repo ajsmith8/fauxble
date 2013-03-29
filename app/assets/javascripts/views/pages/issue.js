@@ -21,10 +21,8 @@ Fauxble.Views.PagesIssue = Backbone.View.extend({
 				this.users.push(user);
 			}
 		}
-		// # facts with issue
-		// # of this issue learned by users
-		// community
-		// facts of this issue shared
+		
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -58,6 +56,7 @@ Fauxble.Views.PagesIssue = Backbone.View.extend({
 			attr: this.attr,
 			user: user
 		});
+		this.subviews.push(view);
 		$('#community').append(view.render().el);
 	},
 	
@@ -67,6 +66,7 @@ Fauxble.Views.PagesIssue = Backbone.View.extend({
 			comments: this.comments,
 			issue: this.issue
 		});
+		this.subviews.push(view);
 		$(this.el).find('#comments').html(view.render().el);
 	},
 	
@@ -75,6 +75,21 @@ Fauxble.Views.PagesIssue = Backbone.View.extend({
 			Backbone.history.navigate('', true);
 		} else {
 			window.Fauxble.router.signInPopup();
+		}
+	},
+	
+	onClose: function() {
+		var views = this.subviews;
+		
+		for (var v = views.length; v > 0; v--) {
+			var view = views[v - 1];
+			
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
 		}
 	}
 });

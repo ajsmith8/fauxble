@@ -33,7 +33,7 @@ Fauxble.Views.PagesNew = Backbone.View.extend({
 	renderTopFusers: function() {
 		var users = this.attr.users.getActiveFusers(this.attr.challenges, this.user, 5);
 
-		for (u = 0; u < users.length; u++) {
+		for (var u = 0, len = users.length; u < len; u++) {
 			this.appendUser(users[u].user, $(this.el).find('#active_fusers'), u);
 		}
 	},
@@ -80,13 +80,17 @@ Fauxble.Views.PagesNew = Backbone.View.extend({
 	},
 	
 	onClose: function() {
-		_.each(this.subviews, function(view) {
+		var views = this.subviews;
+		
+		for (var v = views.length; v > 0; v--) {
+			var view = views[v - 1];
+			
 			view.remove();
 			view.unbind();
 
 			if (view.onClose) {
 				view.onClose();
 			}
-		});
+		}
 	}
 });

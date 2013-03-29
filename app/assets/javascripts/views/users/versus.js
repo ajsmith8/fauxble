@@ -72,15 +72,19 @@ Fauxble.Views.UsersVersus = Backbone.View.extend({
 	},
 	
 	onClose: function() {
-		this.user.unbind('submit', this.incrementScore);
+		var views = this.subviews;	
+			
+		this.user.unbind('submit', this.incrementScore);	
 		
-		_.each(this.subviews, function(view) {
+		for (var v = views.length; v > 0; v--) {
+			var view = views[v - 1];
+
 			view.remove();
 			view.unbind();
 
 			if (view.onClose) {
 				view.onClose();
 			}
-		});
+		}
 	}
 });

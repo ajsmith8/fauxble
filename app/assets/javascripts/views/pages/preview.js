@@ -16,7 +16,9 @@ Fauxble.Views.PagesPreview = Backbone.View.extend({
 				return -1
 			}
 			return 0;
-		})
+		});
+		
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -38,6 +40,22 @@ Fauxble.Views.PagesPreview = Backbone.View.extend({
 			attr: this.attr,
 			issue: issue
 		});
+		this.subviews.push(view);
 		$(this.el).append(view.render().el);
+	},
+	
+	onClose: function() {
+		var views = this.subviews;
+		
+		for (var v = views.length; v > 0; v--) {
+			var view = views[v - 1];
+			
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
+		}
 	}
 });

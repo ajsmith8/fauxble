@@ -19,6 +19,8 @@ Fauxble.Views.CommentsIndex = Backbone.View.extend({
 			this.facts = this.attr.tasks.getFactsLearned(this.user);
 		}
 		
+		this.subviews = [];
+		
 		this.attr.comments.on('add', this.renderCount, this);
 	},
 	
@@ -34,7 +36,7 @@ Fauxble.Views.CommentsIndex = Backbone.View.extend({
 		
 		setTimeout(function() {
 			self.renderCount();
-			for (var c = 0; c < self.comments.length; c++) {
+			for (var c = 0, len = self.comments.length; c < len; c++) {
 				self.renderComment(self.comments[c]);
 			}
 		}, 0);
@@ -60,6 +62,7 @@ Fauxble.Views.CommentsIndex = Backbone.View.extend({
 			attr: this.attr,
 			comment: comment
 		});
+		this.subviews.push(view);
 		$(this.el).append(view.render().el);
 	},
 	
@@ -88,5 +91,22 @@ Fauxble.Views.CommentsIndex = Backbone.View.extend({
 		$('#new_comment').find('textarea#title').val('');
 		$(this.el).find('#add_form').addClass('hide');
 		$(this.el).find('#add_comment').removeClass('hide');
+	},
+	
+	onClose: function() {
+		var views = this.subviews;
+		
+		this.attr.comments.unbind('add', this.renderCount);
+		
+		for (var v = views.length; v > 0; v--) {
+			var view = views[v - 1];
+			
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
+		}
 	}
 });	

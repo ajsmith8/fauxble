@@ -4,6 +4,8 @@ Fauxble.Views.FeedbacksPopup = Backbone.View.extend({
 
 	events: {
 		'submit #feedback' : 'submitFeedback',
+		'focus textarea' : 'focusInput',
+		'blur textarea' : 'blurInput',
 		'click #close' : 'close'
 	},
 	
@@ -25,6 +27,22 @@ Fauxble.Views.FeedbacksPopup = Backbone.View.extend({
 	close: function() {
 		$(this.element).removeClass('feedback-background');
 		$(this.el).parent().empty();
+	},
+	
+	focusInput: function() {
+		var element = $(this.el).find('#content');
+		
+		if ($(element).val() === 'Type feedback here') {
+			$(element).val('');
+		}
+	},
+	
+	blurInput: function() {
+		var element = $(this.el).find('#content');
+		
+		if (!/\S/.test($(element).val())) {
+			$(element).val('Type feedback here');
+		}
 	},
 	
 	submitFeedback: function(event) {

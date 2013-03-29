@@ -8,7 +8,8 @@ Fauxble.Views.UsersIndex = Backbone.View.extend({
 	
 	initialize: function(options) {
 		this.attr = options.attr;
-		this.users = options.users; // {user:   , rank:  }
+		this.users = options.users;
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -17,8 +18,8 @@ Fauxble.Views.UsersIndex = Backbone.View.extend({
 		$(this.el).html(this.template());
 		
 		setTimeout(function() {
-			for (i = 0; i < self.users.length; i++) {
-				self.appendUser(self.users[i]);
+			for (var u = 0, len = self.users.length; u < len; u++) {
+				self.appendUser(self.users[u]);
 			}
 		}, 0);
 		
@@ -30,6 +31,22 @@ Fauxble.Views.UsersIndex = Backbone.View.extend({
 			attr: this.attr,
 			user: user
 		});
+		this.subviews.push(view);
 		$(this.el).append(view.render().el);
+	},
+	
+	onClose: function() {
+		var views = this.subviews;	
+			
+		for (var v = views.length; v > 0; v--) {
+			var view = views[v - 1];
+
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
+		}
 	}
 });
