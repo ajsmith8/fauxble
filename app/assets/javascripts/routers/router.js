@@ -51,6 +51,12 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		
 		this.attr.tasks.on('reset', this.setFactsLearned, this);
 		
+		var id = 0;
+		if (this.user) {
+			id = this.user.get('id');
+		}
+		gaCustomVar(1, 'User', String(id), 2);
+		
 		this.bind('all', this._trackPageview);
 	},
 	
