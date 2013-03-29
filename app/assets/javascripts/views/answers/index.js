@@ -54,14 +54,16 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 	},
 	
 	revealAnswers: function() {
-		var self = this;
+		var answers = this.answers;
 		
 		$(this.el).find('#answers').empty();
 		$(this.el).find('.timer.container').removeClass('hide');
 		
-		_.each(self.answers, function(answer) {
-			self.appendAnswer(answer);
-		});
+		for (var a = answers.length; a > 0; a--) {
+			var answer = answers[a - 1];
+			
+			this.appendAnswer(answer);
+		}
 		
 		this.startTimer();
 	},
@@ -202,13 +204,17 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 	},
 	
 	onClose: function() {
-		_.each(this.subviews, function(view) {
+		var views = this.subviews;
+		
+		for (var v = views.length; v > 0; v--) {
+			var view = views[v - 1];
+			
 			view.remove();
 			view.unbind();
 
 			if (view.onClose) {
 				view.onClose();
 			}
-		});
+		}
 	}
 });

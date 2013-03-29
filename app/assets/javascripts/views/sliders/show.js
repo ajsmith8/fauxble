@@ -23,7 +23,7 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 		this.slider = this.attr.sliders.where({question_id: this.question.get('id')})[0];
 		this.user = this.attr.users.get(this.attr.current_user.get('id'));
 		this.is_disabled = false;
-		
+		this.subviews = [];
 		this.setRoundSpecifics();
 	},
 	
@@ -124,6 +124,7 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 		view = new Fauxble.Views.QuestionsRage({
 			is_win: is_win
 		});
+		this.subviews.push(view);
 		$(this.el).find('#rage').html(view.render().el);
 	},
 	
@@ -213,6 +214,21 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 		} else {
 			this.challenge.setSentOrFinished(this.task);
 			Backbone.history.navigate('challenge' + this.challenge.get('id'), true);
+		}
+	},
+	
+	onClose: function() {
+		var views = this.subviews;
+			
+		for (var v = views.length; v > 0; v--) {
+			var view = views[v - 1];
+
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
 		}
 	}
 });

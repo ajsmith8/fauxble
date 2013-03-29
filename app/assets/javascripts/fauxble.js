@@ -69,6 +69,10 @@ window.Fauxble = {
 	}
 };
 
+function gaCustomVar(index, name, value, scope) {
+	//_gaq.push(['_setCustomVar', index, name, value, scope]);
+}
+
 function gaEvent(category, action, label, value) {
 	//_gaq.push(['_trackEvent', category, action, label, value]);
 }

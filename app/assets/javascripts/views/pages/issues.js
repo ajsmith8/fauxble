@@ -38,7 +38,7 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 		issues = _.shuffle(this.issues);
 		$(this.el).find('#issues').empty();
 		
-		for (i = 0; i < 4; i++) {
+		for (var i = 0; i < 4; i++) {
 			this.appendIssue(issues[i], this.attr.questions.getNumQuestions(issues[i]), i);
 		}
 	},
@@ -62,7 +62,7 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 		
 		$(this.el).find('#issues').empty();
 		
-		for (i = 0; i < issues.length ; i++) {
+		for (var i = 0; i < issues.length ; i++) {
 			this.appendIssue(issues[i].issue, issues[i].facts, i);
 		}
 	},
@@ -79,13 +79,17 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 	},
 	
 	onClose: function() {
-		_.each(this.subviews, function(view) {
+		var views = this.subviews;
+		
+		for (var v = views.length; v > 0; v--) {
+			var view = views[v - 1];
+			
 			view.remove();
 			view.unbind();
 
 			if (view.onClose) {
 				view.onClose();
 			}
-		});
+		}
 	}
 });

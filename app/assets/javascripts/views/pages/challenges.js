@@ -17,17 +17,19 @@ Fauxble.Views.PagesChallenges = Backbone.View.extend({
 	},
 	
 	render: function() {
-		var self = this;
+		var recieved = this.recieved,
+			sent = this.sent,
+			self = this;
 
 		$(this.el).addClass('home_challenges_container');
 		$(this.el).html(this.template());
 		
 		setTimeout(function() {
-			for (r = 0; r < self.recieved.length; r++) {
-				self.appendChallenge(self.recieved[r], false, r)
+			for (var r = 0, r_len = recieved.length; r < r_len; r++) {
+				self.appendChallenge(recieved[r], false, r)
 			}
-			for (s = 0; s < self.sent.length; s++) {
-				self.appendChallenge(self.sent[s], true, s)
+			for (var s = 0, s_len = sent.length; s < s_len; s++) {
+				self.appendChallenge(sent[s], true, s)
 			}
 		}, 0);
 		return this;
@@ -54,13 +56,17 @@ Fauxble.Views.PagesChallenges = Backbone.View.extend({
 	},
 	
 	onClose: function() {
-		_.each(this.subviews, function(view) {
+		var views = this.subviews;
+		
+		for (var v = views.length; v > 0; v--) {
+			var view = views[v - 1];
+			
 			view.remove();
 			view.unbind();
 
 			if (view.onClose) {
 				view.onClose();
 			}
-		});
+		}
 	}
 });

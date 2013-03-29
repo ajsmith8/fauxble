@@ -4,6 +4,8 @@ Fauxble.Views.FeedbacksPopup = Backbone.View.extend({
 
 	events: {
 		'submit #feedback' : 'submitFeedback',
+		'focus textarea' : 'focusInput',
+		'blur textarea' : 'blurInput',
 		'click #close' : 'close'
 	},
 	
@@ -11,6 +13,7 @@ Fauxble.Views.FeedbacksPopup = Backbone.View.extend({
 		this.attr =  options.attr;
 		this.user = this.attr.users.get(this.attr.current_user.get('id'));
 		this.element = options.element;
+		this.url = options.url;
 	},
 	
 	render: function() {
@@ -26,6 +29,22 @@ Fauxble.Views.FeedbacksPopup = Backbone.View.extend({
 		$(this.el).parent().empty();
 	},
 	
+	focusInput: function() {
+		var element = $(this.el).find('#content');
+		
+		if ($(element).val() === 'Type feedback here') {
+			$(element).val('');
+		}
+	},
+	
+	blurInput: function() {
+		var element = $(this.el).find('#content');
+		
+		if (!/\S/.test($(element).val())) {
+			$(element).val('Type feedback here');
+		}
+	},
+	
 	submitFeedback: function(event) {
 		event.preventDefault();
 		var content = $(this.el).find('#content').val(),
@@ -34,6 +53,8 @@ Fauxble.Views.FeedbacksPopup = Backbone.View.extend({
 		if (this.user) {
 			id = this.user.get('id');
 		}
+		
+		gaEvent('Feedback', 'Submit', url, null);
 		
 		this.attr.feedbacks.create({
 			content: content,

@@ -16,6 +16,7 @@ Fauxble.Views.CommentsShow = Backbone.View.extend({
 		this.comments = this.getChildren(this.comment);
 		this.rank = this.attr.users.getGlobalRank(this.commentor);
 		this.facts = this.attr.tasks.getFactsLearned(this.commentor);
+		this.subviews = [];
 	},
 	
 	render: function() {
@@ -48,11 +49,12 @@ Fauxble.Views.CommentsShow = Backbone.View.extend({
 			attr: this.attr,
 			comment: comment
 		});
+		this.subviews.push(view);
 		$(this.el).find('#children').append(view.render().el);
 	},
 	
-	toggleReply: function() {
-		var element = $(this.el).find('#reply');
+	toggleReply: function(event) {
+		var element = $(event.target).next('#reply');
 		
 		if ($(element).hasClass('hide')) {
 			$(element).removeClass('hide');
@@ -65,11 +67,11 @@ Fauxble.Views.CommentsShow = Backbone.View.extend({
 		event.preventDefault();
 		var title = $(this.el).find('textarea#title').val();
 		
-		if (this.user.signedIn()) {
+		if (this.user && this.user.signedIn()) {
 			//start loading
 			this.attr.comments.createComment(title, this.user, this.issue, this.comment, this);
 		} else {
-			alert('You must be signed in to comment');
+			Fauxble.router.signInPopup();
 		}
 	},
 	
@@ -87,5 +89,20 @@ Fauxble.Views.CommentsShow = Backbone.View.extend({
 	
 	emptyInput: function() {
 		$(this.el).find('textarea#title').val('');
+	},
+	
+	onClose: function() {
+		var views = this.subviews;
+		
+		for (var v = views.length; v > 0; v--) {
+			var view = views[v - 1];
+			
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
+		}
 	}
 });

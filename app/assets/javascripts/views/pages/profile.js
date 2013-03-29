@@ -61,7 +61,7 @@ Fauxble.Views.PagesProfile = Backbone.View.extend({
 			winner,
 			loser;
 		
-		for (i = 0; i < histories.length; i++) {
+		for (var i = 0, len = histories.length; i < len; i++) {
 			if (histories[i].won >= histories[i].lost) {
 				winner = {
 					user: this.user,
@@ -96,13 +96,17 @@ Fauxble.Views.PagesProfile = Backbone.View.extend({
 	},
 	
 	onClose: function() {
-		_.each(this.subviews, function(view) {
+		var views = this.subviews;
+		
+		for (var v = views.length; v > 0; v--) {
+			var view = views[v - 1];
+			
 			view.remove();
 			view.unbind();
 
 			if (view.onClose) {
 				view.onClose();
 			}
-		});
+		}
 	}
 });

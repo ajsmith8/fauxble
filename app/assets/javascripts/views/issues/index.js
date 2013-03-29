@@ -13,15 +13,18 @@ Fauxble.Views.IssuesIndex = Backbone.View.extend({
 	},
 	
 	render: function() {
-		var self = this,
-			num_questions;
+		var issues = this.attr.issues.toArray(),
+			self = this;
+		
 		setTimeout(function() {
-			this.attr.issues.each(function(issue) {
-				num_questions = self.attr.questions.getNumQuestions(issue);
-				if (num_questions > 3) {
-					self.appendIssue(issue, num_questions);
+			for (var i = 0, len = issues.length; i < len; i++) {
+				var issue = issues[i],
+					num = self.attr.questions.getNumQuestions(issue);
+				
+				if (num > 3) {
+					self.appendIssue(issue, num);
 				}
-			});
+			}
 		}, 0);
 		
 		return this;
@@ -39,13 +42,17 @@ Fauxble.Views.IssuesIndex = Backbone.View.extend({
 	},
 	
 	onClose: function() {
-		_.each(this.subviews, function(view) {
+		var views = this.subviews;
+		
+		for (var v = views.length; v > 0; v--) {
+			var view = views[v - 1];
+			
 			view.remove();
 			view.unbind();
 
 			if (view.onClose) {
 				view.onClose();
 			}
-		});
+		}
 	}
 });

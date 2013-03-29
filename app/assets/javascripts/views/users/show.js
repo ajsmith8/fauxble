@@ -90,15 +90,19 @@ Fauxble.Views.UsersShow = Backbone.View.extend({
 	},
 	
 	onClose: function() {
-		this.attr.users.unbind('reset', this.render);
+		var views = this.subviews;	
+			
+		this.attr.users.unbind('reset', this.render);	
 		
-		_.each(this.subviews, function(view) {
+		for (var v = views.length; v > 0; v--) {
+			var view = views[v - 1];
+
 			view.remove();
 			view.unbind();
 
 			if (view.onClose) {
 				view.onClose();
 			}
-		});
+		}
 	}
 });

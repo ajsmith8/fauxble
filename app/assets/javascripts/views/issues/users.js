@@ -12,17 +12,19 @@ Fauxble.Views.IssuesUsers = Backbone.View.extend({
 		this.user = this.attr.users.get(this.attr.current_user.get('id'));
 		this.users = [];
 		this.sortByFriends(this.attr.tasks.getUsers(this.attr.users, this.issue));
+		this.subviews = [];
 	},
 	
 	render: function() {
-		var self = this;
+		var users = this.users,
+			self = this;
 		
 		$(this.el).addClass('community_container');
 		$(this.el).html(this.template());
 		
 		setTimeout(function() {
-			for (i = 0; i < self.users.length; i++) {
-				self.appendFace(self.users[i]);
+			for (var u = 0, len = users.length; u < len; u++) {
+				self.appendFace(users[u]);
 			}
 		}, 0);
 		
@@ -41,6 +43,7 @@ Fauxble.Views.IssuesUsers = Backbone.View.extend({
 			user: user,
 			is_current_user: is_self
 		});
+		this.subviews.push(view);
 		$(this.el).append(view.render().el);
 	},
 	
@@ -72,6 +75,21 @@ Fauxble.Views.IssuesUsers = Backbone.View.extend({
 			});
 		} else {
 			this.users = users;
+		}
+	},
+	
+	onClose: function() {
+		var views = this.subviews;
+		
+		for (var v = views.length; v > 0; v--) {
+			var view = views[v - 1];
+			
+			view.remove();
+			view.unbind();
+
+			if (view.onClose) {
+				view.onClose();
+			}
 		}
 	}
 });
