@@ -38,6 +38,10 @@
 	
 	.title {
 		position: absolute;
+		&:hover {
+			text-decoration: underline;
+			color: $bluegreen;
+		}
 		&.container {
 			top: 22px;
 			left: 53px;
@@ -48,7 +52,8 @@
 			font-size: 12px;	
 			white-space: nowrap;
 			overflow: hidden;
-			text-overflow: ellipsis;	
+			text-overflow: ellipsis;
+			cursor: pointer;
 		}
 	}
 	
@@ -490,7 +495,7 @@
 				&.pencil {
 					top: 5px;
 					left: 7px;
-					font-size: 22px;
+					font-size: 2em;
 				}
 				&.shuffle {
 					top: 1px;
