@@ -40,14 +40,6 @@ window.Fauxble = {
 		});
 		this.feedbacks			= new Fauxble.Collections.Feedbacks();
 		
-		var self = this;
-		setTimeout(function() {
-			self.tasks.fetch({reset: true});
-			self.challenges.fetch({reset: true});
-			self.user_achievables.fetch();
-			self.ranks.fetch();
-		}, 0);
-		
 		this.router = new Fauxble.Routers.Router({
 			current_user: 		this.current_user,
 			users: 				this.users,
@@ -77,7 +69,16 @@ function gaEvent(category, action, label, value) {
 	//_gaq.push(['_trackEvent', category, action, label, value]);
 }
 
-function gaPageview(url) {
+function gaPageview(url, user) {
+	var time = new Date().getTime() / 1000;
+		id = 0;
+	
+	if (user) {
+		id = user.get('id');
+	}
+	
+	gaEvent('Page View', String(id), url, parseInt(time) - 1360000000);
+	
 	//_gaq.push(['_trackPageview', "/" + url]);
 }
 
