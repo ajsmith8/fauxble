@@ -71,8 +71,13 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 		if (this.slider.get('is_exponential')) {
 			exponent = 3;
 		}
-
-		margin = parseInt($('.page').css('margin-left')) + parseInt($('.slider-answers').css('margin-left')) + parseInt($('.column.port').css('width'));
+		
+		var page_margin = parseInt($('.page').css('margin-left'));
+		if (page_margin === 0) {
+			page_margin = (parseInt($(window).width()) - 932) / 2;
+		}
+		
+		margin = page_margin + parseInt($('.slider-answers').css('margin-left')) + parseInt($('.column.port').css('width'));
 		
 		this.slider.setDefaults({
 			exponent: exponent,
