@@ -130,6 +130,11 @@
 			font-weight: bold;
 			font-size: 11px;
 			color: $black;
+			&:hover {
+				text-decoration: underline;
+				color: $bluegreen;
+				cursor: pointer;
+			}
 		}
 	}
 	.achievement_picture {
