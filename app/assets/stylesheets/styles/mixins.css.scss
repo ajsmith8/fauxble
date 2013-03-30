@@ -8,10 +8,7 @@
   background-image: -webkit-linear-gradient(top, $from, $to);
   background-image:    -moz-linear-gradient(top, $from, $to);
   background-image:     -ms-linear-gradient(top, $from, $to);
-  background-image:      -o-linear-gradient(top, $from, $to);
-	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=lighten($color, $percent), endColorstr=darken($color, $percent))";
-}
+  background-image:      -o-linear-gradient(top, $from, $to);}
 
 @mixin horizontal-gradient($from, $to) {
 	background: $to;
