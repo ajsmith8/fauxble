@@ -13,6 +13,7 @@ Fauxble.Views.PagesAbout = Backbone.View.extend({
 	initialize: function(options) {
 		this.time = 500;
 		this.attr = options.attr;
+		this.user = this.attr.users.get(this.attr.current_user.get('id'));
 		
 		this.attr.users.trigger('scope');
 	},
@@ -29,10 +30,15 @@ Fauxble.Views.PagesAbout = Backbone.View.extend({
 	},
 	
 	openBox: function(event) {
-		var new_ele = $(event.target).closest('.comparison');
-		var old_ele;
-
-		var elements = $('#monkeys').children().get();
+		var elements = $('#monkeys').children().get(),
+			new_ele = $(event.target).closest('.comparison'),
+			old_ele,
+			id = 0;
+		
+		if (this.user) {
+			id = this.user.get('id');
+		}
+		gaEvent('Click', 'About', String(id), null);
 		
 		if ($(new_ele).hasClass('open')) {
 			this.closeBox(event);

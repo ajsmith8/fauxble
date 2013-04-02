@@ -215,10 +215,10 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 	
 	nextQuestion: function() {
 		if (this.next_question) {
-			Backbone.history.navigate(this.challenge.get('id') + '/question' + this.next_question.get('id'), true);
+			Backbone.history.navigate('question' + this.challenge.get('id') + '/' + this.next_question.get('id'), true);
 		} else {
 			this.challenge.setSentOrFinished(this.task);
-			Backbone.history.navigate('challenge' + this.challenge.get('id'), true);
+			Backbone.history.navigate('results' + this.challenge.get('id'), true);
 		}
 	},
 	

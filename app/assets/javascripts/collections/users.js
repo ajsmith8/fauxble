@@ -23,7 +23,7 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 			return self.ranks.getScore(b, issue) - self.ranks.getScore(a, issue);
 		});
 			
-		if (users.length < 5) {
+		if (users.length < length) {
 			length = users.length;
 		}
 
@@ -35,7 +35,7 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 		}
 		
 		if (!has_current_user && users.indexOf(user) !== -1) {
-			tops[4] = {user: user, rank: users.indexOf(user) + 1};
+			tops[length - 1] = {user: user, rank: users.indexOf(user) + 1};
 		}
 
 		return tops;
@@ -99,7 +99,7 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 			signed_in: true
 		}, {
 			success: function(model, response) {
-				Backbone.history.navigate('', true);
+				Backbone.history.navigate('challenges', true);
 				window.location.reload();
 			},
 			error: function(model, response) {

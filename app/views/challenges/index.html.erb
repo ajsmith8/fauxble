@@ -1,3 +1,4 @@
+HELLO, I AM A COMPUTER
 <div class = 'header'></div>
 <div>
 	<div id = 'tutorial'></div>
@@ -26,13 +27,12 @@
 		"answers" : <%= @answers %>,
 		"sources" : <%= @sources %>,
 		"comments" : <%= @comments %>,
-		"challenges" : <%= @challenges %>,
+		"challenges" : <%= @challenges.to_json %>,
 		"tasks" : <%= @tasks %>,
 		"users" : <%= @users %>,
 		"ranks" : <%= @ranks %>,
 		"achievables" : <%= @achievables %>,
-		"user_achievables" : <%= @user_achievables %>,
-		"facts_learned" : <%= @facts_learned %>
+		"user_achievables" : <%= @user_achievables %>
 	}
 </script>
 

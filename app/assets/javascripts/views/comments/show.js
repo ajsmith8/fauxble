@@ -4,7 +4,8 @@ Fauxble.Views.CommentsShow = Backbone.View.extend({
 	
 	events: {
 		'click #reply_button' : 'toggleReply',
-		'submit #comment_reply' : 'commentReply'
+		'submit #comment_reply' : 'commentReply',
+		'click #user_name' : 'userProfile'
 	},
 	
 	initialize: function(options) {
@@ -89,6 +90,10 @@ Fauxble.Views.CommentsShow = Backbone.View.extend({
 	
 	emptyInput: function() {
 		$(this.el).find('textarea#title').val('');
+	},
+	
+	userProfile: function() {
+		Backbone.history.navigate('user/' + this.commentor.get('id'), true);
 	},
 	
 	onClose: function() {

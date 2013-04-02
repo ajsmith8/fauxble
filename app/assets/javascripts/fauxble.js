@@ -5,6 +5,11 @@ window.Fauxble = {
 	Routers: {},
 	
 	initialize: function(data) {
+		window.facts_question 	= false;
+		window.start_time		= new Date().getTime() / 1000;
+		window.scramble 		= makeid(8);
+		this.facts_learned 		= data.facts_learned;
+		
 		this.current_user 		= new Fauxble.Models.User(data.current_user);
 		this.issues 			= new Fauxble.Collections.Issues(data.issues);
 		this.sliders 			= new Fauxble.Collections.Sliders(data.sliders);
@@ -41,6 +46,7 @@ window.Fauxble = {
 		this.feedbacks			= new Fauxble.Collections.Feedbacks();
 		
 		this.router = new Fauxble.Routers.Router({
+			facts_learned: 		this.facts_learned,
 			current_user: 		this.current_user,
 			users: 				this.users,
 			issues: 			this.issues,
@@ -61,7 +67,19 @@ window.Fauxble = {
 	}
 };
 
+function makeid(length) {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0 ; i < length; i++) {
+		text += possible.charAt(Math.floor(Math.random() * possible.length));
+	}
+	
+    return text;
+}
+
 function gaCustomVar(index, name, value, scope) {
+	value = value + '-' + window.scramble;
 	_gaq.push(['_setCustomVar', index, name, value, scope]);
 }
 
@@ -77,7 +95,7 @@ function gaPageview(url, user) {
 		id = user.get('id');
 	}
 	
-	gaEvent('Page View', String(id), url, parseInt(time) - 1360000000);
+	gaEvent('Page View', id + '-' + window.scramble, url, Math.round(time - window.start_time));
 	
 	_gaq.push(['_trackPageview', "/" + url]);
 }

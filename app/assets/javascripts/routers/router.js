@@ -1,16 +1,17 @@
 Fauxble.Routers.Router = Backbone.Router.extend({
 	
 	routes: {
-		'' 					: 'checkCurrentUser',
-		'about'				: 'about',
-		'mfc'				: 'mfc',
-		'new:id' 			: 'pagesNew',
-		'issues:id'			: 'issueSelect',
-		'issue:id'			: 'issue',
-		'issue/list'		: 'issues',
-		':c_id/question:id' : 'question',
-		'challenge:id' 		: 'results',
-		'user:id' 			: 'profile',
+		''				: 'checkCurrentUser',			//issue			question
+		'challenges' 		: 'challenges',				//false			false
+		'about'				: 'about',					//false			false
+		'million-fact-challenge' : 'mfc',				//false			false
+		'user:id/select' 			: 'pagesNew',		//false			false
+		'issue:id/select'			: 'issueSelect',	//false			false
+		'issue/:name'			: 'issue',				//true			false
+		'issues'		: 'issues',						//false			false
+		'question:id/:name' : 'question',				//true			true
+		'results:id' 		: 'results',				//true			false
+		'user/:name' 			: 'profile',			//false			false
 		
 		'random/content/users'		: 'generateRandomUsers',
 		'random/content/challenges'	: 'generateRandomContent',
@@ -20,7 +21,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	initialize: function(options) {
 		this.user = options.users.get(options.current_user.get('id'));
 		this.columns = false;
-		this.facts_learned = 4000;
+		this.facts_learned = 4000 + options.facts_learned;
 		
 		this.attr = {
 			current_user: options.current_user,
@@ -48,8 +49,6 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		if (this.attr.current_user.get('uid') === '530468649') {
 			this.pwnCameron();
 		}
-		
-		this.attr.tasks.on('reset', this.setFactsLearned, this);
 		
 		var id = 0;
 		if (this.user) {
@@ -168,7 +167,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	
 	checkCurrentUser: function() {
 		if (this.user) {
-			this.challenges();
+			Backbone.history.navigate('challenges', true);
 		} else {
 			this.pagesHome();
 		}
@@ -348,11 +347,11 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.triggerPage();
 	},
 	
-	issue: function(id) {
+	issue: function(name) {
 		this.renderColumns();
 		var view = new Fauxble.Views.PagesIssue({
 			attr: this.attr,
-			issue: this.attr.issues.get(parseInt(id))
+			issue: this.attr.issues.get(parseInt(name))
 		});
 		this.setCurrentView(view);
 		this.feed();
@@ -361,12 +360,12 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.triggerPage();
 	},
 	
-	question: function(c_id, id) {
+	question: function(id, name) {
 		this.renderColumns();
-		var question = this.attr.questions.get(parseInt(id));
+		var question = this.attr.questions.get(parseInt(name));
 		var view = new Fauxble.Views.PagesQuestion({
 			attr: this.attr,
-			challenge: this.attr.challenges.get(parseInt(c_id)),
+			challenge: this.attr.challenges.get(parseInt(id)),
 			question: question
 		});
 		this.setCurrentView(view);
@@ -374,7 +373,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		$('.right.column').html(view.render().el);
 		
 		if ($(view.el).find('#versus').children().length === 0) {
-			this.versus(this.attr.challenges.get(parseInt(c_id)), view);
+			this.versus(this.attr.challenges.get(parseInt(id)), view);
 		}
 		
 		if (question.get('is_slider')) {
@@ -418,11 +417,11 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.triggerPage();
 	},
 	
-	profile: function(id) {
+	profile: function(name) {
 		this.renderColumns();
 		var view = new Fauxble.Views.PagesProfile({
 			attr: this.attr,
-			user: this.attr.users.get(parseInt(id))
+			user: this.attr.users.get(parseInt(name))
 		});
 		this.setCurrentView(view);
 		this.feed();
@@ -449,24 +448,6 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			element: $('#background')
 		});
 		$('#tutorial').html(view.render().el);
-	},
-	
-	setFactsLearned: function(tasks) {
-		var users = this.attr.users.getSignedInUsers(),
-			questions = this.attr.questions.toArray(),
-			facts = 0;
-	
-		for (u = 0; u < users.length; u++) {
-			if (tasks.where({user_id: users[u].get('id')})[0]) {
-				for (q = 0; q < questions.length; q++) {
-					if (tasks.where({user_id: users[u].get('id'), question_id: questions[q].get('id')})[0]) {
-						facts = facts + 1;
-					}
-				}
-			}
-		}
-		
-		this.facts_learned = facts + 4000;
 	},
 	
 	generateRandomUsers: function() {

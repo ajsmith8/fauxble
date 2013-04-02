@@ -20,7 +20,7 @@ Fauxble.Views.PagesHome = Backbone.View.extend({
 	pagesMfc: function() {
 		gaEvent('Click', 'Get Started', 'Landing Page', null);
 		
-		Backbone.history.navigate('mfc', true);
+		Backbone.history.navigate('million-fact-challenge', true);
 	},
 	
 	gaEvent: function() {

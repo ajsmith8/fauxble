@@ -49,7 +49,7 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 			}, {
 				success: function(model, response) {
 					//stop loading
-					Backbone.history.navigate('issues' + model.get('id'), true);
+					Backbone.history.navigate('issue' + model.get('id') + '/select', true);
 				},
 				error: function(model, response) {
 					//stop loading
@@ -64,7 +64,7 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 			}, {
 				success: function(model, response) {
 					//stop loading
-					Backbone.history.navigate('new' + model.get('id'), true);
+					Backbone.history.navigate('user' + model.get('id') + '/select', true);
 				},
 				error: function(model, response) {
 					//stop loading

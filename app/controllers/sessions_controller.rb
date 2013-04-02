@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+    
   def create
     #render :text => request.env["omniauth.auth"].to_yaml
     auth = request.env["omniauth.auth"]
@@ -22,19 +23,26 @@ class SessionsController < ApplicationController
   end
   
   def main
-    #bootstrap necessary data only
+    @facts_learned = 1568.to_json
     @current_user = current_user
     @issues = Issue.all.to_json
     @questions = Question.all.to_json
-    @sliders = Slider.all.to_json
-    @answers = Answer.all.to_json
-    @sources = Source.all.to_json
     @achievables = Achievable.all.to_json
     @users = User.all.to_json
     @comments = Comment.all.to_json
-    @tasks = Task.all.to_json
     @user_achievables = UserAchievable.all.to_json
     @ranks = Rank.all.to_json
     @challenges = Challenge.all.to_json
+    @tasks = Task.all.to_json
+    
+    if signed_in?
+      @sliders = Slider.all.to_json
+      @answers = Answer.all.to_json
+      @sources = Source.all.to_json
+    else
+      @sliders = [].to_json
+      @answers = [].to_json
+      @sources = [].to_json
+    end
   end
 end

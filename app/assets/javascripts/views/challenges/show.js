@@ -76,14 +76,13 @@ Fauxble.Views.ChallengesShow = Backbone.View.extend({
 	},
 	
 	startChallenge: function() {
-		console.log('views/challenges/show/startChallenge init ' + window.timer);
-		Backbone.history.navigate(this.challenge.get('id') + '/question' + this.challenge.get('question_ids').split('/')[0], true);
+		Backbone.history.navigate('question' + this.challenge.get('id') + '/' + this.challenge.get('question_ids').split('/')[0], true);
 	},
 	
 	userProfile: function(event) {
 		var element = $(event.target).closest('.user');
 		
-		Backbone.history.navigate('user' + $(element).attr('id'), true);
+		Backbone.history.navigate('user/' + $(element).attr('id'), true);
 	},
 	
 	onClose: function() {

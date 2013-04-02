@@ -142,7 +142,11 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	},
 	
 	homePage: function() {
-		Backbone.history.navigate('', true);
+		if (this.user) {
+			Backbone.history.navigate('challenges', true);
+		} else {
+			Backbone.history.navigate('', true);
+		}
 	},
 	
 	aboutPage: function() {
@@ -150,11 +154,11 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	},
 	
 	mfcPage: function() {
-		Backbone.history.navigate('mfc', true);
+		Backbone.history.navigate('million-fact-challenge', true);
 	},
 	
 	issuePreview: function() {
-		Backbone.history.navigate('issue/list', true);
+		Backbone.history.navigate('issues', true);
 	},
 	
 	onClose: function() {

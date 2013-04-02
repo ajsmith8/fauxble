@@ -1,9 +1,7 @@
 Fauxble::Application.routes.draw do
   
   resources :feedbacks
-
   resources :comments
-
   resources :user_achievables
   resources :achievables
   resources :user_metrics
@@ -18,7 +16,7 @@ Fauxble::Application.routes.draw do
   resources :questions
   resources :issues
 
-  root to: 'sessions#main'
+  root :to => "sessions#main"
   
   match '/auth/:provider/callback' => 'sessions#create'
   match '/signout' => 'sessions#destroy'

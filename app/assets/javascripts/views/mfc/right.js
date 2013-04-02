@@ -36,10 +36,16 @@ Fauxble.Views.MfcRight = Backbone.View.extend({
 			if (user.get('signed_in') || user.get('signed_in_fb')) {
 				$(element).addClass('hide');
 			} else {
-				this.router.mfcQuestion();
+				if (!window.facts_question) {
+					window.facts_question = true;
+					this.router.mfcQuestion();
+				}
 			}
 		} else {
-			this.router.mfcQuestion();
+			if (!window.facts_question) {
+				window.facts_question = true;
+				this.router.mfcQuestion();
+			}
 		}
 	},
 	

@@ -10,6 +10,7 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.challenge = options.challenge;
+		this.user = this.attr.users.get(this.attr.current_user.get('id'));
 		this.question_ids = this.challenge.get('question_ids').split('/');
 		this.time = 650;
 		this.questions = [];
@@ -88,7 +89,7 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 			//start loading
 			
 			if (this.challenge.get('challenger_id') === 1) {
-				Backbone.history.navigate('', true);
+				this.homePage();
 			} else {
 				this.attr.challenges.createChallenge(
 					this.attr.users.get(this.challenge.get('user_id')), 
@@ -101,7 +102,7 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 				this.attr.users.get(this.challenge.get('challenger_id')), 
 				this.attr.issues.get(this.challenge.get('issue_id'))
 			);*/
-			Backbone.history.navigate('', true);
+			this.homePage();
 		}
 	},
 	
@@ -117,16 +118,24 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 			};
 			function callback(response) 
 			{
-				Backbone.history.navigate('', true);
+				this.homePage();
 	        }
 			FB.ui(obj, callback);
 		} else {
-			Backbone.history.navigate('', true);
+			this.homePage();
 		}
 	},
 	
 	sidecar: function() {
 		window.open('http://us4.campaign-archive1.com/?u=f796d9cc4b2b1918b21fa8f53&id=822bc10003&e=de126c62bb', '_blank');
+	},
+
+	homePage: function() {
+		if (this.user) {
+			Backbone.history.navigate('challenges', true);
+		} else {
+			Backbone.history.navigate('', true);
+		}
 	},
 	
 	onClose: function() {

@@ -82,12 +82,19 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 	getIssue: function(hash) {
 		var issue = null;
 		
-		if (hash.split('challenge').length > 1) {
-			issue = this.attr.issues.get(this.attr.challenges.get(parseInt(hash.split('challenge')[1])).get('issue_id'));
+		if (hash.split('results').length > 1) {
+			issue = this.attr.issues.get(this.attr.challenges.get(parseInt(hash.split('results')[1])).get('issue_id'));
 		}
 		
-		if (hash.split('/question').length > 1) {
-			issue = this.attr.issues.get(this.attr.challenges.get(parseInt(hash.split('/question')[0].substring(1))).get('issue_id'));
+		if (hash.split('question').length > 1) {
+			hash = hash.split('/')[0];
+			issue = this.attr.issues.get(this.attr.challenges.get(parseInt(hash.split('question')[1])).get('issue_id'));
+		}
+		
+		if (hash.split('issue').length > 1) {
+			if (hash.split('/')[1] !== 'select' && hash.split('/')[1] !== 's') {
+				issue = this.attr.issues.get(parseInt(hash.split('/')[1]));
+			}
 		}
 		
 		return issue;
@@ -96,8 +103,8 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 	getQuestion: function(hash) {
 		var question = null;
 		
-		if (hash.split('/question').length > 1) {
-			question = this.attr.questions.get(parseInt(hash.split('/question')[1]));
+		if (hash.split('question').length > 1) {
+			question = this.attr.questions.get(parseInt(hash.split('/')[1]));
 		}
 		
 		return question;

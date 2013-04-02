@@ -85,7 +85,7 @@ Fauxble.Views.UsersShow = Backbone.View.extend({
 	
 	userProfile: function() {
 		if (this.is_sidebar) {
-			Backbone.history.navigate('user' + this.user.get('id'), true);
+			Backbone.history.navigate('user/' + this.user.get('id'), true);
 		}
 	},
 	

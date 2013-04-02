@@ -75,7 +75,7 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 			question_ids: this.attr.questions.getRandomIds(issue, 4)
 		});
 		this.challenge.save();
-		Backbone.history.navigate(this.challenge.get('id') + '/question' + this.challenge.get('question_ids').split('/')[0], true);
+		Backbone.history.navigate('question' + this.challenge.get('id') + '/' + this.challenge.get('question_ids').split('/')[0], true);
 	},
 	
 	onClose: function() {

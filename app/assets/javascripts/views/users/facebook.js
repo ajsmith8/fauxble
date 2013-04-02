@@ -82,7 +82,7 @@ Fauxble.Views.UsersFacebook = Backbone.View.extend({
 			user_id: user.get('id')
 		});
 		this.challenge.save();
-		Backbone.history.navigate('issues' + this.challenge.get('id'), true);
+		Backbone.history.navigate('issue' + this.challenge.get('id') + '/select', true);
 	},
 	
 	bindFilterUsers: function() {

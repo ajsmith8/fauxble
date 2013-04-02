@@ -23,6 +23,8 @@ Fauxble.Views.PagesIssue = Backbone.View.extend({
 		}
 		
 		this.subviews = [];
+		
+		this.attr.users.trigger('scope');
 	},
 	
 	render: function() {
@@ -72,7 +74,7 @@ Fauxble.Views.PagesIssue = Backbone.View.extend({
 	
 	checkUser: function() {
 		if (this.user && (this.user.get('signed_in') || this.user.get('signed_in_fb'))) {
-			Backbone.history.navigate('', true);
+			Backbone.history.navigate('challenges', true);
 		} else {
 			window.Fauxble.router.signInPopup();
 		}
