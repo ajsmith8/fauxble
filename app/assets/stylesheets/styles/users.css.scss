@@ -311,9 +311,12 @@
 			position: absolute;
 			color: $black;
 			&.hand {
-				top: 2px;
-				left: 9px;
-				font-size: 26px;
+				top: 1px;
+				left: 4px;
+				width: 15px;
+				img {
+					width: 100%;
+				}
 			}
 			&.checkmark {
 				top: 5px;
@@ -334,24 +337,27 @@
 		border-left: none;
 		height: 32px;
 		padding-left: 25px;
-		width: 130px;
 		background-image: url(misc/253.png); background-repeat: repeat;
 		@include border-radius(3px);
 		&.global_rank {
 			top: 56px;
 			left: 197px;
+			width: 136px;
 		}
 		&.facts_learned {
 			top: 98px;
 			left: 197px;
+			width: 136px;
 		}
 		&.games_won {
 			top: 56px;
-			left: 387px;
+			left: 393px;
+			width: 125px;
 		}
 		&.games_lost {
 			top: 98px;
-			left: 387px;
+			left: 393px;
+			width: 125px;
 		}
 		.number {
 			margin: 5px 5px 0 6px;
@@ -672,6 +678,6 @@
 		top: 10px;
 	}
 	&.history_header {
-		top: 355px;
+		top: 320px;
 	}
 }

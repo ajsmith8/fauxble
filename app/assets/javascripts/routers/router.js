@@ -403,6 +403,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.feed();
 		$('.right.column').html(view.render().el);
 		
+		
 		if (!this.checkTutorial(this.user, 'profile')) {
 			this.renderTutorial('profile');
 		}
