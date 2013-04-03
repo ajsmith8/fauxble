@@ -38,6 +38,11 @@
 			height: 32px;
 			color: $black;
 			overflow: hidden;
+			&:hover {
+				text-decoration: underline;
+				color: $bluegreen;
+				cursor: pointer;
+			}
 		}
 		.question_result_answer_container {
 			float: left;

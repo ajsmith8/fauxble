@@ -276,6 +276,24 @@
 		}
 	}
 	
+	&.results_click_question {
+		top: 330px;
+		left: 260px;
+		height: 110px;
+		width: 180px;
+		.text {
+			font-size: 14px;
+			line-height: 18px;
+			bottom: 10px;
+			width: 95%;
+			left: 3px;
+		}
+		.arrow {
+			right: -5px;
+			top: -23px;
+		}
+	}
+	
 	&.profile_main {
 		top: 60px;
 		right: 20px;
