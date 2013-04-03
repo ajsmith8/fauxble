@@ -294,6 +294,24 @@
 		}
 	}
 	
+	&.results_send_challenge {
+		top: 490px;
+		right: 60px;
+		height: 110px;
+		width: 180px;
+		.text {
+			font-size: 14px;
+			line-height: 18px;
+			bottom: 10px;
+			width: 95%;
+			left: 3px;
+		}
+		.arrow {
+			left: -5px;
+			top: -23px;
+		}
+	}
+	
 	&.profile_main {
 		top: 60px;
 		right: 20px;

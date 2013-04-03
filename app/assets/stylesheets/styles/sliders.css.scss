@@ -204,7 +204,8 @@
 			@include linear-gradient(rgb(76,119,175), rgb(27,70,135));
 			.facebook_f {
 				position: absolute;
-				top: 5px;
+				top: 0px;
+				padding-top: 6px;
 				font-size: 24px;
 				font-weight: normal;
 				width: 30px;

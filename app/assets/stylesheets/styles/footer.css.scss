@@ -1,6 +1,12 @@
 .footer {
+	&:hover {
+		.footer_quote {
+			.quote_text {
+				color: #fff;
+			}
+		}
+	}
 	font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
-
 	position: fixed;
 	z-index: 1;
 	bottom: 0px;
@@ -19,7 +25,7 @@
 	.footer_image {
 		position: absolute;
 		top: 4px;
-		right: 23px;
+		right: 138px;
 		height: 45px;
 		width: 34px;
 		@include border-radius(3px);
@@ -39,8 +45,8 @@
 	.footer_quote {
 		position: absolute;
 		top: 6px;
-		left: 69px;
-		width: 650px;
+		left: 45px;
+		width: 595px;
 		height: 40px;
 		line-height: 18px;
 		text-align: center;
@@ -60,8 +66,47 @@
 		color: #fff;
 		position: absolute;
 		bottom: 3px;
-		right: 67px;
+		right: 182px;
 		font-size: 14px;
+	}
+	.footer_share_button {
+		position: absolute;
+		top: 10px;
+		right: 0px;
+		width: 120px;
+		@include text-shadow(0px 1px 0 rgba(#000,0.4));
+		border: 1px solid rgb(70,70,70);
+		@include linear-gradient(rgb(76,119,175), rgb(27,70,135));
+		height: 23px;
+		text-align: center;
+		font-weight: bold;
+		@include border-radius(5px);
+		box-shadow: 0px 1px 1px rgba(#fff, 0.15) inset;			
+		@include single-box-shadow(rgba(#000, 0.3), 0px, 1px, 1px, 0);
+		padding-top: 9px;
+		font-size: 13px;
+		color: #fff;
+		.facebook_f {
+			position: absolute;
+			top: 0px;
+			padding-top: 3px;
+			font-size: 24px;
+			font-weight: normal;
+			width: 25px;
+			text-align: center;
+			height: 28px;
+			border-right: 1px solid rgba(#fff, 0.06);
+		}
+		.text {
+			position: absolute;
+			top: 8px;
+			left: 35px;
+		}
+		&:hover {
+			border: 1px solid rgb(6,44,80);
+			cursor: pointer;
+			background: rgb(50,90,150);
+		}
 	}
 }
 
