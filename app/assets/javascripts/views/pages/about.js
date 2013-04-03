@@ -7,7 +7,8 @@ Fauxble.Views.PagesAbout = Backbone.View.extend({
 		'click #explore' : 'openBox',
 		'mouseover .logo' : 'fadeIn',
 		'mouseover .portrait' : 'fadeIn',
-		'mouseout .panel' : 'fadeOut'
+		'mouseout .panel' : 'fadeOut',
+		'click #mfc_link' : 'mfc'
 	},
 	
 	initialize: function(options) {
@@ -219,5 +220,9 @@ Fauxble.Views.PagesAbout = Backbone.View.extend({
 		$(inactive).animate({
 			opacity: "1"
 		}, this.time);
+	},
+	
+	mfc: function() {
+		Backbone.history.navigate('million-fact-challenge', true);
 	}
 });

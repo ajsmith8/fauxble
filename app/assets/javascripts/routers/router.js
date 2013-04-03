@@ -62,31 +62,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	_trackPageview: function() {
 		var url = Backbone.history.getFragment();
 		
-		if (url.split('new').length > 1) {
-			url = 'new';
-		}
-		
-		if (url.split('issue').length > 1) {
-			if (url.split('issues').length > 1) {
-				url = 'issues';
-			} else {
-				url = 'issue';
-			}
-		}
-		
-		if (url.split('challenge').length > 1) {
-			url = 'challenge';
-		}
-		
-		if (url.split('question').length > 1) {
-			url = 'question';
-		}
-		
-		if (url.split('user').length > 1) {
-			url = 'user';
-		}
-		
-	    gaPageview(url, this.user);
+	    gaPageview(url.replace(/[0-9]/g, ''), this.user);
 	},
 	
 	triggerPage: function() {
@@ -444,6 +420,22 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	
 	signInPopup: function() {
 		var view = new Fauxble.Views.PopupsSignin({
+			attr: this.attr,
+			element: $('#background')
+		});
+		$('#tutorial').html(view.render().el);
+	},
+	
+	fbSignInPopup: function() {
+		var view = new Fauxble.Views.PopupsFbSignin({
+			attr: this.attr,
+			element: $('#background')
+		});
+		$('#tutorial').html(view.render().el);
+	},
+	
+	thanksPopup: function() {
+		var view = new Fauxble.Views.PopupsThanks({
 			attr: this.attr,
 			element: $('#background')
 		});

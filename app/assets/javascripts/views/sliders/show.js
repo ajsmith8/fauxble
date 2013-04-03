@@ -4,6 +4,7 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 		'submit #form' 	: 'submitAnswer',
 		'click #next' 	: 'nextQuestion',
 		'click #source' : 'goToSource',
+		'click #share' 	: 'fbShare',
 		
 		//slider mouse events
 		'mousedown #user' 	: 'mouseDown',
@@ -219,6 +220,36 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 		} else {
 			this.challenge.setSentOrFinished(this.task);
 			Backbone.history.navigate('results' + this.challenge.get('id'), true);
+		}
+	},
+	
+	fbShare: function() {
+		var user = this.user,
+			issue = this.attr.issues.get(this.question.get('issue_id')),
+			question = this.question;
+		
+		if (user.get('uid')) {
+			var obj = { 
+				method: 'feed', 
+				link: 'http://fusegap.org', 
+				name: 'fuseGap', 
+				to: user.get('uid'),
+				picture: 'http://fusegap.org/assets/issues/' + issue.get('image') + '.png',
+				caption: question.get('title'), 
+				description: ''
+			};
+			function callback(response) 
+			{
+				if (response) {
+					gaEvent('Share', 'Question', String(user.get('id')), null);
+					window.Fauxble.router.thanksPopup();
+				} else {
+					//close
+				}
+	        }
+			FB.ui(obj, callback);
+		} else {
+			window.Fauxble.router.fbSignInPopup();
 		}
 	},
 	

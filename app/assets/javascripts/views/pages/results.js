@@ -4,6 +4,7 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 
 	events: {
 		'click #finish' : 'sendOrFinish',
+		'click #share' : 'fbShare',
 		'click #here' : 'sidecar'
 	},
 	
@@ -106,23 +107,32 @@ Fauxble.Views.PagesResults = Backbone.View.extend({
 		}
 	},
 	
-	fbPopup: function(user, challenger, issue) {
-		if (Boolean(user.get('uid')) && Boolean(challenger.get('uid'))) {
+	fbShare: function() {
+		var user = this.user,
+			issue = this.attr.issues.get(this.challenge.get('issue_id'));
+		
+		if (user.get('uid')) {
 			var obj = { 
 				method: 'feed', 
 				link: 'http://fusegap.org', 
 				name: 'fuseGap', 
-				to: user.get('uid'), 
-				from: challenger.get('uid'),
-				description: challenger.get('name') + ' has challenged your knowledge of ' + '<b>' + issue.get('title') + '</b>' + ', think you can beat them?'
+				to: user.get('uid'),
+				picture: 'http://fusegap.org/assets/logos/blue_70.png',
+				caption: issue.get('title') + ': I\'ve got the facts!', 
+				description: ''
 			};
 			function callback(response) 
 			{
-				this.homePage();
+				if (response) {
+					gaEvent('Share', 'Results', String(user.get('id')), null);
+					window.Fauxble.router.thanksPopup();
+				} else {
+					//close
+				}
 	        }
 			FB.ui(obj, callback);
 		} else {
-			this.homePage();
+			window.Fauxble.router.fbSignInPopup();
 		}
 	},
 	

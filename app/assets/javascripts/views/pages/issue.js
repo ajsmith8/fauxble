@@ -3,7 +3,8 @@ Fauxble.Views.PagesIssue = Backbone.View.extend({
 	template: JST['pages/issue'],
 	
 	events: {
-		'click #user_check' : 'checkUser'
+		'click #user_check' : 'checkUser',
+		'click #share' : 'fbShare'
 	},
 	
 	initialize: function(options) {
@@ -77,6 +78,35 @@ Fauxble.Views.PagesIssue = Backbone.View.extend({
 			Backbone.history.navigate('challenges', true);
 		} else {
 			window.Fauxble.router.signInPopup();
+		}
+	},
+	
+	fbShare: function() {
+		var user = this.user,
+			issue = this.issue;
+		
+		if (!!user.get('uid')) {
+			var obj = { 
+				method: 'feed', 
+				link: 'http://fusegap.org/#issue/' + issue.get('id'), 
+				name: 'fuseGap', 
+				to: user.get('uid'),
+				picture: 'http://fusegap.org/assets/issues/' + issue.get('image') + '.png',
+				caption: 'Check out ' + issue.get('title') + ' on fuseGap.org!', 
+				description: ''
+			};
+			function callback(response) 
+			{
+				if (response) {
+					gaEvent('Share', 'Issue', String(user.get('id')), null);
+					window.Fauxble.router.thanksPopup();
+				} else {
+					//close
+				}
+	        }
+			FB.ui(obj, callback);
+		} else {
+			window.Fauxble.router.fbSignInPopup();
 		}
 	},
 	

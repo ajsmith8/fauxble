@@ -3,11 +3,12 @@ Fauxble.Views.PagesFooter = Backbone.View.extend({
 	template: JST['pages/footer'],
 	
 	events: {
-		
+		'click #share' : 'shareQuote'
 	},
 	
 	initialize: function(options) {
 		this.attr = options.attr;
+		this.user = this.attr.users.get(this.attr.current_user.get('id'));
 		this.quotes = this.getQuotes();
 		this.quote = null;
 		
@@ -144,5 +145,37 @@ Fauxble.Views.PagesFooter = Backbone.View.extend({
 		];
 		
 		return quotes;
+	},
+	
+	shareQuote: function() {
+		var index = this.quotes.indexOf(this.quote);
+		
+		this.fbShare(this.quote, index, this.user);
+	},
+	
+	fbShare: function(quote, index, user) {
+		if (user && !!user.get('uid')) {
+			var obj = { 
+				method: 'feed', 
+				link: 'http://fusegap.org', 
+				name: 'fuseGap', 
+				to: user.get('uid'),
+				picture: 'http://fusegap.org/assets/people/' + quote.image + '.png',
+				caption: quote.quote, 
+				description: ''
+			};
+			function callback(response) 
+			{
+				if (response) {
+					gaEvent('Quote', String(index), String(user.get('id')), null);
+					window.Fauxble.router.thanksPopup();
+				} else {
+					//close
+				}
+	        }
+			FB.ui(obj, callback);
+		} else {
+			window.Fauxble.router.fbSignInPopup();
+		}
 	}
 });
