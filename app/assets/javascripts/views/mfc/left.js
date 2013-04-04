@@ -8,7 +8,7 @@ Fauxble.Views.MfcLeft = Backbone.View.extend({
 	
 	initialize: function(options) {
 		this.attr = options.attr;
-		this.facts = options.facts;
+		this.facts = this.getFacts();
 	},
 	
 	render: function() {
@@ -39,5 +39,16 @@ Fauxble.Views.MfcLeft = Backbone.View.extend({
 	
 	gaEvent: function() {
 		gaEvent('Click', 'Like', 'MFC Left', null);
+	},
+	
+	getFacts: function() {
+		var users = this.attr.users.getSignedInUsers(),
+			facts = 0;
+		
+		for (var u = 0, len = users.length; u < len; u++) {
+			facts = facts + users[u].get('facts');
+		}
+		
+		return 4000 + facts;
 	}
 });

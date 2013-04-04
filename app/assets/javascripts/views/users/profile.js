@@ -13,7 +13,7 @@ Fauxble.Views.UsersProfile = Backbone.View.extend({
 			played: this.attr.challenges.getTotalPlayed(this.user),
 			won: this.attr.challenges.getTotalWon(this.user),
 			lost: this.attr.challenges.getTotalLost(this.user),
-			facts: this.attr.tasks.getFactsLearned(this.user)
+			facts: this.user.get('facts')
 		};
 	},
 	

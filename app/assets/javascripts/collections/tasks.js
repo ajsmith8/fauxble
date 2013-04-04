@@ -17,6 +17,13 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 			user_id: user.get('id')
 		})[0];
 		
+		if (!this.where({user_id: user.get('id'), question_id: question.get('id')})[0]) {
+			user.set({
+				facts: user.get('facts') + 1
+			});
+			user.save();
+		}
+		
 		if (!task) {
 			this.create({
 				issue_id: question.get('issue_id'),

@@ -211,6 +211,7 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 	},
 	
 	goToSource: function() {
+		gaEvent('Source', 'Question', String(this.question.get('id')), null);
 		window.open(this.attr.sources.where({question_id: this.question.get('id')})[0].get('url'), '_blank');
 	},
 	

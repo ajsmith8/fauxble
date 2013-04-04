@@ -3,7 +3,7 @@ Fauxble.Views.QuestionsResult = Backbone.View.extend({
 	template: JST['questions/result'],
 	
 	events: {
-		
+		'click #goto_source' : 'source'
 	},
 	
 	initialize: function(options) {
@@ -39,6 +39,7 @@ Fauxble.Views.QuestionsResult = Backbone.View.extend({
 	
 	render: function() {
 		var self = this;
+		$(this.el).attr('id', this.question.get('id'));
 		$(this.el).addClass('question result');
 		$(this.el).html(this.template({
 			question: this.question,
@@ -63,6 +64,13 @@ Fauxble.Views.QuestionsResult = Backbone.View.extend({
 		});
 		this.subviews.push(view);
 		$(element).html(view.render().el);
+	},
+	
+	source: function(event) {
+		var source = this.attr.sources.where({question_id: this.question.get('id')})[0];
+		
+		gaEvent('Source', 'Results', String(this.question.get('id')), null);
+		window.open(source.get('url'), '_blank');
 	},
 	
 	onClose: function() {

@@ -1,7 +1,9 @@
 <div class = "MFC_title">
 	1,000,000 Fact Challenge!
 </div>
-
+<% if (user) { %>
+	<div id = 'share'>SHARE</div>
+<% } %>
 <div class = "MFC_paragraph">
 	<div class = "quote_container">
 		<div class = "quote_text first">&#147;Ignorance, the root and stem of all evil.&#148; <span>- Plato</span></div>
@@ -23,7 +25,9 @@ If you're tired of average Americans being destructively ignorant, this is your 
 		<div class = "quote_text">&#147;Let him who would move the world first move himself.&#148;<span> - Socrates</span></div>
 	</div>
 </div>
-
+<% if (user) { %>
+	<div id = 'share'>SHARE</div>
+<% } %>
 <div class = "MFC_signin_container">
 	<div class = "get_started_text">
 		Get Started!

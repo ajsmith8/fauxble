@@ -6,6 +6,7 @@ window.Fauxble = {
 	
 	initialize: function(data) {
 		window.facts_question 	= false;
+		window.like				= true;
 		window.start_time		= new Date().getTime() / 1000;
 		window.scramble 		= makeid(8);
 		this.facts_learned 		= data.facts_learned;

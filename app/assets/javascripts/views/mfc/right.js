@@ -7,19 +7,23 @@ Fauxble.Views.MfcRight = Backbone.View.extend({
 		'click #email_signup' : 'toggleForm',
 		'focus input' : 'focusInput',
 		'blur input' : 'blurInput',
-		'submit #signup' : 'createUser'
+		'submit #signup' : 'createUser',
+		'click #share' : 'fbShare'
 	},
 	
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.router = options.router;
+		this.user = this.attr.users.get(this.attr.current_user.get('id'));
 		this.answered = false;
 	},
 	
 	render: function() {
 		var self = this;
 		
-		$(this.el).html(this.template());
+		$(this.el).html(this.template({
+			user: this.user
+		}));
 		
 		setTimeout(function() {
 			self.checkSignedIn();
@@ -29,7 +33,7 @@ Fauxble.Views.MfcRight = Backbone.View.extend({
 	},
 	
 	checkSignedIn: function() {
-		var user = this.attr.users.get(this.attr.current_user.get('id')),
+		var user = this.user,
 			element = $(this.el).find('.MFC_signin_container');
 		
 		if (user) {
@@ -118,5 +122,33 @@ Fauxble.Views.MfcRight = Backbone.View.extend({
 		
 		//start loading 'waiting for authentication'	
 		this.attr.users.authenticateUser(name, email, password, confirm, 6);
+	},
+	
+	fbShare: function() {
+		var user = this.user;
+		
+		if (user && !!user.get('uid')) {
+			var obj = { 
+				method: 'feed', 
+				link: 'http://fusegap.org/#million-fact-challenge', 
+				name: 'fuseGap', 
+				to: user.get('uid'),
+				picture: 'http://fusegap.org/assets/logos/blue_70.png',
+				caption: 'FuseGap\'s Million Fact Challenge! Spread some knowledge. Facts with friends.', 
+				description: ''
+			};
+			function callback(response) 
+			{
+				if (response) {
+					gaEvent('Share', 'MFC', String(user.get('id')), null);
+					window.Fauxble.router.thanksPopup();
+				} else {
+					//close
+				}
+	        }
+			FB.ui(obj, callback);
+		} else {
+			window.Fauxble.router.fbSignInPopup();
+		}
 	}
 });

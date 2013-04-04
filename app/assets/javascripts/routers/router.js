@@ -22,6 +22,8 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.user = options.users.get(options.current_user.get('id'));
 		this.columns = false;
 		this.facts_learned = 4000 + options.facts_learned;
+		this.like_view = null;
+		this.working = false;
 		
 		this.attr = {
 			current_user: options.current_user,
@@ -43,8 +45,11 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.header();
 		this.footer();
 		this.feedbackTab();
+		this.likeTab();
 		this.chat();
 		this.popup();
+		this.showFeedback();
+		this.checkIfUserLikes();
 		
 		if (this.attr.current_user.get('uid') === '530468649') {
 			this.pwnCameron();
@@ -57,6 +62,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		gaCustomVar(1, 'User', String(id), 2);
 		
 		this.bind('all', this._trackPageview);
+		this.bind('all', this.likeSlideOut);
 	},
 	
 	_trackPageview: function() {
@@ -65,8 +71,35 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	    gaPageview(url.replace(/[0-9]/g, ''), this.user);
 	},
 	
+	likeSlideOut: function() {
+		var self = this;
+		if (window.like && this.like_view) {
+			if (!this.working) {
+				this.working = true;
+				setTimeout(function() {
+					self.like_view.slideOutTimed();
+					self.working = false;
+				}, 20000);
+			}
+		}
+	},
+	
 	triggerPage: function() {
 		this.attr.users.trigger('page');
+	},
+	
+	checkIfUserLikes: function() {
+		/*FB.api('/me/likes/471887209511817',function(response) {
+			if(response.data) {
+				if(response.data[0]) {
+					self.fbSignIn();
+				} else {
+					self.fbLikePopup();	
+				}
+			} else {
+				self.fbSignIn();
+			}
+		}); */
 	},
 	
 	renderColumns: function() {
@@ -163,11 +196,28 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		$('#footer').html(view.render().el);
 	},
 	
+	likeTab: function() {
+		var view = new Fauxble.Views.FeedbacksLike({
+			attr: this.attr,
+			element: $('.like-feedback')
+		});
+		$('.like-feedback').html(view.render().el);
+		this.like_view = view;
+	},
+	
 	feedbackTab: function() {
 		var view = new Fauxble.Views.FeedbacksTab({
 			attr: this.attr
 		});
 		$('.feedback').html(view.render().el);
+	},
+	
+	showFeedback: function() {
+		var self = this;
+		
+		setTimeout(function() {
+			self.feedbackPopup();
+		}, 180000);
 	},
 	
 	feedbackPopup: function(url) {
