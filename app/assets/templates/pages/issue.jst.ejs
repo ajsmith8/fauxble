@@ -42,11 +42,16 @@
 		<div class = "text right">
 			Facts with friends.
 		</div>
-		<div id = 'share'>SHARE</div>
-		<div id = 'user_check' class = "goto_challenges_button">
+		<div id = 'share' class="goto_challenges_button share">
+			<div class = "facebook_f">f</div>
+			<div class = "text">Share</div>
+		</div>
+		<div id = 'user_check' class = "goto_challenges_button challenges">
 			<div id = 'goto_challenges'>Challenges</div>
 		</div>
 	</div>
+	
+	
 	
 	<div class = "full_description_container">
 		<span>Description:</span> <%= issue.get('description') %>
