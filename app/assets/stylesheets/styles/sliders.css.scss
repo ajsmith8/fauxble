@@ -172,8 +172,11 @@
 	float: left;
 	width: 100%;
 	position: relative;
-	margin-top: 70px;
-	height: 50px;
+	margin-top: 64px;
+	height: 56px;
+	border-top: 1px solid rgb(240,240,240);
+	border-bottom: 1px solid rgb(240,240,240);
+	background-image: url(misc/253.png); background-repeat: repeat;
 	.button {
 		position: absolute;
 		width: 100px;
@@ -182,11 +185,24 @@
 		cursor: pointer;
 		font-weight: bold;
 		bottom: 8px;
-		@include border-radius(5px);
 		padding-top: 11px;
 		font-size: 14px;
 		color: #fff;
 		&.source {
+			@include border-top-radius(5px);
+			padding-top: 3px;
+			font-size: 11px;
+			bottom: 27px;
+			height: 15px;
+			left: 45px;
+			box-shadow: 0px 1px 1px rgba(#fff, 0.15) inset;
+			border: 1px solid darken($bluegreen, 2%);
+			border-bottom: 1px solid darken($bluegreen, 10%);
+			@include linear-gradient(lighten($bluegreen,6%), darken($bluegreen,0%));
+			&:hover {
+				background: darken($bluegreen, 6%);
+			}
+			/*
 			box-shadow: 0px 1px 1px rgb(110,110,110) inset;
 			border: 1px solid rgb(70,70,70);
 			left: 45px;
@@ -194,17 +210,34 @@
 			&:hover {
 				background: lighten($black, 10%);
 			}	
+			*/
+		}
+		&.edit {
+			@include border-bottom-radius(5px);
+			padding-top: 3px;
+			font-size: 11px;
+			height: 15px;
+			left: 45px;
+			box-shadow: 0px 1px 1px rgba(#fff, 0.15) inset;
+			border: 1px solid darken($bluegreen, 2%);
+			border-bottom: 1px solid darken($bluegreen, 10%);
+			@include linear-gradient(lighten($bluegreen,0%), darken($bluegreen,6%));
+			&:hover {
+				background: darken($bluegreen, 6%);
+			}
 		}
 		
 		&.share {
+			@include border-radius(5px);
 			width: 130px;
 			@include text-shadow(0px 1px 0 rgba(#000,0.4));
-			border: 1px solid rgb(70,70,70);
+			border: 1px solid rgb(80,80,80);
 			left: 188px;
 			@include linear-gradient(rgb(76,119,175), rgb(27,70,135));
 			.facebook_f {
 				position: absolute;
-				top: 5px;
+				top: 0px;
+				padding-top: 6px;
 				font-size: 24px;
 				font-weight: normal;
 				width: 30px;
@@ -225,6 +258,7 @@
 		}
 		
 		&.next {
+			@include border-radius(5px);
 			box-shadow: 0px 1px 1px rgba(#fff, 0.15) inset;
 			right: 45px;
 			border: 1px solid darken($bluegreen, 2%);

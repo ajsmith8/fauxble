@@ -3,7 +3,7 @@
 	top: 75px;
 	left: 266px;
 	width: 400px;
-	height: 215px;
+	height: 200px;
 	background: #fff;
 	@include single-box-shadow(rgba(#000,0.25), 0px, 0px, 10px, 5px);
 	@include border-radius(4px);
@@ -46,7 +46,7 @@
 	.facebook_login_button_container {
 		position: absolute;
 		width: 213px;
-		top: 65px;
+		bottom: 65px;
 		left: 92px;
 	}
 	.or_container {

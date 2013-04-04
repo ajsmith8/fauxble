@@ -8,7 +8,10 @@
 </div>
 
 <div class = 'thingy'>
-	<div id = 'share' class = 'hide'>SHARE</div>
+	<div id = 'share' class = "share_result_button">
+		<div class = "facebook_f">f</div>
+		<div class = "text">Share</div>
+	</div>
 	<% if (challenge.get('issue_id') === 20) { %>
 		<div class = 'sidecar container'>
 			<div class = 'sidecar text'>
@@ -17,15 +20,15 @@
 			</div>
 		</div>
 		<% if (is_finished) { %>
-			<div id = 'finish' class = 'hide send_result_button right'>Next</div>
+			<div id = 'finish' class = 'hide send_result_button right_center'>Next</div>
 		<% } else { %>
-			<div id = 'finish' class = 'hide send_result_button right'>Send!</div>
+			<div id = 'finish' class = 'hide send_result_button right_center'>Send!</div>
 		<% } %>
 	<% } else { %>
 		<% if (is_finished) { %>
-			<div id = 'finish' class = 'hide send_result_button centered'>Next</div>
+			<div id = 'finish' class = 'hide send_result_button right_center'>Next</div>
 		<% } else { %>
-			<div id = 'finish' class = 'hide send_result_button centered'>Send!</div>
+			<div id = 'finish' class = 'hide send_result_button right_center'>Send!</div>
 		<% } %>
 	<% } %>
 </div>

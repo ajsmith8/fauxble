@@ -417,3 +417,11 @@
 		}
 	}
 }
+
+#mfc_link {
+	color: $bluegreen;
+	cursor: pointer;
+	&:hover {
+		text-decoration: underline;
+	}
+}
