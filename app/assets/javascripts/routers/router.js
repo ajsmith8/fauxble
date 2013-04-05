@@ -91,7 +91,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 				setTimeout(function() {
 					self.like_view.slideOutTimed();
 					self.working = false;
-				}, 20000);
+				}, 2000);
 			}
 		}
 	},
