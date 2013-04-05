@@ -22,6 +22,6 @@ Fauxble.Views.UsersFace = Backbone.View.extend({
 	},
 	
 	userProfile: function() {
-		Backbone.history.navigate('user/' + this.user.get('id'), true);
+		this.user.show();
 	}
 });

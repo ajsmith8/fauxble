@@ -59,13 +59,14 @@ Fauxble.Views.IssuesShow = Backbone.View.extend({
 	},
 	
 	userProfile: function(event) {
-		var element = $(event.target).closest('.user');
+		var element = $(event.target).closest('.user'),
+			user = this.attr.users.get(parseInt($(element).attr('id')));
 		
-		Backbone.history.navigate('user/' + $(element).attr('id'), true);
+		user.show();
 	},
 	
 	issueShow: function() {
-		Backbone.history.navigate('issue/' + this.issue.get('id'), true);
+		this.issue.show();
 	},
 	
 	onClose: function() {

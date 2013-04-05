@@ -21,6 +21,6 @@ Fauxble.Views.IssuesPreview = Backbone.View.extend({
 	},
 	
 	issueShow: function() {
-		Backbone.history.navigate('issue/' + this.issue.get('id'), true);
+		this.issue.show();
 	}
 });

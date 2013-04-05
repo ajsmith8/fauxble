@@ -85,6 +85,8 @@ Fauxble.Views.PagesIssue = Backbone.View.extend({
 		var user = this.user,
 			issue = this.issue;
 		
+		gaEvent('Share', 'Issue', 'Clicked', null);
+		
 		if (!!user.get('uid')) {
 			var obj = { 
 				method: 'feed', 

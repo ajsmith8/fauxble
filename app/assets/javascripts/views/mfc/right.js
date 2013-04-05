@@ -69,7 +69,7 @@ Fauxble.Views.MfcRight = Backbone.View.extend({
 			}
 		}); */
 		
-		this.signIn();
+		this.fbSignIn();
 	},
 	
 	fbSignIn: function() {

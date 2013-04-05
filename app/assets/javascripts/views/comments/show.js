@@ -93,7 +93,7 @@ Fauxble.Views.CommentsShow = Backbone.View.extend({
 	},
 	
 	userProfile: function() {
-		Backbone.history.navigate('user/' + this.commentor.get('id'), true);
+		this.commentor.show();
 	},
 	
 	onClose: function() {

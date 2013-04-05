@@ -4,11 +4,15 @@ Fauxble.Views.FeedbacksTab = Backbone.View.extend({
 	
 	events: {
 		'click .tab-container' : 'popup',
-		'click #close' : 'slideIn'
+		'click #close' : 'slideIn',
+		'submit #feedback' : 'submitFeedback',
+		'focus textarea' : 'focusInput',
+		'blur textarea' : 'blurInput'
 	},
 	
 	initialize: function(options) {
 		this.attr = options.attr;
+		this.url = null;
 	},
 	
 	render: function() {
@@ -17,16 +21,16 @@ Fauxble.Views.FeedbacksTab = Backbone.View.extend({
 		return this;
 	},
 	
-	popup: function(event) {
+	popup: function() {
 		var url = Backbone.history.getFragment();
 			
-		url = url.replace(/[0-9]/g, '');
+		this.url = url.replace(/[0-9]/g, '');
 		
-		gaEvent('Feedback', 'Click Tab', url, null);
-		this.slideOut(event);
+		gaEvent('Feedback', 'Click Tab', this.url, null);
+		this.slideOut();
 	},
 	
-	slideOut: function(event) {
+	slideOut: function() {
 		var self = this;
 		
 		$(this.el).parent('.feedback').animate({
@@ -42,17 +46,51 @@ Fauxble.Views.FeedbacksTab = Backbone.View.extend({
 		});
 	},
 	
-	slideOutTimed: function() {
-		var old_ele = $(this.el).find('.like-tab'),
-			new_ele = $(this.el).find('#close'),
-			disable = $(this.el).find('#dont_show');
-			
-		$(this.element).animate({
-			right: '0'
-		}, 500, function() {
-			$(old_ele).addClass('hide');
-			$(new_ele).removeClass('hide');
-			$(disable).removeClass('hide');
+	focusInput: function() {
+		var element = $(this.el).find('#content');
+		
+		if ($(element).val() === 'Type feedback here') {
+			$(element).val('');
+		}
+	},
+	
+	blurInput: function() {
+		var element = $(this.el).find('#content');
+		
+		if (!/\S/.test($(element).val())) {
+			$(element).val('Type feedback here');
+		}
+	},
+	
+	submitFeedback: function(event) {
+		event.preventDefault();
+		var content = $(this.el).find('#content').val(),
+			id = null;
+		
+		if (this.user) {
+			id = this.user.get('id');
+		}
+		
+		gaEvent('Feedback', 'Submit', this.url, null);
+		
+		this.attr.feedbacks.create({
+			content: content,
+			user_id: id
 		});
+		
+		this.showThanks();
+	},
+	
+	showThanks: function() {
+		var self = this;
+		
+		$(this.el).find('#form').addClass('hide');
+		$(this.el).find('.close').addClass('hide');
+		$(this.el).find('.title_text').addClass('hide');
+		$(this.el).find('#thanks').removeClass('hide');
+		
+		setTimeout(function() {
+			self.slideIn();
+		}, 2200);	
 	}
 });

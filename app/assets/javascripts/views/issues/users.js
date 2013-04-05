@@ -52,7 +52,7 @@ Fauxble.Views.IssuesUsers = Backbone.View.extend({
 			uids = [],
 			friends;
 		
-		if (this.user.get('signed_in_fb')) {
+		if (this.user && this.user.get('signed_in_fb')) {
 			FB.api('/me/friends?access_token=' + self.user.get('encrypted_token'), function(response) {
 				friends = response['data'];
 				

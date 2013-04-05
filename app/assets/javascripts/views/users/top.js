@@ -31,6 +31,6 @@ Fauxble.Views.UsersTop = Backbone.View.extend({
 	},
 	
 	userProfile: function() {
-		Backbone.history.navigate('user/' + this.user.user.get('id'), true);
+		this.user.user.show();
 	}
 });

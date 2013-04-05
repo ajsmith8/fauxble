@@ -154,6 +154,8 @@ Fauxble.Views.PagesFooter = Backbone.View.extend({
 	},
 	
 	fbShare: function(quote, index, user) {
+		gaEvent('Quote', 'Clicked', String(index), null);
+		
 		if (user && !!user.get('uid')) {
 			var obj = { 
 				method: 'feed', 
