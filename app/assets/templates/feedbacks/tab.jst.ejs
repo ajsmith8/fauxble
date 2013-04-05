@@ -1,13 +1,31 @@
-<![if !IE]>
-	<div class = "tab">
-		<div class = "text">
-			F<span>eedba</span>ck
+<div class = 'tab-container'>	
+	<![if !IE]>
+		<div class = "tab">
+			<div class = "text">
+				F<span>eedba</span>ck
+			</div>
 		</div>
-	<div>
-<![endif]>	
+	<![endif]>	
 	
-<!--[if IE]>
-	<div class = "tab-IE">
-		<img src = 'assets/logos/white_40.png' width = "100%" />
+	<!--[if IE]>
+		<div class = "tab-IE">
+			<img src = 'assets/logos/white_40.png' width = "100%" />
+		</div>
+	<![endif]-->
+</div>
+<div class = 'feedback-container'>
+	<div id = 'close' class="close">
+		Close 
+		<div class = "icon">X</div>
 	</div>
-<![endif]-->
+	<div class = "title_text">Bugs? Suggestions? Feedback?
+		 <div class = "sub">We'd love to hear from you!</div>
+	</div>
+	<div id = 'form' class = "feedback_form">
+		<form id = 'feedback'>
+			<textarea id = 'content'>Type feedback here</textarea>
+			<input type = 'submit' value = 'Submit' class="post_feedback_button"/>
+		</form>
+	</div>
+	<div id = 'thanks' class = 'hide'>Thanks for the feedback!</div>
+</div>

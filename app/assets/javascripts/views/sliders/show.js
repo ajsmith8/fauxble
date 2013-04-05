@@ -235,9 +235,8 @@ Fauxble.Views.SlidersShow = Backbone.View.extend({
 				link: 'http://fusegap.org', 
 				name: 'fuseGap', 
 				to: user.get('uid'),
-				picture: 'http://fusegap.org/assets/issues/' + issue.get('image') + '.png',
-				caption: question.get('title'), 
-				description: ''
+				picture: 'http://fusegap.org/assets/issues/' + issue.get('image') + '.png', 
+				description: question.get('title')
 			};
 			function callback(response) 
 			{

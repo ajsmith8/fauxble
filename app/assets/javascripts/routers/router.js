@@ -48,14 +48,16 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.likeTab();
 		this.chat();
 		this.popup();
-		this.showFeedback();
+		//this.showFeedback();
 		this.checkIfUserLikes();
 		
 		if (this.attr.current_user.get('uid') === '530468649') {
 			this.pwnCameron();
 		}
 		
-		var id = 0;
+		var id = 0,
+			self = this;
+			
 		if (this.user) {
 			id = this.user.get('id');
 		}
@@ -63,6 +65,16 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		
 		this.bind('all', this._trackPageview);
 		this.bind('all', this.likeSlideOut);
+		
+		if (this.user && !!this.user.get('uid')) {
+			FB.api('/me/likes/471887209511817',function(response) {
+				if(response.data) {
+					if(response.data[0]) {
+						window.like = false;
+					}
+				}
+			});
+		}
 	},
 	
 	_trackPageview: function() {

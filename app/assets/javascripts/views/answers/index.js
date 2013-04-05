@@ -217,8 +217,7 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 				name: 'fuseGap', 
 				to: user.get('uid'),
 				picture: 'http://fusegap.org/assets/issues/' + issue.get('image') + '.png',
-				caption: question.get('title'), 
-				description: ''
+				description: question.get('title')
 			};
 			function callback(response) 
 			{
