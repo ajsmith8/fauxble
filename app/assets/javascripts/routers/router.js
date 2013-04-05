@@ -13,9 +13,9 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		'results:id' 		: 'results',				//true			false
 		'user/:name' 			: 'profile',			//false			false
 		
-		'random/content/users'		: 'generateRandomUsers',
+		/*'random/content/users'		: 'generateRandomUsers',
 		'random/content/challenges'	: 'generateRandomContent',
-		'random/content/ranks'		: 'generateRandomRanks', 
+		'random/content/ranks'		: 'generateRandomRanks',*/ 
 	},
 	
 	initialize: function(options) {
@@ -102,7 +102,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			setTimeout(function() {
 				self.like_view.slideOut();
 				self.working = false;
-			}, 2000);
+			}, 20000);
 		}
 	},
 	

@@ -96,6 +96,7 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 			name: name,
 			encrypted_email: email,
 			password: password,
+			url: name.toLowerCase().replace(' ', '-'),
 			signed_in: true
 		}, {
 			success: function(model, response) {
@@ -110,6 +111,7 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 	createFromFacebook: function(user, view) {
 		this.create({
 			name: user['name'],
+			url: name.toLowerCase().replace(' ', '-'),
 			uid: user['id'],
 			provider: 'facebook'
 		}, {
