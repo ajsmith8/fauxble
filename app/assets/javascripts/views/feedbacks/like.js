@@ -35,7 +35,7 @@ Fauxble.Views.FeedbacksLike = Backbone.View.extend({
 			new_ele = $(this.el).find('#close');
 			
 		$(this.element).animate({
-			right: '0'
+			right: '-2px'
 		}, 500, function() {
 			$(old_ele).addClass('hide');
 			$(new_ele).removeClass('hide');
@@ -48,7 +48,7 @@ Fauxble.Views.FeedbacksLike = Backbone.View.extend({
 			disable = $(this.el).find('#dont_show');
 			
 		$(this.element).animate({
-			right: '-164px'
+			right: '-403px'
 		}, 500, function() {
 			$(old_ele).addClass('hide');
 			$(new_ele).removeClass('hide');
@@ -68,7 +68,7 @@ Fauxble.Views.FeedbacksLike = Backbone.View.extend({
 			disable = $(this.el).find('#dont_show');
 			
 		$(this.element).animate({
-			right: '0'
+			right: '-2px'
 		}, 500, function() {
 			$(old_ele).addClass('hide');
 			$(new_ele).removeClass('hide');
