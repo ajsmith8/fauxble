@@ -1,3 +1,54 @@
+.mfc_share_container {
+	position: absolute;
+	top: 510px;
+	width: 100%;
+	.mfc_share_button {
+		position: absolute;
+		text-align: center;
+		cursor: pointer;			
+		border: 1px solid darken($bluegreen, 17%);
+		font-size: 14px;
+		font-weight: bold;
+		width: 110px;		
+		height: 26px;	
+		@include border-radius(4px);
+		z-index: 13;
+		padding-top: 9px;
+		text-align: center;
+		font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+		color: #fff;
+		left: 225px;
+		@include text-shadow(0px 1px 0 rgba(#000,0.4));
+		border: 1px solid rgb(70,70,70);
+		@include linear-gradient(rgb(76,119,175), rgb(27,70,135));
+		box-shadow: 0px 1px 1px rgba(#fff, 0.15) inset;			
+		@include single-box-shadow(rgb(249,249,249), 0px, 1px, 0px, 1px);
+		.facebook_f {
+			position: absolute;
+			top: 0px;
+			padding-top: 3px;
+			font-size: 24px;
+			font-weight: normal;
+			width: 25px;
+			text-align: center;
+			height: 31px;
+			border-right: 1px solid rgba(#fff, 0.06);
+		}
+		.text {
+			font-size: 14px;
+			position: absolute;
+			top: 9px;
+			left: 36px;
+			width: 60px;
+		}
+		&:hover {
+			border: 1px solid rgb(6,44,80);
+			cursor: pointer;
+			background: rgb(50,90,150);
+		}
+	}
+}
+
 .MFC_title {
 	position: absolute;
 	top: 10px;
