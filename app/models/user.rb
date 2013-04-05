@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
       u.provider = auth["provider"]
       u.uid = auth["uid"]
       u.name = auth["info"]["name"]
+      u.url = auth["info"]["name"].downcase.gsub(' ', '-')
       u.signed_in_fb = true
     end
     
