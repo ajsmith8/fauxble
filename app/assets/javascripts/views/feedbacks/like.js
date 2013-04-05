@@ -3,7 +3,7 @@ Fauxble.Views.FeedbacksLike = Backbone.View.extend({
 	template: JST['feedbacks/like'],
 	
 	events: {
-		'click' : 'popup',
+		'click .icon_container' : 'popup',
 		'click #close' : 'slideIn',
 		'click #dont_show' : 'disable'
 	},
@@ -20,59 +20,39 @@ Fauxble.Views.FeedbacksLike = Backbone.View.extend({
 	},
 	
 	popup: function(event) {
-		if ($(event.target).attr('id') !== 'close' && $(event.target).attr('id') !== 'dont_show') {
-			var url = Backbone.history.getFragment();
+		var url = Backbone.history.getFragment();
 
-			url = url.replace(/[0-9]/g, '');
+		url = url.replace(/[0-9]/g, '');
 
-			gaEvent('Feedback', 'Like Tab', url, null);
-			this.slideOut();
-		}
+		gaEvent('Feedback', 'Like Tab', url, null);
+		this.slideOut();
 	},
 	
 	slideOut: function() {
-		var old_ele = $(this.el).find('.like-tab'),
-			new_ele = $(this.el).find('#close');
+		var self = this;
+		
+		if (window.like) {
+			$(this.el).find('#dont_show').removeClass('hide');
+		}
 			
 		$(this.element).animate({
 			right: '-2px'
-		}, 500, function() {
-			$(old_ele).addClass('hide');
-			$(new_ele).removeClass('hide');
-		});
+		}, 500);
 	},
 	
 	slideIn: function() {
-		var new_ele = $(this.el).find('.like-tab'),
-			old_ele = $(this.el).find('#close'),
-			disable = $(this.el).find('#dont_show');
-			
+		var self = this;
+		
 		$(this.element).animate({
 			right: '-403px'
 		}, 500, function() {
-			$(old_ele).addClass('hide');
-			$(new_ele).removeClass('hide');
-			$(disable).addClass('hide');
+			$(this.el).find('#dont_show').addClass('hide');
 		});
 	},
 	
 	disable: function() {
 		window.like = false;
-		
+		gaEvent('Feedback', 'Like Tab', 'disabled', null);
 		this.slideIn();
-	},
-	
-	slideOutTimed: function() {
-		var old_ele = $(this.el).find('.like-tab'),
-			new_ele = $(this.el).find('#close'),
-			disable = $(this.el).find('#dont_show');
-			
-		$(this.element).animate({
-			right: '-2px'
-		}, 500, function() {
-			$(old_ele).addClass('hide');
-			$(new_ele).removeClass('hide');
-			$(disable).removeClass('hide');
-		});
 	}
 });

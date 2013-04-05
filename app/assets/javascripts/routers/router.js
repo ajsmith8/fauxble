@@ -80,7 +80,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 				FB.api('/' + this.user.get('uid') + '/likes/471887209511817?access_token=' + this.user.get('encrypted_token'),function(response) {
 					if(response.data) {
 						if(response.data[0]) {
-							window.like = false;
+			
 						} else {
 							self.slideItOut();
 						}
@@ -100,7 +100,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		if (!this.working) {
 			this.working = true;
 			setTimeout(function() {
-				self.like_view.slideOutTimed();
+				self.like_view.slideOut();
 				self.working = false;
 			}, 2000);
 		}
@@ -568,7 +568,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			users = this.attr.users.getFauxUsers(Math.round(Math.random() * 2) + 4);
 			for (q = 0; q < users.length; q++) {
 				challenge_num = Math.round(Math.ceil(self.attr.questions.getNumQuestions(issues[iss]) / 4) / 2);
-			
+				challenge_num = challenge_num * 100;
 				for (c = 0; c < challenge_num; c++) {
 					var user_index = 0;
 					subset = _.shuffle(users);

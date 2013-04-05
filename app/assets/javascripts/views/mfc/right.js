@@ -129,15 +129,16 @@ Fauxble.Views.MfcRight = Backbone.View.extend({
 	fbShare: function() {
 		var user = this.user;
 		
+		gaEvent('Share', 'MFC', 'Clicked', null);
+		
 		if (user && !!user.get('uid')) {
 			var obj = { 
 				method: 'feed', 
 				link: 'http://fusegap.org/#million-fact-challenge', 
 				name: 'fuseGap', 
 				to: user.get('uid'),
-				picture: 'http://fusegap.org/assets/logos/blue_70.png',
-				caption: 'FuseGap\'s Million Fact Challenge! Spread some knowledge. Facts with friends.', 
-				description: ''
+				picture: 'http://fusegap.org/assets/logos/blue_70.png', 
+				description: 'FuseGap\'s Million Fact Challenge! Spread some knowledge. Facts with friends.'
 			};
 			function callback(response) 
 			{
