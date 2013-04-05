@@ -198,7 +198,7 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 	
 	nextQuestion: function() {
 		if (this.next_question) {
-			Backbone.history.navigate('question' + this.challenge.get('id') + '/' + this.next_question.get('id'), true);
+			this.next_question.show(this.challenge);
 		} else {
 			this.challenge.setSentOrFinished(this.task);
 			Backbone.history.navigate('results' + this.challenge.get('id'), true);
@@ -209,6 +209,8 @@ Fauxble.Views.AnswersIndex = Backbone.View.extend({
 		var user = this.user,
 			issue = this.attr.issues.get(this.question.get('issue_id')),
 			question = this.question;
+		
+		gaEvent('Share', 'Question', 'Clicked', null);
 		
 		if (user.get('uid')) {
 			var obj = { 

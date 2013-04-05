@@ -48,8 +48,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.likeTab();
 		this.chat();
 		this.popup();
-		//this.showFeedback();
-		this.checkIfUserLikes();
+		this.showFeedback();
 		
 		if (this.attr.current_user.get('uid') === '530468649') {
 			this.pwnCameron();
@@ -65,16 +64,6 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		
 		this.bind('all', this._trackPageview);
 		this.bind('all', this.likeSlideOut);
-		
-		if (this.user && !!this.user.get('uid')) {
-			FB.api('/me/likes/471887209511817',function(response) {
-				if(response.data) {
-					if(response.data[0]) {
-						window.like = false;
-					}
-				}
-			});
-		}
 	},
 	
 	_trackPageview: function() {
@@ -85,33 +74,40 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	
 	likeSlideOut: function() {
 		var self = this;
+		
 		if (window.like && this.like_view) {
-			if (!this.working) {
-				this.working = true;
-				setTimeout(function() {
-					self.like_view.slideOutTimed();
-					self.working = false;
-				}, 2000);
+			if (this.user && !!this.user.get('uid')) {
+				FB.api('/' + this.user.get('uid') + '/likes/471887209511817?access_token=' + this.user.get('encrypted_token'),function(response) {
+					if(response.data) {
+						if(response.data[0]) {
+			
+						} else {
+							self.slideItOut();
+						}
+					} else {
+						self.slideItOut();
+					}
+				});
+			} else {
+				this.slideItOut();
 			}
+		}
+	},
+	
+	slideItOut: function() {
+		var self = this;
+		
+		if (!this.working) {
+			this.working = true;
+			setTimeout(function() {
+				self.like_view.slideOut();
+				self.working = false;
+			}, 2000);
 		}
 	},
 	
 	triggerPage: function() {
 		this.attr.users.trigger('page');
-	},
-	
-	checkIfUserLikes: function() {
-		/*FB.api('/me/likes/471887209511817',function(response) {
-			if(response.data) {
-				if(response.data[0]) {
-					self.fbSignIn();
-				} else {
-					self.fbLikePopup();	
-				}
-			} else {
-				self.fbSignIn();
-			}
-		}); */
 	},
 	
 	renderColumns: function() {
@@ -221,15 +217,19 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		var view = new Fauxble.Views.FeedbacksTab({
 			attr: this.attr
 		});
+		this.feedback = view;
 		$('.feedback').html(view.render().el);
 	},
 	
 	showFeedback: function() {
 		var self = this;
 		
-		setTimeout(function() {
-			self.feedbackPopup();
-		}, 180000);
+		if (this.feedback) {
+			setTimeout(function() {
+				self.feedback.popup();
+				gaEvent('Feedback', '3 Minute', self.feedback.url, null);
+			}, 180000);
+		}
 	},
 	
 	feedbackPopup: function(url) {
@@ -387,9 +387,10 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	
 	issue: function(name) {
 		this.renderColumns();
+		var issue = this.attr.issues.where({url: name})[0];
 		var view = new Fauxble.Views.PagesIssue({
 			attr: this.attr,
-			issue: this.attr.issues.get(parseInt(name))
+			issue: issue
 		});
 		this.setCurrentView(view);
 		this.feed();
@@ -400,7 +401,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	
 	question: function(id, name) {
 		this.renderColumns();
-		var question = this.attr.questions.get(parseInt(name));
+		var question = this.attr.questions.where({url: name})[0];
 		var view = new Fauxble.Views.PagesQuestion({
 			attr: this.attr,
 			challenge: this.attr.challenges.get(parseInt(id)),
@@ -459,7 +460,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.renderColumns();
 		var view = new Fauxble.Views.PagesProfile({
 			attr: this.attr,
-			user: this.attr.users.get(parseInt(name))
+			user: this.attr.users.where({url: name})[0]
 		});
 		this.setCurrentView(view);
 		this.feed();
@@ -567,7 +568,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			users = this.attr.users.getFauxUsers(Math.round(Math.random() * 2) + 4);
 			for (q = 0; q < users.length; q++) {
 				challenge_num = Math.round(Math.ceil(self.attr.questions.getNumQuestions(issues[iss]) / 4) / 2);
-			
+				challenge_num = challenge_num * 100;
 				for (c = 0; c < challenge_num; c++) {
 					var user_index = 0;
 					subset = _.shuffle(users);

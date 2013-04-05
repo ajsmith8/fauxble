@@ -22,5 +22,9 @@ Fauxble.Models.User = Backbone.Model.extend({
 	
 	signedIn: function() {
 		return this.get('signed_in') || this.get('signed_in_fb');
+	},
+	
+	show: function() {
+		Backbone.history.navigate('user/' + this.get('url'), true);
 	}
 });

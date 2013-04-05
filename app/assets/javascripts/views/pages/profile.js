@@ -51,7 +51,8 @@ Fauxble.Views.PagesProfile = Backbone.View.extend({
 	renderFeed: function() {
 		var view = new Fauxble.Views.UsersFeed({
 			attr: this.attr,
-			user: this.user
+			user: this.user,
+			profile: true,
 		});
 		$(this.el).find('#feed').html(view.render().el);
 	},

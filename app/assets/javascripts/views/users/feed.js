@@ -9,6 +9,7 @@ Fauxble.Views.UsersFeed = Backbone.View.extend({
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.user = options.user;
+		this.profile = options.profile;
 		this.current_location = 0;
 		//should check for conditions before render
 		//use prepend
@@ -120,11 +121,17 @@ Fauxble.Views.UsersFeed = Backbone.View.extend({
 	},
 	
 	renderFeed: function() {
+		var len = 7;
+		
+		if (this.profile) {
+			len = 6
+		}
+		
 		if (this.current_location >= this.feed.length) {
 			$(this.el).find('#more').addClass('hide');
 		}
 		
-		for (var i = this.current_location; i < this.current_location + 7; i++) {
+		for (var i = this.current_location; i < this.current_location + len; i++) {
 			if (this.feed[i]) {
 				this.appendFeed(this.feed[i]);
 			} else {

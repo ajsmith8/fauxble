@@ -68,14 +68,16 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 	},
 	
 	setChallengeIssue: function(event) {
-		var issue = this.attr.issues.get(parseInt($(event.target).closest('.issue').attr('id')));
+		var issue = this.attr.issues.get(parseInt($(event.target).closest('.issue').attr('id'))),
+			question = this.attr.questions.get(parseInt(this.challenge.get('question_ids').split('/')[0]));
 		
 		this.challenge.set({
 			issue_id: issue.get('id'),
 			question_ids: this.attr.questions.getRandomIds(issue, 4)
 		});
 		this.challenge.save();
-		Backbone.history.navigate('question' + this.challenge.get('id') + '/' + this.challenge.get('question_ids').split('/')[0], true);
+		
+		question.show(this.challenge);
 	},
 	
 	onClose: function() {

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130403225225) do
+ActiveRecord::Schema.define(:version => 20130405175403) do
 
   create_table "achievables", :force => true do |t|
     t.string   "title"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20130403225225) do
     t.integer  "times_selected", :default => 0
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
+    t.string   "url"
   end
 
   create_table "questions", :force => true do |t|
@@ -78,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20130403225225) do
     t.boolean  "is_slider"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "url"
   end
 
   create_table "ranks", :force => true do |t|
@@ -142,6 +144,7 @@ ActiveRecord::Schema.define(:version => 20130403225225) do
     t.datetime "updated_at",                            :null => false
     t.string   "tutorials"
     t.integer  "facts",              :default => 0
+    t.string   "url"
   end
 
 end

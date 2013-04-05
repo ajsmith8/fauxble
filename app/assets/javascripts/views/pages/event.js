@@ -39,10 +39,12 @@ Fauxble.Views.PagesEvent = Backbone.View.extend({
 	},
 	
 	profile: function(event) {
-		Backbone.history.navigate('user/' + $(event.target).attr('id'), true);
+		var user = this.attr.users.get(parseInt($(event.target).attr('id')));
+		
+		user.show();
 	},
 	
 	issueShow: function() {
-		Backbone.history.navigate('issue/' + this.model.get('issue_id'), true);
+		this.model.show();
 	}
 });
