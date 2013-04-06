@@ -80,7 +80,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 				FB.api('/' + this.user.get('uid') + '/likes/471887209511817?access_token=' + this.user.get('encrypted_token'),function(response) {
 					if(response.data) {
 						if(response.data[0]) {
-			
+							window.like = false;
 						} else {
 							self.slideItOut();
 						}
@@ -88,8 +88,6 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 						self.slideItOut();
 					}
 				});
-			} else {
-				this.slideItOut();
 			}
 		}
 	},
