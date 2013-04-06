@@ -69,11 +69,12 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 	
 	setChallengeIssue: function(event) {
 		var issue = this.attr.issues.get(parseInt($(event.target).closest('.issue').attr('id'))),
-			question = this.attr.questions.get(parseInt(this.challenge.get('question_ids').split('/')[0]));
+			ids = this.attr.questions.getRandomIds(issue, 4),
+			question = this.attr.questions.get(parseInt(ids.split('/')[0]));
 		
 		this.challenge.set({
 			issue_id: issue.get('id'),
-			question_ids: this.attr.questions.getRandomIds(issue, 4)
+			question_ids: ids
 		});
 		this.challenge.save();
 		

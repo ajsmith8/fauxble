@@ -76,15 +76,19 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		var self = this;
 		
 		if (window.like && this.like_view) {
-			FB.api('/' + this.user.get('uid') + '/likes/471887209511817?access_token=' + this.user.get('encrypted_token'),function(response) {
-				if(response.data) {
-					if(response.data[0]) {
-						window.like = false;
-					} else {
-						self.slideItOut();
-					}
-				} else {
-					self.slideItOut();
+			FB.getLoginStatus(function(response) {
+				if (response.authResponse.accessToken) {
+					FB.api('/me/likes/471887209511817?access_token=' + response.authResponse.accessToken,function(like_response) {
+						console.log(response.authResponse.accessToken);
+						console.log(like_response);
+						if(like_response.data) {
+							if(like_response.data[0]) {
+								window.like = false;
+							} else {
+								self.slideItOut();
+							}
+						}
+					});
 				}
 			});
 		}
@@ -98,7 +102,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			setTimeout(function() {
 				self.like_view.slideOut();
 				self.working = false;
-			}, 20000);
+			}, 2000);
 		}
 	},
 	
