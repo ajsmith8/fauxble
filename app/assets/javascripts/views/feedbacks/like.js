@@ -3,7 +3,7 @@ Fauxble.Views.FeedbacksLike = Backbone.View.extend({
 	template: JST['feedbacks/like'],
 	
 	events: {
-		'click .icon_container' : 'popup',
+		'click .icon_container' : 'toggleTab',
 		'click #close' : 'slideIn',
 		'click #dont_show' : 'disable'
 	},
@@ -19,9 +19,23 @@ Fauxble.Views.FeedbacksLike = Backbone.View.extend({
 		return this;
 	},
 	
+	toggleTab: function() {
+		if (this.out) {
+			this.out = false;
+			this.slideIn();
+		} else {
+			this.out = true;
+			this.popup();
+		}
+	},
+	
 	popup: function(event) {
 		var url = Backbone.history.getFragment();
-
+		
+		if (!this.out) {
+			this.out = true;
+		}
+		
 		url = url.replace(/[0-9]/g, '');
 
 		gaEvent('Feedback', 'Like Tab', url, null);

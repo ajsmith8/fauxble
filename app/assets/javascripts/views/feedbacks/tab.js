@@ -3,7 +3,7 @@ Fauxble.Views.FeedbacksTab = Backbone.View.extend({
 	template: JST['feedbacks/tab'],
 	
 	events: {
-		'click .tab-container' : 'popup',
+		'click .tab-container' : 'toggleTab',
 		'click #close' : 'slideIn',
 		'submit #feedback' : 'submitFeedback',
 		'focus textarea' : 'focusInput',
@@ -13,6 +13,7 @@ Fauxble.Views.FeedbacksTab = Backbone.View.extend({
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.url = null;
+		this.out = false;
 	},
 	
 	render: function() {
@@ -21,9 +22,23 @@ Fauxble.Views.FeedbacksTab = Backbone.View.extend({
 		return this;
 	},
 	
+	toggleTab: function() {
+		if (this.out) {
+			this.out = false;
+			this.slideIn();
+		} else {
+			this.out = true;
+			this.popup();
+		}
+	},
+	
 	popup: function() {
 		var url = Backbone.history.getFragment();
-			
+		
+		if (!this.out) {
+			this.out = true;
+		}
+		
 		this.url = url.replace(/[0-9]/g, '');
 		
 		gaEvent('Feedback', 'Click Tab', this.url, null);

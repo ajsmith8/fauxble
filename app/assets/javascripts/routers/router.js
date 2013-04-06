@@ -76,19 +76,17 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		var self = this;
 		
 		if (window.like && this.like_view) {
-			if (this.user && !!this.user.get('uid')) {
-				FB.api('/' + this.user.get('uid') + '/likes/471887209511817?access_token=' + this.user.get('encrypted_token'),function(response) {
-					if(response.data) {
-						if(response.data[0]) {
-							window.like = false;
-						} else {
-							self.slideItOut();
-						}
+			FB.api('/' + this.user.get('uid') + '/likes/471887209511817?access_token=' + this.user.get('encrypted_token'),function(response) {
+				if(response.data) {
+					if(response.data[0]) {
+						window.like = false;
 					} else {
 						self.slideItOut();
 					}
-				});
-			}
+				} else {
+					self.slideItOut();
+				}
+			});
 		}
 	},
 	
