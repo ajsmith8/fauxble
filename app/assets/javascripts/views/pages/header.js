@@ -154,6 +154,7 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	},
 	
 	mfcPage: function() {
+		this.toggleSignin();
 		Backbone.history.navigate('million-fact-challenge', true);
 	},
 	

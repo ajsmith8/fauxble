@@ -80,11 +80,11 @@ function makeid(length) {
 }
 
 function gaCustomVar(index, name, value, scope) {
-	//_gaq.push(['_setCustomVar', index, name, value, scope]);
+	_gaq.push(['_setCustomVar', index, name, value, scope]);
 }
 
 function gaEvent(category, action, label, value) {
-	//_gaq.push(['_trackEvent', category, action, label, value]);
+	_gaq.push(['_trackEvent', category, action, label, value]);
 }
 
 function gaPageview(url, user) {
@@ -97,11 +97,11 @@ function gaPageview(url, user) {
 	
 	gaEvent('Page View', url, id, Math.round(time - window.start_time));
 	
-	//_gaq.push(['_trackPageview', "/" + url]);
+	_gaq.push(['_trackPageview', "/" + url]);
 }
 
 function fbLogin() {
-	window.location = "http://localhost:3000/auth/facebook";
+	//window.location = "http://localhost:3000/auth/facebook";
 	//window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";
-	//window.location = "http://fusegap.org/auth/facebook";
+	window.location = "http://fusegap.org/auth/facebook";
 }
