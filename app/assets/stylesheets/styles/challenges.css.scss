@@ -5,7 +5,7 @@ position: relative;
 			&.container {
 				border-top: 1px solid rgb(245,245,245);
 				border-bottom: 1px solid rgb(245,245,245);
-				background-image: url(misc/253.png); background-repeat: repeat;
+				background-image: url(http://s3.amazonaws.com/fusegap/misc/253.png); background-repeat: repeat;
 				@include border-radius(3px);
 			}
 		}
@@ -15,7 +15,7 @@ position: relative;
 			&.container {
 				border-top: 1px solid rgb(245,245,245);
 				border-bottom: 1px solid rgb(245,245,245);
-				background-image: url(misc/253.png); background-repeat: repeat;
+				background-image: url(http://s3.amazonaws.com/fusegap/misc/253.png); background-repeat: repeat;
 				@include border-radius(3px);
 			}
 		}
@@ -114,7 +114,7 @@ position: relative;
 	right: 0px;
 	padding-top: 1px;
 	@include border-radius(12px);
-	background-image: url(misc/253.png); background-repeat: repeat;
+	background-image: url(http://s3.amazonaws.com/fusegap/misc/253.png); background-repeat: repeat;
 	
 	.challenge.history {
 		position: relative;

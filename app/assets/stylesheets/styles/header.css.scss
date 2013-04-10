@@ -6,7 +6,7 @@
 	width: 100%;
 	z-index: 1;
 	/*@include linear-gradient(lighten($black,15%), darken($black,15%));*/
-	background-image: url(misc/black_header_texture.png); background-repeat: repeat;
+	background-image: url(http://s3.amazonaws.com/fusegap/misc/black_header_texture.png); background-repeat: repeat;
 	@include single-box-shadow(rgba(#000, 0.25), 0px, 1px, 1px, 0);
 	
 	.wrapper {
@@ -300,7 +300,7 @@
 		text-align: center;
 		font-size: 13px;
 		color: $black;
-		background-image: url(misc/253.png); background-repeat: repeat;
+		background-image: url(http://s3.amazonaws.com/fusegap/misc/253.png); background-repeat: repeat;
 		.get_started_button_signin {
 			position: absolute;
 			bottom: 9px;

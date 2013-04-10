@@ -8,7 +8,7 @@
 	&.dark {
 		border-top: 1px solid rgb(245,245,245);
 		border-bottom: 1px solid rgb(245,245,245);
-		background-image: url(misc/253.png); background-repeat: repeat;
+		background-image: url(http://s3.amazonaws.com/fusegap/misc/253.png); background-repeat: repeat;
 		@include border-radius(3px);
 	}
 	
@@ -278,7 +278,7 @@
 		position: absolute;
 		top: 12px;
 		left: 40px;
-		background-image: url(misc/253.png); background-repeat: repeat;
+		background-image: url(http://s3.amazonaws.com/fusegap/misc/253.png); background-repeat: repeat;
 		@include border-radius(5px);
 		height: 50px;
 		border: 1px solid rgb(225,225,225);
@@ -312,7 +312,7 @@
 		position: absolute;
 		top: 12px;
 		right: 40px;
-		background-image: url(misc/253.png); background-repeat: repeat;
+		background-image: url(http://s3.amazonaws.com/fusegap/misc/253.png); background-repeat: repeat;
 		@include border-radius(5px);
 		height: 50px;
 		border: 1px solid rgb(225,225,225);
@@ -515,7 +515,7 @@
 			height: 32px;
 			padding-left: 25px;
 			width: 140px;
-			background-image: url(misc/253.png); background-repeat: repeat;
+			background-image: url(http://s3.amazonaws.com/fusegap/misc/253.png); background-repeat: repeat;
 			@include border-radius(3px);
 			&.total_facts {
 				top: 50px;
@@ -572,7 +572,7 @@
 		color: $black;
 		border-top: 1px solid rgb(235,235,235);
 		border-bottom: 1px solid rgb(235,235,235);
-		background-image: url(misc/253.png); background-repeat: repeat;
+		background-image: url(http://s3.amazonaws.com/fusegap/misc/253.png); background-repeat: repeat;
 		.text {
 			position: absolute;
 			top: 26px;

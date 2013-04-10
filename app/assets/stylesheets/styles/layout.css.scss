@@ -12,7 +12,7 @@ body {
 	@include border-radius(6px);*/
 
 	/*background: rgb(238,238,238);*/
-	background-image: url(misc/gray_jean.png); background-repeat: repeat;
+	background-image: url(http://s3.amazonaws.com/fusegap/misc/gray_jean.png); background-repeat: repeat;
 }
 
 .popup {
@@ -40,7 +40,7 @@ body {
 	width: 932px;
 	height: 100%;
 	
-	background-image: url(misc/253.png); background-repeat: repeat;
+	background-image: url(http://s3.amazonaws.com/fusegap/misc/253.png); background-repeat: repeat;
 	border: 1px solid rgb(230,230,230);
 	border-top: none;
 }
@@ -135,7 +135,7 @@ body {
 	font-size: 13px;
 	font-weight: bold;		
 	/*@include linear-gradient(lighten($bluegreen,8%), darken($bluegreen,12%));*/
-	/*background-image: url(misc/green_texture.png); background-repeat: repeat;*/
+	/*background-image: url(http://s3.amazonaws.com/fusegap/misc/green_texture.png); background-repeat: repeat;*/
 	@include border-top-radius(11px);
 }
 
@@ -144,7 +144,7 @@ body {
 	width: 90%;
 	margin: 12px 0 0 4%;
 	border: 1px solid;
-	background-image: url(misc/253.png); background-repeat: repeat;
+	background-image: url(http://s3.amazonaws.com/fusegap/misc/253.png); background-repeat: repeat;
 	@include single-box-shadow(rgb(246,246,246), 1px, 1px, 1px, 0);
 	border: 1px solid rgb(232,232,232);
 	@include border-radius(4px);

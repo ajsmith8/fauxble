@@ -337,7 +337,7 @@
 		border-left: none;
 		height: 32px;
 		padding-left: 25px;
-		background-image: url(misc/253.png); background-repeat: repeat;
+		background-image: url(http://s3.amazonaws.com/fusegap/misc/253.png); background-repeat: repeat;
 		@include border-radius(3px);
 		&.global_rank {
 			top: 56px;
@@ -681,7 +681,7 @@
 	width: 367px;
 	height: 515px;
 	border-left: 1px solid rgb(233,233,233);
-	background-image: url(misc/253.png); background-repeat: repeat;
+	background-image: url(http://s3.amazonaws.com/fusegap/misc/253.png); background-repeat: repeat;
 	.profile_feed {
 		position: absolute;
 		height: 280px;

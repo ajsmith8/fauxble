@@ -68,7 +68,7 @@
 	width: 100%;
 	height: 100%;
 	margin: 40px 0 0 0;
-	background-image: url(misc/253.png); background-repeat: repeat;
+	background-image: url(http://s3.amazonaws.com/fusegap/misc/253.png); background-repeat: repeat;
 	border-top: 1px solid rgba(#000, 0.15);
 	.grey_cover {
 		position: absolute;
@@ -253,7 +253,7 @@
 	height: 361px;
 	width: 520px;
 	z-index: 100;
-	background-image: url(misc/253.png); background-repeat: repeat;
+	background-image: url(http://s3.amazonaws.com/fusegap/misc/253.png); background-repeat: repeat;
 	color: $black;
 	font-family: "HelveticaNeue-UltraLight", Helvetica, Arial, sans-serif;
 	@include text-shadow(1px 1px 0 #fff);	
@@ -265,7 +265,7 @@
 		font-size: 28px;
 		text-align: center;
 		width: 100%;
-		background-image: url(misc/gray_jean.png); background-repeat: repeat;
+		background-image: url(http://s3.amazonaws.com/fusegap/misc/gray_jean.png); background-repeat: repeat;
 		&.title {
 			height: 50px;
 			font-family: Helvetica;
