@@ -2,7 +2,7 @@
 	<div class = "top_container">
 		<div class = 'thumbnail container'>
 			<div class = 'thumbnail wrapper'>
-				<img src = 'assets/issues/<%= issue.get('image') %>.png' />
+				<img src = 'http://s3.amazonaws.com/fusegap/issues/<%= issue.get('image') %>.png' />
 			</div>
 		</div>
 		<div class = "title container">
@@ -17,13 +17,13 @@
 
 		<div class = 'stats active_fusers'>
 			<div class = "profile_icon_container">
-				<img src = 'assets/logos/black_40.png'/>
+				<img src = 'http://s3.amazonaws.com/fusegap/logos/black_40.png'/>
 			</div>
 			<span class = "number"><%= users %></span><span class = 'label'>ACTIVE FUSERS</span> 
 		</div>
 		<div class = 'stats facts_learned'>
 			<div class = "profile_icon_container">
-				<div class = "character hand"><img src = 'assets/misc/black_hand.png'></div>
+				<div class = "character hand"><img src = 'http://s3.amazonaws.com/fusegap/misc/black_hand.png'></div>
 			</div>
 			<span class = "number"><%= learned %></span><span class = 'label'>FACTS LEARNED</span> 
 		</div>

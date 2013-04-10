@@ -8,11 +8,7 @@ Fauxble.Views.EventsShow = Backbone.View.extend({
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.feed = options.feed;
-		
-		this.defaults();
-	},
-	
-	defaults: function() {
+
 		var kind = this.feed.get('kind'),
 			id = this.feed.get('model_id');
 		
@@ -25,7 +21,7 @@ Fauxble.Views.EventsShow = Backbone.View.extend({
 		} else if (kind === 'achievable') {
 			this.model = this.attr.user_achievables.get(id);
 			this.user = this.attr.users.get(this.model.get('user_id'));
-			this.achievable = this.attr.achievable.get(this.model.get('achievable_id'));
+			this.achievable = this.attr.achievables.get(this.model.get('achievable_id'));
 			this.template = JST['events/achievable'];
 		} else {
 			this.model = this.attr.users.get(id);

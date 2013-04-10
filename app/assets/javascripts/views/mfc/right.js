@@ -137,7 +137,7 @@ Fauxble.Views.MfcRight = Backbone.View.extend({
 				link: 'http://fusegap.org/#million-fact-challenge', 
 				name: 'fuseGap', 
 				to: user.get('uid'),
-				picture: 'http://fusegap.org/assets/logos/blue_70.png', 
+				picture: 'http://s3.amazonaws.com/fusegap/logos/blue_70.png', 
 				description: 'FuseGap\'s Million Fact Challenge! Spread some knowledge. Facts with friends.'
 			};
 			function callback(response) 

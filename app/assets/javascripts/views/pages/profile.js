@@ -114,7 +114,7 @@ Fauxble.Views.PagesProfile = Backbone.View.extend({
 				link: 'http://fusegap.org/#' + Backbone.history.getFragment(), 
 				name: 'fuseGap', 
 				to: user.get('uid'),
-				picture: 'http://fusegap.org/assets/logos/blue_70.png',
+				picture: 'http://s3.amazonaws.com/fusegap/logos/blue_70.png',
 				description: 'Check out my facts profile at fuseGap.org!'
 			};
 			function callback(response) 

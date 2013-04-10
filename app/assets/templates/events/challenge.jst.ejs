@@ -3,7 +3,7 @@
 		<% if (challenger.get('uid')) { %>
 			<img src = 'https://graph.facebook.com/<%= challenger.get('uid') %>/picture'/>
 		<% } else { %>
-			<img src = 'assets/misc/user.png'/>
+			<img src = 'http://s3.amazonaws.com/fusegap/misc/user.png'/>
 		<% } %>
 	</div>
 </div>
@@ -33,6 +33,6 @@
 
 <div class = "picture container right">
 	<div class = "picture wrapper">
-			<img src = 'assets/issues/<%= issue.get('image') %>.png'/>
+			<img src = 'http://s3.amazonaws.com/fusegap/issues/<%= issue.get('image') %>.png'/>
 	</div>
 </div>

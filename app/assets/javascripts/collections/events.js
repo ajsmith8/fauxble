@@ -8,21 +8,21 @@ Fauxble.Collections.Events = Backbone.Collection.extend({
 		this.user_achievables = options.user_achievables;
 		this.users = options.users;
 		
-		this.user_achievables.on('add', this.achievable, this);
+		this.user_achievables.on('feed', this.achievable, this);
 		this.users.on('change:signed_on', this.user, this);
 		this.users.on('change:signed_on_fb', this.user, this);
 		this.challenges.on('change:is_sent', this.challenge, this);
 	},
 	
-	achievable: function(model) {
+	achievable: function(achievable) {
 		var self = this;
 		
 		this.create({
 			kind: 'achievable',
-			model_id: model.get('id')
+			model_id: achievable.get('id')
 		}, {
 			success: function(model, response) {
-				self.trigger('stuff');
+				self.trigger('stuff', model);
 			},
 			error: function(model, response) {
 				
@@ -30,15 +30,15 @@ Fauxble.Collections.Events = Backbone.Collection.extend({
 		});
 	},
 	
-	challenge: function(model) {
+	challenge: function(challenge) {
 		var self = this;
 		
 		this.create({
 			kind: 'challenge',
-			model_id: model.get('id')
+			model_id: challenge.get('id')
 		}, {
 			success: function(model, response) {
-				self.trigger('stuff');
+				self.trigger('stuff', model);
 			},
 			error: function(model, response) {
 				
@@ -46,15 +46,15 @@ Fauxble.Collections.Events = Backbone.Collection.extend({
 		});
 	},
 	
-	user: function(model) {
+	user: function(user) {
 		var self = this;
 		
 		this.create({
 			kind: 'user',
-			model_id: model.get('id')
+			model_id: user.get('id')
 		}, {
 			success: function(model, response) {
-				self.trigger('stuff');
+				self.trigger('stuff', model);
 			},
 			error: function(model, response) {
 				

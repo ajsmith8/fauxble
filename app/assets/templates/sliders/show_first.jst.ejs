@@ -17,14 +17,14 @@
 	<div id = 'highlight' class = 'slider fill'></div>
 	<div id = 'user' class = 'slider users user'>
 		<div id = 'logo' class = 'logo'>
-			<img src = 'assets/logos/white_25.png' />
+			<img src = 'http://s3.amazonaws.com/fusegap/logos/white_25.png' />
 		</div>
 		<div id = 'pic' class = 'picture container hide'>
 			<div class = 'picture wrapper'>
 				<% if (users.challenger.get('signed_in_fb')) { %>
 					<img src = 'https://graph.facebook.com/<%= users.challenger.get('uid') %>/picture' />
 				<% } else { %>
-					<img src = 'assets/misc/user.png' />
+					<img src = 'http://s3.amazonaws.com/fusegap/misc/user.png' />
 				<% } %>
 			</div>
 		</div>

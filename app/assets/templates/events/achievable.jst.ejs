@@ -3,7 +3,7 @@
 		<% if (user.get('uid')) { %>
 			<img src = 'https://graph.facebook.com/<%= user.get('uid') %>/picture'/>
 		<% } else { %>
-			<img src = 'assets/misc/user.png'/>
+			<img src = 'http://s3.amazonaws.com/fusegap/misc/user.png'/>
 		<% } %>
 	</div>
 </div>
@@ -22,6 +22,6 @@
 </div>
 <div class = "achievement_picture container">
 	<div class = "achievement_picture wrapper">
-		<img src = 'assets/achievables/<%= achievable.get('image') %>.png'/>
+		<img src = 'http://s3.amazonaws.com/fusegap/achievables/<%= achievable.get('image') %>.png'/>
 	</div>
 </div>

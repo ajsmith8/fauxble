@@ -93,7 +93,7 @@ Fauxble.Views.PagesIssue = Backbone.View.extend({
 				link: 'http://fusegap.org/#issue/' + issue.get('url'), 
 				name: 'fuseGap', 
 				to: user.get('uid'),
-				picture: 'http://fusegap.org/assets/issues/' + issue.get('image') + '.png', 
+				picture: 'http://s3.amazonaws.com/fusegap/issues/' + issue.get('image') + '.png', 
 				description: 'Check out ' + issue.get('title') + ' on fuseGap.org!'
 			};
 			function callback(response) 

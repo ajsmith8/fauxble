@@ -12,6 +12,7 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 		'blur input' : 'blurInput',
 		'submit #signin_form' : 'signin',
 		'click #issues' : 'issuePreview',
+		'click .triangle_container' : 'toggleSignout',
 		'click #signout' : 'signout'
 	},
 	
@@ -25,7 +26,9 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 		var self = this;
 		
 		$(this.el).addClass('wrapper');
-		$(this.el).html(this.template());
+		$(this.el).html(this.template({
+			user: this.user
+		}));
 		
 		setTimeout(function() {
 			if (self.user) {
@@ -169,6 +172,16 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	
 	issuePreview: function() {
 		Backbone.history.navigate('issues', true);
+	},
+	
+	toggleSignout: function() {
+		var element = $(this.el).find('#signout');
+		
+		if ($(element).hasClass('hide')) {
+			$(element).removeClass('hide');
+		} else {
+			$(element).addClass('hide');
+		}
 	},
 	
 	signout: function() {

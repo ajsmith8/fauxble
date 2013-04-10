@@ -1,9 +1,3 @@
-#default user for challenges
-User.create(
-  name: "fuseGap",
-  signed_in: true
-)
-
 Achievable.create(
   title: "Learning Lover",
   description: "You love to learn! Look at all those hot facts!",
@@ -11,6 +5,24 @@ Achievable.create(
   person: "Isaac Newton",
   image: "newton",
   count: 4
+)
+
+Achievable.create(
+  title: "Science Guy",
+  description: "You are the Science Guy!",
+  name: "facts learned",
+  person: "Bill Nye",
+  image: "nye",
+  count: 25
+)
+
+Achievable.create(
+  title: "Fact Freedom",
+  description: "You are setting those facts free!",
+  name: "facts learned",
+  person: "Abraham Lincoln",
+  image: "lincoln",
+  count: 10
 )
 
 Achievable.create(
@@ -58,6 +70,68 @@ Achievable.create(
   count: 5
 )
 
+Achievable.create(
+  title: "Badass",
+  description: "Ignorance doesn\'t stand a chance with you on our side!",
+  name: "tos",
+  person: "Gerard Butler",
+  image: "butler",
+  count: 300
+)
+
+Achievable.create(
+  title: "Awesome Person",
+  description: "Your just an awesome person. Enough said.",
+  name: "tos",
+  person: "Jimmy Wales",
+  image: "wales",
+  count: 1200
+)
+
+Achievable.create(
+  title: "Get Learned",
+  description: "Get learned or die trying.",
+  name: "played",
+  person: "50 Cent",
+  image: "50cent",
+  count: 5
+)
+
+Achievable.create(
+  title: "Diverse Background",
+  description: "You are trying all different kinds of issues!",
+  name: "issues",
+  person: "Barack Obama",
+  image: "obama",
+  count: 5
+)
+
+Achievable.create(
+  title: "So Popular",
+  description: "Wow, everyone loves you. Look at all those friends you have!",
+  name: "share",
+  person: "Bill Clinton",
+  image: "clinton",
+  count: nil
+)
+
+Achievable.create(
+  title: "Renaissance Man",
+  description: "You truely are a modern day Renaissance Man!",
+  name: "mfc",
+  person: "Al Gore",
+  image: "gore",
+  count: nil
+)
+
+Achievable.create(
+  title: "Creepin\'",
+  description: "You are almost as bad as this guy in Somthing About Mary...",
+  name: "profiles",
+  person: "Chris Elliot",
+  image: "elliot",
+  count: 3
+)
 
 # question_id -> 1
 Question.create(

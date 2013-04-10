@@ -40,7 +40,7 @@ Fauxble.Views.PagesFooter = Backbone.View.extend({
 		
 		$(this.el).find('#quote').html(this.quote.quote);
 		$(this.el).find('#name').html(this.quote.source);
-		$(this.el).find('img').attr('src', 'assets/people/' + this.quote.image + '.png');
+		$(this.el).find('img').attr('src', 'http://s3.amazonaws.com/fusegap/people/' + this.quote.image + '.png');
 	},
 	
 	getQuotes: function() {
@@ -162,7 +162,7 @@ Fauxble.Views.PagesFooter = Backbone.View.extend({
 				link: 'http://fusegap.org', 
 				name: 'fuseGap', 
 				to: user.get('uid'),
-				picture: 'http://fusegap.org/assets/people/' + quote.image + '.png', 
+				picture: 'http://s3.amazonaws.com/fusegap/people/' + quote.image + '.png', 
 				description: quote.quote
 			};
 			function callback(response) 
