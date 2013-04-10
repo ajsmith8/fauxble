@@ -376,6 +376,46 @@
 		}
 	}
 }
+.profile_share_button {
+	position: absolute;
+	top: 10px;
+	right: 11px;
+	width: 80px;
+	@include text-shadow(0px 1px 0 rgba(#000,0.4));
+	border: 1px solid rgb(70,70,70);
+	@include linear-gradient(rgb(76,119,175), rgb(27,70,135));
+	height: 20px;
+	text-align: center;
+	font-weight: bold;
+	@include border-radius(3px);
+	box-shadow: 0px 1px 1px rgba(#fff, 0.15) inset;			
+	@include single-box-shadow(rgba(#000, 0.3), 0px, 1px, 1px, 0);
+	padding-top: 8px;
+	font-size: 12px;
+	color: #fff;
+	.facebook_f {
+		position: absolute;
+		top: 1px;
+		padding-top: 3px;
+		font-size: 20px;
+		font-weight: normal;
+		width: 25px;
+		text-align: center;
+		height: 28px;
+		border-right: 1px solid rgba(#fff, 0.06);
+	}
+	.text {
+		position: absolute;
+		top: 7px;
+		left: 35px;
+		text-align: center;
+	}
+	&:hover {
+		border: 1px solid rgb(6,44,80);
+		cursor: pointer;
+		background: rgb(50,90,150);
+	}
+}
 
 .main_friends_container {
 	overflow-x: hidden;
