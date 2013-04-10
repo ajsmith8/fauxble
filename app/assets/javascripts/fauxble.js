@@ -9,7 +9,6 @@ window.Fauxble = {
 		window.like				= true;
 		window.start_time		= new Date().getTime() / 1000;
 		window.scramble 		= makeid(8);
-		this.facts_learned 		= data.facts_learned;
 		
 		this.current_user 		= new Fauxble.Models.User(data.current_user);
 		this.issues 			= new Fauxble.Collections.Issues(data.issues);

@@ -21,7 +21,6 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	initialize: function(options) {
 		this.user = options.users.get(options.current_user.get('id'));
 		this.columns = false;
-		this.facts_learned = 4000 + options.facts_learned;
 		this.like_view = null;
 		this.working = false;
 		
@@ -274,8 +273,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			router: this
 		});
 		var left = new Fauxble.Views.MfcLeft({
-			attr: this.attr,
-			facts: this.facts_learned
+			attr: this.attr
 		});
 		this.setCurrentView(right);
 		this.setSubview(left, 'mfc');

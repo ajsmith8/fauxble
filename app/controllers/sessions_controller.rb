@@ -23,7 +23,6 @@ class SessionsController < ApplicationController
   end
   
   def main
-    @facts_learned = 1568.to_json
     @current_user = current_user
     @issues = Issue.all.to_json
     @questions = Question.all.to_json
