@@ -11,7 +11,8 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 		'focus input' : 'focusInput',
 		'blur input' : 'blurInput',
 		'submit #signin_form' : 'signin',
-		'click #issues' : 'issuePreview'
+		'click #issues' : 'issuePreview',
+		'click #signout' : 'signout'
 	},
 	
 	initialize: function(options) {
@@ -168,6 +169,10 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	
 	issuePreview: function() {
 		Backbone.history.navigate('issues', true);
+	},
+	
+	signout: function() {
+		signout();
 	},
 	
 	onClose: function() {
