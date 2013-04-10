@@ -116,7 +116,7 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 			provider: 'facebook'
 		}, {
 			success: function(model, response) {
-				//end loading
+				Fauxble.router.stopLoading();
 				view.setChallengeUser(model);
 			},
 			error: function(model, response) {

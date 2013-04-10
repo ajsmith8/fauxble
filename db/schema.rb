@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130405175403) do
+ActiveRecord::Schema.define(:version => 20130410161628) do
 
   create_table "achievables", :force => true do |t|
     t.string    "title"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20130405175403) do
     t.timestamp "created_at",                    :null => false
     t.timestamp "updated_at",                    :null => false
     t.string    "url"
+    t.integer   "facts",          :default => 0
   end
 
   create_table "questions", :force => true do |t|
@@ -88,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20130405175403) do
     t.integer   "score",      :default => 0
     t.timestamp "created_at",                :null => false
     t.timestamp "updated_at",                :null => false
+    t.integer   "facts",      :default => 0
   end
 
   create_table "sliders", :force => true do |t|

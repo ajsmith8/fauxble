@@ -67,9 +67,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	_trackPageview: function() {
-		var url = Backbone.history.getFragment();
-		
-	    gaPageview(url.replace(/[0-9]/g, ''), this.user);
+	    gaPageview(Backbone.history.getFragment(), this.user);
 	},
 	
 	likeSlideOut: function() {
@@ -79,9 +77,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			FB.getLoginStatus(function(response) {
 				if (response.authResponse.accessToken) {
 					FB.api('/me/likes/471887209511817?access_token=' + response.authResponse.accessToken,function(like_response) {
-						console.log(response.authResponse.accessToken);
-						console.log(like_response);
-						if(like_response.data) {
+						if (like_response.data) {
 							if(like_response.data[0]) {
 								window.like = false;
 							} else {
@@ -102,7 +98,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			setTimeout(function() {
 				self.like_view.slideOut();
 				self.working = false;
-			}, 2000);
+			}, 20000);
 		}
 	},
 	
@@ -504,6 +500,21 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			element: $('#background')
 		});
 		$('#tutorial').html(view.render().el);
+	},
+	
+	startLoading: function() {
+		var view = new Fauxble.Views.PagesLoading();
+		this.load_view = view;
+		$('#loading').removeClass('inactive');
+		$('#loading').addClass('active');
+		$('#loading').html(view.render().el);
+	},
+	
+	stopLoading: function() {
+		this.load_view.remove();
+		this.load_view.unbind();
+		$('#loading').removeClass('active');
+		$('#loading').addClass('inactive');
 	},
 	
 	generateRandomUsers: function() {

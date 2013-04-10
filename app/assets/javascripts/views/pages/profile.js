@@ -3,7 +3,7 @@ Fauxble.Views.PagesProfile = Backbone.View.extend({
 	template: JST['pages/profile'],
 	
 	events: {
-		
+		'click #share' : 'fbShare'
 	},
 	
 	initialize: function(options) {
@@ -94,6 +94,35 @@ Fauxble.Views.PagesProfile = Backbone.View.extend({
 		});
 		this.subviews.push(view);
 		$(this.el).find('#history').append(view.render().el);
+	},
+	
+	fbShare: function() {
+		var user = this.user;
+		
+		gaEvent('Share', 'Profile', 'Clicked', null);
+		
+		if (user && !!user.get('uid')) {
+			var obj = { 
+				method: 'feed', 
+				link: 'http://fusegap.org/#' + Backbone.history.getFragment(), 
+				name: 'fuseGap', 
+				to: user.get('uid'),
+				picture: 'http://fusegap.org/assets/logos/blue_70.png',
+				description: 'Check out my facts profile at fuseGap.org!'
+			};
+			function callback(response) 
+			{
+				if (response) {
+					gaEvent('Share', 'Profile', String(user.get('id')), null);
+					window.Fauxble.router.thanksPopup();
+				} else {
+					//close
+				}
+	        }
+			FB.ui(obj, callback);
+		} else {
+			window.Fauxble.router.fbSignInPopup();
+		}
 	},
 	
 	onClose: function() {

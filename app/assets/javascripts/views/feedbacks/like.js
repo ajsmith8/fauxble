@@ -30,13 +30,12 @@ Fauxble.Views.FeedbacksLike = Backbone.View.extend({
 	},
 	
 	popup: function(event) {
-		var url = Backbone.history.getFragment();
+		var url = formatUrl(Backbone.history.getFragment());
 		
 		if (!this.out) {
 			this.out = true;
 		}
 		
-		url = url.replace(/[0-9]/g, '');
 
 		gaEvent('Feedback', 'Like Tab', url, null);
 		this.slideOut();

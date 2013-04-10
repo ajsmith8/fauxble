@@ -3,7 +3,7 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 	model: Fauxble.Models.Rank,
 	url: 'ranks',	
 	
-	initialize: function(models) {
+	initialize: function(models, options) {
 		this.on('change:score', this.doSomethin, this);
 	},
 	

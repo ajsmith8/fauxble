@@ -22,7 +22,7 @@ Fauxble.Views.UsersFacebook = Backbone.View.extend({
 		setTimeout(function() {
 			FB.api('/me/friends?access_token=' + self.user.get('encrypted_token'), function(response) {
 				self.renderFriends(response['data']);
-				//stop loading
+				Fauxble.router.stopLoading();
 			});
 		}, 0);
 		
@@ -72,7 +72,7 @@ Fauxble.Views.UsersFacebook = Backbone.View.extend({
 		if (this.attr.users.where({uid: user['id']})[0]) {
 			this.setChallengeUser(this.attr.users.where({uid: user['id']})[0]);
 		} else {
-			//start loading
+			Fauxble.router.startLoading();
 			this.attr.users.createFromFacebook(user, this);
 		}
 	},

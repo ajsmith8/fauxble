@@ -33,13 +33,11 @@ Fauxble.Views.FeedbacksTab = Backbone.View.extend({
 	},
 	
 	popup: function() {
-		var url = Backbone.history.getFragment();
-		
 		if (!this.out) {
 			this.out = true;
 		}
 		
-		this.url = url.replace(/[0-9]/g, '');
+		this.url = formatUrl(Backbone.history.getFragment());
 		
 		gaEvent('Feedback', 'Click Tab', this.url, null);
 		this.slideOut();

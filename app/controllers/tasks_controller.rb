@@ -13,6 +13,7 @@ class TasksController < ApplicationController
   
   def create
     @task = Task.create(params[:task])
+    Rank.update_facts(@task)
     respond_with @task
   end
   

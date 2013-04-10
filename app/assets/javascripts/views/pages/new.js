@@ -45,6 +45,7 @@ Fauxble.Views.PagesNew = Backbone.View.extend({
 			challenge: this.challenge
 		});
 		this.subviews.push(view);
+		Fauxble.router.startLoading();
 		$(this.el).find('#facebook').html(view.render().el);
 	},
 	

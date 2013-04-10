@@ -162,9 +162,8 @@ Fauxble.Views.PagesFooter = Backbone.View.extend({
 				link: 'http://fusegap.org', 
 				name: 'fuseGap', 
 				to: user.get('uid'),
-				picture: 'http://fusegap.org/assets/people/' + quote.image + '.png',
-				caption: quote.quote, 
-				description: ''
+				picture: 'http://fusegap.org/assets/people/' + quote.image + '.png', 
+				description: quote.quote
 			};
 			function callback(response) 
 			{

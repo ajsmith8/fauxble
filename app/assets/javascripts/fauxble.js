@@ -31,7 +31,9 @@ window.Fauxble = {
 			questions: this.questions,
 			tasks: this.tasks
 		});
-		this.ranks 				= new Fauxble.Collections.Ranks(data.ranks);
+		this.ranks 				= new Fauxble.Collections.Ranks(data.ranks, {
+			tasks: this.tasks
+		});
 		this.users 				= new Fauxble.Collections.Users(data.users, {
 			challenges: this.challenges,
 			ranks: this.ranks
@@ -91,6 +93,8 @@ function gaPageview(url, user) {
 	var time = new Date().getTime() / 1000;
 		id = 0;
 	
+	url = formatUrl(url);
+	
 	if (user) {
 		id = user.get('id');
 	}
@@ -104,4 +108,16 @@ function fbLogin() {
 	//window.location = "http://localhost:3000/auth/facebook";
 	//window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";
 	window.location = "http://fusegap.org/auth/facebook";
+}
+
+function formatUrl(url) {
+	var split = url.split('/');
+	
+	if (split.length > 1) {
+		if (split[1] !== 'select') {
+			url = split[0];
+		}
+	}
+	
+	return url.replace(/[0-9]/g, '');
 }

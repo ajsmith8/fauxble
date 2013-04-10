@@ -70,6 +70,14 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 		}
 	},
 	
+	hideSignin: function() {
+		var element = $(this.el).find('.signin.panel'),
+			button = $(this.el).find('#profile');
+			
+		$(element).addClass('hide');
+		$(button).removeClass('active');
+	},
+	
 	fbLogin: function() {
 		gaEvent('Login', 'Facebook', 'Header', null);
 		fbLogin();
@@ -154,7 +162,7 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 	},
 	
 	mfcPage: function() {
-		this.toggleSignin();
+		this.hideSignin();
 		Backbone.history.navigate('million-fact-challenge', true);
 	},
 	
