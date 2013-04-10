@@ -9,6 +9,12 @@ Fauxble.Views.PagesProfile = Backbone.View.extend({
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.user = options.user;
+		this.current_user = false;
+		
+		if (this.user.get('id') === this.attr.current_user.get('id')) {
+			this.current_user = true;
+		}
+		
 		this.subviews = [];
 		
 		this.attr.users.trigger('scope');
@@ -17,7 +23,8 @@ Fauxble.Views.PagesProfile = Backbone.View.extend({
 	render: function() {
 		var self = this;
 		$(this.el).html(this.template({
-			name: this.user.get('name')
+			name: this.user.get('name'),
+			current_user: this.current_user
 		}));
 		
 		setTimeout(function() {

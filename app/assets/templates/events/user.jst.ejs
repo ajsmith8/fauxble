@@ -1,0 +1,14 @@
+<div class = "picture container left signin">
+	<div class = "picture wrapper">
+		<% if (model.get('uid')) { %>
+			<img src = 'https://graph.facebook.com/<%= model.get('uid') %>/picture'/>
+		<% } else { %>
+			<img src = 'assets/misc/user.png'/>
+		<% } %>
+	</div>
+</div>
+<div class = "name container">
+	<div class = "name">
+		<span id = '<%= model.get('id') %>' class = "actual_name"><%= model.get('name') %></span> signed in!
+	</div>
+</div>

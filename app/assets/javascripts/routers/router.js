@@ -39,7 +39,8 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			ranks: options.ranks,
 			achievables: options.achievables,
 			user_achievables: options.user_achievables,
-			feedbacks: options.feedbacks
+			feedbacks: options.feedbacks,
+			events: options.events
 		};
 		
 		this.header();

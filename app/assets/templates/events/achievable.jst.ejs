@@ -1,0 +1,27 @@
+<div class = "picture container left achievement">
+	<div class = "picture wrapper">
+		<% if (user.get('uid')) { %>
+			<img src = 'https://graph.facebook.com/<%= user.get('uid') %>/picture'/>
+		<% } else { %>
+			<img src = 'assets/misc/user.png'/>
+		<% } %>
+	</div>
+</div>
+<div class = "name container">
+	<div class = "name">
+		<span id = '<%= user.get('id') %>' class = "actual_name">
+			<% if (user.get('name').split(' ').length > 1) { %>
+			    <%= user.get('name').split(' ')[0] + " " + user.get('name').split(' ')[user.get('name').split(' ').length - 1].charAt(0) %>.
+			<% } else { %>
+			    <%= user.get('name').split(' ')[0] %>
+			<% } %>
+		</span>
+		earned achievement:
+		<span class = "achievement_title">&ldquo;<%= achievable.get('title') %>&rdquo;</span>
+	</div>
+</div>
+<div class = "achievement_picture container">
+	<div class = "achievement_picture wrapper">
+		<img src = 'assets/achievables/<%= achievable.get('image') %>.png'/>
+	</div>
+</div>

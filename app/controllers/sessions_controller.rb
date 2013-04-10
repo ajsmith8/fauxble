@@ -34,6 +34,7 @@ class SessionsController < ApplicationController
     @ranks = Rank.all.to_json
     @challenges = Challenge.all.to_json
     @tasks = Task.all.to_json
+    @events = Event.all.to_json
     
     if signed_in?
       @sliders = Slider.all.to_json

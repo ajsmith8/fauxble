@@ -47,9 +47,13 @@ window.Fauxble = {
 			user_achievables: this.user_achievables
 		});
 		this.feedbacks			= new Fauxble.Collections.Feedbacks();
+		this.events 			= new Fauxble.Collections.Events(data.events, {
+			challenges: this.challenges,
+			user_achievables: this.user_achievables,
+			users: this.users
+		});
 		
 		this.router = new Fauxble.Routers.Router({
-			facts_learned: 		this.facts_learned,
 			current_user: 		this.current_user,
 			users: 				this.users,
 			issues: 			this.issues,
@@ -63,7 +67,8 @@ window.Fauxble = {
 			ranks: 				this.ranks,
 			achievables: 		this.achievables,
 			user_achievables: 	this.user_achievables,
-			feedbacks: 			this.feedbacks
+			feedbacks: 			this.feedbacks,
+			events: 			this.events 
 		});
 		
 		Backbone.history.start();

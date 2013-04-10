@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130410161628) do
+ActiveRecord::Schema.define(:version => 20130410174127) do
 
   create_table "achievables", :force => true do |t|
     t.string    "title"
@@ -54,6 +54,13 @@ ActiveRecord::Schema.define(:version => 20130410161628) do
     t.string    "ancestry"
     t.timestamp "created_at", :null => false
     t.timestamp "updated_at", :null => false
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "kind"
+    t.integer  "model_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "feedbacks", :force => true do |t|

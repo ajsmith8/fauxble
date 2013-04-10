@@ -1,0 +1,38 @@
+<div class = "picture container left">
+	<div class = "picture wrapper">
+		<% if (challenger.get('uid')) { %>
+			<img src = 'https://graph.facebook.com/<%= challenger.get('uid') %>/picture'/>
+		<% } else { %>
+			<img src = 'assets/misc/user.png'/>
+		<% } %>
+	</div>
+</div>
+<div class = "name container">
+	<div class = "name">
+		<span id = '<%= challenger.get('id') %>' class = "actual_name user">
+			<% if (challenger.get('name').split(' ').length > 1) { %>
+			    <%= challenger.get('name').split(' ')[0] + " " + challenger.get('name').split(' ')[challenger.get('name').split(' ').length - 1].charAt(0) %>.
+			<% } else { %>
+			    <%= challenger.get('name').split(' ')[0] %>
+			<% } %>
+		</span>
+		challenged
+		<span id = '<%= user.get('id') %>' class = "actual_name">
+			<% if (user.get('name').split(' ').length > 1) { %>
+			    <%= user.get('name').split(' ')[0] + " " + user.get('name').split(' ')[user.get('name').split(' ').length - 1].charAt(0) %>.
+			<% } else { %>
+			    <%= user.get('name').split(' ')[0] %>
+			<% } %>
+		</span>
+		with 
+		<span id = 'issue' class = "achievement_title">
+			&ldquo;<%= issue.get('title') %>&rdquo;
+		</span>
+	</div>
+</div>
+
+<div class = "picture container right">
+	<div class = "picture wrapper">
+			<img src = 'assets/issues/<%= issue.get('image') %>.png'/>
+	</div>
+</div>

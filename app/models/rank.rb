@@ -1,5 +1,5 @@
 class Rank < ActiveRecord::Base
-  attr_accessible :issue_id, :user_id, :score
+  attr_accessible :issue_id, :user_id, :score, :facts
   
   def self.create_from_challenge(challenge)
     rank = Rank.where(user_id: challenge.challenger_id, issue_id: challenge.issue_id)[0]
