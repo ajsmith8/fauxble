@@ -11,17 +11,9 @@ Fauxble.Views.PagesIssue = Backbone.View.extend({
 		this.attr = options.attr;
 		this.issue = options.issue;
 		this.user = this.attr.users.get(this.attr.current_user.get('id'));
-		this.ids = this.attr.tasks.getIssueFactsAndUsers(this.issue);
-		this.users = [];
+		this.learned = this.attr.ranks.getFacts(this.issue);
+		this.users = this.attr.ranks.getUsers(this.issue);
 		this.comments = this.attr.comments.where({issue_id: this.issue.get('id'), ancestry: null});
-		
-		for (var i = this.ids.length; i > 0; i--) {
-			var user = this.attr.users.get(parseInt(this.ids[i - 1].split('/')[0]));
-			
-			if (this.users.indexOf(user) === -1) {
-				this.users.push(user);
-			}
-		}
 		
 		this.subviews = [];
 		
@@ -33,9 +25,8 @@ Fauxble.Views.PagesIssue = Backbone.View.extend({
 		
 		$(this.el).html(this.template({
 			issue: this.issue,
-			facts: this.attr.questions.getNumQuestions(this.issue),
-			learned: this.ids.length,
-			users: this.users.length
+			learned: this.learned,
+			users: this.users
 		}));
 		
 		setTimeout(function() {

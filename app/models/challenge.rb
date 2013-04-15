@@ -2,6 +2,10 @@ class Challenge < ActiveRecord::Base
     attr_accessible :issue_id, :question_ids, :challenger_id, :challenger_score, 
                     :user_id, :user_score, :winner_id, :is_sent, :is_finished
 
+  def self.get_user_challenges(user)
+    where("user_id = ? OR challenger_id = ?", user.id, user.id)
+  end
+
   def self.set_default_challenges(user)
     issues = Array.new
     challenger = nil

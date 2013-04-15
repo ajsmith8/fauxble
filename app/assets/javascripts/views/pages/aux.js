@@ -15,7 +15,7 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 		this.feed = null;
 		var hash = window.location.hash;
 		
-		if (hash.split('/question').length > 1 || hash.split('challenge').length > 1) {
+		if (hash.split('question').length > 1 || hash.split('results').length > 1 || hash.split('issue').length > 1) {
 			this.issue = this.getIssue(hash);
 			this.question = this.getQuestion(hash);	
 		}
@@ -81,7 +81,6 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 
 	getIssue: function(hash) {
 		var issue = null;
-		
 		if (hash.split('results').length > 1) {
 			issue = this.attr.issues.get(this.attr.challenges.get(parseInt(hash.split('results')[1])).get('issue_id'));
 		}
@@ -93,7 +92,7 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 		
 		if (hash.split('issue').length > 1) {
 			if (hash.split('/')[1] !== 'select' && hash.split('/')[1] !== 's') {
-				issue = this.attr.issues.get(parseInt(hash.split('/')[1]));
+				issue = this.attr.issues.where({url: hash.split('/')[1]})[0];
 			}
 		}
 		
@@ -104,63 +103,87 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 		var question = null;
 		
 		if (hash.split('question').length > 1) {
-			question = this.attr.questions.get(parseInt(hash.split('/')[1]));
+			question = this.attr.questions.where({url: hash.split('/')[1]})[0];
 		}
 		
 		return question;
 	},
 	
 	topUsers: function() {
-		var view = new Fauxble.Views.UsersIndex({
-			attr: this.attr,
-			users: this.attr.users.getTopUsers(this.current_user, this.issue, 5)
-		});
+		var self = this;
 		
-		this.subviews.push(view);
-		
-		if (this.issue) {
-			$(this.el).find('#top_header').html('Top Ranked Fusers for ' + this.issue.get('title'));
-		} else {
-			$(this.el).find('#top_header').html('Top Ranked Fusers');
+		this.attr.ranks.fetchRanks(this.issue, null, callback);
+
+		function callback() {
+			var view = new Fauxble.Views.UsersIndex({
+				attr: self.attr,
+				users: self.attr.ranks.getTopUsers(self.current_user, self.issue, 5)
+			});
+
+			self.subviews.push(view);
+
+			if (self.issue) {
+				$(self.el).find('#top_header').html('Top Ranked Fusers for ' + self.issue.get('title'));
+			} else {
+				$(self.el).find('#top_header').html('Top Ranked Fusers');
+			}
+
+			$(self.el).find('#top').html(view.render().el);
 		}
-		
-		$(this.el).find('#top').html(view.render().el);
 	},
 	
 	activityFeed: function() {
-		var view = new Fauxble.Views.UsersFeed({
-			attr: this.attr,
-			user: null
-		});
+		var self = this;
 		
-		this.subviews.push(view);
-		this.feed = view;
+		this.attr.events.fetchEvents(callback);
 		
-		$(this.el).find('#middle_header').html('Recent Activity');
-		$(this.el).find('#middle').html(view.render().el);
+		function callback() {
+			var view = new Fauxble.Views.UsersFeed({
+				attr: self.attr,
+				user: null
+			});
+
+			self.subviews.push(view);
+			self.feed = view;
+
+			$(self.el).find('#middle_header').html('Recent Activity');
+			$(self.el).find('#middle').html(view.render().el);
+		}
 	},
 	
 	recentAnswers: function() {
-		var view = new Fauxble.Views.QuestionsAnswers({
-			attr: this.attr,
-			question: this.question
-		});
+		var self = this;
 		
-		this.subviews.push(view);
+		this.attr.tasks.fetchTasks([this.question.get('id')], null, callback);
 		
-		$(this.el).find('#middle_header').html('Recent Answers');
-		$(this.el).find('#middle').html(view.render().el);
+		function callback() {
+			var view = new Fauxble.Views.QuestionsAnswers({
+				attr: self.attr,
+				question: self.question
+			});
+
+			self.subviews.push(view);
+
+			$(self.el).find('#middle_header').html('Recent Answers');
+			$(self.el).find('#middle').html(view.render().el);
+		}
 	},
 	
 	userPictures: function() {
-		var view = new Fauxble.Views.IssuesUsers({
-			attr: this.attr,
-			issue: this.issue
-		});
+		var self = this;
 		
-		this.subviews.push(view);
+		this.attr.tasks.fetchIssueTasks(this.issue.get('id'), callback);
 		
-		$(this.el).find('#bottom').html(view.render().el);
+		function callback() {
+			var view = new Fauxble.Views.IssuesUsers({
+				attr: self.attr,
+				issue: self.issue
+			});
+
+			self.subviews.push(view);
+
+			$(self.el).find('#bottom').html(view.render().el);
+		}
 	},
 	
 	likeButton: function() {

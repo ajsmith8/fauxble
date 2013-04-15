@@ -13,18 +13,16 @@ Fauxble.Views.EventsShow = Backbone.View.extend({
 			id = this.feed.get('model_id');
 		
 		if (kind === 'challenge') {
-			this.model = this.attr.challenges.get(id);
-			this.user = this.attr.users.get(this.model.get('user_id'));
-			this.challenger = this.attr.users.get(this.model.get('challenger_id'));
-			this.issue = this.attr.issues.get(this.model.get('issue_id'));
+			this.user = this.attr.users.get(this.feed.get('user_id'));
+			this.challenger = this.attr.users.get(this.feed.get('challenger_id'));
+			this.issue = this.attr.issues.get(this.feed.get('issue_id'));
 			this.template = JST['events/challenge'];
 		} else if (kind === 'achievable') {
-			this.model = this.attr.user_achievables.get(id);
-			this.user = this.attr.users.get(this.model.get('user_id'));
-			this.achievable = this.attr.achievables.get(this.model.get('achievable_id'));
+			this.user = this.attr.users.get(this.feed.get('user_id'));
+			this.achievable = this.attr.achievables.get(this.feed.get('achievable_id'));
 			this.template = JST['events/achievable'];
 		} else {
-			this.model = this.attr.users.get(id);
+			this.user = this.attr.users.get(this.feed.get('user_id'));
 			this.template = JST['events/user'];
 		}
 	},
@@ -32,7 +30,7 @@ Fauxble.Views.EventsShow = Backbone.View.extend({
 	render: function() {
 		$(this.el).addClass('feed_item');
 		$(this.el).html(this.template({
-			model: this.model,
+			feed: this.feed,
 			user: this.user,
 			challenger: this.challenger,
 			achievable: this.achievable,

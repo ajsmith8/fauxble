@@ -3,10 +3,46 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 	model: Fauxble.Models.Challenge,
 	url: 'challenges',
 	
-	initialize: function(models, options) {
-		this.issues = options.issues;
-		this.questions = options.questions;
-		this.tasks = options.tasks;
+	initialize: function(models) {
+		window.challenges_loaded = false;
+		
+		this.issues = Fauxble.issues;
+		this.questions = Fauxble.questions;
+		this.tasks = Fauxble.tasks;
+	},
+	
+	fetchChallenges: function(user, callback) {
+		this.fetch({
+			data: {
+				challenge: {user_id: user.get('id'), is_finished: 't'}
+			},
+			remove: false,
+			silent: true,
+			success: function(collection, response, options) {
+				console.log('1');
+				console.log(collection);
+				console.log(options);
+			},
+			error: function(collection, response, options) {
+				console.log('challenge error 1');
+			}
+		});
+		
+		this.fetch({
+			data: {
+				challenge: {challenger_id: user.get('id'), is_finished: 't'}
+			},
+			remove: false,
+			success: function(collection, response, options) {
+				console.log('2');
+				console.log(collection);
+				console.log(options);
+				callback();
+			},
+			error: function(collection, response, options) {
+				console.log('challenge error 2');
+			}
+		});
 	},
 	
 	setUserDefaults: function(user) {

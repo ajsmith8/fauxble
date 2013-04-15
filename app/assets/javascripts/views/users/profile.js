@@ -9,11 +9,16 @@ Fauxble.Views.UsersProfile = Backbone.View.extend({
 	initialize: function(options) {
 		this.attr = options.attr;
 		this.user = options.user;
+		this.rank = this.attr.ranks.where({issue_id: null, user_id: this.user.get('id')})[0];
+		var facts = 0;
+		if (this.rank) {
+			facts = this.rank.get('facts');
+		}
 		this.games = {
 			played: this.attr.challenges.getTotalPlayed(this.user),
 			won: this.attr.challenges.getTotalWon(this.user),
 			lost: this.attr.challenges.getTotalLost(this.user),
-			facts: this.user.get('facts')
+			facts: facts
 		};
 	},
 	

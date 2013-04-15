@@ -24,25 +24,20 @@ class SessionsController < ApplicationController
   
   def main
     @current_user = current_user
-    @issues = Issue.all.to_json
-    @questions = Question.all.to_json
-    @achievables = Achievable.all.to_json
     @users = User.all.to_json
-    @comments = Comment.all.to_json
-    @user_achievables = UserAchievable.all.to_json
-    @ranks = Rank.all.to_json
-    @challenges = Challenge.all.to_json
-    @tasks = Task.all.to_json
-    @events = Event.all.to_json
     
     if signed_in?
-      @sliders = Slider.all.to_json
-      @answers = Answer.all.to_json
-      @sources = Source.all.to_json
+      @challenges = Challenge.get_user_challenges(@current_user).to_json
+      @issues = Issue.all.to_json
+      @questions = Question.all.to_json
+      @achievables = Achievable.all.to_json
+      @user_achievables = UserAchievable.where(user_id: @current_user.id).to_json
     else
-      @sliders = [].to_json
-      @answers = [].to_json
-      @sources = [].to_json
+      @challenges = [].to_json
+      @issues = [].to_json
+      @questions = [].to_json
+      @achievables = [].to_json
+      @user_achievables = [].to_json
     end
   end
 end

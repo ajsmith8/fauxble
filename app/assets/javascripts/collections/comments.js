@@ -3,6 +3,22 @@ Fauxble.Collections.Comments = Backbone.Collection.extend({
 	model: Fauxble.Models.Comment,
 	url: 'comments',
 	
+	fetchComments: function(issue, callback) {
+		var id = issue.get('id');
+		
+		this.fetch({
+			data: {
+				comment: {issue_id: id}
+			},
+			success: function(collection, response, options) {
+				callback();
+			},
+			error: function(collection, response, options) {
+			
+			}
+		});
+	},
+	
 	createComment: function(title, user, issue, parent, view) {
 		var ancestry = null;
 		

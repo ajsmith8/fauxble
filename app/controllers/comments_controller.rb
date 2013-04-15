@@ -2,7 +2,11 @@ class CommentsController < ApplicationController
   respond_to :json
   
   def index
-    @comments = Comment.all
+    if params[:comment]
+      @comments = Comment.where(params[:comment])
+    else
+      @comments = Comment.all
+    end
     respond_with @comments
   end
   

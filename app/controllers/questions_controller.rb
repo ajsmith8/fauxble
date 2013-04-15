@@ -2,7 +2,11 @@ class QuestionsController < ApplicationController
   respond_to :json
   
   def index
-    @questions = Question.all
+    if params[:question]
+      @questions = Question.where(params[:question])
+    else
+      @questions = Question.all
+    end
     respond_with @questions
   end
   

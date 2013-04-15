@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130410174127) do
+ActiveRecord::Schema.define(:version => 20130415154657) do
 
   create_table "achievables", :force => true do |t|
     t.string    "title"
@@ -59,8 +59,12 @@ ActiveRecord::Schema.define(:version => 20130410174127) do
   create_table "events", :force => true do |t|
     t.string   "kind"
     t.integer  "model_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "user_id"
+    t.integer  "challenger_id"
+    t.integer  "issue_id"
+    t.integer  "achievable_id"
   end
 
   create_table "feedbacks", :force => true do |t|
@@ -91,12 +95,12 @@ ActiveRecord::Schema.define(:version => 20130410174127) do
   end
 
   create_table "ranks", :force => true do |t|
-    t.integer   "issue_id"
-    t.integer   "user_id"
-    t.integer   "score",      :default => 0
-    t.timestamp "created_at",                :null => false
-    t.timestamp "updated_at",                :null => false
-    t.integer   "facts",      :default => 0
+    t.integer  "issue_id"
+    t.integer  "user_id"
+    t.integer  "score",      :default => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "facts",      :default => 0
   end
 
   create_table "sliders", :force => true do |t|
@@ -140,20 +144,19 @@ ActiveRecord::Schema.define(:version => 20130410174127) do
   end
 
   create_table "users", :force => true do |t|
-    t.string    "name"
-    t.string    "provider"
-    t.string    "uid"
-    t.string    "encrypted_token"
-    t.string    "encrypted_email"
-    t.string    "encrypted_password"
-    t.string    "password_salt"
-    t.boolean   "signed_in",          :default => false
-    t.boolean   "signed_in_fb",       :default => false
-    t.timestamp "created_at",                            :null => false
-    t.timestamp "updated_at",                            :null => false
-    t.string    "tutorials"
-    t.integer   "facts",              :default => 0
-    t.string    "url"
+    t.string   "name"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "encrypted_token"
+    t.string   "encrypted_email"
+    t.string   "encrypted_password"
+    t.string   "password_salt"
+    t.boolean  "signed_in",          :default => false
+    t.boolean  "signed_in_fb",       :default => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.string   "tutorials"
+    t.string   "url"
   end
 
 end

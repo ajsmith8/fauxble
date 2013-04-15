@@ -2,7 +2,11 @@ class TasksController < ApplicationController
   respond_to :json
   
   def index
-    @tasks = Task.all
+    if params[:task]
+      @tasks = Task.where(params[:task])
+    else
+      @tasks = Task.all
+    end
     respond_with @tasks
   end
   

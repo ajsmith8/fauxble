@@ -2,7 +2,15 @@ class RanksController < ApplicationController
   respond_to :json
   
   def index
-    @ranks = Rank.all
+    if params[:rank]
+      if params[:rank][:issue_id] == ""
+        @ranks = Rank.where(issue_id: nil)
+      else
+        @ranks = Rank.where(params[:rank])
+      end
+    else
+      @ranks = Rank.all
+    end
     respond_with @ranks
   end
   

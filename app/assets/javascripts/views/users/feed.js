@@ -27,7 +27,13 @@ Fauxble.Views.UsersFeed = Backbone.View.extend({
 	},
 	
 	setFeedItems: function() {
-		var feed = this.attr.events.toArray();
+		var feed;
+		
+		if (this.profile) {
+			feed = this.attr.events.where({kind: 'challenge', challenger_id: this.user.get('id')}).concat(this.attr.events.where({kind: 'achievable', user_id: this.user.get('id')}));
+		} else {
+			feed = this.attr.events.toArray();
+		}
 		
 		feed.sort(function(a, b) {
 			if (a.get('updated_at') < b.get('updated_at')) {

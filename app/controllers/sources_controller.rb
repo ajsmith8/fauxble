@@ -2,7 +2,11 @@ class SourcesController < ApplicationController
   respond_to :json
   
   def index
-    @sources = Source.all
+    if params[:source]
+      @sources = Source.where(params[:source])
+    else
+      @sources = Challenge.all
+    end
     respond_with @sources
   end
   

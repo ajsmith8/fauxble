@@ -98,7 +98,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			setTimeout(function() {
 				self.like_view.slideOut();
 				self.working = false;
-			}, 20000);
+			}, 2000);
 		}
 	},
 	
@@ -272,6 +272,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			attr: this.attr,
 			router: this
 		});
+		//facts learned
 		var left = new Fauxble.Views.MfcLeft({
 			attr: this.attr
 		});
@@ -312,6 +313,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	challenges: function() {
+		//challenges for current_user
 		this.renderColumns();
 		var	view = new Fauxble.Views.PagesChallenges({
 			attr: this.attr
@@ -326,6 +328,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	feed: function() {
+		//ranks events task
 		var view = new Fauxble.Views.PagesAux({
 			attr: this.attr
 		});
@@ -368,58 +371,122 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	issues: function() {
+		var self = this;
 		this.columns = false;
 		this.subview = null;
 		this.str = '';
-		var view = new Fauxble.Views.PagesPreview({
-			attr: this.attr
-		});
-		this.setCurrentView(view);
-		$('.test').empty();
-		$('.page').html(view.render().el);
-		this.triggerPage();
+		
+		if (window.issues_loaded) {
+			callback();
+		} else {
+			this.startLoading();
+			this.attr.issues.fetchIssues(callback);
+		}
+		
+		function callback() {
+			var view = new Fauxble.Views.PagesPreview({
+				attr: self.attr
+			});
+			self.setCurrentView(view);
+			$('.test').empty();
+			$('.page').html(view.render().el);
+			self.triggerPage();
+			self.stopLoading();
+		}
 	},
 	
 	issue: function(name) {
-		this.renderColumns();
-		var issue = this.attr.issues.where({url: name})[0];
-		var view = new Fauxble.Views.PagesIssue({
-			attr: this.attr,
-			issue: issue
-		});
-		this.setCurrentView(view);
-		this.feed();
-		$('.right.column').html(view.render().el);
+		var self = this,
+			issue;
+		this.startLoading();
 		
-		this.triggerPage();
+		if (!window.issues_loaded) {
+			this.attr.issues.fetchIssues(setIssue);
+		} else {
+			setIssue();
+		}
+		
+		function setIssue() {
+			issue = self.attr.issues.where({url: name})[0];
+			self.attr.ranks.fetchRanks(issue);
+			self.attr.comments.fetchComments(issue, callback);
+		}
+		
+		function callback() {
+			var view = new Fauxble.Views.PagesIssue({
+				attr: self.attr,
+				issue: issue
+			});
+			
+			self.renderColumns();
+			self.setCurrentView(view);
+			self.feed();
+			
+			$('.right.column').html(view.render().el);
+
+			self.triggerPage();
+			self.stopLoading();
+		}
 	},
 	
 	question: function(id, name) {
-		this.renderColumns();
-		var question = this.attr.questions.where({url: name})[0];
-		var view = new Fauxble.Views.PagesQuestion({
-			attr: this.attr,
-			challenge: this.attr.challenges.get(parseInt(id)),
-			question: question
-		});
-		this.setCurrentView(view);
-		this.feed();
-		$('.right.column').html(view.render().el);
+		var self = this,
+			challenge = this.attr.challenges.get(parseInt(id)),
+			issue = this.attr.issues.get(challenge.get('issue_id')),
+			users = [challenge.get('challenger_id'), challenge.get('user_id')],
+			question = this.attr.questions.where({url: name})[0],
+			split = challenge.get('question_ids').split('/'),
+			loaded = true,
+			ids = [];
 		
-		if ($(view.el).find('#versus').children().length === 0) {
-			this.versus(this.attr.challenges.get(parseInt(id)), view);
+		for (var i = 0, len = split.length; i < len; i++) {
+			ids.push(parseInt(split[i]));
 		}
 		
-		if (question.get('is_slider')) {
-			if (!this.checkTutorial(this.user, 'slider')) {
-				this.renderTutorial('slider');
-			}
+		if (window.challenge_id === challenge.get('id')) {
+			callback();
 		} else {
-			if (!this.checkTutorial(this.user, 'answers')) {
-				this.renderTutorial('answers');
-			}
+			window.challenge_id = challenge.get('id');
+			this.startLoading();
+			setQuestion();
 		}
-		this.triggerPage();
+		
+		function setQuestion() {
+			self.attr.sources.fetchSources(ids);
+			self.attr.answers.fetchAnswers(ids);
+			self.attr.sliders.fetchSliders(ids);
+			self.attr.ranks.fetchRanks(issue, users, null);
+			self.attr.tasks.fetchTasks(ids, challenge, callback);
+		}
+		
+		function callback() {
+			var view = new Fauxble.Views.PagesQuestion({
+				attr: self.attr,
+				challenge: challenge,
+				question: question
+			});
+			self.renderColumns();
+			self.setCurrentView(view);
+			self.feed();
+			$('.right.column').html(view.render().el);
+
+			if ($(view.el).find('#versus').children().length === 0) {
+				self.versus(self.attr.challenges.get(parseInt(id)), view);
+			}
+
+			if (question.get('is_slider')) {
+				if (!self.checkTutorial(self.user, 'slider')) {
+					self.renderTutorial('slider');
+				}
+			} else {
+				if (!self.checkTutorial(self.user, 'answers')) {
+					self.renderTutorial('answers');
+				}
+			}
+			
+			self.triggerPage();
+			self.stopLoading();
+		}
 	},
 	
 	versus: function(challenge, view) {
@@ -432,40 +499,81 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	results: function(id) {
-		this.renderColumns();
-		var view = new Fauxble.Views.PagesResults({
-			attr: this.attr,
-			challenge: this.attr.challenges.get(parseInt(id))
-		});
-		this.setCurrentView(view);
-		this.feed();
-		$('.right.column').html(view.render().el);
+		var self = this,
+			challenge = this.attr.challenges.get(parseInt(id)),
+			issue = this.attr.issues.get(challenge.get('issue_id')),
+			users = [challenge.get('challenger_id'), challenge.get('user_id')],
+			split = challenge.get('question_ids').split('/'),
+			ids = [];
 		
-		if ($(view.el).find('#versus').children().length === 0) {
-			this.versus(this.attr.challenges.get(parseInt(id)), view);
+		for (var i = 0, len = split.length; i < len; i++) {
+			ids.push(parseInt(split[i]));
 		}
 		
-		if (!this.checkTutorial(this.user, 'results')) {
-			this.renderTutorial('results');
+		if (window.challenge_id === challenge.get('id')) {
+			callback();
+		} else {
+			window.challenge_id = challenge.get('id');
+			this.startLoading();
+			setQuestions();
 		}
-		this.triggerPage();
+		
+		function setQuestions() {
+			self.attr.sources.fetchSources(ids);
+			self.attr.answers.fetchAnswers(ids);
+			self.attr.sliders.fetchSliders(ids);
+			self.attr.ranks.fetchRanks(issue, users, null);
+			self.attr.tasks.fetchTasks(ids, challenge, callback);
+		}
+		
+		function callback() {
+			var view = new Fauxble.Views.PagesResults({
+				attr: self.attr,
+				challenge: challenge
+			});
+			self.renderColumns();
+			self.setCurrentView(view);
+			self.feed();
+			$('.right.column').html(view.render().el);
+
+			if ($(view.el).find('#versus').children().length === 0) {
+				self.versus(self.attr.challenges.get(parseInt(id)), view);
+			}
+
+			if (!self.checkTutorial(self.user, 'results')) {
+				self.renderTutorial('results');
+			}
+			self.triggerPage();
+			self.stopLoading();
+		}
 	},
 	
 	profile: function(name) {
-		this.renderColumns();
-		var view = new Fauxble.Views.PagesProfile({
-			attr: this.attr,
-			user: this.attr.users.where({url: name})[0]
-		});
-		this.setCurrentView(view);
-		this.feed();
-		$('.right.column').html(view.render().el);
+		var self = this,
+			user = this.attr.users.where({url: name})[0];
 		
+		this.startLoading();
+		this.attr.ranks.fetchUserRanks(user);
+		this.attr.user_achievables.fetchUserAchievables(user, null, null);
+		this.attr.events.fetchUserEvents(user);
+		this.attr.challenges.fetchChallenges(user, callback);
 		
-		if (!this.checkTutorial(this.user, 'profile')) {
-			this.renderTutorial('profile');
+		function callback() {
+			var view = new Fauxble.Views.PagesProfile({
+				attr: self.attr,
+				user: user
+			});
+			self.renderColumns();
+			self.setCurrentView(view);
+			self.feed();
+			$('.right.column').html(view.render().el);
+
+			if (!self.checkTutorial(self.user, 'profile')) {
+				self.renderTutorial('profile');
+			}
+			self.triggerPage();
+			self.stopLoading();
 		}
-		this.triggerPage();
 	},
 	
 	renderTutorial: function(str) {
@@ -510,10 +618,12 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	stopLoading: function() {
-		this.load_view.remove();
-		this.load_view.unbind();
-		$('#loading').removeClass('active');
-		$('#loading').addClass('inactive');
+		if (this.load_view) {
+			this.load_view.remove();
+			this.load_view.unbind();
+			$('#loading').removeClass('active');
+			$('#loading').addClass('inactive');
+		}
 	},
 	
 	generateRandomUsers: function() {

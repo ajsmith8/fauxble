@@ -2,7 +2,11 @@ class ChallengesController < ApplicationController
   respond_to :json
   
   def index
-    @challenges = Challenge.all
+    if params[:challenge]
+      @challenges = Challenge.where(params[:challenge])
+    else
+      @challenges = Challenge.all
+    end
     respond_with @challenges
   end
   

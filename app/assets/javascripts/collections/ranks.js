@@ -3,8 +3,55 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 	model: Fauxble.Models.Rank,
 	url: 'ranks',	
 	
-	initialize: function(models, options) {
+	initialize: function() {
 		this.on('change:score', this.doSomethin, this);
+	},
+	
+	fetchRanks: function(issue, ids, callback) {
+		var params;
+		
+		if (issue) {
+			if (ids) {
+				params = {rank: {issue_id: issue.get('id'), user_id: ids}};
+			} else {
+				params = {rank: {issue_id: issue.get('id'), user_id: ids}};
+			}
+		} else {
+			if (ids) {
+				params = {rank: {issue_id: null, user_id: ids}};
+			} else {
+				params = {rank: {issue_id: null}};
+			}
+		}
+		
+		this.fetch({
+			data: params,
+			remove: false,
+			silent: true,
+			success: function(collection, response, options) {
+				console.log('rank success');
+				if (callback) {
+					callback();
+				}
+			},
+			error: function(collection, response, options) {
+				console.log('rank error');
+			}
+		});
+	},
+	
+	fetchUserRanks: function(user) {
+		this.fetch({
+			data: {
+				rank: {user_id: user.get('id')}
+			},
+			success: function(collection, response, options) {
+				
+			},
+			error: function(collection, response, options) {
+				console.log('rank error');
+			}
+		});
 	},
 	
 	comparator: function(rank) {
@@ -36,8 +83,10 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 		}
 	},
 	
-	createRank: function(user, challenge, score) {
-		var rank = this.where({user_id: user.get('id'), issue_id: challenge.get('issue_id')})[0];
+	createRank: function(user, challenge, score, fact) {
+		var rank = this.where({user_id: user.get('id'), issue_id: challenge.get('issue_id')})[0],
+			global = this.where({user_id: user.get('id'), issue_id: null})[0],
+			self = this;
 
 		if (!rank) {
 			rank = this.create({
@@ -47,9 +96,51 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 		}
 		
 		rank.set({
-			score: rank.get('score') + score
+			score: rank.get('score') + score,
+			facts: rank.get('facts') + fact
 		});
 		rank.save();
+		
+		if (!global) {
+			this.create({
+				user_id: user.get('id'),
+				issue_id: null,
+				score: self.getGlobalScore(user),
+				facts: self.getGlobalFacts(user)
+			});
+		} else {
+			global.set({
+				score: global.get('score') + score,
+				facts: global.get('facts') + fact
+			});
+			global.save();
+		}
+	},
+	
+	getGlobalScore: function(user) {
+		var ranks = this.where({user_id: user.get('id')}),
+			score = 0;
+			
+		for (var r = 0, len = ranks.length; r < len; r++) {
+			if (ranks[r].get('score')) {
+				score = score + ranks[r].get('score');
+			}
+		}
+		
+		return score;
+	},
+	
+	getGlobalFacts: function(user) {
+		var ranks = this.where({user_id: user.get('id')}),
+			facts = 0;
+			
+		for (var r = 0, len = ranks.length; r < len; r++) {
+			if (ranks[r].get('facts')) {
+				facts = facts + ranks[r].get('facts');
+			}
+		}
+		
+		return facts;
 	},
 	
 	getScore: function(user, issue) {
@@ -69,6 +160,61 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 		}
 		
 		return score;
+	},
+	
+	getFacts: function(issue) {
+		var ranks,
+			facts = 0;
+		
+		if (issue) {
+			ranks = this.where({issue_id: issue.get('id')});
+		} else {
+			ranks = this.where({issue_id: null});
+		}
+		
+		for (var r = ranks.length; r > 0; r--) {
+			facts = facts + ranks[r - 1].get('facts');
+		}
+		
+		return facts;
+	},
+	
+	getUsers: function(issue) {
+		var ranks,
+			users = 0;
+		
+		if (issue) {
+			ranks = this.where({issue_id: issue.get('id')});
+		} else {
+			ranks = this.where({issue_id: null});
+		}
+		
+		for (var r = ranks.length; r > 0; r--) {
+			if (ranks[r - 1].get('facts') > 0) {
+				users = users + 1;
+			}
+		}
+		
+		return users;
+	},
+	
+	getUserFacts: function(user, issue) {
+		var facts = 0,
+			ranks;
+		
+		if (issue) {
+			ranks = this.where({issue_id: issue.get('id'), user_id: user.get('id')});
+		} else {
+			ranks = this.where({issue_id: null, user_id: user.get('id')});
+		}
+		
+		for (var r = 0, len = ranks.length; r < len; r++) {
+			if (ranks[r].get('facts')) {
+				facts = facts + ranks[r].get('facts');
+			}
+		}
+		
+		return facts;
 	},
 	
 	getRank: function(users, user, issue) {
@@ -168,5 +314,47 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 			$(active_ele).empty();
 			this.appendFilledStar(filled_ele);
 		}
+	},
+	
+	getTopUsers: function(user, issue, num) {
+		console.log(this);
+		var users = Fauxble.users,
+			has_current_user = false,
+			tops = [],
+			index = 0,
+			ranks;
+		
+		if (issue) {
+			ranks = this.where({issue_id: issue.get('id')});
+		} else {
+			ranks = this.where({issue_id: null});
+		}
+		
+		ranks = ranks.sort(function(a, b) {
+			return b.get('score') - a.get('score');
+		});
+		console.log(ranks);
+		for (var i = 0; i < num; i++) {
+			var id = ranks[i].get('user_id');
+			
+			if (user && user.get('id') === id) {
+				has_current_user = true;
+			}
+			
+			tops.push({user: users.get(id), rank: i + 1});
+		}
+		
+		if (user && !has_current_user) {
+			for (var i = 5; i < ranks.length; i++) {
+				if (ranks[i].get('user_id') === user.get('id')) {
+					index = i + 1;
+					break;
+				}
+			}
+			
+			tops[4] = {user: user, rank: index};
+		}
+		
+		return tops;
 	}
 });

@@ -32,23 +32,23 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 		var issues;
 		
 		if (!this.issues) {
-			this.issues = this.attr.issues.availableIssues(this.attr.questions, 3);
+			this.issues = this.attr.issues.availableIssues(3);
 		}
 		
 		issues = _.shuffle(this.issues);
 		$(this.el).find('#issues').empty();
 		
 		for (var i = 0; i < 4; i++) {
-			this.appendIssue(issues[i], this.attr.questions.getNumQuestions(issues[i]), i);
+			console.log(i);
+			this.appendIssue(issues[i], i);
 		}
 	},
 	
-	appendIssue: function(issue, num_questions, count) {
+	appendIssue: function(issue, count) {
 		var view = new Fauxble.Views.IssuesShow({
 			attr: this.attr,
 			issue: issue,
 			challenge: this.challenge,
-			num_questions: num_questions,
 			count: count
 		});
 		this.subviews.push(view);
@@ -58,7 +58,7 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 	showAllIssues: function() {
 		var self = this,
 			num_questions,
-			issues = this.attr.issues.availableIssues(this.attr.questions, 3);
+			issues = this.attr.issues.availableIssues(3);
 		
 		$(this.el).find('#issues').empty();
 		
@@ -78,7 +78,7 @@ Fauxble.Views.PagesIssues = Backbone.View.extend({
 		});
 		this.challenge.save();
 		
-		question.show(this.challenge);
+		Backbone.history.navigate('question' + this.challenge.get('id') + '/' + question.get('url'), true);
 	},
 	
 	onClose: function() {

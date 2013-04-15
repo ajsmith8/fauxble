@@ -5,52 +5,26 @@ window.Fauxble = {
 	Routers: {},
 	
 	initialize: function(data) {
+		window.challenge_id		= null;
 		window.facts_question 	= false;
 		window.like				= true;
 		window.start_time		= new Date().getTime() / 1000;
-		window.scramble 		= makeid(8);
 		
 		this.current_user 		= new Fauxble.Models.User(data.current_user);
+		this.users 				= new Fauxble.Collections.Users(data.users);
+		this.challenges 		= new Fauxble.Collections.Challenges(data.challenges);
 		this.issues 			= new Fauxble.Collections.Issues(data.issues);
-		this.sliders 			= new Fauxble.Collections.Sliders(data.sliders);
-		this.answers 			= new Fauxble.Collections.Answers(data.answers);
-		this.questions 			= new Fauxble.Collections.Questions(data.questions, {
-			sliders: this.sliders,
-			answers: this.answers
-		});
-		this.sources 			= new Fauxble.Collections.Sources(data.sources);
-		this.comments			= new Fauxble.Collections.Comments(data.comments);
-		this.tasks 				= new Fauxble.Collections.Tasks(data.tasks, {
-			questions: this.questions,
-			sliders: this.sliders,
-			answers: this.answers
-		});
-		this.challenges 		= new Fauxble.Collections.Challenges(data.challenges, {
-			issues: this.issues,
-			questions: this.questions,
-			tasks: this.tasks
-		});
-		this.ranks 				= new Fauxble.Collections.Ranks(data.ranks, {
-			tasks: this.tasks
-		});
-		this.users 				= new Fauxble.Collections.Users(data.users, {
-			challenges: this.challenges,
-			ranks: this.ranks
-		});
+		this.questions 			= new Fauxble.Collections.Questions(data.questions);
+		this.sliders 			= new Fauxble.Collections.Sliders();
+		this.answers 			= new Fauxble.Collections.Answers();
+		this.sources 			= new Fauxble.Collections.Sources();
+		this.comments			= new Fauxble.Collections.Comments();
+		this.tasks 				= new Fauxble.Collections.Tasks();
+		this.ranks 				= new Fauxble.Collections.Ranks();
 		this.user_achievables 	= new Fauxble.Collections.UserAchievables(data.user_achievables);
-		this.achievables 		= new Fauxble.Collections.Achievables(data.achievables, {
-			tasks: this.tasks,
-			users: this.users,
-			challenges: this.challenges,
-			issues: this.issues,
-			user_achievables: this.user_achievables
-		});
+		this.achievables 		= new Fauxble.Collections.Achievables(data.achievables);
 		this.feedbacks			= new Fauxble.Collections.Feedbacks();
-		this.events 			= new Fauxble.Collections.Events(data.events, {
-			challenges: this.challenges,
-			user_achievables: this.user_achievables,
-			users: this.users
-		});
+		this.events 			= new Fauxble.Collections.Events();
 		
 		this.router = new Fauxble.Routers.Router({
 			current_user: 		this.current_user,

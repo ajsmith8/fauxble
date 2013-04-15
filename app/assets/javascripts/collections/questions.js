@@ -3,13 +3,29 @@ Fauxble.Collections.Questions = Backbone.Collection.extend({
 	model: Fauxble.Models.Question,
 	url: 'questions',
 	
-	initialize: function(models, options) {
-		this.sliders = options.sliders;
-		this.answers = options.answers;
+	initialize: function() {
+		this.sliders = Fauxble.sliders;
+		this.answers = Fauxble.answers;
+		this.sources = Fauxble.sources;
+		this.tasks = Fauxble.tasks;
+	},
+	
+	fetchQuestions: function(ids, callback) {
+		this.fetch({
+			data: {
+				question: {id: ids}
+			},
+			success: function(collection, response, options) {
+				callback();
+			},
+			error: function(collection, response, options) {
+				console.log('question error');
+			}
+		});
 	},
 	
 	getNumQuestions: function(issue) {
-		return this.where({issue_id: issue.get('id')}).length;
+		return issue.get('facts');
 	},
 	
 	getRandomIds: function(issue, num) {

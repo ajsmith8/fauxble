@@ -2,7 +2,11 @@ class SlidersController < ApplicationController
   respond_to :json
   
   def index
-    @sliders = Slider.all
+    if params[:slider]
+      @sliders = Slider.where(params[:slider])
+    else
+      @sliders = Slider.all
+    end
     respond_with @sliders
   end
   

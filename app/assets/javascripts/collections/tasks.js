@@ -3,10 +3,46 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 	model: Fauxble.Models.Task,
 	url: 'tasks',
 	
-	initialize: function(models, options) {
-		this.questions = options.questions;
-		this.sliders = options.sliders;
-		this.answers = options.answers;
+	initialize: function() {
+		this.questions = Fauxble.questions;
+		this.sliders = Fauxble.sliders;
+		this.answers = Fauxble.answers;
+	},
+	
+	fetchTasks: function(ids, challenge, callback) {
+		var params;
+		
+		if (challenge) {
+			params = {task: {question_id: ids, challenge_id: challenge.get('id')}};
+		} else {
+			params = {task: {question_id: ids}};
+		}
+		
+		this.fetch({
+			data: params,
+			remove: false,
+			silent: true,
+			success: function(collection, response, options) {
+				callback();
+			},
+			error: function(collection, response, options) {
+				console.log('task error');
+			}
+		});
+	},
+	
+	fetchIssueTasks: function(id, callback) {
+		this.fetch({
+			data: {
+				task: {issue_id: id}
+			},
+			success: function(collection, response, options) {
+				callback();
+			},
+			error: function(collection, response, options) {
+				console.log('task error');
+			}
+		});
 	},
 	
 	createTask: function(question, challenge, user, answer_id, answer, score, time, ranks) {
@@ -15,13 +51,11 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 			question_id: question.get('id'),
 			challenge_id: challenge.get('id'),
 			user_id: user.get('id')
-		})[0];
+		})[0],
+			facts = 0;
 		
 		if (!this.where({user_id: user.get('id'), question_id: question.get('id')})[0]) {
-			user.set({
-				facts: user.get('facts') + 1
-			});
-			user.save();
+			facts = 1;
 		}
 		
 		if (!task) {
@@ -36,7 +70,7 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 				time: time
 			});
 			
-			ranks.createRank(user, challenge, score);
+			ranks.createRank(user, challenge, score, facts);
 			
 			return null;
 		} else {
@@ -67,7 +101,7 @@ Fauxble.Collections.Tasks = Backbone.Collection.extend({
 				facts = facts + 1;
 			}
 		});
-		
+
 		return facts;
 	},
 	

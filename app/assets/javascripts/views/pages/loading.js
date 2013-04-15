@@ -20,7 +20,6 @@ Fauxble.Views.PagesLoading = Backbone.View.extend({
 			self = this;
 		
 		for (var i = 0, len = elements.length; i < len; i++) {
-			console.log('outside setTimeout ' + i);
 			this.loading(elements[i], i);
 		}
 	},

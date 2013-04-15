@@ -16,7 +16,7 @@ Fauxble.Views.CommentsShow = Backbone.View.extend({
 		this.issue = this.attr.issues.get(this.comment.get('issue_id'));
 		this.comments = this.getChildren(this.comment);
 		this.rank = this.attr.users.getGlobalRank(this.commentor);
-		this.facts = this.attr.tasks.getFactsLearned(this.commentor);
+		this.facts = this.attr.ranks.getUserFacts(this.commentor, this.issue);
 		this.subviews = [];
 	},
 	

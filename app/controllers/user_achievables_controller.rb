@@ -2,7 +2,11 @@ class UserAchievablesController < ApplicationController
   respond_to :json
   
   def index
-    @user_achievables = UserAchievable.all
+    if params[:user_achievable]
+      @user_achievables = UserAchievable.where(params[:user_achievable])
+    else
+      @user_achievables = UserAchievable.all
+    end
     respond_with @user_achievables
   end
   

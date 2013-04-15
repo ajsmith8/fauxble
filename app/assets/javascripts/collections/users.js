@@ -3,13 +3,9 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 	model: Fauxble.Models.User,
 	url: 'users',
 	
-	initialize: function(models, options) {
-		this.ranks = options.ranks;
+	initialize: function(models) {
+		this.ranks = Fauxble.ranks;
 		this.faux_users = null;
-	},
-	
-	comparator: function(user) {
-		return this.ranks.getScore(user, null);
 	},
 	
 	getTopUsers: function(user, issue, length) {
@@ -20,7 +16,7 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 			current_user;
 
 		users.sort(function(a, b) {
-			return self.ranks.getScore(b, issue) - self.ranks.getScore(a, issue);
+			return 0;
 		});
 			
 		if (users.length < length) {
@@ -177,7 +173,7 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 			self = this;
 		
 		users.sort(function(a, b) {
-			return self.ranks.getScore(b, null) - self.ranks.getScore(a, null);
+			return 0;
 		});
 			
 		if (users.indexOf(user) !== -1) {
