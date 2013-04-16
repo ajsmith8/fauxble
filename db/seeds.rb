@@ -79,6 +79,20 @@ Achievable.create(
   count: 3
 )
 
+# Sex Offender Laws issue_id -> 21
+Issue.create(
+  title: 'Sex Offender Registration',
+  description: 'Sex offender registration is a system in various states designed to allow government authorities to keep track of the residence and activities of sex offenders, including those who have completed their criminal sentences.',
+  image: 'sexoffender'
+)
+
+# U.S. Immigration issue_id -> 22
+Issue.create(
+  title: 'U.S. Immigration',
+  description: 'Immigration to the United States is a complex demographic phenomenon that has been a major source of population growth and cultural change throughout much of the history of the United States.',
+  image: 'immigration'
+)
+
 # 209
 Question.create(
   issue_id: 21,
@@ -125,6 +139,7 @@ Slider.create(
   units: '/ states'
 )
 
+# 211
 Question.create(
   issue_id: 21,
   title: 'How many states require sex offender registration for public urination?',
@@ -147,6 +162,7 @@ Slider.create(
   units: '/ states'
 )
 
+# 212
 Question.create(
   issue_id: 21,
   title: 'Juveniles make up more than __ percent of those convicted of sex offenses against children',
@@ -169,6 +185,7 @@ Slider.create(
   units: '/%'
 )
 
+# 213
 Question.create(
   issue_id: 21,
   title: 'There are approximately how many registered sex offenders in the U.S.?',
@@ -209,6 +226,7 @@ Answer.create(
   is_correct: false
 )
 
+# 214
 Question.create(
   issue_id: 21,
   title: 'California\'s Proposition 83 prohibits all registered sex offenders (felony and misdemeanor alike) from living within __ feet of a school or park',
@@ -231,6 +249,7 @@ Slider.create(
   units: '/ feet'
 )
 
+# 215
 Question.create(
   issue_id: 21,
   title: 'What percent of child molestations are committed by a family member, friend of the family, or known and trusted adult in the community?',
@@ -253,6 +272,7 @@ Slider.create(
   units: '/%'
 )
 
+# 216
 Question.create(
   issue_id: 21,
   title: 'The U.S. Department of Justice links all state\'s sex offender registries into one database that is available to?',
@@ -293,20 +313,7 @@ Answer.create(
   is_correct: false
 )
 
-# Sex Offender Laws issue_id -> 21
-Issue.create(
-  title: 'Sex Offender Registration',
-  description: 'Sex offender registration is a system in various states designed to allow government authorities to keep track of the residence and activities of sex offenders, including those who have completed their criminal sentences.',
-  image: 'sexoffender'
-)
-
-# U.S. Immigration issue_id -> 22
-Issue.create(
-  title: 'U.S. Immigration',
-  description: 'Immigration to the United States is a complex demographic phenomenon that has been a major source of population growth and cultural change throughout much of the history of the United States.',
-  image: 'immigration'
-)
-
+# 217
 Question.create(
   issue_id: 22, 
   title: 'A report from the Pew Research Center projects that by 2050, non-Hispanic whites will account for what percent of the U.S. population?',
@@ -329,6 +336,7 @@ Slider.create(
   units: '/%'
 )
 
+#218
 Question.create(
   issue_id: 22,
   title: 'Non-Hispanic whites made up what percent of the population in 1960?',
@@ -351,6 +359,7 @@ Slider.create(
   units: '/%'
 )
 
+#219
 Question.create(
   issue_id: 22,
   title: 'Foreign nationals with family ties to American citizens and green-card holders accounted for about what percent of the total 1.1 million individuals who were granted legal permanent residency status by the U.S. government in 2009?',
@@ -373,6 +382,7 @@ Slider.create(
   units: '/%'
 )
 
+#220
 Question.create(
   issue_id: 22,
   title: 'In 2009, a study by the Cato Institute found that legalization of low-skilled illegal resident workers in the US would result in a net increase in US GDP of how much over ten years?',
@@ -413,6 +423,7 @@ Answer.create(
   is_correct: false
 )
 
+# 221
 Question.create(
   issue_id: 22,
   title: 'According to the Cato Institute, a policy that reduces low-skilled immigration to about a third less than projected levels, over ten years, would reduce/increase U.S. household welfare by about what percent?',
@@ -453,6 +464,7 @@ Answer.create(
   is_correct: false
 )
 
+# 222
 Question.create(
   issue_id: 22,
   title: 'What percent of google\'s employees are in the U.S. on H-1B visas (non-immigrant temporary work visas)?',
@@ -475,6 +487,7 @@ Slider.create(
   units: '/%'
 )
 
+# 223
 Question.create(
   issue_id: 22,
   title: 'Immigrants have founded what percent of companies in the tech sector that were financed by venture capital and went on to become public in the United States, among them Yahoo, eBay, Intel and Google?',
@@ -497,6 +510,7 @@ Slider.create(
   units: '/%'
 )
 
+# 224
 Question.create(
   issue_id: 22, 
   title: 'On Average, a U.S. citizen wishing to sponsor an unmarried adult child from Mexico, has to wait about how many years before the application will be processed?',
@@ -519,6 +533,7 @@ Slider.create(
   units: '/ years'
 )
 
+# 225
 Question.create(
   issue_id: 22, 
   title: 'On average, a U.S. citizen wishing to sponsor a sibling from the Philippines has to wait how many years before the application will be processed?',
@@ -541,6 +556,7 @@ Slider.create(
   units: '/ years'
 )
 
+# 226
 Question.create(
   issue_id: 22,
   title: 'As of March 2012, US Citizenship and Immigration Services was processing some family-related visas applications filed as far back as January ___?',
@@ -587,6 +603,7 @@ Question.create(
   is_slider: false
 )
 
+#227
 Source.create(
   issue_id: 22,
   question_id: 227, 
@@ -621,6 +638,7 @@ Answer.create(
   is_correct: true
 )
 
+# 228
 Question.create(
   issue_id: 22,
   title: 'According to the Department of Homeland Security\'s Office of Immigration Statistics (OIS), an estimated ___ unauthorized immigrants resided in the United States as of January 2011.',
