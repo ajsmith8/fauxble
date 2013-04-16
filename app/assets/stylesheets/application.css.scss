@@ -32,20 +32,21 @@
 }
 
 .sidecar {
-	
 	&.container {
-		position: relative;
-		float: left;
+		position: absolute;
+		top: 50px;
+		left: 23%;
 		height: 20px;
 		width: 70%;
-		margin: 0;
 	}
 	
 	&.text {
 		position: absolute;
 		top: 20px;
 		left: 0;
-		
+		font-weight: bold;
+		font-size: 14px;
+		color: $black;
 		span {
 			cursor: pointer;
 			background: #e5e5e5;
@@ -79,7 +80,7 @@
 	position: relative;
 	width: 90%;
 	margin: 0 0 15px 5%;
-	height: 50px;
+	height: 200px;
 }
 
 .tutorial {
