@@ -16,10 +16,6 @@ Fauxble.Views.MfcLeft = Backbone.View.extend({
 		
 		$(this.el).html(this.template());
 		
-		setTimeout(function() {
-			self.fillBar();
-		}, 0);
-		
 		return this;
 	},
 
@@ -42,13 +38,26 @@ Fauxble.Views.MfcLeft = Backbone.View.extend({
 	},
 	
 	getFacts: function() {
-		var users = this.attr.users.getSignedInUsers(),
-			facts = 0;
+		var facts = 0,
+			self = this;
 		
-		for (var u = 0, len = users.length; u < len; u++) {
-			facts = facts + users[u].get('facts');
-		}
-		
-		return 4000 + facts;
+		this.attr.ranks.fetch({
+			data: {
+				rank: {issue_id: null}
+			},
+			remove: false,
+			silent: true,
+			success: function(collection, response, options) {
+				var ranks = collection.toArray();
+				for (var c = 0, len = ranks.length; c < len; c++) {
+					if (ranks[c].get('facts')) {
+						facts = facts + ranks[c].get('facts');
+					}
+				}
+				
+				self.facts = facts;
+				self.fillBar();
+			}
+		});
 	}
 });

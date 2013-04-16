@@ -95,7 +95,7 @@ Fauxble.Views.PagesAux = Backbone.View.extend({
 				issue = this.attr.issues.where({url: hash.split('/')[1]})[0];
 			}
 		}
-		
+		console.log(issue);
 		return issue;
 	},
 	

@@ -20,7 +20,6 @@ Fauxble.Collections.UserAchievables = Backbone.Collection.extend({
 			remove: false,
 			silent: true,
 			success: function(collection, response, options) {
-				console.log(collection);
 				if (callback) {
 					callback();
 				}

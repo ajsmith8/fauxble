@@ -14,7 +14,7 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 			if (ids) {
 				params = {rank: {issue_id: issue.get('id'), user_id: ids}};
 			} else {
-				params = {rank: {issue_id: issue.get('id'), user_id: ids}};
+				params = {rank: {issue_id: issue.get('id')}};
 			}
 		} else {
 			if (ids) {
@@ -45,6 +45,8 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 			data: {
 				rank: {user_id: user.get('id')}
 			},
+			remove: false,
+			silent: true,
 			success: function(collection, response, options) {
 				
 			},
