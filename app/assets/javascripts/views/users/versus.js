@@ -52,13 +52,14 @@ Fauxble.Views.UsersVersus = Backbone.View.extend({
 			question_ids = this.challenge.get('question_ids').split('/'),
 			ids = [];
 			
-		if (hash.split('question').length === 2) {
-			hash = hash.split('question')[1];
+		if (hash.split('question').length > 1) {
+			hash = hash.split('/')[1];
+			var question = this.attr.questions.where({url: hash})[0];
 			
 			for (i = 0; i < question_ids.length; i++) {
 				ids.push(parseInt(question_ids[i]));
 				
-				if (parseInt(question_ids[i]) === parseInt(hash)) {
+				if (parseInt(question_ids[i]) === question.get('id')) {
 					break;
 				}	
 			}

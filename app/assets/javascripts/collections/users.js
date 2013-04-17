@@ -96,6 +96,7 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 			signed_in: true
 		}, {
 			success: function(model, response) {
+				Backbone.history.navigate('', false);
 				window.location.reload();
 			},
 			error: function(model, response) {

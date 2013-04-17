@@ -13,6 +13,7 @@ Fauxble.Collections.Achievables = Backbone.Collection.extend({
 		
 		this.tasks.on('add', this.checkTaskAchievable, this);
 		this.challenges.on('change:winner_id', this.checkChallengeAchievable, this);
+		this.users.on('time', this.checkTimeAchievable, this);
 	},
 	
 	fetchOnInit: function() {
@@ -49,6 +50,10 @@ Fauxble.Collections.Achievables = Backbone.Collection.extend({
 				this.lostGamesStreak(user);
 			}
 		}
+	},
+	
+	checkTimeAchievable: function(time) {
+
 	},
 	
 	learnedFacts: function(user) {

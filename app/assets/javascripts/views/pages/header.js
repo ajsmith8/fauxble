@@ -138,9 +138,11 @@ Fauxble.Views.PagesHeader = Backbone.View.extend({
 				gaEvent('Login', 'Email', 'Header', null);
 				user.save({}, {
 					success: function(model, response) {
+						Backbone.history.navigate('', false);
 						window.location.reload();
 					},
 					error: function(model, response) {
+						Backbone.history.navigate('', false);
 						window.location.reload();
 					}
 				});
