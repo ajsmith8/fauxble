@@ -27,7 +27,7 @@ Fauxble.Views.UsersProfile = Backbone.View.extend({
 		$(this.el).html(this.template({
 			user: this.user,
 			games: this.games,
-			rank: this.attr.users.getGlobalRank(this.user)
+			rank: this.attr.ranks.getUserGlobalRank(this.user)
 			//rank: this.attr.ranks.getRank(this.attr.users, this.user, null)
 		}));
 		

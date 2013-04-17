@@ -318,6 +318,24 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 		}
 	},
 	
+	getUserGlobalRank: function(user) {
+		var ranks = this.where({issue_id: null}),
+			index = ranks.length;
+		
+		ranks = ranks.sort(function(a, b) {
+			return b.get('score') - a.get('score');
+		});
+		
+		for (var r = 0, len = ranks.length; r < len; r++) {
+			if (ranks[r].get('user_id') === user.get('id')) {
+				index = r + 1;
+				break;
+			}
+		}
+		
+		return index;
+	},
+	
 	getTopUsers: function(user, issue, num) {
 		console.log(this);
 		var users = Fauxble.users,
@@ -331,6 +349,8 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 		} else {
 			ranks = this.where({issue_id: null});
 		}
+		
+		index = ranks.length;
 		
 		ranks = ranks.sort(function(a, b) {
 			return b.get('score') - a.get('score');
