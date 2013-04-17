@@ -38,6 +38,8 @@ Fauxble.Collections.Achievables = Backbone.Collection.extend({
 			challenger = this.users.get(model.get('challenger_id'));
 			
 		if (model.get('winner_id')) {
+			this.gamesPlayed(user);
+			this.gamesPlayed(challenger);
 			if (user.get('id') === model.get('winner_id')) {
 				this.wonGames(user);
 				this.wonGamesStreak(user);
@@ -52,8 +54,32 @@ Fauxble.Collections.Achievables = Backbone.Collection.extend({
 		}
 	},
 	
-	checkTimeAchievable: function(time) {
+	checkTimeAchievable: function(options) {
+		var time = options.time,
+			user = options.user;
+			
+		this.timeOnSite(user, time);
+	},
+	
+	timeOnSite: function(user, time) {
+		var achievables = this.where({name: 'tos'}),
+			achievable = null,
+			self = this;
+			
+		this.user_achievables.fetchUserAchievables(user, achievables, callback);
 
+		function callback() {
+			for (var a = 0; a < achievables.length; a++) {
+				if (!self.user_achievables.hasEarned(user, achievables[a])) {
+					achievable = achievables[a];
+					break;
+				}
+			}
+
+			if (achievable && achievable.get('count') <= time) {
+				self.user_achievables.createUserAchievable(user, achievable);
+			}
+		}
 	},
 	
 	learnedFacts: function(user) {
@@ -71,7 +97,7 @@ Fauxble.Collections.Achievables = Backbone.Collection.extend({
 				}
 			}
 		
-			if (achievable && achievable.get('count') <= self.tasks.getFactsLearned(user)) {
+			if (achievable && achievable.get('count') <= Fauxble.ranks.getGlobalFacts(user)) {
 				self.user_achievables.createUserAchievable(user, achievable);
 			}
 		}
@@ -82,6 +108,7 @@ Fauxble.Collections.Achievables = Backbone.Collection.extend({
 			achievable = null,
 			self = this;
 			
+		this.challenges.fetchChallenges(user, null);
 		this.user_achievables.fetchUserAchievables(user, achievables, callback);
 		
 		function callback() {
@@ -102,7 +129,8 @@ Fauxble.Collections.Achievables = Backbone.Collection.extend({
 		var achievables = this.where({name: 'losses'}),
 			achievable = null,
 			self = this;
-			
+		
+		this.challenges.fetchChallenges(user, null);
 		this.user_achievables.fetchUserAchievables(user, achievables, callback);	
 		
 		function callback() {
@@ -123,7 +151,8 @@ Fauxble.Collections.Achievables = Backbone.Collection.extend({
 		var achievables = this.where({name: 'wins streak'}),
 			achievable = null,
 			self = this;
-			
+		
+		this.challenges.fetchChallenges(user, null);
 		this.user_achievables.fetchUserAchievables(user, achievables, callback);
 		
 		function callback() {
@@ -145,6 +174,7 @@ Fauxble.Collections.Achievables = Backbone.Collection.extend({
 			achievable = null,
 			self = this;
 		
+		this.challenges.fetchChallenges(user, null);
 		this.user_achievables.fetchUserAchievables(user, achievables, callback);
 		
 		function callback() {
@@ -159,6 +189,28 @@ Fauxble.Collections.Achievables = Backbone.Collection.extend({
 				self.user_achievables.createUserAchievable(user, achievable);
 			}
 		}	
+	},
+	
+	gamesPlayed: function(user) {
+		var achievables = this.where({name: 'played'}),
+			achievable = null,
+			self = this;
+		
+		this.challenges.fetchChallenges(user, null);
+		this.user_achievables.fetchUserAchievables(user, achievables, callback);
+		
+		function callback() {
+			for (var a = 0; a < achievables.length; a++) {
+				if (!self.user_achievables.hasEarned(user, achievables[a])) {
+					achievable = achievables[a];
+					break;
+				}
+			}
+		
+			if (achievable && achievable.get('count') <= self.challenges.getChallenges(user, true, true).length) {
+				self.user_achievables.createUserAchievable(user, achievable);
+			}
+		}
 	}
 	// ***ACHIEVABLES FOR THIS VERSION***
 	// learned 4 facts (answered 4 questions) 	-> check for this upon task creation

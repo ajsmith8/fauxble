@@ -17,15 +17,7 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 				challenge: {user_id: user.get('id'), is_finished: 't'}
 			},
 			remove: false,
-			silent: true,
-			success: function(collection, response, options) {
-				console.log('1');
-				console.log(collection);
-				console.log(options);
-			},
-			error: function(collection, response, options) {
-				console.log('challenge error 1');
-			}
+			silent: true
 		});
 		
 		this.fetch({
@@ -34,13 +26,9 @@ Fauxble.Collections.Challenges = Backbone.Collection.extend({
 			},
 			remove: false,
 			success: function(collection, response, options) {
-				console.log('2');
-				console.log(collection);
-				console.log(options);
-				callback();
-			},
-			error: function(collection, response, options) {
-				console.log('challenge error 2');
+				if (callback) {
+					callback();
+				}
 			}
 		});
 	},

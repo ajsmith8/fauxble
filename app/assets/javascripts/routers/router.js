@@ -49,10 +49,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.chat();
 		this.popup();
 		this.showFeedback();
-		
-		if (this.attr.current_user.get('uid') === '530468649') {
-			this.pwnCameron();
-		}
+		this.timeOnSite();
 		
 		var id = 0,
 			self = this;
@@ -430,6 +427,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	question: function(id, name) {
+		this.startLoading();
 		var self = this,
 			challenge = this.attr.challenges.get(parseInt(id)),
 			issue = this.attr.issues.get(challenge.get('issue_id')),
@@ -447,7 +445,6 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			callback();
 		} else {
 			window.challenge_id = challenge.get('id');
-			this.startLoading();
 			setQuestion();
 		}
 		
@@ -758,7 +755,13 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		}	
 	},
 	
-	pwnCameron: function() {
-		//window.open('http://www.meatspin.com');
+	timeOnSite: function() {
+		var time = 0,
+			self = this;
+		
+		setInterval(function() {
+			time = time + 60;
+			self.attr.users.trigger('time', {time: time, user: self.user});
+		}, 60000);
 	}
 });

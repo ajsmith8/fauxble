@@ -120,7 +120,7 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 	},
 	
 	getGlobalScore: function(user) {
-		var ranks = this.where({user_id: user.get('id')}),
+		var ranks = this.where({user_id: user.get('id'), issue_id: null}),
 			score = 0;
 			
 		for (var r = 0, len = ranks.length; r < len; r++) {
@@ -133,7 +133,7 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 	},
 	
 	getGlobalFacts: function(user) {
-		var ranks = this.where({user_id: user.get('id')}),
+		var ranks = this.where({user_id: user.get('id'), issue_id: null}),
 			facts = 0;
 			
 		for (var r = 0, len = ranks.length; r < len; r++) {
@@ -153,7 +153,7 @@ Fauxble.Collections.Ranks = Backbone.Collection.extend({
 			if (issue) {
 				ranks = this.where({user_id: user.get('id'), issue_id: issue.get('id')});
 			} else {
-				ranks = this.where({user_id: user.get('id')});
+				ranks = this.where({user_id: user.get('id'), issue_id: null});
 			}
 		}
 		

@@ -122,30 +122,40 @@ Fauxble.Collections.Users = Backbone.Collection.extend({
 		});
 	},
 	
-	getActiveFusers: function(challenges, user, length) {
-		var users = this.getSignedInUsers(),
-			completes = [], 
-			actives = [];
+	getActiveFusers: function(challenges, user, length, callback) {
+		var users = this.getSignedInUsers();
 		
-		for (u = 0; u < users.length; u++) {
-			completes = challenges.getChallenges(users[u], true, null);
-			
-			if (completes.length > 0) {
-				if (users[u].get('id') !== user.get('id')) {
-					actives.push({user: users[u], num: completes.length});
+		challenges.fetch({
+			data: {
+				challenge: {is_finished: 't', is_sent: 't'}
+			},
+			silent: true, 
+			remove: false,
+			success: function(collection, response, options) {
+				var actives = [],
+					completes;
+					
+				for (u = 0; u < users.length; u++) {
+					completes = challenges.getChallenges(users[u], true, null);
+
+					if (completes.length > 0) {
+						if (users[u].get('id') !== user.get('id')) {
+							actives.push({user: users[u], num: completes.length});
+						}
+					}
 				}
+
+				actives.sort(function(a, b) {
+					return b.num - a.num;
+				});
+
+				if (actives.length < length) {
+					length = actives.length;
+				}
+
+				callback(actives.splice(0, length));
 			}
-		}
-		
-		actives.sort(function(a, b) {
-			return b.num - a.num;
 		});
-		
-		if (actives.length < length) {
-			length = actives.length;
-		}
-		
-		return actives.splice(0, length);
 	},
 	
 	getFacebookFriends: function() {

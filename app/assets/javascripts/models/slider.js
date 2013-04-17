@@ -148,7 +148,7 @@ Fauxble.Models.Slider = Backbone.Model.extend({
 			slider_width = this.slider_width,
 			margin = this.left_margin;
 
-		return (input / ((max - min) / bar_width)) - (0.5 * slider_width);
+		return ((input - min) * (bar_width / (max - min))) - (0.5 * slider_width);
 	},
 	
 	highlightFill: function() {

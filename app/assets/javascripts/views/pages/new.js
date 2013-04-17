@@ -31,10 +31,14 @@ Fauxble.Views.PagesNew = Backbone.View.extend({
 	},
 	
 	renderTopFusers: function() {
-		var users = this.attr.users.getActiveFusers(this.attr.challenges, this.user, 5);
+		var self = this;
+		
+		this.attr.users.getActiveFusers(this.attr.challenges, this.user, 5, callback);
 
-		for (var u = 0, len = users.length; u < len; u++) {
-			this.appendUser(users[u].user, $(this.el).find('#active_fusers'), u);
+		function callback(users) {
+			for (var u = 0, len = users.length; u < len; u++) {
+				self.appendUser(users[u].user, $(self.el).find('#active_fusers'), u);
+			}
 		}
 	},
 	
