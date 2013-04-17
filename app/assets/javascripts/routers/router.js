@@ -1,29 +1,34 @@
 Fauxble.Routers.Router = Backbone.Router.extend({
 	
 	routes: {
-		''				: 'checkCurrentUser',			//issue			question
-		'challenges' 		: 'challenges',				//false			false
-		'about'				: 'about',					//false			false
-		'million-fact-challenge' : 'mfc',				//false			false
-		'user:id/select' 			: 'pagesNew',		//false			false
-		'issue:id/select'			: 'issueSelect',	//false			false
-		'issue/:name'			: 'issue',				//true			false
-		'issues'		: 'issues',						//false			false
-		'question:id/:name' : 'question',				//true			true
-		'results:id' 		: 'results',				//true			false
-		'user/:name' 			: 'profile',			//false			false
+	//	route hash					: router function
+		''							: 'checkCurrentUser',
+		'challenges' 				: 'challenges',
+		'about'						: 'about',
+		'million-fact-challenge' 	: 'mfc',
+		'user:id/select' 			: 'pagesNew',
+		'issue:id/select'			: 'issueSelect',
+		'issue/:name'				: 'issue',
+		'issues'					: 'issues',
+		'question:id/:name' 		: 'question',
+		'results:id' 				: 'results',			
+		'user/:name' 				: 'profile',
 		
 		/*'random/content/users'		: 'generateRandomUsers',
 		'random/content/challenges'	: 'generateRandomContent',
 		'random/content/ranks'		: 'generateRandomRanks',*/ 
 	},
 	
+	// if you specify an initialize function in backbone, 
+	// it gets called automatically when the specific router/collection/view
+	// gets initialized (makes sense right)
 	initialize: function(options) {
 		this.user = options.users.get(options.current_user.get('id'));
 		this.columns = false;
 		this.like_view = null;
 		this.working = false;
 		
+		// I put all the collections into this obj to make them easier to pass around
 		this.attr = {
 			current_user: options.current_user,
 			users: options.users,
@@ -42,6 +47,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			events: options.events
 		};
 		
+		//render views that are always there
 		this.header();
 		this.footer();
 		this.feedbackTab();
@@ -51,14 +57,15 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		this.showFeedback();
 		this.timeOnSite();
 		
-		var id = 0,
-			self = this;
-			
+		// google analytics stuff
+		var id = 0;	
 		if (this.user) {
 			id = this.user.get('id');
 		}
 		gaCustomVar(1, 'User', String(id), 2);
 		
+		// this creates some event handlers for all
+		// router events (like anytime it goes to a new route)
 		this.bind('all', this._trackPageview);
 		this.bind('all', this.likeSlideOut);
 	},
@@ -99,6 +106,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		}
 	},
 	
+	//this switches the quote when you go to a new page
 	triggerPage: function() {
 		this.attr.users.trigger('page');
 	},
@@ -146,6 +154,10 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		}
 	},
 	
+	// next 2 functions used to keep views cleaned up
+	// and make sure no ghost events get fired from
+	// previous views
+	// ties in with the onClose functions
 	setCurrentView: function(view) {
 		if (this.current_view) {
 			this.current_view.remove();
@@ -184,9 +196,13 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	header: function() {
+		// initialize the view 
 		var view = new Fauxble.Views.PagesHeader({
+			// pass the collections
 			attr: this.attr
 		});
+		// calls the render function of the view and puts 
+		// it in the div class header
 		$('.header').html(view.render().el);
 	},
 	
@@ -269,7 +285,6 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 			attr: this.attr,
 			router: this
 		});
-		//facts learned
 		var left = new Fauxble.Views.MfcLeft({
 			attr: this.attr
 		});

@@ -5,11 +5,13 @@ window.Fauxble = {
 	Routers: {},
 	
 	initialize: function(data) {
+		// misc variables (window object is available from anywhere)
 		window.challenge_id		= null;
 		window.facts_question 	= false;
 		window.like				= true;
 		window.start_time		= new Date().getTime() / 1000;
 		
+		// initializing all of the collections
 		this.current_user 		= new Fauxble.Models.User(data.current_user);
 		this.users 				= new Fauxble.Collections.Users(data.users);
 		this.challenges 		= new Fauxble.Collections.Challenges(data.challenges);
@@ -26,6 +28,7 @@ window.Fauxble = {
 		this.feedbacks			= new Fauxble.Collections.Feedbacks();
 		this.events 			= new Fauxble.Collections.Events();
 		
+		// start the router with all the collections
 		this.router = new Fauxble.Routers.Router({
 			current_user: 		this.current_user,
 			users: 				this.users,
@@ -48,6 +51,12 @@ window.Fauxble = {
 	}
 };
 
+// this isnt used anymore but note the format
+// function name(options) {} is standard javascript
+// where
+// name: function(options) {} is standard backbone.js
+//
+// functions like the ones below can be referenced from anywhere in the javascript
 function makeid(length) {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -59,6 +68,9 @@ function makeid(length) {
     return text;
 }
 
+// google analytics functions I put here to keep all
+// code that had to change from development to production
+// in one file
 function gaCustomVar(index, name, value, scope) {
 	//_gaq.push(['_setCustomVar', index, name, value, scope]);
 }
@@ -82,6 +94,8 @@ function gaPageview(url, user) {
 	//_gaq.push(['_trackPageview', "/" + url]);
 }
 
+// login and signout so I only had
+// to change the urls once
 function fbLogin() {
 	window.location = "http://localhost:3000/auth/facebook";
 	//window.location = "http://salty-lowlands-9089.herokuapp.com/auth/facebook";
@@ -94,6 +108,8 @@ function signout() {
 	//window.location = 'http://fusegap.org/signout';
 }
 
+//formats urls for google analytics to limit the pages
+// ie: question1234/this-is-a-question becomes just question
 function formatUrl(url) {
 	var split = url.split('/');
 	

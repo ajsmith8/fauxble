@@ -15,6 +15,10 @@
 <div class = 'like-feedback'></div>
 <div class = 'feedback'></div>
 
+<!-- bootstrapped data needed for initial load 
+	 no particular reason I used instance variables
+	 see sessions#main for variable assigment -->
+	
 <script type = 'text/json' id = 'json'>
 	{
 		"current_user" : <%= @current_user.to_json %>,
@@ -27,14 +31,19 @@
 	}
 </script>
 
+
 <%= content_for :javascript do -%>
 	<script type = 'text/javascript'>
 		$(function() {
+			// formats bootstrapped data for backbone
+			// initialization
 			var div, data;
 			div = $('<div></div>');
 			div.html($('#json').text());
 			data = JSON.parse(div.text());
-		
+			
+			// this is what starts Backbone
+			// fauxble.js file is where it begins
 			Fauxble.initialize(data);
 		});
 	</script>
