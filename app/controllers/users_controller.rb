@@ -21,6 +21,8 @@ class UsersController < ApplicationController
   end
   
   def update
+    # I use this to sneakily sign in the email users
+    # since nothing on the user model is ever updated
     @user = User.update(params[:id], params[:user])
     session[:user_id] = @user.id
     respond_with @user

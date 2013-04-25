@@ -23,6 +23,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	// it gets called automatically when the specific router/collection/view
 	// gets initialized (makes sense right)
 	initialize: function(options) {
+	
 		this.user = options.users.get(options.current_user.get('id'));
 		this.columns = false;
 		this.like_view = null;
@@ -75,16 +76,22 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	},
 	
 	likeSlideOut: function() {
+		// you'll see this a lot right now "this" is the scope 
+		// within the router, but the scope of "this" changes if you are 
+		// inside a nested function
 		var self = this;
 		
 		if (window.like && this.like_view) {
 			FB.getLoginStatus(function(response) {
 				if (response.authResponse.accessToken) {
+					// user is signed in on facebook (not on our site)
 					FB.api('/me/likes/471887209511817?access_token=' + response.authResponse.accessToken,function(like_response) {
 						if (like_response.data) {
 							if(like_response.data[0]) {
+								// if they already like us
 								window.like = false;
 							} else {
+								// if they don't like us
 								self.slideItOut();
 							}
 						}
@@ -197,6 +204,8 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 	
 	header: function() {
 		// initialize the view 
+		// view naming conventions I used are:
+		// Views.PagesHeader => javascripts/views/pages/header.js
 		var view = new Fauxble.Views.PagesHeader({
 			// pass the collections
 			attr: this.attr
@@ -638,6 +647,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		}
 	},
 	
+	// random content functions
 	generateRandomUsers: function() {
 		var users = this.attr.users.where({signed_in_fb: true}),
 			friends = [],
@@ -770,6 +780,7 @@ Fauxble.Routers.Router = Backbone.Router.extend({
 		}	
 	},
 	
+	// used for the two "time on site" achievements
 	timeOnSite: function() {
 		var time = 0,
 			self = this;

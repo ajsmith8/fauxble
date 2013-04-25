@@ -2,6 +2,7 @@ class ChallengesController < ApplicationController
   respond_to :json
   
   def index
+    # set up to handle fetch()ing from backbone based on specific params
     if params[:challenge]
       @challenges = Challenge.where(params[:challenge])
     else

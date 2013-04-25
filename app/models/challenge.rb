@@ -3,6 +3,7 @@ class Challenge < ActiveRecord::Base
                     :user_id, :user_score, :winner_id, :is_sent, :is_finished
 
   def self.get_user_challenges(user)
+    # just a different way to write a where statement
     where("user_id = ? OR challenger_id = ?", user.id, user.id)
   end
 
@@ -20,6 +21,7 @@ class Challenge < ActiveRecord::Base
     ];
     uids = uids.shuffle
 
+    # random the challenger but make sure we have signed in
     while (!challenger && count < uids.length)
       challenger = User.find_by_uid(uids[count])
       if challenger && challenger.id == user.id

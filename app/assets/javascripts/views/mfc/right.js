@@ -54,21 +54,7 @@ Fauxble.Views.MfcRight = Backbone.View.extend({
 	},
 	
 	fbLogin: function() {
-		var self = this;
-		
 		$(window).scrollTop(0);
-		/* FB.api('/me/likes/471887209511817',function(response) {
-			if(response.data) {
-				if(response.data[0]) {
-					self.fbSignIn();
-				} else {
-					self.fbLikePopup();	
-				}
-			} else {
-				self.fbSignIn();
-			}
-		}); */
-		
 		this.fbSignIn();
 	},
 	

@@ -1,7 +1,11 @@
+#general format for controller to coordinate backbone
+
 class AchievablesController < ApplicationController
   respond_to :json
   
   def index
+    # could just do respond_with Achievable.all
+    # set up this way in case I need to modify
     @achievables = Achievable.all
     respond_with @achievables
   end

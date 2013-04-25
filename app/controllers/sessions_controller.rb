@@ -23,6 +23,7 @@ class SessionsController < ApplicationController
   end
   
   def main
+    # bootstrapped data need a little more if they are signed in
     @current_user = current_user
     @users = User.all.to_json
     
@@ -31,7 +32,7 @@ class SessionsController < ApplicationController
       @issues = Issue.all.to_json
       @questions = Question.all.to_json
       @achievables = Achievable.all.to_json
-      @user_achievables = UserAchievable.where(user_id: @current_user.id).to_json
+      @user_achievables = UserAchievable.where(user_id: @current_user.id ).to_json
     else
       @challenges = [].to_json
       @issues = [].to_json
